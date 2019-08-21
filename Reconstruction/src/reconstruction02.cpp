@@ -30,7 +30,7 @@ using namespace std;
 #include "RHICfRec0.h"
 #include "RHICfRec1.h"
 #include "RHICfPhys.h"
-#include "../include/Delaypede.h"
+
 typedef RHICfRaw_Op2017  RHICfRaw;
 
 #include "A1Calibration.h"
@@ -258,35 +258,29 @@ int main(int argc, char **argv) {
 		//For Experimental data
 		if (simulationmode == SIM_OFF) {
 		  calibration->Calculate(ev->Get("a1raw"));
-		  //calibration->Calculate(ev->Get(raw));
 		  reconstruction->SetData(calibration->GetCal2());
-		  //cal2 = calibration->GetCal2();
-		  //cout << "raw " << endl; 
+		  
 		}
 		// For MC data converted to Cal1
 		else if (simulationmode == SIM_CAL1) {			
 		  reconstruction->SetData((A1Cal2M *) ev->Get("a1cal1"));
-		  cout << "sim cal " << endl; 
 		}
 		
 		// For MC true
 		else if (simulationmode == SIM_SIM) {
 		  reconstruction->SetData((A1Cal2M *) ev->Get("a1sim"));
-		  cout << "sim" << endl;
 		}
 		
 			
 		// === Event Reconstruction ===
 		reconstruction->Reconstruct();
 		
-		//   reconstruction->fRec->SetAnalysisFlags(Flags);
-		//Flags = reconstruction->fRec->GetAnalysisFlags();
+		// reconstruction->fRec->SetAnalysisFlags(Flags);
+		// Flags = reconstruction->fRec->GetAnalysisFlags();
 		// if(Flags>0){
 		//    cout << "Flags " << bitset<8>(reconstruction->fRec->GetAnalysisFlags()) << endl;
 		// }
-        
-		//reconstruction->GetRec()->Show(); // For debug
-		
+        		
 		// === FILL TO OUTPUT FILE ===
 		oev->HeaderCopy(ev);
 		oev->Add(reconstruction->GetRec());
