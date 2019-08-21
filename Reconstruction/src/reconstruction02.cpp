@@ -1,7 +1,7 @@
-/**********************************************************************\
+ /********************************************************************** \
   Quick Reconstruction for RHICf Operation 2017
 
-  \**********************************************************************/
+ \**********************************************************************/
 #include <stdio.h>
 #include <iostream>
 #include <fstream>
@@ -30,7 +30,7 @@ using namespace std;
 #include "RHICfRec0.h"
 #include "RHICfRec1.h"
 #include "RHICfPhys.h"
-#include "../include/Delaypede.h"
+
 typedef RHICfRaw_Op2017  RHICfRaw;
 
 #include "A1Calibration.h"
@@ -107,7 +107,6 @@ int main(int argc, char **argv) {
 		}
 		if(ss=="-run"){
 		  run = atoi(argv[++i]);
-		  cout    << "RUN NUMBER" << " " << run << endl;
 		}
 		if (ss == "--shower") { arg_eventcut = EVENTCUT_SHOWER; }
 		if (ss == "--special1") { arg_eventcut = EVENTCUT_SPECIAL1; }
@@ -172,6 +171,8 @@ int main(int argc, char **argv) {
 	}
 	
 	gROOT->cd();
+
+	
 	
 	// +++++ EVENT LOOP ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
  
@@ -198,22 +199,21 @@ int main(int argc, char **argv) {
 	double before, after;
 	int delay_flag[2] = {0};
 	int ndelay_flag = 0;
+	
 	//  == START OF EVENT LOOP ==
 	//for (int iev = 0; iev < nevmax; iev++) {
 	for (int iev = startiev; iev < endiev; iev++) {
-	  //cerr << "1" << endl;
+	  
 		Int_t ievlocal = tree->LoadTree(iev);
 		if (ievlocal < 0) {
 			
 			if (iev == startiev) NoEvent = true;
-			//cout << iev << endl;
+			
 			break;
 		}
 		
 
-		//continue;
-		//cout << iev << endl;
-		//cerr << "2" << endl;
+		
 		if (iev && iev % 10 == 0) { cerr << '*'; }
 		if (iev && iev % 100000 == 0) { cerr << iev << endl; }
 		
@@ -228,7 +228,7 @@ int main(int argc, char **argv) {
 		if (simulationmode == SIM_SIM && !ev->Check("a1sim")) { continue; }
 		nevent_sel1++;
 		
-		//cerr << "3" << endl;
+		
 		// === EVENT SELECTION 2 ===
 		Bool_t checkselection = kFALSE;
 		switch (paramEventCut) {
@@ -260,19 +260,18 @@ int main(int argc, char **argv) {
 		  calibration->Calculate(ev->Get("a1raw"));
 		  //calibration->Calculate(ev->Get(raw));
 		  reconstruction->SetData(calibration->GetCal2());
-		  //cal2 = calibration->GetCal2();
-		  //cout << "raw " << endl; 
+		  
+		  
 		}
 		// For MC data converted to Cal1
 		else if (simulationmode == SIM_CAL1) {			
 		  reconstruction->SetData((A1Cal2M *) ev->Get("a1cal1"));
-		  cout << "sim cal " << endl; 
 		}
 		
 		// For MC true
 		else if (simulationmode == SIM_SIM) {
 		  reconstruction->SetData((A1Cal2M *) ev->Get("a1sim"));
-		  cout << "sim" << endl;
+		  
 		}
 		
 			
@@ -285,7 +284,7 @@ int main(int argc, char **argv) {
 		//    cout << "Flags " << bitset<8>(reconstruction->fRec->GetAnalysisFlags()) << endl;
 		// }
         
-		//reconstruction->GetRec()->Show(); // For debug
+		
 		
 		// === FILL TO OUTPUT FILE ===
 		oev->HeaderCopy(ev);

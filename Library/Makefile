@@ -60,7 +60,7 @@ endif
 #include $(ROOTSYS)/test/Makefile.arch
 include $(MAKEARCH)
 
-EXPLLINKLIBS += -lEG 
+#EXPLLINKLIBS += -lEG 
 # For MAC OS X users 
 ifneq (,$(filter $(ARCH),macosx macosx64))
 SOFLAGS  += -install_name $(LIB_DIR)/$(LIBNAME).so

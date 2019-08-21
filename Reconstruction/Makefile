@@ -66,11 +66,11 @@ CXXFLAGS += $(INCALL)
 ROOTLIBS  += -Wl,-rpath,$(ROOTSYS)/lib -lSpectrum -lEG
 ROOTGLIBS += -Wl,-rpath,$(ROOTSYS)/lib
 
-PROGRAMS = reconstruction02 makehistograms adchists filldaqinfo drawhistograms drawcalhists 
+PROGRAMS = reconstruction02 adchists filldaqinfo drawhistograms drawcalhists 
 
 all: $(PROGRAMS)
 
-reconstruction02 : $(SRC_DIR)/reconstruction02.o $(SRC_DIR)/A1Calibration.o $(SRC_DIR)/A1Reconstruction.o $(SRC_DIR)/ScintiPosDepGSO.o $(SRC_DIR)/GSObarPosCalc.o $(SRC_DIR)/Delaypede.o
+reconstruction02 : $(SRC_DIR)/reconstruction02.o $(SRC_DIR)/A1Calibration.o $(SRC_DIR)/A1Reconstruction.o $(SRC_DIR)/ScintiPosDepGSO.o $(SRC_DIR)/GSObarPosCalc.o 
 	$(CXX) $(CXXFLAGS) -o $(BIN_DIR)/$@ $^ \
 	$(LIBS) $(ROOTLIBS) $(LHCFLIBS) $(RHICFLIB)
 
