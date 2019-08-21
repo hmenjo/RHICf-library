@@ -26,7 +26,7 @@ include $(MAKEARCH)
 #
 #LIBDIR        = $(PWD)/../../
 #LIBDIR        = /home/rhicf/RHICf/Analysis/RHIC/general
-LIBDIR        = /mnt/lhcfs2/data1/sato.kenta/workspace/RHICf/Analysis/general
+LIBDIR        = ../general
 DICTNAME      = libLHCfEvent.so
 DICT_DIR      = $(LIBDIR)/dict
 DICT_INC      = $(DICT_DIR)/include
@@ -47,8 +47,7 @@ LHCFLIBS      = $(DICT_LIB)/$(DICTNAME) $(FUNC_LIB)/$(FUNCNAME) \
 LHCFLIBS      += -Wl,-rpath,$(DICT_LIB) -Wl,-rpath,$(FUNC_LIB) -Wl,-rpath,$(SC_LIB)
 #----------------------------------------------
 # RHICf Library
-#RHICF_DIR      = /crhome/sato.kenta/RHICf/Analysis/RHIC/Library
-RHICF_DIR      = /mnt/lhcfs2/data1/sato.kenta/workspace/RHICf/Analysis/RHIC/Library
+RHICF_DIR      = ../Library
 RHICF_INC      = $(RHICF_DIR)/include
 RHICFLIB       = $(RHICF_DIR)/lib/libRHICf.so
 RHICFLIB      += -Wl,-rpath,$(RHICF_DIR)/lib
@@ -75,13 +74,7 @@ reconstruction02 : $(SRC_DIR)/reconstruction02.o $(SRC_DIR)/A1Calibration.o $(SR
 	$(CXX) $(CXXFLAGS) -o $(BIN_DIR)/$@ $^ \
 	$(LIBS) $(ROOTLIBS) $(LHCFLIBS) $(RHICFLIB)
 
-
-
 src/reconstruction02.o :$(INC_DIR)/A1Calibration.h   $(INC_DIR)/A1Reconstruction.h 
-
-makehistograms : $(SRC_DIR)/makehistograms.o
-	$(CXX) $(CXXFLAGS) -o $(BIN_DIR)/$@ $^ \
-	$(LIBS) $(ROOTLIBS) $(LHCFLIBS) $(RHICFLIB)
 
 adchists : src/adchists.o
 	$(CXX) $(CXXFLAGS) -o $(BIN_DIR)/$@ $^ \
@@ -119,7 +112,7 @@ $(INC_DIR)/%.h :
 
 clean:
 	rm -f *.o */*.o */*~ *~ \#*
-	rm -f $(BIN_DIR)/reconstruction02 $(BIN_DIR)/makehistograms $(BIN_DIR)/sim2exp $(BIN_DIR)/makepedestalevents $(BIN_DIR)/adchists $(BIN_DIR)/adchists/filldaqinfo $(BIN_DIR)/drawhistograms $(BIN_DIR)/drawcalhists 
+	rm -f $(BIN_DIR)/reconstruction02 $(BIN_DIR)/sim2exp $(BIN_DIR)/makepedestalevents $(BIN_DIR)/adchists $(BIN_DIR)/adchists/filldaqinfo $(BIN_DIR)/drawhistograms $(BIN_DIR)/drawcalhists 
 
 
 
