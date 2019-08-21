@@ -1,0 +1,782 @@
+JOBID=3452499.lhcfs2.stelab.nagoya-u.ac.jp
+HOST lhcfcl5.stelab.nagoya-u.ac.jp
+START
+Mon Jun  4 20:02:17 JST 2018
+Mon Jun  4 20:02:17 JST 2018
+
+ RUN: 2798
+ READ : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/DAQ_Log/LogFrontend1_2.txt
+ UPDATED /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002798/runinfo_run00002798.dat
+
+Quick Reconstruction -------------------------------
+RUN NUMBER 0
+Total entries: 0 ~ 1234567890
+This work took 0.00 Hour = 0 Minute.
+INPUT FILE    : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/root_files/run00002798.root
+OUTPUT FILE   : /crhome/sato.kenta/RHICf/data/rhicf_2017_reconstruct_lhcfs2/run00002798/run00002798_rec.root
+PEDESTAL FILE : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002798/pede_run00002798.root
+NUMBER OF EVENTS 
+  ALL  : 20
+  CUT1 : 19
+  CUT2 : 19
+  FILL : 19
+ DelayPede : 19
+
+Make Histograms ------------------------------------
+Draw Histograms ------------------------------------
+Draw Cal Histograms ------------------------------------
+END
+Mon Jun  4 20:02:37 JST 2018
+Mon Jun  4 20:04:44 JST 2018
+
+ RUN: 2798
+ READ : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/DAQ_Log/LogFrontend1_2.txt
+ UPDATED /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002798/runinfo_run00002798.dat
+
+Quick Reconstruction -------------------------------
+RUN NUMBER 0
+Total entries: 0 ~ 1234567890
+This work took 0.02 Hour = 1 Minute.
+INPUT FILE    : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/root_files/run00002798.root
+OUTPUT FILE   : /crhome/sato.kenta/RHICf/data/rhicf_2017_reconstruct_lhcfs2/run00002798/run00002798_rec.root
+PEDESTAL FILE : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002798/pede_run00002798.root
+NUMBER OF EVENTS 
+  ALL  : 20
+  CUT1 : 19
+  CUT2 : 19
+  FILL : 19
+ DelayPede : 19
+
+Make Histograms ------------------------------------
+Draw Histograms ------------------------------------
+Draw Cal Histograms ------------------------------------
+Mon Jun  4 20:08:41 JST 2018
+
+ RUN: 2798
+ READ : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/DAQ_Log/LogFrontend1_2.txt
+ UPDATED /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002798/runinfo_run00002798.dat
+
+Quick Reconstruction -------------------------------
+RUN NUMBER 0
+Total entries: 0 ~ 1234567890
+This work took 0.02 Hour = 1 Minute.
+INPUT FILE    : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/root_files/run00002798.root
+OUTPUT FILE   : /crhome/sato.kenta/RHICf/data/rhicf_2017_reconstruct_lhcfs2/run00002798/run00002798_rec.root
+PEDESTAL FILE : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002798/pede_run00002798.root
+NUMBER OF EVENTS 
+  ALL  : 20
+  CUT1 : 19
+  CUT2 : 19
+  FILL : 19
+ DelayPede : 19
+
+Make Histograms ------------------------------------
+Draw Histograms ------------------------------------
+Draw Cal Histograms ------------------------------------
+Mon Jun  4 20:14:36 JST 2018
+
+ RUN: 2798
+ READ : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/DAQ_Log/LogFrontend1_2.txt
+ UPDATED /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002798/runinfo_run00002798.dat
+
+Quick Reconstruction -------------------------------
+RUN NUMBER 0
+Total entries: 0 ~ 1234567890
+This work took 0.00 Hour = 0 Minute.
+INPUT FILE    : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/root_files/run00002798.root
+OUTPUT FILE   : /crhome/sato.kenta/RHICf/data/rhicf_2017_reconstruct_lhcfs2/run00002798/run00002798_rec.root
+PEDESTAL FILE : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002798/pede_run00002798.root
+NUMBER OF EVENTS 
+  ALL  : 20
+  CUT1 : 19
+  CUT2 : 19
+  FILL : 19
+ DelayPede : 19
+
+Make Histograms ------------------------------------
+Draw Histograms ------------------------------------
+Draw Cal Histograms ------------------------------------
+Mon Jun  4 20:16:49 JST 2018
+
+ RUN: 2798
+ READ : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/DAQ_Log/LogFrontend1_2.txt
+ UPDATED /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002798/runinfo_run00002798.dat
+
+Quick Reconstruction -------------------------------
+RUN NUMBER 0
+Total entries: 0 ~ 1234567890
+This work took 0.02 Hour = 1 Minute.
+INPUT FILE    : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/root_files/run00002798.root
+OUTPUT FILE   : /crhome/sato.kenta/RHICf/data/rhicf_2017_reconstruct_lhcfs2/run00002798/run00002798_rec.root
+PEDESTAL FILE : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002798/pede_run00002798.root
+NUMBER OF EVENTS 
+  ALL  : 20
+  CUT1 : 19
+  CUT2 : 19
+  FILL : 19
+ DelayPede : 19
+
+Make Histograms ------------------------------------
+Draw Histograms ------------------------------------
+Draw Cal Histograms ------------------------------------
+Mon Jun  4 20:17:09 JST 2018
+
+ RUN: 2801
+ READ : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/DAQ_Log/LogFrontend1_2.txt
+ UPDATED /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002801/runinfo_run00002801.dat
+
+Quick Reconstruction -------------------------------
+RUN NUMBER 0
+Total entries: 0 ~ 1234567890
+This work took 0.00 Hour = 0 Minute.
+INPUT FILE    : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/root_files/run00002801.root
+OUTPUT FILE   : /crhome/sato.kenta/RHICf/data/rhicf_2017_reconstruct_lhcfs2/run00002801/run00002801_rec.root
+PEDESTAL FILE : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002801/pede_run00002801.root
+NUMBER OF EVENTS 
+  ALL  : 20
+  CUT1 : 19
+  CUT2 : 19
+  FILL : 19
+ DelayPede : 19
+
+Make Histograms ------------------------------------
+Draw Histograms ------------------------------------
+Draw Cal Histograms ------------------------------------
+Mon Jun  4 20:17:28 JST 2018
+
+ RUN: 2803
+ READ : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/DAQ_Log/LogFrontend1_2.txt
+ UPDATED /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002803/runinfo_run00002803.dat
+
+Quick Reconstruction -------------------------------
+RUN NUMBER 0
+Total entries: 0 ~ 1234567890
+This work took 0.00 Hour = 0 Minute.
+INPUT FILE    : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/root_files/run00002803.root
+OUTPUT FILE   : /crhome/sato.kenta/RHICf/data/rhicf_2017_reconstruct_lhcfs2/run00002803/run00002803_rec.root
+PEDESTAL FILE : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002803/pede_run00002803.root
+NUMBER OF EVENTS 
+  ALL  : 20
+  CUT1 : 19
+  CUT2 : 19
+  FILL : 19
+ DelayPede : 19
+
+Make Histograms ------------------------------------
+Draw Histograms ------------------------------------
+Draw Cal Histograms ------------------------------------
+Mon Jun  4 20:32:07 JST 2018
+
+ RUN: 2798
+ READ : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/DAQ_Log/LogFrontend1_2.txt
+ UPDATED /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002798/runinfo_run00002798.dat
+
+Quick Reconstruction -------------------------------
+RUN NUMBER 0
+Total entries: 0 ~ 1234567890
+This work took 0.00 Hour = 0 Minute.
+INPUT FILE    : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/root_files/run00002798.root
+OUTPUT FILE   : /crhome/sato.kenta/RHICf/data/rhicf_2017_reconstruct_lhcfs2/run00002798/run00002798_rec.root
+PEDESTAL FILE : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002798/pede_run00002798.root
+NUMBER OF EVENTS 
+  ALL  : 20
+  CUT1 : 19
+  CUT2 : 19
+  FILL : 19
+ DelayPede : 19
+
+Make Histograms ------------------------------------
+Draw Histograms ------------------------------------
+Draw Cal Histograms ------------------------------------
+Mon Jun  4 20:45:37 JST 2018
+Mon Jun  4 20:45:37 JST 2018
+Mon Jun  4 20:45:37 JST 2018
+
+
+ RUN: 2801
+ RUN: 2798
+Mon Jun  4 20:45:38 JST 2018
+
+ RUN: 2803
+ READ : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/DAQ_Log/LogFrontend1_2.txt
+ READ : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/DAQ_Log/LogFrontend1_2.txt
+ UPDATED /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002801/runinfo_run00002801.dat
+
+ UPDATED /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002803/runinfo_run00002803.dat
+ READ : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/DAQ_Log/LogFrontend1_2.txt
+
+ UPDATED /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002798/runinfo_run00002798.dat
+Quick Reconstruction -------------------------------
+
+Quick Reconstruction -------------------------------
+Quick Reconstruction -------------------------------
+Mon Jun  4 20:45:38 JST 2018
+
+ RUN: 2814
+ READ : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/DAQ_Log/LogFrontend1_2.txt
+ UPDATED /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002814/runinfo_run00002814.dat
+
+Quick Reconstruction -------------------------------
+RUN NUMBER 0
+RUN NUMBER 0
+RUN NUMBER 0
+Mon Jun  4 20:45:38 JST 2018
+Mon Jun  4 20:45:38 JST 2018
+Mon Jun  4 20:45:38 JST 2018
+Mon Jun  4 20:45:38 JST 2018
+Mon Jun  4 20:45:39 JST 2018
+Mon Jun  4 20:45:39 JST 2018
+Mon Jun  4 20:45:39 JST 2018
+Mon Jun  4 20:45:39 JST 2018
+Mon Jun  4 20:45:39 JST 2018
+Mon Jun  4 20:45:39 JST 2018
+Mon Jun  4 20:45:39 JST 2018
+Mon Jun  4 20:45:39 JST 2018
+
+ RUN: 2812
+ READ : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/DAQ_Log/LogFrontend1_2.txt
+ UPDATED /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002812/runinfo_run00002812.dat
+
+Quick Reconstruction -------------------------------
+RUN NUMBER 0
+
+ RUN: 2818
+ READ : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/DAQ_Log/LogFrontend1_2.txt
+ UPDATED /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002818/runinfo_run00002818.dat
+
+
+ RUN: 2819
+
+ RUN: 2824
+ READ : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/DAQ_Log/LogFrontend1_2.txt
+ UPDATED /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002819/runinfo_run00002819.dat
+
+ READ : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/DAQ_Log/LogFrontend1_2.txt
+ UPDATED /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002824/runinfo_run00002824.dat
+
+Quick Reconstruction -------------------------------
+
+ RUN: 2823
+
+ RUN: 2956
+
+ RUN: 2924
+ READ : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/DAQ_Log/LogFrontend1_2.txt
+Quick Reconstruction -------------------------------
+ UPDATED /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002823/runinfo_run00002823.dat
+
+Quick Reconstruction -------------------------------
+
+ READ : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/DAQ_Log/LogFrontend1_2.txt
+
+ RUN: 2925
+ READ : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/DAQ_Log/LogFrontend1_2.txt
+ RUN: 2922
+
+ RUN: 2827
+
+ UPDATED /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002956/runinfo_run00002956.dat
+
+
+ UPDATED /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002924/runinfo_run00002924.dat
+
+ RUN: 2947
+ RUN: 2958
+Quick Reconstruction -------------------------------
+ READ : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/DAQ_Log/LogFrontend1_2.txt
+ READ : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/DAQ_Log/LogFrontend1_2.txt
+
+ READ : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/DAQ_Log/LogFrontend1_2.txt
+ RUN: 2954
+Quick Reconstruction -------------------------------
+ UPDATED /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002925/runinfo_run00002925.dat
+
+ UPDATED /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002922/runinfo_run00002922.dat
+ READ : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/DAQ_Log/LogFrontend1_2.txt
+ UPDATED /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002827/runinfo_run00002827.dat
+
+ READ : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/DAQ_Log/LogFrontend1_2.txt
+
+ UPDATED /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002947/runinfo_run00002947.dat
+
+Quick Reconstruction -------------------------------
+ READ : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/DAQ_Log/LogFrontend1_2.txt
+ UPDATED /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002958/runinfo_run00002958.dat
+
+Quick Reconstruction -------------------------------
+ UPDATED /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002954/runinfo_run00002954.dat
+
+Quick Reconstruction -------------------------------
+RUN NUMBER 0
+Quick Reconstruction -------------------------------
+Quick Reconstruction -------------------------------
+Quick Reconstruction -------------------------------
+Quick Reconstruction -------------------------------
+RUN NUMBER 0
+RUN NUMBER 0
+RUN NUMBER 0
+RUN NUMBER 0
+RUN NUMBER 0
+RUN NUMBER 0
+RUN NUMBER 0
+RUN NUMBER 0
+RUN NUMBER 0
+RUN NUMBER 0
+RUN NUMBER 0
+RUN NUMBER 0
+Total entries: 0 ~ 1234567890
+This work took 0.02 Hour = 1 Minute.
+INPUT FILE    : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/root_files/run00002803.root
+OUTPUT FILE   : /crhome/sato.kenta/RHICf/data/rhicf_2017_reconstruct_lhcfs2/run00002803/run00002803_rec.root
+PEDESTAL FILE : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002803/pede_run00002803.root
+NUMBER OF EVENTS 
+  ALL  : 20
+  CUT1 : 19
+  CUT2 : 19
+  FILL : 19
+ DelayPede : 19
+
+Make Histograms ------------------------------------
+Draw Histograms ------------------------------------
+Draw Cal Histograms ------------------------------------
+Total entries: 0 ~ 1234567890
+This work took 0.02 Hour = 1 Minute.
+INPUT FILE    : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/root_files/run00002801.root
+OUTPUT FILE   : /crhome/sato.kenta/RHICf/data/rhicf_2017_reconstruct_lhcfs2/run00002801/run00002801_rec.root
+PEDESTAL FILE : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002801/pede_run00002801.root
+NUMBER OF EVENTS 
+  ALL  : 20
+  CUT1 : 19
+  CUT2 : 19
+  FILL : 19
+ DelayPede : 19
+
+Make Histograms ------------------------------------
+Draw Histograms ------------------------------------
+Draw Cal Histograms ------------------------------------
+Total entries: 0 ~ 1234567890
+This work took 0.02 Hour = 1 Minute.
+INPUT FILE    : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/root_files/run00002798.root
+OUTPUT FILE   : /crhome/sato.kenta/RHICf/data/rhicf_2017_reconstruct_lhcfs2/run00002798/run00002798_rec.root
+PEDESTAL FILE : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002798/pede_run00002798.root
+NUMBER OF EVENTS 
+  ALL  : 20
+  CUT1 : 19
+  CUT2 : 19
+  FILL : 19
+ DelayPede : 19
+
+Make Histograms ------------------------------------
+Draw Histograms ------------------------------------
+Draw Cal Histograms ------------------------------------
+Total entries: 0 ~ 1234567890
+This work took 0.02 Hour = 1 Minute.
+INPUT FILE    : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/root_files/run00002814.root
+OUTPUT FILE   : /crhome/sato.kenta/RHICf/data/rhicf_2017_reconstruct_lhcfs2/run00002814/run00002814_rec.root
+PEDESTAL FILE : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002814/pede_run00002814.root
+NUMBER OF EVENTS 
+  ALL  : 20
+  CUT1 : 19
+  CUT2 : 19
+  FILL : 19
+ DelayPede : 19
+
+Make Histograms ------------------------------------
+Draw Histograms ------------------------------------
+Draw Cal Histograms ------------------------------------
+Total entries: 0 ~ 1234567890
+This work took 0.02 Hour = 1 Minute.
+INPUT FILE    : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/root_files/run00002947.root
+OUTPUT FILE   : /crhome/sato.kenta/RHICf/data/rhicf_2017_reconstruct_lhcfs2/run00002947/run00002947_rec.root
+PEDESTAL FILE : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002947/pede_run00002947.root
+NUMBER OF EVENTS 
+  ALL  : 20
+  CUT1 : 19
+  CUT2 : 19
+  FILL : 19
+ DelayPede : 19
+
+Make Histograms ------------------------------------
+Draw Histograms ------------------------------------
+Draw Cal Histograms ------------------------------------
+Total entries: 0 ~ 1234567890
+This work took 0.02 Hour = 1 Minute.
+INPUT FILE    : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/root_files/run00002823.root
+OUTPUT FILE   : /crhome/sato.kenta/RHICf/data/rhicf_2017_reconstruct_lhcfs2/run00002823/run00002823_rec.root
+PEDESTAL FILE : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002823/pede_run00002823.root
+NUMBER OF EVENTS 
+  ALL  : 20
+  CUT1 : 19
+  CUT2 : 19
+  FILL : 19
+ DelayPede : 19
+
+Make Histograms ------------------------------------
+Draw Histograms ------------------------------------
+Draw Cal Histograms ------------------------------------
+Total entries: 0 ~ 1234567890
+This work took 0.02 Hour = 1 Minute.
+INPUT FILE    : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/root_files/run00002954.root
+OUTPUT FILE   : /crhome/sato.kenta/RHICf/data/rhicf_2017_reconstruct_lhcfs2/run00002954/run00002954_rec.root
+PEDESTAL FILE : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002954/pede_run00002954.root
+NUMBER OF EVENTS 
+  ALL  : 20
+  CUT1 : 19
+  CUT2 : 19
+  FILL : 19
+ DelayPede : 19
+
+Make Histograms ------------------------------------
+Draw Histograms ------------------------------------
+Draw Cal Histograms ------------------------------------
+Total entries: 0 ~ 1234567890
+This work took 0.02 Hour = 1 Minute.
+INPUT FILE    : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/root_files/run00002812.root
+OUTPUT FILE   : /crhome/sato.kenta/RHICf/data/rhicf_2017_reconstruct_lhcfs2/run00002812/run00002812_rec.root
+PEDESTAL FILE : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002812/pede_run00002812.root
+NUMBER OF EVENTS 
+  ALL  : 20
+  CUT1 : 19
+  CUT2 : 19
+  FILL : 19
+ DelayPede : 19
+
+Make Histograms ------------------------------------
+Draw Histograms ------------------------------------
+Draw Cal Histograms ------------------------------------
+Total entries: 0 ~ 1234567890
+This work took 0.02 Hour = 1 Minute.
+INPUT FILE    : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/root_files/run00002958.root
+OUTPUT FILE   : /crhome/sato.kenta/RHICf/data/rhicf_2017_reconstruct_lhcfs2/run00002958/run00002958_rec.root
+PEDESTAL FILE : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002958/pede_run00002958.root
+NUMBER OF EVENTS 
+  ALL  : 20
+  CUT1 : 19
+  CUT2 : 19
+  FILL : 19
+ DelayPede : 19
+
+Make Histograms ------------------------------------
+Draw Histograms ------------------------------------
+Draw Cal Histograms ------------------------------------
+Total entries: 0 ~ 1234567890
+This work took 0.02 Hour = 1 Minute.
+INPUT FILE    : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/root_files/run00002824.root
+OUTPUT FILE   : /crhome/sato.kenta/RHICf/data/rhicf_2017_reconstruct_lhcfs2/run00002824/run00002824_rec.root
+PEDESTAL FILE : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002824/pede_run00002824.root
+NUMBER OF EVENTS 
+  ALL  : 20
+  CUT1 : 19
+  CUT2 : 19
+  FILL : 19
+ DelayPede : 19
+
+Total entries: 0 ~ 1234567890
+Make Histograms ------------------------------------
+Draw Histograms ------------------------------------
+Draw Cal Histograms ------------------------------------
+This work took 0.02 Hour = 1 Minute.
+INPUT FILE    : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/root_files/run00002827.root
+OUTPUT FILE   : /crhome/sato.kenta/RHICf/data/rhicf_2017_reconstruct_lhcfs2/run00002827/run00002827_rec.root
+PEDESTAL FILE : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002827/pede_run00002827.root
+NUMBER OF EVENTS 
+  ALL  : 20
+  CUT1 : 19
+  CUT2 : 19
+  FILL : 19
+ DelayPede : 19
+
+Make Histograms ------------------------------------
+Draw Histograms ------------------------------------
+Draw Cal Histograms ------------------------------------
+Total entries: 0 ~ 1234567890
+This work took 0.02 Hour = 1 Minute.
+INPUT FILE    : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/root_files/run00002925.root
+OUTPUT FILE   : /crhome/sato.kenta/RHICf/data/rhicf_2017_reconstruct_lhcfs2/run00002925/run00002925_rec.root
+PEDESTAL FILE : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002925/pede_run00002925.root
+NUMBER OF EVENTS 
+  ALL  : 20
+  CUT1 : 19
+  CUT2 : 19
+  FILL : 19
+ DelayPede : 19
+
+Make Histograms ------------------------------------
+Draw Histograms ------------------------------------
+Draw Cal Histograms ------------------------------------
+Total entries: 0 ~ 1234567890
+This work took 0.02 Hour = 1 Minute.
+INPUT FILE    : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/root_files/run00002924.root
+OUTPUT FILE   : /crhome/sato.kenta/RHICf/data/rhicf_2017_reconstruct_lhcfs2/run00002924/run00002924_rec.root
+PEDESTAL FILE : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002924/pede_run00002924.root
+NUMBER OF EVENTS 
+  ALL  : 20
+  CUT1 : 19
+  CUT2 : 19
+  FILL : 19
+ DelayPede : 19
+
+Make Histograms ------------------------------------
+Draw Histograms ------------------------------------
+Draw Cal Histograms ------------------------------------
+Total entries: 0 ~ 1234567890
+This work took 0.02 Hour = 1 Minute.
+INPUT FILE    : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/root_files/run00002818.root
+OUTPUT FILE   : /crhome/sato.kenta/RHICf/data/rhicf_2017_reconstruct_lhcfs2/run00002818/run00002818_rec.root
+PEDESTAL FILE : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002818/pede_run00002818.root
+NUMBER OF EVENTS 
+  ALL  : 20
+  CUT1 : 19
+  CUT2 : 19
+  FILL : 19
+ DelayPede : 19
+
+Make Histograms ------------------------------------
+Draw Histograms ------------------------------------
+Draw Cal Histograms ------------------------------------
+Total entries: 0 ~ 1234567890
+This work took 0.02 Hour = 1 Minute.
+INPUT FILE    : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/root_files/run00002819.root
+OUTPUT FILE   : /crhome/sato.kenta/RHICf/data/rhicf_2017_reconstruct_lhcfs2/run00002819/run00002819_rec.root
+PEDESTAL FILE : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002819/pede_run00002819.root
+NUMBER OF EVENTS 
+  ALL  : 20
+  CUT1 : 19
+  CUT2 : 19
+  FILL : 19
+ DelayPede : 19
+
+Make Histograms ------------------------------------
+Draw Histograms ------------------------------------
+Draw Cal Histograms ------------------------------------
+Mon Jun  4 20:46:20 JST 2018
+
+ RUN: 2964
+ READ : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/DAQ_Log/LogFrontend1_2.txt
+ UPDATED /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002964/runinfo_run00002964.dat
+
+Mon Jun  4 20:46:20 JST 2018
+Quick Reconstruction -------------------------------
+Mon Jun  4 20:46:20 JST 2018
+Mon Jun  4 20:46:20 JST 2018
+Mon Jun  4 20:46:20 JST 2018
+Mon Jun  4 20:46:20 JST 2018
+Mon Jun  4 20:46:20 JST 2018
+Mon Jun  4 20:46:20 JST 2018
+Mon Jun  4 20:46:20 JST 2018
+RUN NUMBER 0
+
+ RUN: 2966
+ READ : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/DAQ_Log/LogFrontend1_2.txt
+ UPDATED /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002966/runinfo_run00002966.dat
+
+Quick Reconstruction -------------------------------
+
+ RUN: 2968
+ READ : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/DAQ_Log/LogFrontend1_2.txt
+ UPDATED /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002968/runinfo_run00002968.dat
+
+
+ RUN: 2972
+Quick Reconstruction -------------------------------
+ READ : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/DAQ_Log/LogFrontend1_2.txt
+ UPDATED /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002972/runinfo_run00002972.dat
+
+
+ RUN: 2970
+Quick Reconstruction -------------------------------
+
+ RUN: 2979
+ READ : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/DAQ_Log/LogFrontend1_2.txt
+ UPDATED /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002970/runinfo_run00002970.dat
+
+ READ : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/DAQ_Log/LogFrontend1_2.txt
+ UPDATED /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002979/runinfo_run00002979.dat
+
+
+ RUN: 2973
+Quick Reconstruction -------------------------------
+Quick Reconstruction -------------------------------
+ READ : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/DAQ_Log/LogFrontend1_2.txt
+ UPDATED /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002973/runinfo_run00002973.dat
+
+Quick Reconstruction -------------------------------
+
+ RUN: 2781
+
+ RUN: 2783
+RUN NUMBER 0
+ READ : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/DAQ_Log/LogFrontend1_2.txt
+ READ : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/DAQ_Log/LogFrontend1_2.txt
+ UPDATED /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002781/runinfo_run00002781.dat
+
+ UPDATED /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002783/runinfo_run00002783.dat
+
+Quick Reconstruction -------------------------------
+Quick Reconstruction -------------------------------
+RUN NUMBER 0
+RUN NUMBER 0
+RUN NUMBER 0
+RUN NUMBER 0
+RUN NUMBER 0
+RUN NUMBER 0
+RUN NUMBER 0
+Total entries: 0 ~ 1234567890
+This work took 0.02 Hour = 1 Minute.
+INPUT FILE    : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/root_files/run00002956.root
+OUTPUT FILE   : /crhome/sato.kenta/RHICf/data/rhicf_2017_reconstruct_lhcfs2/run00002956/run00002956_rec.root
+PEDESTAL FILE : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002956/pede_run00002956.root
+NUMBER OF EVENTS 
+  ALL  : 20
+  CUT1 : 19
+  CUT2 : 19
+  FILL : 19
+ DelayPede : 19
+
+Total entries: 0 ~ 1234567890
+This work took 0.02 Hour = 1 Minute.
+INPUT FILE    : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/root_files/run00002922.root
+OUTPUT FILE   : /crhome/sato.kenta/RHICf/data/rhicf_2017_reconstruct_lhcfs2/run00002922/run00002922_rec.root
+PEDESTAL FILE : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002922/pede_run00002922.root
+NUMBER OF EVENTS 
+  ALL  : 20
+  CUT1 : 19
+  CUT2 : 19
+  FILL : 19
+ DelayPede : 19
+
+Make Histograms ------------------------------------
+Draw Histograms ------------------------------------
+Draw Cal Histograms ------------------------------------
+Make Histograms ------------------------------------
+Draw Histograms ------------------------------------
+Draw Cal Histograms ------------------------------------
+Make Histograms ------------------------------------
+Draw Histograms ------------------------------------
+Draw Cal Histograms ------------------------------------
+Total entries: 0 ~ 1234567890
+This work took 0.00 Hour = 0 Minute.
+INPUT FILE    : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/root_files/run00002783.root
+OUTPUT FILE   : /crhome/sato.kenta/RHICf/data/rhicf_2017_reconstruct_lhcfs2/run00002783/run00002783_rec.root
+PEDESTAL FILE : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002783/pede_run00002783.root
+NUMBER OF EVENTS 
+  ALL  : 20
+  CUT1 : 18
+  CUT2 : 18
+  FILL : 18
+ DelayPede : 18
+
+Make Histograms ------------------------------------
+Draw Histograms ------------------------------------
+Draw Cal Histograms ------------------------------------
+Total entries: 0 ~ 1234567890
+This work took 0.00 Hour = 0 Minute.
+INPUT FILE    : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/root_files/run00002964.root
+OUTPUT FILE   : /crhome/sato.kenta/RHICf/data/rhicf_2017_reconstruct_lhcfs2/run00002964/run00002964_rec.root
+PEDESTAL FILE : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002964/pede_run00002964.root
+NUMBER OF EVENTS 
+  ALL  : 20
+  CUT1 : 19
+  CUT2 : 19
+  FILL : 19
+ DelayPede : 19
+
+Make Histograms ------------------------------------
+Draw Histograms ------------------------------------
+Draw Cal Histograms ------------------------------------
+Total entries: 0 ~ 1234567890
+This work took 0.00 Hour = 0 Minute.
+INPUT FILE    : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/root_files/run00002979.root
+OUTPUT FILE   : /crhome/sato.kenta/RHICf/data/rhicf_2017_reconstruct_lhcfs2/run00002979/run00002979_rec.root
+PEDESTAL FILE : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002979/pede_run00002979.root
+NUMBER OF EVENTS 
+  ALL  : 20
+  CUT1 : 19
+  CUT2 : 19
+  FILL : 19
+ DelayPede : 19
+
+Make Histograms ------------------------------------
+Draw Histograms ------------------------------------
+Draw Cal Histograms ------------------------------------
+Total entries: 0 ~ 1234567890
+This work took 0.00 Hour = 0 Minute.
+INPUT FILE    : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/root_files/run00002970.root
+OUTPUT FILE   : /crhome/sato.kenta/RHICf/data/rhicf_2017_reconstruct_lhcfs2/run00002970/run00002970_rec.root
+PEDESTAL FILE : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002970/pede_run00002970.root
+NUMBER OF EVENTS 
+  ALL  : 20
+  CUT1 : 19
+  CUT2 : 19
+  FILL : 19
+ DelayPede : 19
+
+Make Histograms ------------------------------------
+Draw Histograms ------------------------------------
+Draw Cal Histograms ------------------------------------
+Total entries: 0 ~ 1234567890
+This work took 0.00 Hour = 0 Minute.
+INPUT FILE    : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/root_files/run00002968.root
+OUTPUT FILE   : /crhome/sato.kenta/RHICf/data/rhicf_2017_reconstruct_lhcfs2/run00002968/run00002968_rec.root
+PEDESTAL FILE : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002968/pede_run00002968.root
+NUMBER OF EVENTS 
+  ALL  : 20
+  CUT1 : 19
+  CUT2 : 19
+  FILL : 19
+ DelayPede : 19
+
+Make Histograms ------------------------------------
+Draw Histograms ------------------------------------
+Draw Cal Histograms ------------------------------------
+Total entries: 0 ~ 1234567890
+This work took 0.00 Hour = 0 Minute.
+INPUT FILE    : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/root_files/run00002966.root
+OUTPUT FILE   : /crhome/sato.kenta/RHICf/data/rhicf_2017_reconstruct_lhcfs2/run00002966/run00002966_rec.root
+PEDESTAL FILE : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002966/pede_run00002966.root
+NUMBER OF EVENTS 
+  ALL  : 20
+  CUT1 : 19
+  CUT2 : 19
+  FILL : 19
+ DelayPede : 19
+
+Make Histograms ------------------------------------
+Draw Histograms ------------------------------------
+Draw Cal Histograms ------------------------------------
+Total entries: 0 ~ 1234567890
+This work took 0.00 Hour = 0 Minute.
+INPUT FILE    : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/root_files/run00002972.root
+OUTPUT FILE   : /crhome/sato.kenta/RHICf/data/rhicf_2017_reconstruct_lhcfs2/run00002972/run00002972_rec.root
+PEDESTAL FILE : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002972/pede_run00002972.root
+NUMBER OF EVENTS 
+  ALL  : 20
+  CUT1 : 19
+  CUT2 : 19
+  FILL : 19
+ DelayPede : 19
+
+Make Histograms ------------------------------------
+Draw Histograms ------------------------------------
+Draw Cal Histograms ------------------------------------
+Total entries: 0 ~ 1234567890
+This work took 0.00 Hour = 0 Minute.
+INPUT FILE    : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/root_files/run00002973.root
+OUTPUT FILE   : /crhome/sato.kenta/RHICf/data/rhicf_2017_reconstruct_lhcfs2/run00002973/run00002973_rec.root
+PEDESTAL FILE : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002973/pede_run00002973.root
+NUMBER OF EVENTS 
+  ALL  : 20
+  CUT1 : 19
+  CUT2 : 19
+  FILL : 19
+ DelayPede : 19
+
+Make Histograms ------------------------------------
+Draw Histograms ------------------------------------
+Draw Cal Histograms ------------------------------------
+JOBID=3467778.lhcfs2.stelab.nagoya-u.ac.jp
+HOST lhcfcl10
+START
+2018年 10月 12日 金曜日 01:23:31 JST
+END
+2018年 10月 12日 金曜日 01:23:31 JST

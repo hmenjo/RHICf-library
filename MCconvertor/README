@@ -1,0 +1,113 @@
+convertor ccj setup log
+
+2019/02/19
+when cmake is done at ./convertor/build, some error happens,
+///////////////////////////////////////////////////////
+[satoken@ap151 ~/RHICf/convertor/build]$ cmake ../
+-- The C compiler identification is GNU 4.3.2
+-- The CXX compiler identification is GNU 4.1.2
+
+[satoken@ap151 ~/RHICf/convertor/build]$ make -j4
+----
+/ccj/w/r01/RHICf/linux5/opt/root_v5.34.36/lib/root/libCint.so: undefined reference to `std::basic_istream<char, std::char_traits<char> >& std::basic_istream<char, std::char_traits<char> >::_M_extract<bool>(bool&)@GLIBCXX_3.4.9'
+collect2: ld returned 1 exit status
+make[2]: *** [convertor] Error 1
+make[1]: *** [CMakeFiles/convertor.dir/all] Error 2
+make: *** [all] Error 2
+///////////////////////////////////////////////////////
+
+I tried to add cmake option.
+when cmake is done at ./convertor/build, options for compilers is necessary
+(Only description of linux.sh for gcc, c++ etc,,, is not enough for compile)
+
+cmake -DCMAKE_CXX_COMPILER=/ccj/w/r01/RHICf/linux5/local/gcc-4.9.2/bin/c++-4.9.2 -DCMAKE_C_COMPILER=/ccj/w/r01/RHICf/linux5/local/gcc-4.9.2/bin/gcc-4.9.2 ../
+
+-- The C compiler identification is GNU 4.9.2
+-- The CXX compiler identification is GNU 4.9.2
+-- Check for working C compiler: /ccj/w/r01/RHICf/linux5/local/gcc-4.9.2/bin/gcc-4.9.2
+-- Check for working C compiler: /ccj/w/r01/RHICf/linux5/local/gcc-4.9.2/bin/gcc-4.9.2 -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: /ccj/w/r01/RHICf/linux5/local/gcc-4.9.2/bin/c++-4.9.2
+-- Check for working CXX compiler: /ccj/w/r01/RHICf/linux5/local/gcc-4.9.2/bin/c++-4.9.2 -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+Watch CMAKE_MODULE_PATH : /ccj/w/r01/RHICf/linux5/opt/root_v5.34.36/etc/cmake
+-- Found ROOT: /ccj/w/r01/RHICf/linux5/opt/root_v5.34.36/bin/root-config  
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /ccj/u/satoken/RHICf/convertor/build
+
+[satoken@ap151 ~/RHICf/convertor/build]$ make -j4
+[100%] Linking CXX executable convertor
+[100%] Built target convertor
+
+[satoken@ap151 ~/RHICf/convertor/build]$ ls
+CMakeCache.txt  CMakeFiles  cmake_install.cmake  convertor  Makefile
+
+[satoken@ap151 ~/RHICf/convertor/build]$ ./convertor -i $QGS_TS/171030QGSJET2_TS20026126.root -o test.root
+Warning in <TClassTable::Add>: class SPSAdamoHist already in TClassTable
+Warning in <TClassTable::Add>: class SPSAdamoRec0 already in TClassTable
+Warning in <TClassTable::Add>: class SPSAdamo already in TClassTable
+Warning in <TClassTable::Add>: class GParamD64 already in TClassTable
+Warning in <TClassTable::Add>: class GParam already in TClassTable
+Warning in <TClassTable::Add>: class SimIncidents already in TClassTable
+Warning in <TClassTable::Add>: class SimP already in TClassTable
+Warning in <TClassTable::Add>: class A2CountArray already in TClassTable
+Warning in <TClassTable::Add>: class A1CountArray already in TClassTable
+Warning in <TClassTable::Add>: class A2PhysAccumHist already in TClassTable
+Warning in <TClassTable::Add>: class A1PhysAccumHist already in TClassTable
+Warning in <TClassTable::Add>: class A2Cal2AccumHist already in TClassTable
+Warning in <TClassTable::Add>: class A1Cal2AccumHist already in TClassTable
+Warning in <TClassTable::Add>: class A2CalEventHist already in TClassTable
+Warning in <TClassTable::Add>: class A1CalEventHist already in TClassTable
+Warning in <TClassTable::Add>: class A2Cal1AccumHist already in TClassTable
+Warning in <TClassTable::Add>: class A1Cal1AccumHist already in TClassTable
+Warning in <TClassTable::Add>: class Rec0 already in TClassTable
+Warning in <TClassTable::Add>: class SclL1T already in TClassTable
+Warning in <TClassTable::Add>: class RawL1T already in TClassTable
+Warning in <TClassTable::Add>: class RHICfScl_Op2017 already in TClassTable
+Warning in <TClassTable::Add>: class RHICfRaw_Op2017 already in TClassTable
+Warning in <TClassTable::Add>: class A2Raw_pPb2016 already in TClassTable
+Warning in <TClassTable::Add>: class A2Scl_pp2015 already in TClassTable
+Warning in <TClassTable::Add>: class A1Scl_pp2015 already in TClassTable
+Warning in <TClassTable::Add>: class A2Raw_pp2015 already in TClassTable
+Warning in <TClassTable::Add>: class A1Raw_pp2015 already in TClassTable
+Warning in <TClassTable::Add>: class A2Raw_pPb2013 already in TClassTable
+Warning in <TClassTable::Add>: class A2Scl already in TClassTable
+Warning in <TClassTable::Add>: class A2Info already in TClassTable
+Warning in <TClassTable::Add>: class A2Rec3 already in TClassTable
+Warning in <TClassTable::Add>: class A2Rec2 already in TClassTable
+Warning in <TClassTable::Add>: class A2Rec1 already in TClassTable
+Warning in <TClassTable::Add>: class A2Phys already in TClassTable
+Warning in <TClassTable::Add>: class A2Cal2M already in TClassTable
+Warning in <TClassTable::Add>: class A2Cal2 already in TClassTable
+Warning in <TClassTable::Add>: class A2Cal1 already in TClassTable
+Warning in <TClassTable::Add>: class A2Raw already in TClassTable
+Warning in <TClassTable::Add>: class A1Rec2 already in TClassTable
+Warning in <TClassTable::Add>: class A1Rec1 already in TClassTable
+Warning in <TClassTable::Add>: class A1Scl already in TClassTable
+Warning in <TClassTable::Add>: class A1Info already in TClassTable
+Warning in <TClassTable::Add>: class A1Phys already in TClassTable
+Warning in <TClassTable::Add>: class A1Cal2M already in TClassTable
+Warning in <TClassTable::Add>: class A1Cal2 already in TClassTable
+Warning in <TClassTable::Add>: class A1Cal1 already in TClassTable
+Warning in <TClassTable::Add>: class A1Raw already in TClassTable
+Warning in <TClassTable::Add>: class LHCfEvent already in TClassTable
+Warning in <TClassTable::Add>: class ParticlesInfo already in TClassTable
+Warning in <TClassTable::Add>: class RHICfSimIncidents already in TClassTable
+Warning in <TClassTable::Add>: class RHICfSimP already in TClassTable
+Warning in <TClassTable::Add>: class RHICfRoman already in TClassTable
+Warning in <TClassTable::Add>: class RHICfFC already in TClassTable
+Warning in <TClassTable::Add>: class RHICfZDC already in TClassTable
+Warning in <TClassTable::Add>: class RHICfBBC already in TClassTable
+begin convertor
+InputFileName /ccj/w/data61/RHICf/DATA1/DATA1/SimulationDataForSuzukiCode/QGS/SATO_TS/171030QGSJET2_TS20026126.root
+InputFileName /ccj/w/data61/RHICf/DATA1/DATA1/SimulationDataForSuzukiCode/QGS/SATO_TS/1710
+
+The error fixed.
+

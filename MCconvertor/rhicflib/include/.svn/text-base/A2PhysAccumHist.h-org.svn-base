@@ -1,0 +1,67 @@
+// *********************************************************************
+// ***  A2PhysAccumHist                                              ***
+// *** This class control the histogrames for the Arm#2 Phys Data    ***
+// *** 20 Jul. 08: First Editted by H.MENJO                          ***
+// *********************************************************************
+
+#ifndef __A2PHYSACCUMHIST_H__
+#define __A2PHYSACCUMHIST_H__
+
+#include <TNamed.h>
+#include <TH1F.h>
+#include <TH2F.h>
+
+#include "globaldef.h"
+#include "A2Phys.h"
+
+class A2PhysAccumHist : public TNamed {
+ public:
+  TH1F*   henergy[2];   //->
+  TH2F*   h2pos[2];     //->
+  TH2F*   h2flux[2];    //->
+  TH1F*   hpid[2];      //->
+  TH1F*   hhits[2];     //->
+  
+ public:
+  A2PhysAccumHist();
+  A2PhysAccumHist(char* name, char *title);
+  ~A2PhysAccumHist();
+  
+  int  Initialize();
+  int  DeleteHist(); 
+  int  DeleteHists(){ return DeleteHist(); }
+  int  Fill(A2Phys *d,int pid0=-10, int pid1=-10);
+  int  Reset();
+  int  CopyData(A2PhysAccumHist* );
+  int  AddData(A2PhysAccumHist* );
+
+  // for online analysis
+  int  Init(){return OK;}
+  int  Bor(){return OK;}
+  int  Eor(){return OK;}
+  int  Loop(A2Phys *d){return OK;}
+
+ private: 
+  static int icall;  
+  // defines
+  static const int henergy_nbin   =    101;
+  static const int henergy_binmin =   -700;
+  static const int henergy_binmax =  70000;
+  static const int hpos0_nbin = 27;
+  static const int hpos0_binmin = -1;
+  static const int hpos0_binmax = 26;
+  static const int hpos1_nbin = 34;
+  static const int hpos1_binmin = -1;
+  static const int hpos1_binmax = 33;
+  static const int hpid_nbin = 3;
+  static const int hpid_binmin = -1;
+  static const int hpid_binmax =  2;
+  static const int hhits_nbin = 3;
+  static const int hhits_binmin = -1;
+  static const int hhits_binmax =  2;
+  
+  ClassDef(A2PhysAccumHist,1);   //  Histograms for A2Phys
+};
+
+#endif
+

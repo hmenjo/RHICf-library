@@ -1,0 +1,828 @@
+JOBID=3468605.lhcfs2.stelab.nagoya-u.ac.jp
+HOST lhcfcl5.stelab.nagoya-u.ac.jp
+START
+Mon Oct 15 02:44:16 JST 2018
+Mon Oct 15 02:44:16 JST 2018
+Quick Reconstruction -------------------------------
+RUN NUMBER 2630
+Total entries: 0 ~ 1234567890
+This work took 0.42 Hour = 25 Minute.
+INPUT FILE    : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/root_files/run00002630.root
+OUTPUT FILE   : /crhome/sato.kenta/RHICf/data/rhicf_2017_reconstruct_lhcfs2/run00002630/run00002630_rec_0_1000.root
+PEDESTAL FILE : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002630/pede_run00002630.root
+NUMBER OF EVENTS 
+  ALL  : 1000
+  CUT1 : 999
+  CUT2 : 999
+  FILL : 999
+
+Make Histograms ------------------------------------
+Mon Oct 15 03:09:59 JST 2018
+Quick Reconstruction -------------------------------
+RUN NUMBER 2630
+Total entries: 1000 ~ 1234567890
+This work took 0.40 Hour = 24 Minute.
+INPUT FILE    : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/root_files/run00002630.root
+OUTPUT FILE   : /crhome/sato.kenta/RHICf/data/rhicf_2017_reconstruct_lhcfs2/run00002630/run00002630_rec_1000_2000.root
+PEDESTAL FILE : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002630/pede_run00002630.root
+NUMBER OF EVENTS 
+  ALL  : 1000
+  CUT1 : 1000
+  CUT2 : 1000
+  FILL : 1000
+
+Make Histograms ------------------------------------
+Mon Oct 15 03:34:13 JST 2018
+Quick Reconstruction -------------------------------
+RUN NUMBER 2630
+Total entries: 2000 ~ 1234567890
+This work took 0.40 Hour = 24 Minute.
+INPUT FILE    : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/root_files/run00002630.root
+OUTPUT FILE   : /crhome/sato.kenta/RHICf/data/rhicf_2017_reconstruct_lhcfs2/run00002630/run00002630_rec_2000_3000.root
+PEDESTAL FILE : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002630/pede_run00002630.root
+NUMBER OF EVENTS 
+  ALL  : 1000
+  CUT1 : 1000
+  CUT2 : 1000
+  FILL : 1000
+
+Make Histograms ------------------------------------
+Mon Oct 15 03:58:12 JST 2018
+Quick Reconstruction -------------------------------
+RUN NUMBER 2630
+Total entries: 3000 ~ 1234567890
+This work took 0.30 Hour = 18 Minute.
+INPUT FILE    : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/root_files/run00002630.root
+OUTPUT FILE   : /crhome/sato.kenta/RHICf/data/rhicf_2017_reconstruct_lhcfs2/run00002630/run00002630_rec_3000_4000.root
+PEDESTAL FILE : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002630/pede_run00002630.root
+NUMBER OF EVENTS 
+  ALL  : 1000
+  CUT1 : 1000
+  CUT2 : 1000
+  FILL : 1000
+
+Make Histograms ------------------------------------
+Mon Oct 15 04:16:58 JST 2018
+Quick Reconstruction -------------------------------
+RUN NUMBER 2630
+Total entries: 4000 ~ 1234567890
+This work took 0.30 Hour = 18 Minute.
+INPUT FILE    : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/root_files/run00002630.root
+OUTPUT FILE   : /crhome/sato.kenta/RHICf/data/rhicf_2017_reconstruct_lhcfs2/run00002630/run00002630_rec_4000_5000.root
+PEDESTAL FILE : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002630/pede_run00002630.root
+NUMBER OF EVENTS 
+  ALL  : 1000
+  CUT1 : 1000
+  CUT2 : 1000
+  FILL : 1000
+
+Make Histograms ------------------------------------
+Mon Oct 15 04:34:09 JST 2018
+Quick Reconstruction -------------------------------
+RUN NUMBER 2630
+Total entries: 5000 ~ 1234567890
+This work took 0.40 Hour = 24 Minute.
+INPUT FILE    : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/root_files/run00002630.root
+OUTPUT FILE   : /crhome/sato.kenta/RHICf/data/rhicf_2017_reconstruct_lhcfs2/run00002630/run00002630_rec_5000_6000.root
+PEDESTAL FILE : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002630/pede_run00002630.root
+NUMBER OF EVENTS 
+  ALL  : 1000
+  CUT1 : 1000
+  CUT2 : 1000
+  FILL : 1000
+
+Make Histograms ------------------------------------
+Mon Oct 15 04:58:57 JST 2018
+Quick Reconstruction -------------------------------
+RUN NUMBER 2630
+Total entries: 6000 ~ 1234567890
+This work took 0.38 Hour = 23 Minute.
+INPUT FILE    : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/root_files/run00002630.root
+OUTPUT FILE   : /crhome/sato.kenta/RHICf/data/rhicf_2017_reconstruct_lhcfs2/run00002630/run00002630_rec_6000_7000.root
+PEDESTAL FILE : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002630/pede_run00002630.root
+NUMBER OF EVENTS 
+  ALL  : 1000
+  CUT1 : 999
+  CUT2 : 999
+  FILL : 999
+
+Make Histograms ------------------------------------
+Mon Oct 15 05:21:15 JST 2018
+Quick Reconstruction -------------------------------
+RUN NUMBER 2630
+Total entries: 7000 ~ 1234567890
+This work took 0.45 Hour = 27 Minute.
+INPUT FILE    : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/root_files/run00002630.root
+OUTPUT FILE   : /crhome/sato.kenta/RHICf/data/rhicf_2017_reconstruct_lhcfs2/run00002630/run00002630_rec_7000_8000.root
+PEDESTAL FILE : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002630/pede_run00002630.root
+NUMBER OF EVENTS 
+  ALL  : 1000
+  CUT1 : 1000
+  CUT2 : 1000
+  FILL : 1000
+
+Make Histograms ------------------------------------
+Mon Oct 15 05:48:41 JST 2018
+Quick Reconstruction -------------------------------
+RUN NUMBER 2630
+Make Histograms ------------------------------------
+Mon Oct 15 05:54:51 JST 2018
+Quick Reconstruction -------------------------------
+RUN NUMBER 2630
+Total entries: 9000 ~ 1234567890
+This work took 0.35 Hour = 21 Minute.
+INPUT FILE    : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/root_files/run00002630.root
+OUTPUT FILE   : /crhome/sato.kenta/RHICf/data/rhicf_2017_reconstruct_lhcfs2/run00002630/run00002630_rec_9000_10000.root
+PEDESTAL FILE : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002630/pede_run00002630.root
+NUMBER OF EVENTS 
+  ALL  : 1000
+  CUT1 : 999
+  CUT2 : 999
+  FILL : 999
+
+Make Histograms ------------------------------------
+Mon Oct 15 06:15:52 JST 2018
+Quick Reconstruction -------------------------------
+RUN NUMBER 2630
+Total entries: 10000 ~ 1234567890
+This work took 0.42 Hour = 25 Minute.
+INPUT FILE    : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/root_files/run00002630.root
+OUTPUT FILE   : /crhome/sato.kenta/RHICf/data/rhicf_2017_reconstruct_lhcfs2/run00002630/run00002630_rec_10000_11000.root
+PEDESTAL FILE : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002630/pede_run00002630.root
+NUMBER OF EVENTS 
+  ALL  : 1000
+  CUT1 : 1000
+  CUT2 : 1000
+  FILL : 1000
+
+Make Histograms ------------------------------------
+Mon Oct 15 06:40:38 JST 2018
+Quick Reconstruction -------------------------------
+RUN NUMBER 2630
+Make Histograms ------------------------------------
+Mon Oct 15 06:59:24 JST 2018
+Quick Reconstruction -------------------------------
+RUN NUMBER 2630
+Total entries: 12000 ~ 1234567890
+This work took 0.47 Hour = 28 Minute.
+INPUT FILE    : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/root_files/run00002630.root
+OUTPUT FILE   : /crhome/sato.kenta/RHICf/data/rhicf_2017_reconstruct_lhcfs2/run00002630/run00002630_rec_12000_13000.root
+PEDESTAL FILE : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002630/pede_run00002630.root
+NUMBER OF EVENTS 
+  ALL  : 1000
+  CUT1 : 1000
+  CUT2 : 1000
+  FILL : 1000
+
+Make Histograms ------------------------------------
+Mon Oct 15 07:27:29 JST 2018
+Quick Reconstruction -------------------------------
+RUN NUMBER 2630
+Total entries: 13000 ~ 1234567890
+This work took 0.35 Hour = 21 Minute.
+INPUT FILE    : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/root_files/run00002630.root
+OUTPUT FILE   : /crhome/sato.kenta/RHICf/data/rhicf_2017_reconstruct_lhcfs2/run00002630/run00002630_rec_13000_14000.root
+PEDESTAL FILE : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002630/pede_run00002630.root
+NUMBER OF EVENTS 
+  ALL  : 1000
+  CUT1 : 1000
+  CUT2 : 1000
+  FILL : 1000
+
+Make Histograms ------------------------------------
+Mon Oct 15 07:48:45 JST 2018
+Quick Reconstruction -------------------------------
+RUN NUMBER 2630
+Total entries: 14000 ~ 1234567890
+This work took 0.35 Hour = 21 Minute.
+INPUT FILE    : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/root_files/run00002630.root
+OUTPUT FILE   : /crhome/sato.kenta/RHICf/data/rhicf_2017_reconstruct_lhcfs2/run00002630/run00002630_rec_14000_15000.root
+PEDESTAL FILE : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002630/pede_run00002630.root
+NUMBER OF EVENTS 
+  ALL  : 1000
+  CUT1 : 1000
+  CUT2 : 1000
+  FILL : 1000
+
+Make Histograms ------------------------------------
+Mon Oct 15 08:09:43 JST 2018
+Quick Reconstruction -------------------------------
+RUN NUMBER 2630
+Total entries: 15000 ~ 1234567890
+This work took 0.52 Hour = 31 Minute.
+INPUT FILE    : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/root_files/run00002630.root
+OUTPUT FILE   : /crhome/sato.kenta/RHICf/data/rhicf_2017_reconstruct_lhcfs2/run00002630/run00002630_rec_15000_16000.root
+PEDESTAL FILE : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002630/pede_run00002630.root
+NUMBER OF EVENTS 
+  ALL  : 1000
+  CUT1 : 1000
+  CUT2 : 1000
+  FILL : 1000
+
+Make Histograms ------------------------------------
+Mon Oct 15 08:40:35 JST 2018
+Quick Reconstruction -------------------------------
+RUN NUMBER 2630
+Abort
+Make Histograms ------------------------------------
+Mon Oct 15 09:08:10 JST 2018
+Quick Reconstruction -------------------------------
+RUN NUMBER 2630
+Total entries: 17000 ~ 1234567890
+This work took 0.52 Hour = 31 Minute.
+INPUT FILE    : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/root_files/run00002630.root
+OUTPUT FILE   : /crhome/sato.kenta/RHICf/data/rhicf_2017_reconstruct_lhcfs2/run00002630/run00002630_rec_17000_18000.root
+PEDESTAL FILE : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002630/pede_run00002630.root
+NUMBER OF EVENTS 
+  ALL  : 1000
+  CUT1 : 1000
+  CUT2 : 1000
+  FILL : 1000
+
+Make Histograms ------------------------------------
+Mon Oct 15 09:39:20 JST 2018
+Quick Reconstruction -------------------------------
+RUN NUMBER 2630
+Total entries: 18000 ~ 1234567890
+This work took 0.55 Hour = 33 Minute.
+INPUT FILE    : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/root_files/run00002630.root
+OUTPUT FILE   : /crhome/sato.kenta/RHICf/data/rhicf_2017_reconstruct_lhcfs2/run00002630/run00002630_rec_18000_19000.root
+PEDESTAL FILE : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002630/pede_run00002630.root
+NUMBER OF EVENTS 
+  ALL  : 1000
+  CUT1 : 1000
+  CUT2 : 1000
+  FILL : 1000
+
+Make Histograms ------------------------------------
+Mon Oct 15 10:12:08 JST 2018
+Quick Reconstruction -------------------------------
+RUN NUMBER 2630
+Total entries: 19000 ~ 1234567890
+This work took 0.50 Hour = 30 Minute.
+INPUT FILE    : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/root_files/run00002630.root
+OUTPUT FILE   : /crhome/sato.kenta/RHICf/data/rhicf_2017_reconstruct_lhcfs2/run00002630/run00002630_rec_19000_20000.root
+PEDESTAL FILE : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002630/pede_run00002630.root
+NUMBER OF EVENTS 
+  ALL  : 1000
+  CUT1 : 999
+  CUT2 : 999
+  FILL : 999
+
+Make Histograms ------------------------------------
+Mon Oct 15 10:42:58 JST 2018
+Quick Reconstruction -------------------------------
+RUN NUMBER 2630
+Total entries: 20000 ~ 1234567890
+This work took 0.40 Hour = 24 Minute.
+INPUT FILE    : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/root_files/run00002630.root
+OUTPUT FILE   : /crhome/sato.kenta/RHICf/data/rhicf_2017_reconstruct_lhcfs2/run00002630/run00002630_rec_20000_21000.root
+PEDESTAL FILE : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002630/pede_run00002630.root
+NUMBER OF EVENTS 
+  ALL  : 1000
+  CUT1 : 1000
+  CUT2 : 1000
+  FILL : 1000
+
+Make Histograms ------------------------------------
+Mon Oct 15 11:06:41 JST 2018
+Quick Reconstruction -------------------------------
+RUN NUMBER 2630
+Total entries: 21000 ~ 1234567890
+This work took 0.38 Hour = 23 Minute.
+INPUT FILE    : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/root_files/run00002630.root
+OUTPUT FILE   : /crhome/sato.kenta/RHICf/data/rhicf_2017_reconstruct_lhcfs2/run00002630/run00002630_rec_21000_22000.root
+PEDESTAL FILE : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002630/pede_run00002630.root
+NUMBER OF EVENTS 
+  ALL  : 1000
+  CUT1 : 1000
+  CUT2 : 1000
+  FILL : 1000
+
+Make Histograms ------------------------------------
+Mon Oct 15 11:29:06 JST 2018
+Quick Reconstruction -------------------------------
+RUN NUMBER 2630
+Total entries: 22000 ~ 1234567890
+This work took 0.57 Hour = 34 Minute.
+INPUT FILE    : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/root_files/run00002630.root
+OUTPUT FILE   : /crhome/sato.kenta/RHICf/data/rhicf_2017_reconstruct_lhcfs2/run00002630/run00002630_rec_22000_23000.root
+PEDESTAL FILE : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002630/pede_run00002630.root
+NUMBER OF EVENTS 
+  ALL  : 1000
+  CUT1 : 1000
+  CUT2 : 1000
+  FILL : 1000
+
+Abort
+Make Histograms ------------------------------------
+Mon Oct 15 12:03:28 JST 2018
+Quick Reconstruction -------------------------------
+RUN NUMBER 2630
+Total entries: 23000 ~ 1234567890
+This work took 0.52 Hour = 31 Minute.
+INPUT FILE    : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/root_files/run00002630.root
+OUTPUT FILE   : /crhome/sato.kenta/RHICf/data/rhicf_2017_reconstruct_lhcfs2/run00002630/run00002630_rec_23000_24000.root
+PEDESTAL FILE : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002630/pede_run00002630.root
+NUMBER OF EVENTS 
+  ALL  : 1000
+  CUT1 : 1000
+  CUT2 : 1000
+  FILL : 1000
+
+Make Histograms ------------------------------------
+Mon Oct 15 12:34:55 JST 2018
+Quick Reconstruction -------------------------------
+RUN NUMBER 2630
+Total entries: 24000 ~ 1234567890
+This work took 0.30 Hour = 18 Minute.
+INPUT FILE    : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/root_files/run00002630.root
+OUTPUT FILE   : /crhome/sato.kenta/RHICf/data/rhicf_2017_reconstruct_lhcfs2/run00002630/run00002630_rec_24000_25000.root
+PEDESTAL FILE : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002630/pede_run00002630.root
+NUMBER OF EVENTS 
+  ALL  : 1000
+  CUT1 : 1000
+  CUT2 : 1000
+  FILL : 1000
+
+Abort
+Make Histograms ------------------------------------
+Mon Oct 15 12:52:33 JST 2018
+Quick Reconstruction -------------------------------
+RUN NUMBER 2630
+Total entries: 25000 ~ 1234567890
+This work took 0.28 Hour = 17 Minute.
+INPUT FILE    : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/root_files/run00002630.root
+OUTPUT FILE   : /crhome/sato.kenta/RHICf/data/rhicf_2017_reconstruct_lhcfs2/run00002630/run00002630_rec_25000_26000.root
+PEDESTAL FILE : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002630/pede_run00002630.root
+NUMBER OF EVENTS 
+  ALL  : 1000
+  CUT1 : 1000
+  CUT2 : 1000
+  FILL : 1000
+
+Bus error
+Make Histograms ------------------------------------
+Mon Oct 15 13:09:49 JST 2018
+Quick Reconstruction -------------------------------
+RUN NUMBER 2630
+Total entries: 26000 ~ 1234567890
+This work took 0.55 Hour = 33 Minute.
+INPUT FILE    : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/root_files/run00002630.root
+OUTPUT FILE   : /crhome/sato.kenta/RHICf/data/rhicf_2017_reconstruct_lhcfs2/run00002630/run00002630_rec_26000_27000.root
+PEDESTAL FILE : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002630/pede_run00002630.root
+NUMBER OF EVENTS 
+  ALL  : 1000
+  CUT1 : 1000
+  CUT2 : 1000
+  FILL : 1000
+
+Make Histograms ------------------------------------
+Mon Oct 15 13:42:56 JST 2018
+Quick Reconstruction -------------------------------
+RUN NUMBER 2630
+Total entries: 27000 ~ 1234567890
+This work took 0.37 Hour = 22 Minute.
+INPUT FILE    : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/root_files/run00002630.root
+OUTPUT FILE   : /crhome/sato.kenta/RHICf/data/rhicf_2017_reconstruct_lhcfs2/run00002630/run00002630_rec_27000_28000.root
+PEDESTAL FILE : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002630/pede_run00002630.root
+NUMBER OF EVENTS 
+  ALL  : 1000
+  CUT1 : 1000
+  CUT2 : 1000
+  FILL : 1000
+
+Make Histograms ------------------------------------
+Mon Oct 15 14:04:46 JST 2018
+Quick Reconstruction -------------------------------
+RUN NUMBER 2630
+Total entries: 28000 ~ 1234567890
+This work took 0.57 Hour = 34 Minute.
+INPUT FILE    : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/root_files/run00002630.root
+OUTPUT FILE   : /crhome/sato.kenta/RHICf/data/rhicf_2017_reconstruct_lhcfs2/run00002630/run00002630_rec_28000_29000.root
+PEDESTAL FILE : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002630/pede_run00002630.root
+NUMBER OF EVENTS 
+  ALL  : 1000
+  CUT1 : 1000
+  CUT2 : 1000
+  FILL : 1000
+
+Make Histograms ------------------------------------
+Mon Oct 15 14:38:34 JST 2018
+Quick Reconstruction -------------------------------
+RUN NUMBER 2630
+Total entries: 29000 ~ 1234567890
+This work took 0.40 Hour = 24 Minute.
+INPUT FILE    : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/root_files/run00002630.root
+OUTPUT FILE   : /crhome/sato.kenta/RHICf/data/rhicf_2017_reconstruct_lhcfs2/run00002630/run00002630_rec_29000_30000.root
+PEDESTAL FILE : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002630/pede_run00002630.root
+NUMBER OF EVENTS 
+  ALL  : 1000
+  CUT1 : 999
+  CUT2 : 999
+  FILL : 999
+
+Make Histograms ------------------------------------
+Mon Oct 15 15:02:08 JST 2018
+Quick Reconstruction -------------------------------
+RUN NUMBER 2630
+Total entries: 30000 ~ 1234567890
+This work took 0.28 Hour = 17 Minute.
+INPUT FILE    : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/root_files/run00002630.root
+OUTPUT FILE   : /crhome/sato.kenta/RHICf/data/rhicf_2017_reconstruct_lhcfs2/run00002630/run00002630_rec_30000_31000.root
+PEDESTAL FILE : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002630/pede_run00002630.root
+NUMBER OF EVENTS 
+  ALL  : 1000
+  CUT1 : 1000
+  CUT2 : 1000
+  FILL : 1000
+
+Make Histograms ------------------------------------
+Mon Oct 15 15:19:42 JST 2018
+Quick Reconstruction -------------------------------
+RUN NUMBER 2630
+Total entries: 31000 ~ 1234567890
+This work took 0.35 Hour = 21 Minute.
+INPUT FILE    : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/root_files/run00002630.root
+OUTPUT FILE   : /crhome/sato.kenta/RHICf/data/rhicf_2017_reconstruct_lhcfs2/run00002630/run00002630_rec_31000_32000.root
+PEDESTAL FILE : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002630/pede_run00002630.root
+NUMBER OF EVENTS 
+  ALL  : 1000
+  CUT1 : 1000
+  CUT2 : 1000
+  FILL : 1000
+
+Make Histograms ------------------------------------
+Mon Oct 15 15:40:12 JST 2018
+Quick Reconstruction -------------------------------
+RUN NUMBER 2630
+Total entries: 32000 ~ 1234567890
+This work took 0.27 Hour = 16 Minute.
+INPUT FILE    : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/root_files/run00002630.root
+OUTPUT FILE   : /crhome/sato.kenta/RHICf/data/rhicf_2017_reconstruct_lhcfs2/run00002630/run00002630_rec_32000_33000.root
+PEDESTAL FILE : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002630/pede_run00002630.root
+NUMBER OF EVENTS 
+  ALL  : 1000
+  CUT1 : 1000
+  CUT2 : 1000
+  FILL : 1000
+
+Make Histograms ------------------------------------
+Mon Oct 15 15:56:41 JST 2018
+Quick Reconstruction -------------------------------
+RUN NUMBER 2630
+Total entries: 33000 ~ 1234567890
+This work took 0.40 Hour = 24 Minute.
+INPUT FILE    : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/root_files/run00002630.root
+OUTPUT FILE   : /crhome/sato.kenta/RHICf/data/rhicf_2017_reconstruct_lhcfs2/run00002630/run00002630_rec_33000_34000.root
+PEDESTAL FILE : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002630/pede_run00002630.root
+NUMBER OF EVENTS 
+  ALL  : 1000
+  CUT1 : 1000
+  CUT2 : 1000
+  FILL : 1000
+
+Make Histograms ------------------------------------
+Mon Oct 15 16:20:46 JST 2018
+Quick Reconstruction -------------------------------
+RUN NUMBER 2630
+Total entries: 34000 ~ 1234567890
+This work took 0.58 Hour = 35 Minute.
+INPUT FILE    : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/root_files/run00002630.root
+OUTPUT FILE   : /crhome/sato.kenta/RHICf/data/rhicf_2017_reconstruct_lhcfs2/run00002630/run00002630_rec_34000_35000.root
+PEDESTAL FILE : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002630/pede_run00002630.root
+NUMBER OF EVENTS 
+  ALL  : 1000
+  CUT1 : 1000
+  CUT2 : 1000
+  FILL : 1000
+
+Make Histograms ------------------------------------
+Mon Oct 15 16:55:57 JST 2018
+Quick Reconstruction -------------------------------
+RUN NUMBER 2630
+Total entries: 35000 ~ 1234567890
+This work took 0.40 Hour = 24 Minute.
+INPUT FILE    : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/root_files/run00002630.root
+OUTPUT FILE   : /crhome/sato.kenta/RHICf/data/rhicf_2017_reconstruct_lhcfs2/run00002630/run00002630_rec_35000_36000.root
+PEDESTAL FILE : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002630/pede_run00002630.root
+NUMBER OF EVENTS 
+  ALL  : 1000
+  CUT1 : 1000
+  CUT2 : 1000
+  FILL : 1000
+
+Abort
+Make Histograms ------------------------------------
+Mon Oct 15 17:19:38 JST 2018
+Quick Reconstruction -------------------------------
+RUN NUMBER 2630
+Make Histograms ------------------------------------
+Mon Oct 15 17:46:25 JST 2018
+Quick Reconstruction -------------------------------
+RUN NUMBER 2630
+Total entries: 37000 ~ 1234567890
+This work took 0.52 Hour = 31 Minute.
+INPUT FILE    : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/root_files/run00002630.root
+OUTPUT FILE   : /crhome/sato.kenta/RHICf/data/rhicf_2017_reconstruct_lhcfs2/run00002630/run00002630_rec_37000_38000.root
+PEDESTAL FILE : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002630/pede_run00002630.root
+NUMBER OF EVENTS 
+  ALL  : 1000
+  CUT1 : 1000
+  CUT2 : 1000
+  FILL : 1000
+
+Make Histograms ------------------------------------
+Mon Oct 15 18:17:05 JST 2018
+Quick Reconstruction -------------------------------
+RUN NUMBER 2630
+Total entries: 38000 ~ 1234567890
+This work took 0.47 Hour = 28 Minute.
+INPUT FILE    : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/root_files/run00002630.root
+OUTPUT FILE   : /crhome/sato.kenta/RHICf/data/rhicf_2017_reconstruct_lhcfs2/run00002630/run00002630_rec_38000_39000.root
+PEDESTAL FILE : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002630/pede_run00002630.root
+NUMBER OF EVENTS 
+  ALL  : 1000
+  CUT1 : 1000
+  CUT2 : 1000
+  FILL : 1000
+
+Make Histograms ------------------------------------
+Mon Oct 15 18:45:32 JST 2018
+Quick Reconstruction -------------------------------
+RUN NUMBER 2630
+Total entries: 39000 ~ 1234567890
+This work took 0.42 Hour = 25 Minute.
+INPUT FILE    : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/root_files/run00002630.root
+OUTPUT FILE   : /crhome/sato.kenta/RHICf/data/rhicf_2017_reconstruct_lhcfs2/run00002630/run00002630_rec_39000_40000.root
+PEDESTAL FILE : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002630/pede_run00002630.root
+NUMBER OF EVENTS 
+  ALL  : 1000
+  CUT1 : 999
+  CUT2 : 999
+  FILL : 999
+
+Abort
+Make Histograms ------------------------------------
+Mon Oct 15 19:10:48 JST 2018
+Quick Reconstruction -------------------------------
+RUN NUMBER 2630
+Total entries: 40000 ~ 1234567890
+This work took 0.52 Hour = 31 Minute.
+INPUT FILE    : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/root_files/run00002630.root
+OUTPUT FILE   : /crhome/sato.kenta/RHICf/data/rhicf_2017_reconstruct_lhcfs2/run00002630/run00002630_rec_40000_41000.root
+PEDESTAL FILE : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002630/pede_run00002630.root
+NUMBER OF EVENTS 
+  ALL  : 1000
+  CUT1 : 1000
+  CUT2 : 1000
+  FILL : 1000
+
+Make Histograms ------------------------------------
+Mon Oct 15 19:41:38 JST 2018
+Quick Reconstruction -------------------------------
+RUN NUMBER 2630
+Total entries: 41000 ~ 1234567890
+This work took 0.50 Hour = 30 Minute.
+INPUT FILE    : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/root_files/run00002630.root
+OUTPUT FILE   : /crhome/sato.kenta/RHICf/data/rhicf_2017_reconstruct_lhcfs2/run00002630/run00002630_rec_41000_42000.root
+PEDESTAL FILE : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002630/pede_run00002630.root
+NUMBER OF EVENTS 
+  ALL  : 1000
+  CUT1 : 1000
+  CUT2 : 1000
+  FILL : 1000
+
+Make Histograms ------------------------------------
+Mon Oct 15 20:11:38 JST 2018
+Quick Reconstruction -------------------------------
+RUN NUMBER 2630
+Make Histograms ------------------------------------
+Mon Oct 15 20:14:32 JST 2018
+Quick Reconstruction -------------------------------
+RUN NUMBER 2630
+Total entries: 43000 ~ 1234567890
+This work took 0.32 Hour = 19 Minute.
+INPUT FILE    : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/root_files/run00002630.root
+OUTPUT FILE   : /crhome/sato.kenta/RHICf/data/rhicf_2017_reconstruct_lhcfs2/run00002630/run00002630_rec_43000_44000.root
+PEDESTAL FILE : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002630/pede_run00002630.root
+NUMBER OF EVENTS 
+  ALL  : 1000
+  CUT1 : 1000
+  CUT2 : 1000
+  FILL : 1000
+
+Make Histograms ------------------------------------
+Mon Oct 15 20:33:11 JST 2018
+Quick Reconstruction -------------------------------
+RUN NUMBER 2630
+Total entries: 44000 ~ 1234567890
+This work took 0.55 Hour = 33 Minute.
+INPUT FILE    : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/root_files/run00002630.root
+OUTPUT FILE   : /crhome/sato.kenta/RHICf/data/rhicf_2017_reconstruct_lhcfs2/run00002630/run00002630_rec_44000_45000.root
+PEDESTAL FILE : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002630/pede_run00002630.root
+NUMBER OF EVENTS 
+  ALL  : 1000
+  CUT1 : 1000
+  CUT2 : 1000
+  FILL : 1000
+
+Make Histograms ------------------------------------
+Mon Oct 15 21:06:21 JST 2018
+Quick Reconstruction -------------------------------
+RUN NUMBER 2630
+Total entries: 45000 ~ 1234567890
+This work took 0.40 Hour = 24 Minute.
+INPUT FILE    : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/root_files/run00002630.root
+OUTPUT FILE   : /crhome/sato.kenta/RHICf/data/rhicf_2017_reconstruct_lhcfs2/run00002630/run00002630_rec_45000_46000.root
+PEDESTAL FILE : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002630/pede_run00002630.root
+NUMBER OF EVENTS 
+  ALL  : 1000
+  CUT1 : 1000
+  CUT2 : 1000
+  FILL : 1000
+
+Make Histograms ------------------------------------
+Mon Oct 15 21:30:57 JST 2018
+Quick Reconstruction -------------------------------
+RUN NUMBER 2630
+Total entries: 46000 ~ 1234567890
+This work took 0.30 Hour = 18 Minute.
+INPUT FILE    : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/root_files/run00002630.root
+OUTPUT FILE   : /crhome/sato.kenta/RHICf/data/rhicf_2017_reconstruct_lhcfs2/run00002630/run00002630_rec_46000_47000.root
+PEDESTAL FILE : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002630/pede_run00002630.root
+NUMBER OF EVENTS 
+  ALL  : 1000
+  CUT1 : 1000
+  CUT2 : 1000
+  FILL : 1000
+
+Make Histograms ------------------------------------
+Mon Oct 15 21:48:49 JST 2018
+Quick Reconstruction -------------------------------
+RUN NUMBER 2630
+Total entries: 47000 ~ 1234567890
+This work took 0.55 Hour = 33 Minute.
+INPUT FILE    : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/root_files/run00002630.root
+OUTPUT FILE   : /crhome/sato.kenta/RHICf/data/rhicf_2017_reconstruct_lhcfs2/run00002630/run00002630_rec_47000_48000.root
+PEDESTAL FILE : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002630/pede_run00002630.root
+NUMBER OF EVENTS 
+  ALL  : 1000
+  CUT1 : 1000
+  CUT2 : 1000
+  FILL : 1000
+
+Make Histograms ------------------------------------
+Mon Oct 15 22:21:39 JST 2018
+Quick Reconstruction -------------------------------
+RUN NUMBER 2630
+Total entries: 48000 ~ 1234567890
+This work took 0.35 Hour = 21 Minute.
+INPUT FILE    : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/root_files/run00002630.root
+OUTPUT FILE   : /crhome/sato.kenta/RHICf/data/rhicf_2017_reconstruct_lhcfs2/run00002630/run00002630_rec_48000_49000.root
+PEDESTAL FILE : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002630/pede_run00002630.root
+NUMBER OF EVENTS 
+  ALL  : 1000
+  CUT1 : 1000
+  CUT2 : 1000
+  FILL : 1000
+
+Make Histograms ------------------------------------
+Mon Oct 15 22:42:04 JST 2018
+Quick Reconstruction -------------------------------
+RUN NUMBER 2630
+Total entries: 49000 ~ 1234567890
+This work took 0.38 Hour = 23 Minute.
+INPUT FILE    : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/root_files/run00002630.root
+OUTPUT FILE   : /crhome/sato.kenta/RHICf/data/rhicf_2017_reconstruct_lhcfs2/run00002630/run00002630_rec_49000_50000.root
+PEDESTAL FILE : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002630/pede_run00002630.root
+NUMBER OF EVENTS 
+  ALL  : 1000
+  CUT1 : 999
+  CUT2 : 999
+  FILL : 999
+
+Make Histograms ------------------------------------
+Mon Oct 15 23:05:52 JST 2018
+Quick Reconstruction -------------------------------
+RUN NUMBER 2630
+Total entries: 50000 ~ 1234567890
+This work took 0.33 Hour = 20 Minute.
+INPUT FILE    : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/root_files/run00002630.root
+OUTPUT FILE   : /crhome/sato.kenta/RHICf/data/rhicf_2017_reconstruct_lhcfs2/run00002630/run00002630_rec_50000_51000.root
+PEDESTAL FILE : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002630/pede_run00002630.root
+NUMBER OF EVENTS 
+  ALL  : 1000
+  CUT1 : 1000
+  CUT2 : 1000
+  FILL : 1000
+
+Make Histograms ------------------------------------
+Mon Oct 15 23:25:18 JST 2018
+Quick Reconstruction -------------------------------
+RUN NUMBER 2630
+Total entries: 51000 ~ 1234567890
+This work took 0.42 Hour = 25 Minute.
+INPUT FILE    : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/root_files/run00002630.root
+OUTPUT FILE   : /crhome/sato.kenta/RHICf/data/rhicf_2017_reconstruct_lhcfs2/run00002630/run00002630_rec_51000_52000.root
+PEDESTAL FILE : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002630/pede_run00002630.root
+NUMBER OF EVENTS 
+  ALL  : 1000
+  CUT1 : 1000
+  CUT2 : 1000
+  FILL : 1000
+
+Make Histograms ------------------------------------
+Mon Oct 15 23:50:29 JST 2018
+Quick Reconstruction -------------------------------
+RUN NUMBER 2630
+Total entries: 52000 ~ 1234567890
+This work took -23.65 Hour = -1419 Minute.
+INPUT FILE    : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/root_files/run00002630.root
+OUTPUT FILE   : /crhome/sato.kenta/RHICf/data/rhicf_2017_reconstruct_lhcfs2/run00002630/run00002630_rec_52000_53000.root
+PEDESTAL FILE : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002630/pede_run00002630.root
+NUMBER OF EVENTS 
+  ALL  : 1000
+  CUT1 : 1000
+  CUT2 : 1000
+  FILL : 1000
+
+Make Histograms ------------------------------------
+Tue Oct 16 00:11:17 JST 2018
+Quick Reconstruction -------------------------------
+RUN NUMBER 2630
+Total entries: 53000 ~ 1234567890
+This work took 0.47 Hour = 28 Minute.
+INPUT FILE    : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/root_files/run00002630.root
+OUTPUT FILE   : /crhome/sato.kenta/RHICf/data/rhicf_2017_reconstruct_lhcfs2/run00002630/run00002630_rec_53000_54000.root
+PEDESTAL FILE : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002630/pede_run00002630.root
+NUMBER OF EVENTS 
+  ALL  : 1000
+  CUT1 : 1000
+  CUT2 : 1000
+  FILL : 1000
+
+Make Histograms ------------------------------------
+Tue Oct 16 00:39:36 JST 2018
+Quick Reconstruction -------------------------------
+RUN NUMBER 2630
+Total entries: 54000 ~ 1234567890
+This work took 0.48 Hour = 29 Minute.
+INPUT FILE    : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/root_files/run00002630.root
+OUTPUT FILE   : /crhome/sato.kenta/RHICf/data/rhicf_2017_reconstruct_lhcfs2/run00002630/run00002630_rec_54000_55000.root
+PEDESTAL FILE : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002630/pede_run00002630.root
+NUMBER OF EVENTS 
+  ALL  : 1000
+  CUT1 : 1000
+  CUT2 : 1000
+  FILL : 1000
+
+Make Histograms ------------------------------------
+Tue Oct 16 01:08:53 JST 2018
+Quick Reconstruction -------------------------------
+RUN NUMBER 2630
+Total entries: 55000 ~ 1234567890
+This work took 0.63 Hour = 38 Minute.
+INPUT FILE    : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/root_files/run00002630.root
+OUTPUT FILE   : /crhome/sato.kenta/RHICf/data/rhicf_2017_reconstruct_lhcfs2/run00002630/run00002630_rec_55000_56000.root
+PEDESTAL FILE : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002630/pede_run00002630.root
+NUMBER OF EVENTS 
+  ALL  : 1000
+  CUT1 : 1000
+  CUT2 : 1000
+  FILL : 1000
+
+Make Histograms ------------------------------------
+Tue Oct 16 01:46:03 JST 2018
+Quick Reconstruction -------------------------------
+RUN NUMBER 2630
+Total entries: 56000 ~ 1234567890
+This work took 0.48 Hour = 29 Minute.
+INPUT FILE    : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/root_files/run00002630.root
+OUTPUT FILE   : /crhome/sato.kenta/RHICf/data/rhicf_2017_reconstruct_lhcfs2/run00002630/run00002630_rec_56000_57000.root
+PEDESTAL FILE : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002630/pede_run00002630.root
+NUMBER OF EVENTS 
+  ALL  : 1000
+  CUT1 : 1000
+  CUT2 : 1000
+  FILL : 1000
+
+Make Histograms ------------------------------------
+Tue Oct 16 02:15:44 JST 2018
+Quick Reconstruction -------------------------------
+RUN NUMBER 2630
+Total entries: 57000 ~ 1234567890
+This work took 0.37 Hour = 22 Minute.
+INPUT FILE    : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/root_files/run00002630.root
+OUTPUT FILE   : /crhome/sato.kenta/RHICf/data/rhicf_2017_reconstruct_lhcfs2/run00002630/run00002630_rec_57000_58000.root
+PEDESTAL FILE : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002630/pede_run00002630.root
+NUMBER OF EVENTS 
+  ALL  : 1000
+  CUT1 : 1000
+  CUT2 : 1000
+  FILL : 1000
+
+Make Histograms ------------------------------------
+Tue Oct 16 02:37:03 JST 2018
+Quick Reconstruction -------------------------------
+RUN NUMBER 2630

@@ -1,0 +1,18 @@
+2018年 11月  7日 水曜日 15:32:16 JST
+Quick Reconstruction -------------------------------
+RUN NUMBER 2798
+Total entries: 802000 ~ 1234567890
+This work took 0.07 Hour = 4 Minute.
+INPUT FILE    : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/root_files/run00002798.root
+OUTPUT FILE   : /crhome/sato.kenta/RHICf/data/rhicf_2017_reconstruct_lhcfs2/run00002798/run00002798_rec_802000_803000.root
+PEDESTAL FILE : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002798/pede_run00002798.root
+NUMBER OF EVENTS 
+  ALL  : 1000
+  CUT1 : 1000
+  CUT2 : 1000
+  FILL : 1000
+
+Make Histograms ------------------------------------
+END
+2018年 11月  7日 水曜日 15:36:51 JST
+ 

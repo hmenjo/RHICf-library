@@ -1,0 +1,222 @@
+#ifndef __PARTICLESINFO_CPP__
+#define __PARTICLESINFO_CPP__
+
+#include "ParticlesInfo.h"
+
+
+
+#if !defined(__CINT__)
+ClassImp(ParticlesInfo);
+#endif
+
+#include <iostream>
+#include <iomanip>
+#include <math.h>
+using namespace std;
+
+
+ParticlesInfo::ParticlesInfo(): kRunNumber(0), kEventNumber(0), kSpin(-1)
+{
+    fIP.SetClass("RHICfSimP", 2000000);
+    fWPlate.SetClass("RHICfSimP", 2000);
+    fZDCGhost.SetClass("RHICfSimP", 2000);
+    fCircle.SetClass("RHICfSimP", 1000);
+    fGhost.SetClass("RHICfSimP", 600);
+    fNGhost.SetClass("RHICfSimP", 600);
+    fP0Ghost.SetClass("RHICfSimP", 600);
+    fNSignal.SetClass("RHICfSimP", 600);
+    fP0Signal.SetClass("RHICfSimP", 600);
+}
+
+ParticlesInfo::ParticlesInfo(char *name, char *title):TNamed(name,title), kRunNumber(0), kEventNumber(0), kSpin(-1)
+{
+    fIP.SetClass("RHICfSimP", 2000000);
+    fWPlate.SetClass("RHICfSimP", 2000);
+    fZDCGhost.SetClass("RHICfSimP", 2000);
+    fCircle.SetClass("RHICfSimP", 1000);
+    fGhost.SetClass("RHICfSimP", 600);
+    fNGhost.SetClass("RHICfSimP", 600);
+    fP0Ghost.SetClass("RHICfSimP", 600);
+    fNSignal.SetClass("RHICfSimP", 600);
+    fP0Signal.SetClass("RHICfSimP", 600);
+}
+
+ParticlesInfo::ParticlesInfo(const ParticlesInfo &rhs): kRunNumber(rhs.kRunNumber), kEventNumber(rhs.kEventNumber), kSpin(rhs.kSpin)
+{
+    fIP = rhs.fIP;
+    fWPlate = rhs.fWPlate;
+    fZDCGhost = rhs.fZDCGhost;
+    fCircle = rhs.fCircle;
+    fGhost = rhs.fGhost;
+    fNGhost = rhs.fNGhost;
+    fP0Ghost = rhs.fP0Ghost;
+    fNSignal = rhs.fNSignal;
+    fP0Signal = rhs.fP0Signal;
+}
+
+ParticlesInfo::~ParticlesInfo()
+{
+}
+
+ParticlesInfo& ParticlesInfo::operator=(const ParticlesInfo &rhs)
+{
+    TNamed::operator=(rhs);
+    kRunNumber = rhs.kRunNumber;
+    kEventNumber = rhs.kEventNumber;
+    kSpin = rhs.kSpin;
+    fIP = rhs.fIP;
+    fWPlate = rhs.fWPlate;
+    fZDCGhost = rhs.fZDCGhost;
+    fCircle = rhs.fCircle;
+    fGhost = rhs.fGhost;
+    fNGhost = rhs.fNGhost;
+    fP0Ghost = rhs.fP0Ghost;
+    fNSignal = rhs.fNSignal;
+    fP0Signal = rhs.fP0Signal;
+
+    return *this;
+}
+void ParticlesInfo::Clear(){
+  // Clear the array of RHICfSimP. It don't delete RHICfSimP. 
+  kRunNumber = 0;
+  kEventNumber = 0;
+  kSpin = -1;
+  
+  fIP.Clear();
+  fWPlate.Clear();
+  fZDCGhost.Clear();
+  fCircle.Clear();
+  fGhost.Clear();
+  fNGhost.Clear();
+  fP0Ghost.Clear();
+  fNSignal.Clear();
+  fP0Signal.Clear();
+  
+}
+
+void ParticlesInfo::SetRunNumber(Int_t run)
+{
+    kRunNumber = run;
+}
+void ParticlesInfo::SetEventNumber(Int_t event)
+{
+    kEventNumber = event;
+}
+
+void ParticlesInfo::SetSpin(Int_t num)
+{
+    kSpin = num;
+}
+
+RHICfSimP* ParticlesInfo::AddToIP(Int_t inum)
+{
+    //Junsang****new(fIP[inum]) RHICfSimP(*rhs);
+    RHICfSimP *tmpsimp = (RHICfSimP*)fIP.ConstructedAt(inum);
+    //Junsang****tmpsimp = new RHICfSimP(*rhs);
+    return tmpsimp;
+}
+
+RHICfSimP* ParticlesInfo::AddToWPlate(Int_t inum)
+{
+    //Junsang****new(fIP[inum]) RHICfSimP(*rhs);
+    RHICfSimP *tmpsimp = (RHICfSimP*)fWPlate.ConstructedAt(inum);
+    //Junsang****tmpsimp = new RHICfSimP(*rhs);
+    return tmpsimp;
+}
+
+RHICfSimP* ParticlesInfo::AddToZDCGhost(Int_t inum)
+{
+    //Junsang****new(fZDCGhost[inum]) RHICfSimP(*rhs);
+    RHICfSimP *tmpsimp = (RHICfSimP*)fZDCGhost.ConstructedAt(inum);
+    //Junsang****tmpsimp = new RHICfSimP(*rhs);
+    return tmpsimp;
+}
+
+RHICfSimP* ParticlesInfo::AddToCircle(Int_t inum)
+{
+    //Junsang****new(fCircle[inum]) RHICfSimP(*rhs);
+    RHICfSimP *tmpsimp = (RHICfSimP*)fCircle.ConstructedAt(inum);
+    //Junsang****tmpsimp = new RHICfSimP(*rhs);
+    return tmpsimp;
+}
+
+RHICfSimP* ParticlesInfo::AddToGhost(Int_t inum)
+{
+    //Junsang****new(fNGhost[inum]) RHICfSimP(*rhs);
+    RHICfSimP *tmpsimp = (RHICfSimP*)fGhost.ConstructedAt(inum);
+    //Junsang****tmpsimp = new RHICfSimP(*rhs);
+    return tmpsimp;
+}
+
+RHICfSimP* ParticlesInfo::AddToNGhost(Int_t inum)
+{
+    //Junsang****new(fNGhost[inum]) RHICfSimP(*rhs);
+    RHICfSimP *tmpsimp = (RHICfSimP*)fNGhost.ConstructedAt(inum);
+    //Junsang****tmpsimp = new RHICfSimP(*rhs);
+    return tmpsimp;
+}
+
+RHICfSimP* ParticlesInfo::AddToP0Ghost(Int_t inum)
+{
+    //Junsang****new(fP0Ghost[inum]) RHICfSimP(*rhs);
+    RHICfSimP *tmpsimp = (RHICfSimP*)fP0Ghost.ConstructedAt(inum);
+    //Junsang****tmpsimp = new RHICfSimP(*rhs);
+    return tmpsimp;
+}
+
+RHICfSimP* ParticlesInfo::AddToNSignal(Int_t inum)
+{
+    //Junsang****new(fNSignal[inum]) RHICfSimP(*rhs);
+    RHICfSimP *tmpsimp = (RHICfSimP*)fNSignal.ConstructedAt(inum);
+    //Junsang****tmpsimp = new RHICfSimP(*rhs);
+    return tmpsimp;
+}
+
+RHICfSimP* ParticlesInfo::AddToP0Signal(Int_t inum)
+{
+    //Junsang****new(fP0Signal[inum]) RHICfSimP(*rhs);
+    RHICfSimP *tmpsimp = (RHICfSimP*)fP0Signal.ConstructedAt(inum);
+    //Junsang****tmpsimp = new RHICfSimP(*rhs);
+    return tmpsimp;
+}
+
+RHICfSimP* ParticlesInfo::GetPFromIP(Int_t inum)
+{
+    return (RHICfSimP*)fIP.At(inum);
+}
+RHICfSimP* ParticlesInfo::GetPFromWPlate(Int_t inum)
+{
+    return (RHICfSimP*)fWPlate.At(inum);
+}
+RHICfSimP* ParticlesInfo::GetPFromZDCGhost(Int_t inum)
+{
+    return (RHICfSimP*)fZDCGhost.At(inum);
+}
+RHICfSimP* ParticlesInfo::GetPFromCircle(Int_t inum)
+{
+    return (RHICfSimP*)fCircle.At(inum);
+}
+RHICfSimP* ParticlesInfo::GetPFromGhost(Int_t inum)
+{
+    return (RHICfSimP*)fGhost.At(inum);
+}
+RHICfSimP* ParticlesInfo::GetPFromNGhost(Int_t inum)
+{
+    return (RHICfSimP*)fNGhost.At(inum);
+}
+RHICfSimP* ParticlesInfo::GetPFromP0Ghost(Int_t inum)
+{
+    return (RHICfSimP*)fP0Ghost.At(inum);
+}
+RHICfSimP* ParticlesInfo::GetPFromNSignal(Int_t inum)
+{
+    return (RHICfSimP*)fNSignal.At(inum);
+}
+RHICfSimP* ParticlesInfo::GetPFromP0Signal(Int_t inum)
+{
+    return (RHICfSimP*)fP0Signal.At(inum);
+}
+
+
+
+#endif

@@ -1,0 +1,23 @@
+JOBID=3469015.lhcfs2.stelab.nagoya-u.ac.jp
+HOST lhcfcl5.stelab.nagoya-u.ac.jp
+RUN START END=2625 298000 299000
+START
+Tue Oct 16 23:53:04 JST 2018
+Tue Oct 16 23:53:05 JST 2018
+Quick Reconstruction -------------------------------
+RUN NUMBER 2625
+Total entries: 298000 ~ 1234567890
+This work took -23.73 Hour = -1424 Minute.
+INPUT FILE    : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/root_files/run00002625.root
+OUTPUT FILE   : /crhome/sato.kenta/RHICf/data/rhicf_2017_reconstruct_lhcfs2/run00002625/run00002625_rec_298000_299000.root
+PEDESTAL FILE : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002625/pede_run00002625.root
+NUMBER OF EVENTS 
+  ALL  : 1000
+  CUT1 : 1000
+  CUT2 : 1000
+  FILL : 1000
+
+Make Histograms ------------------------------------
+END
+Wed Oct 17 00:09:15 JST 2018
+ 

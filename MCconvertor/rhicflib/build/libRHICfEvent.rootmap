@@ -1,0 +1,16 @@
+[ libRHICfEvent.so ]
+# List of selected classes
+class ParticlesInfo
+class RHICfBBC
+class RHICfFC
+class RHICfRoman
+class RHICfSimIncidents
+class RHICfSimP
+class RHICfZDC
+header ParticlesInfo.h
+header RHICfBBC.h
+header RHICfFC.h
+header RHICfRoman.h
+header RHICfSimIncidents.h
+header RHICfSimP.h
+header RHICfZDC.h

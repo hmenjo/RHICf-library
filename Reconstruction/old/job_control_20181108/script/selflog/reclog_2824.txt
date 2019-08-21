@@ -1,0 +1,8 @@
+Mon Jun  4 21:02:30 JST 2018
+
+ RUN: 2824
+ READ : /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/DAQ_Log/LogFrontend1_2.txt
+ UPDATED /mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run00002824/runinfo_run00002824.dat
+
+Quick Reconstruction -------------------------------
+RUN NUMBER 0
