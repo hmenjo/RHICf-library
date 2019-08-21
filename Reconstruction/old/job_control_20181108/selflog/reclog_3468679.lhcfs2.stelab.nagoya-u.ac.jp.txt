@@ -1,8 +1,0 @@
-JOBID=3468679.lhcfs2.stelab.nagoya-u.ac.jp
-HOST lhcfcl5.stelab.nagoya-u.ac.jp
-RUN START END=2625 12000 13000
-START
-Tue Oct 16 20:23:35 JST 2018
-Tue Oct 16 20:23:36 JST 2018
-Quick Reconstruction -------------------------------
-RUN NUMBER 2625

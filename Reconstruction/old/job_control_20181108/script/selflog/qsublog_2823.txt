@@ -1,7 +1,0 @@
-JOBID=3452675.lhcfs2.stelab.nagoya-u.ac.jp
-HOST lhcfcl5.stelab.nagoya-u.ac.jp
-RUN 2823
-START
-Mon Jun  4 21:02:27 JST 2018
-END
-Mon Jun  4 21:05:44 JST 2018
