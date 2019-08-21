@@ -91,29 +91,29 @@ class RHICfSimP : public TNamed {
   // Return position in the coordinate syste on selected calorimeter. 
   // Set the position offset of the detector from normal position. 
   void   CalPos(int id,int it,double &x,double &y,
-		double offsetx=GetOffset(0),
-		double offsety=GetOffset(1));  // Incident position in the calorimeter coordinate id=1/2/10(NewArm1)/20(NewArm2)
+					 double offsetx=GetOffset(0),
+					 double offsety=GetOffset(1));  // Incident position in the calorimeter coordinate id=1/2/10(NewArm1)/20(NewArm2)
   double CalPosX(int id,int it,
-		 double offsetx=GetOffset(0),
-		 double offsety=GetOffset(1));  
+					  double offsetx=GetOffset(0),
+					  double offsety=GetOffset(1));  
   double CalPosY(int id,int it,
-		 double offsetx=GetOffset(0),
-		 double offsety=GetOffset(1));  
+					  double offsetx=GetOffset(0),
+					  double offsety=GetOffset(1));  
   int    CheckHit(int id,int it,double edgecut=0.0,
-		  double offsetx=GetOffset(0),
-		  double offsety=GetOffset(1)); // Check the hit in the given acceptance of calorimeter. id=1/2/10(NewArm1)/20(NewArm2)
+						double offsetx=GetOffset(0),
+						double offsety=GetOffset(1)); // Check the hit in the given acceptance of calorimeter. id=1/2/10(NewArm1)/20(NewArm2)
   void   Show(int id=0,int it=0,
-	      double offsetx=GetOffset(0),
-	      double offsety=GetOffset(1));  
-
+				  double offsetx=GetOffset(0),
+				  double offsety=GetOffset(1));  
+  
   // Incident Position in several coordinate system. ------------------------  
   double PositionShift(int xy, double offsetx,double offsety);      // Simple shift x'=x+offsetx, y'=y+offsety
   double GlobalPos_Detector(int xy, 
-			    double offsetx=GetOffsetDetector(0),
-			    double offsety=GetOffsetDetector(1)); // Incidnet Position in the global detector coordinate
+									 double offsetx=GetOffsetDetector(0),
+									 double offsety=GetOffsetDetector(1)); // Incidnet Position in the global detector coordinate
   double GlobalPos_BC(int xy,
-		      double offsetx=GetOffsetBC(0),
-		      double offsety=GetOffsetBC(1));  // Incident Position in the global beam center coordinate 
+							 double offsetx=GetOffsetBC(0),
+							 double offsety=GetOffsetBC(1));  // Incident Position in the global beam center coordinate 
   double GlobalPos_BeamPipe(int xy);                                                // Incident Position in the global beam pipe coordinate
   
   double GPosX_Detector(){ return GlobalPos_Detector(0);}  // Arias to GlobalPos_Detector(0)
@@ -122,7 +122,6 @@ class RHICfSimP : public TNamed {
   double GPosY_BC(){ return GlobalPos_BC(1);}              // Arias to GlobalPos_BC(1)
   double GPosX_BeamPipe(){ return GlobalPos_BeamPipe(0);}  // Arias to GlobalPos_BeamPipe(0)
   double GPosY_BeamPipe(){ return GlobalPos_BeamPipe(1);}  // Arias to GlobalPos_BeamPipe(1)
-  
 
   // Static Functions 
   static double GetCalorimeterSize(int id,int it);
@@ -134,18 +133,19 @@ class RHICfSimP : public TNamed {
   static double GetOffsetDetector(int xy){return sPositionBeamPipe[xy];} // = sPositionBeamPipe[xy]
   static double GetOffsetBC(int xy){return sPositionBeamPipe[xy]-sPositionBeamCenter[xy];} // =sPositionBeamPipe[xy]-sPositionBeamCenter[xy] 
 
- private:
+ public:
 
-  TString Name;   // Particle name
-  TLorentzVector FMomentum;// Particle momentum
-  TVector3  Position; // Particle postion
+  Int_t          fPdgcode;
+  TString        fName;     // Particle name
+  TLorentzVector fFMomentum;// Particle momentum
+  TVector3       fPosition; // Particle postion
 
-  TString OriginalPName;   // Original particle name
-  TLorentzVector OriginalP4Momentum;// Original particle momentum
-  TVector3  OriginalPPosition; // Original particle postion
+  TString        fOriginalPName;      // Original particle name
+  TLorentzVector fOriginalP4Momentum; // Original particle momentum
+  TVector3       fOriginalPPosition;  // Original particle postion
 
-  Int_t   TrackID; // TrackID
-  Int_t   Tower; // SmallOrLarge
+  Int_t          fTrackID; // TrackID
+  Int_t          fTower; // SmallOrLarge
 
  public:
 
@@ -154,27 +154,25 @@ class RHICfSimP : public TNamed {
 
   void Clear();
   void SetName(TString);
-  TString GetName(){ return Name;};
+  TString GetName(){ return fName;};
   void Set4Momentum(TLorentzVector);
-  TLorentzVector Get4Momentum(){ return FMomentum;};
+  TLorentzVector Get4Momentum(){ return fFMomentum;};
   void SetPosition(TVector3);
-  TVector3 GetPosition(){return Position;};
+  TVector3 GetPosition(){return fPosition;};
 
   void SetOriginalPName(TString);
-  TString GetOriginalPName(){ return OriginalPName;};
+  TString GetOriginalPName(){ return fOriginalPName;};
   void SetOriginalP4Momentum(TLorentzVector);
-  TLorentzVector GetOriginalP4Momentum(){ return OriginalP4Momentum;};
+  TLorentzVector GetOriginalP4Momentum(){ return fOriginalP4Momentum;};
   void SetOriginalPPosition(TVector3);
-  TVector3 GetOriginalPPosition(){return OriginalPPosition;};
+  TVector3 GetOriginalPPosition(){return fOriginalPPosition;};
 
   TVector3 GetFramePosition(const Double_t&);
 
   void SetTrackID(Int_t);
-  Int_t GetTrackID(){return TrackID;};
+  Int_t GetTrackID(){return fTrackID;};
   void SetTower(Int_t);
-  Int_t GetTower(){return Tower;};
-
-
+  Int_t GetTower(){return fTower;};
 
   ClassDef(RHICfSimP,1);   // Data class for information of one incident particle in simulation.
 };

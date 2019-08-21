@@ -7,7 +7,8 @@
 // --------------------------------------------------------------------
 
 #include <TNamed.h>
-#include "/crhome/sato.kenta/RHICf/Analysis/Op2017/general/dict/include/globaldef.h"
+//#include "/crhome/sato.kenta/RHICf/Analysis/Op2017/general/dict/include/globaldef.h"
+
 class RHICfPhys : public TNamed {
  public:
   // event infomation

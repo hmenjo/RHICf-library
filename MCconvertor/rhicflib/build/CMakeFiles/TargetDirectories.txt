@@ -1,4 +1,0 @@
-/home/hoosiki/DataConversion/convertor/rhicflib/build/CMakeFiles/edit_cache.dir
-/home/hoosiki/DataConversion/convertor/rhicflib/build/CMakeFiles/rebuild_cache.dir
-/home/hoosiki/DataConversion/convertor/rhicflib/build/CMakeFiles/RHICfEvent.dir
-/home/hoosiki/DataConversion/convertor/rhicflib/build/CMakeFiles/G__RHICfEvent.dir

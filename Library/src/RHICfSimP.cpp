@@ -552,79 +552,85 @@ double RHICfSimP::GlobalPos_BeamPipe(int ixy){
 
 void RHICfSimP::Clear()
 {
-    Name = "";
-    FMomentum = TLorentzVector(0, 0, 0, 0);
-    Position = TVector3(0, 0, 0);
-    OriginalPName = "";
-    OriginalP4Momentum = TLorentzVector(0, 0, 0, 0);
-    OriginalPPosition = TVector3(0, 0, 0);
-    TrackID = 0;
-    Tower = -1;
+  fPdgcode = 0;
+  fName = "";
+  fFMomentum = TLorentzVector(0, 0, 0, 0);
+  fPosition = TVector3(0, 0, 0);
+  fOriginalPName = "";
+  fOriginalP4Momentum = TLorentzVector(0, 0, 0, 0);
+  fOriginalPPosition = TVector3(0, 0, 0);
+  fTrackID = 0;
+  fTower = -1;
 }
 
 void RHICfSimP::SetName(TString tmps)
 {
-    Name = tmps;
+  fName = tmps;
 }
 
 void RHICfSimP::Set4Momentum(TLorentzVector tmp4vec)
 {
-    FMomentum = tmp4vec;
+  fFMomentum = tmp4vec;
 }
 
 void RHICfSimP::SetPosition(TVector3 tmp3vec)
 {
-    Position = tmp3vec;
+  fPosition = tmp3vec;
 }
 
 void RHICfSimP::SetOriginalPName(TString tmps)
 {
-    OriginalPName = tmps;
+  fOriginalPName = tmps;
 }
 
 void RHICfSimP::SetOriginalP4Momentum(TLorentzVector tmp4vec)
 {
-    OriginalP4Momentum = tmp4vec;
+  fOriginalP4Momentum = tmp4vec;
 }
 
 void RHICfSimP::SetOriginalPPosition(TVector3 tmp3vec)
 {
-    OriginalPPosition = tmp3vec;
+  fOriginalPPosition = tmp3vec;
 }
 
 void RHICfSimP::SetTrackID(Int_t tmpi)
 {
-    TrackID = tmpi;
+  fTrackID = tmpi;
 }
 
 void RHICfSimP::SetTower(Int_t tmptower)
 {
-    Tower = tmptower;
+  fTower = tmptower;
 }
 
 TVector3 RHICfSimP::GetFramePosition(const Double_t& offset)
 {
-    TVector3 tmpvec3;
-    
-    return tmpvec3;
+  TVector3 tmpvec3;
+  return tmpvec3;
 }
 
-RHICfSimP::RHICfSimP(const RHICfSimP &rhs): Name(rhs.Name), FMomentum(rhs.FMomentum), Position(rhs.Position), OriginalPName(rhs.OriginalPName), OriginalPPosition(rhs.OriginalPPosition), OriginalP4Momentum(rhs.OriginalP4Momentum), TrackID(rhs.TrackID), Tower(rhs.Tower)
-{
-
-}
+RHICfSimP::RHICfSimP(const RHICfSimP &rhs): fPdgcode(rhs.fPdgcode),
+														  fName(rhs.fName),
+														  fFMomentum(rhs.fFMomentum), 
+														  fPosition(rhs.fPosition), 
+														  fOriginalPName(rhs.fOriginalPName),
+														  fOriginalPPosition(rhs.fOriginalPPosition), 
+														  fOriginalP4Momentum(rhs.fOriginalP4Momentum), 
+														  fTrackID(rhs.fTrackID), fTower(rhs.fTower)
+{;}
 
 RHICfSimP& RHICfSimP::operator=(const RHICfSimP& rhs)
 {
     TNamed::operator=(rhs);
-    Name = rhs.Name;
-    FMomentum = rhs.FMomentum;
-    Position = rhs.Position;
-    OriginalPName = rhs.OriginalPName;
-    OriginalPPosition = rhs.OriginalPPosition;
-    OriginalP4Momentum = rhs.OriginalP4Momentum;
-    TrackID = rhs.TrackID;
-    Tower = rhs.Tower;
+    fPdgcode = rhs.fPdgcode;
+	 fName = rhs.fName;
+    fFMomentum = rhs.fFMomentum;
+    fPosition = rhs.fPosition;
+    fOriginalPName = rhs.fOriginalPName;
+    fOriginalPPosition = rhs.fOriginalPPosition;
+    fOriginalP4Momentum = rhs.fOriginalP4Momentum;
+    fTrackID = rhs.fTrackID;
+    fTower = rhs.fTower;
     return *this;
 
 }

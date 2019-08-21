@@ -1,11 +1,10 @@
 #ifndef RHICfFlag_H
 #define RHICfFlag_H
 
-#include "/ccj/u/satoken/RHICf/convertor/lhcflib/include/A1Cal2.h"
+#include <TF1.h>
+#include <A1Cal2.h>
 
-//class A1cal2;
-class TF1;
-class RHICfFlag
+class RHICfFlag 
 {
     private:
         TF1 *f[2][16];
