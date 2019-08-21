@@ -1,0 +1,51 @@
+-----------------------------------------------------------------------
+       
+                             LHCf Library 
+
+-----------------------------------------------------------------------
+
+- Requriement 
+    - ROOT library. 
+      The LHCf library may work with ROOT 6.XX. 
+      But better to use ROOT 5.34.36. (The newest version of 5.34.XX)    
+
+- Installation and Compile  
+   - Get the newest version of the library's codes 
+     svn co svn+ssh://lhcf@lhcfs1.isee.nagoya-u.ac.jp/extern/crhome/lhcf/repos/LHCf/Analysis/LHC/general/trunk ./general
+   - Complie in the library's directory 
+     make clean;  
+     make 
+    
+   Note) 
+     - One compile option, choice of the SlowControl Format, is available in Makefile. 
+     - sc/SocketControl does not work under c++11 (gcc > 4.7). 
+
+- Useful tools 
+   - Tools/LHCfroot 
+       It works as the interpleter mode of root. 
+       The LHCf library is loaded automatically. So LHCf classess can be used in macros.
+   - Tools/EventViewer
+       EventViewer for LHCf/RHICf data. 
+       For compiling it, please specify the format as make op2015, make rhicf    
+       
+- Operational tests 
+   + Linux
+        - Scientific linux CERN 5.8 + gcc 4.1.2 + ROOT 5.34.32
+        - Scientific linux CERN 6.7 + gcc 4.4.7 + ROOT 5.34.25
+   + Mac 
+        - OS X 10.11 + clang + ROOT(root_v5.34.36.macosx64-10.11-clang70)
+          At least, ROOT 5.34.00 did not work. Better to use the newest ROOT 5.
+
+- Updates 
+   May 2, 2017 (Rev 2435)
+   +  Many modifications to use the library with MacOS. 
+      Mainly in Makefile, static const doulbe in header files, and SocketControl.    
+   +  Added many tables and config files for the RHICf operation.  
+          GainTable_Fit_20170427.txt, MAPMTgaintable_20170501.txt   
+          hvtable_rhicf2017_normal.txt, hvtable_rhicf2017_high.txt
+
+  
+   
+  
+
+

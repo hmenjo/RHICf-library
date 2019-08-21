@@ -1,0 +1,22 @@
+PARAM_START
+FORMAT:     HVTABLE
+TYPE:       1
+VERSION:    1
+COMMENT:    HV table of arm#1 low+high gain mode, defined in SPS2007.
+  format    
+    HV0  [value]x16  H.V. of 20mm tower 
+    HV1  [value]x16  H.V. of 40mm tower
+    SCIFIHV  [value]x1  H.V. of Scifi. It must be H.V. value, not control L.V. value.
+    FCHV1 [value]x1  control L.V. value for Arm#1 FC H.V.
+    FCHV2 [value]x1  control L.V. value for Arm#2 FC H.V.
+PARAM_END
+
+DATA_START
+HV0   425.0 400.0 425.0 425.0 425.0 475.0 450.0 425.0
+      450.0 425.0 450.0 450.0 425.0 450.0 425.0 425.0    
+HV1   550.0 550.0 500.0 550.0 600.0 600.0 600.0 600.0
+      550.0 550.0 550.0 550.0 550.0 550.0 550.0 550.0
+SCIFIHV   480.0
+FCHV1     3.5
+FCHV2     3.5
+DATA_END

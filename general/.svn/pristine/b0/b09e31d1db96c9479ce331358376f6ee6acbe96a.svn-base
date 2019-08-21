@@ -1,0 +1,62 @@
+ ---------------------------------------------------------------
+                   
+                    LIBRARY FOR LHCf SLOWCONTROL  
+
+----------------------------------------------------------------
+
+
+-  sc_op2010      at  27 Feb. 2010
+   
+   + Update for operation 2010
+
+   + Added the structure
+       DIP_ACC_BEAM_BPM_M   BPM_LSS1L B1
+       DIP_ACC_BEAM_BPM_M   BPM_LSS1L B1                         
+       DIP_ACC_BEAM_BPM_M   BPM_LSS1L B2                         
+       DIP_ACC_BEAM_BPM_M   BPM_LSS1R B1                         
+       DIP_ACC_BEAM_BPM_M   BPM_LSS1R B2                         
+       DIP_ACC_BEAM_LUMINOSITYPERBUNCH_S Beam1_intensityperbunch 
+       DIP_ACC_BEAM_LUMINOSITYPERBUNCH_S Beam2_intensityperbunch 
+  
+   + LHCFDIPDATAH_VERSION   201 -> 202                         
+   + LHCFDIPDATAL_VERSION   301 -> 302 (Forgot increment the number 02Mar2010)
+   
+   + File number in SlowControl Server : 109 - 118
+
+  
+-  sc_op2010_02   at  02 Mar. 2010
+  
+   + Added two structure for DIP in LHCFDIPDATAH
+       DIP_ATLAS_CLOCK_SELECTION        Atlasclocl;
+       DIP_LHCF_DOSIMETER               dosimeterL;
+       DIP_LHCF_DOSIMETER               dosimeterR;
+
+   + LHCFDIPDATAH_VERSION     202 -> 203
+
+   + LHCFDIPDATAL_VERSION     301 -> 302
+     (No change for LHCFDIPDATAL in this update, but last time,
+      I forgot to change the number.)
+
+   + File number in SlowControl Server : 119 - 165
+
+
+-  sc_op2010_03   at  19 Mar. 2010
+
+   + Added DIP_ACC_BEAM_SIZE_AVERAGE instead of DIP_ACC_BEAM_SIZE 
+
+   + LHCFDIPDATAH_VERSION     203 -> 204
+
+   + File number in SlowControl Server : 166 - 
+
+
+-  sc_op2010_04   at  23 Mar. 2010
+
+   + Fixed a bug of sc_op2010_03.
+     DIP_ACC_BEAM_SIZE had different structure size in 32bit and 64bit.
+     Added "char dummy[4]"
+
+   + LHCFDIPDATAH_VERSION     204 -> 205
+
+   + File number in SlowControl Server : ??? - 
+
+

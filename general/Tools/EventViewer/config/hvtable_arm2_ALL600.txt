@@ -1,0 +1,20 @@
+PARAM_START
+FORMAT:     HVTABLE
+TYPE:       2
+VERSION:    1
+COMMENT:    HV table of arm#2.
+  format    
+    HV0  [value]x16  H.V. of 25mm tower 
+    HV1  [value]x16  H.V. of 32mm tower
+    FCHV1 [value]x1  control L.V. value for Arm#1 FC H.V.
+    FCHV2 [value]x1  control L.V. value for Arm#2 FC H.V.
+PARAM_END
+
+DATA_START
+HV0   600.0 600.0 600.0 600.0 600.0 600.0 600.0 600.0
+      600.0 600.0 600.0 600.0 600.0 600.0 600.0 600.0 
+HV1   600.0 600.0 600.0 600.0 600.0 600.0 600.0 600.0
+      600.0 600.0 600.0 600.0 600.0 600.0 600.0 600.0 
+FCHV1     3.6
+FCHV2     2.6
+DATA_END

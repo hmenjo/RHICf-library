@@ -1,0 +1,27 @@
+PARAM_START
+FORMAT:  FC_GAIN
+TYPE:    1
+VERSION: 0
+DATE:    080827
+COMMENT: This is dummy data.
+         You must change to real values.
+PARAM_END
+
+DATA_START
+D  1  0    3.5   1.0000
+D  1  1    3.5   1.0000
+D  1  2    3.5   1.0000
+D  1  3    3.5   1.0000
+D  2  0    3.5   1.0000
+D  2  1    3.5   1.0000
+D  2  2    3.5   1.0000
+D  2  3    3.5   1.0000
+D  1  0    4.0   1.0000
+D  1  1    4.0   1.0000
+D  1  2    4.0   1.0000
+D  1  3    4.0   1.0000
+D  2  0    4.0   1.0000
+D  2  1    4.0   1.0000
+D  2  2    4.0   1.0000
+D  2  3    4.0   1.0000
+DATA_END
