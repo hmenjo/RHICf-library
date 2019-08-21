@@ -382,6 +382,8 @@ int A1Reconstruction::CorrectionLightYieldPhoton() {
 			y2 = fRec->GetMHPosition(tower, t_layer[tower], 1, 1);
 			
 						
+			//if(fPos->GetHitNum(0)==0) printf("a1 = %0.1f, b1 = %0.1f, a2 = %0.1f, b2 = %0.1f\n", x1, y1, x2, y2);
+			
 			double pRep = 0;
 			double qRep = 0;
 			

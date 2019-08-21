@@ -1,12 +1,12 @@
- /********************************************************************** \
+/**********************************************************************\
   Quick Reconstruction for RHICf Operation 2017
 
- \**********************************************************************/
-#include <stdio.h>
+  \**********************************************************************/
+
 #include <iostream>
 #include <fstream>
 #include <iomanip>
-#include <bitset>
+
 using namespace std;
 
 #include <TROOT.h>
@@ -30,7 +30,6 @@ using namespace std;
 #include "RHICfRec0.h"
 #include "RHICfRec1.h"
 #include "RHICfPhys.h"
-
 typedef RHICfRaw_Op2017  RHICfRaw;
 
 #include "A1Calibration.h"
@@ -70,16 +69,14 @@ int main(int argc, char **argv) {
 	TString  arg_inputfilename  = "";
 	TString  arg_outputfilename = "";
 	TString  arg_pedefile       = "";
-	TString  arg_avepedefile       = "";
 	TString  arg_startiev       = "";
 	TString  arg_endiev         = "";
 	EVENTCUT arg_eventcut       = EVENTCUT_ALL;
 	bool     arg_debugmode      = false;
 	SIMMODE  arg_simulationmode = SIM_OFF;
-	int run =0;
+	
 	for (int i = 1; i < argc; i++) {
 		TString ss = argv[i];
-		
 		if (ss == "-i" || ss == "--input") {
 			arg_inputfilename = argv[++i];
 			strcpy(argv[i], "");
@@ -92,11 +89,6 @@ int main(int argc, char **argv) {
 			arg_pedefile = argv[++i];
 			strcpy(argv[i], "");
 		}
-		if (ss == "-avep" || ss == "--avepedestal") {
-                  arg_avepedefile = argv[++i];
-                  strcpy(argv[i], "");
-                }
-
 		if (ss == "-f") {
 			arg_startiev = argv[++i];
 			strcpy(argv[i], "");
@@ -104,9 +96,6 @@ int main(int argc, char **argv) {
 		if (ss == "-t") {
 			arg_endiev = argv[++i];
 			strcpy(argv[i], "");
-		}
-		if(ss=="-run"){
-		  run = atoi(argv[++i]);
 		}
 		if (ss == "--shower") { arg_eventcut = EVENTCUT_SHOWER; }
 		if (ss == "--special1") { arg_eventcut = EVENTCUT_SPECIAL1; }
@@ -127,7 +116,6 @@ int main(int argc, char **argv) {
 	TString  inputfilename  = arg_inputfilename;
 	TString  outputfilename = arg_outputfilename;
 	TString  pedefile       = arg_pedefile;
-	TString  avepedefile       = arg_avepedefile;
 	EVENTCUT paramEventCut  = arg_eventcut;
 	bool     debugmoe       = arg_debugmode;
 	SIMMODE  simulationmode = arg_simulationmode;
@@ -136,17 +124,16 @@ int main(int argc, char **argv) {
 	
 	// ++++++ INITIALIZATIONS +++++++++++++++++++
 	TRint theApp("App", &argc, argv, 0, 0, kTRUE);
+	
 	A1Calibration *calibration = new A1Calibration();
 	calibration->SetupDefault_RHICfOp2017();
 	calibration->SetPedestalFile(pedefile.Data());
-	calibration->SetAvePedestalFile(avepedefile.Data());
 	calibration->Initalize();
 	
 	//return 0;
 	
 	gROOT->SetBatch(kTRUE);
 	A1Reconstruction *reconstruction = new A1Reconstruction();
-	
 	reconstruction->Initialize();
 	
 	// ++++++ OPEN DATA FILE ++++++++++++++++++++++++++
@@ -171,8 +158,6 @@ int main(int argc, char **argv) {
 	}
 	
 	gROOT->cd();
-
-	
 	
 	// +++++ EVENT LOOP ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
  
@@ -189,38 +174,40 @@ int main(int argc, char **argv) {
 	
 	RHICfPhys *phys = new RHICfPhys();
 	A1Cal2M   *cal2 = new A1Cal2M();
-	//RHICfRec  *fRec = new RHICfRec();
-	
-	
-
+	//RHICfRec  *rec = new RHICfRec0();
 	
 	bool NoEvent = false;
 	double gsobar = 0;
-	double before, after;
-	int delay_flag[2] = {0};
-	int ndelay_flag = 0;
-	
 	//  == START OF EVENT LOOP ==
-	//for (int iev = 0; iev < nevmax; iev++) {
-	for (int iev = startiev; iev < endiev; iev++) {
-	  
+	for (int iev = 0; iev < nevmax; iev++) {
+	//for (int iev = 0; iev < 10; iev++) {
+	  //cerr << "1" << endl;
 		Int_t ievlocal = tree->LoadTree(iev);
 		if (ievlocal < 0) {
 			
 			if (iev == startiev) NoEvent = true;
-			
+			//cout << iev << endl;
 			break;
 		}
-		
+		// if(ev->Check("a1raw")){
+		//   RHICfRaw* raw = (RHICfRaw*) ev->Get("a1raw");
+		//   for(int i =0;i<512;i++){
+		// 	gsobar = raw->scifi[i];
+		// 	cout << i << " "  << gsobar << endl;
+		// 	//cal2->scifi0[ilay][ixy][ich] << endl;
+		//   }
+		// }
 
-		
-		if (iev && iev % 10 == 0) { cerr << '*'; }
-		if (iev && iev % 100000 == 0) { cerr << iev << endl; }
+		//continue;
+		//cout << iev << endl;
+		//cerr << "2" << endl;
+		if (iev && iev % 200 == 0) { cerr << '*'; }
+		if (iev && iev % 5000 == 0) { cerr << iev << endl; }
 		
 		ev->Delete();
 		tree->GetEntry(iev);
 		nevent++;
-				
+		
 		// === EVENT SELECTION 1 ===
 		// Cut SlowControl, Scaler Events
 		if (simulationmode == SIM_OFF && !ev->Check("a1raw")) { continue; }
@@ -228,7 +215,7 @@ int main(int argc, char **argv) {
 		if (simulationmode == SIM_SIM && !ev->Check("a1sim")) { continue; }
 		nevent_sel1++;
 		
-		
+		//cerr << "3" << endl;
 		// === EVENT SELECTION 2 ===
 		Bool_t checkselection = kFALSE;
 		switch (paramEventCut) {
@@ -256,40 +243,37 @@ int main(int argc, char **argv) {
 		
 		//=== CALIBRATION ===
 		//For Experimental data
-		if (simulationmode == SIM_OFF) {
-		  calibration->Calculate(ev->Get("a1raw"));
-		  //calibration->Calculate(ev->Get(raw));
-		  reconstruction->SetData(calibration->GetCal2());
-		  
-		  
+		if (simulationmode == SIM_OFF ) {
+		  // if(ev->Check("a1raw")){
+		    calibration->Calculate(ev->Get("a1raw"));
+		    reconstruction->SetData(calibration->GetCal2());
+		    cal2 = calibration->GetCal2();
+		    //cout << "raw " << endl; 
+		    //}
 		}
 		// For MC data converted to Cal1
 		else if (simulationmode == SIM_CAL1) {			
-		  reconstruction->SetData((A1Cal2M *) ev->Get("a1cal1"));
+			reconstruction->SetData((A1Cal2M *) ev->Get("a1cal1"));
+			cout << "sim cal " << endl; 
 		}
 		
 		// For MC true
 		else if (simulationmode == SIM_SIM) {
-		  reconstruction->SetData((A1Cal2M *) ev->Get("a1sim"));
-		  
+			reconstruction->SetData((A1Cal2M *) ev->Get("a1sim"));
+			cout << "sim" << endl;
 		}
 		
 			
 		// === Event Reconstruction ===
 		reconstruction->Reconstruct();
 		
-		//   reconstruction->fRec->SetAnalysisFlags(Flags);
-		//Flags = reconstruction->fRec->GetAnalysisFlags();
-		// if(Flags>0){
-		//    cout << "Flags " << bitset<8>(reconstruction->fRec->GetAnalysisFlags()) << endl;
-		// }
-        
-		
+		//reconstruction->GetRec()->Show(); // For debug
 		
 		// === FILL TO OUTPUT FILE ===
 		oev->HeaderCopy(ev);
 		oev->Add(reconstruction->GetRec());
-	        
+		//rec = reconstruction->GetRec();
+		
 		if (ev->Check("a1simin")) oev->Add(ev->Get("a1simin"));
 		if (debugmoe) oev->Add(calibration->GetCal2());
 		if (ev->Check("star")) oev->Add(ev->Get("star"));
@@ -306,7 +290,7 @@ int main(int argc, char **argv) {
 					if (phys->IsElemag(tower)) pid = 0;
 					if (phys->IsHadron(tower)) pid = 1;
 					for (int layer = 0; layer < 16; ++layer) {
-						h1cal[tower][pid]->Fill(layer + 0.5, calibration->GetCal2()->cal[tower][layer]);
+					  h1cal[tower][pid]->Fill(layer + 0.5, calibration->GetCal2()->cal[tower][layer]);
 					}
 				}
 			}
@@ -343,7 +327,7 @@ int main(int argc, char **argv) {
 	     << "  CUT1 : " << nevent_sel1 << endl
 	     << "  CUT2 : " << nevent_sel2 << endl
 	     << "  FILL : " << nevent_fill << endl
-             << endl;
+	     << endl;
 	
 	theApp.Run();
 	return 0;
