@@ -39,51 +39,57 @@ public:
 		TString paramShowerLeakageHadron;
 		TString paramGSObarPosition;
 
+private:
+		int t_layer[2];// GSO bar maximum energy deposit layer
+		int t_layer2[2];// GSO bar second maximum energy deposit layer
+		
+		double type2fraction;// Energy fraction from the total tower energy to imulti=0 gamma.
 
 public:
 		A1Reconstruction();
-		~A1Reconstruction();
 		
 		void Initialize();
-
-		void SetRunType(TString run);
-                int SetData(A1Cal2M *cal);
+		
+		int SetData(A1Cal2M *cal) {
+			
+			fCal->copy(cal);
+			fCalOrg->copy(cal);
+			return 0;
+		}
 		
 		RHICfRec *GetRec() { return fRec; }
-
-		int FillEventInfo();
-
 		int Reconstruct();
+		
+		int FillEventInfo();
+		
 		int ReconstructHitPosition();
+		
 		int ReconstructPID();
+		
 		int ReconstructEnergy();
+		
 		int CorrectionLightYieldPhoton();
+		
+		double CalculateEnergyPhotonSimple(int tower);
+		
 		int ReconstructEnergyPhotonSingle(int tower);
+		
 		int ReconstructEnergyPhotonDouble();
-		int ReconstructType2Pi0Photon(int tower);
+		
+		int ReconstructType2Pi0Photon(int tower); //new one
+		
 		int ReconstructEnergyHadron(int tower);
 
-		void GetScan(TCanvas* c, int TSlayer, int TLlyaer, int iev);
-                int  GetScanNum(int TShit, int TLhit) { return scanNum[TShit][TLhit]; };
-
 private:
-		int bunchoffset;
-
-                int scanNum[3][3];
-                int t_layer[2];// Maximum energy deposit layer
-                int t_layer2[2];// Second maximum energy deposit layer
-                double L20[2];
-                double L90[2];
-
-                bool Isruntype;
-                TString runtype;
-                bool Isbunchoffset;
-
+		
 		double EnergyConversionPhoton(int tower, double sumdE);
+		
 		double EnergyConversionHadron(int tower, double sumdE);
 		
 		double PIDThresholdPhoton(int tower, double energy);
+		
 		double PIDThresholdHadron(int tower, double energy);
+
 };
 
 
