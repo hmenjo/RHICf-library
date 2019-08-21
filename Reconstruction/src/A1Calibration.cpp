@@ -18,8 +18,7 @@ int A1Calibration::Initalize() {
 	// Outputs
 	fCal1 = new A1Cal1("a1cal", "");
 	fCal2 = new A1Cal2M("a1cal2", "");
-	
-	
+		
 	// Functions
 	fRawToCal1 = new A1RawToCal1();
 	fRawToCal1->ReadScifiPosTable((char *) paramMAPMTtable.Data());

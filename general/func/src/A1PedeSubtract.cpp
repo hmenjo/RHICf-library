@@ -210,8 +210,9 @@ int A1PedeSubtract::Subtraction1(A1Cal1* data, int op){
     for(int il=0;il<16;il++){
       for(int ir=0;ir<2;ir++){
 	data->cal[it][il][ir]  -= data->cald[it][il][ir]; // delayed pedestal 
+	//data->cal[it][il][ir] -= calav[it][il]; // average pedestal
 	data->cald[it][il][ir] -= pedestal->cald[it][il][ir];
-	
+	//cout << it << " " << il << " " << calav[it][il] << endl;
       }
     }
   }
@@ -265,8 +266,10 @@ int A1PedeSubtract::RHICfSubtraction1(A1Cal1* data, int op){
   for(int it=0;it<2;it++){
     for(int il=0;il<16;il++){
       for(int ir=0;ir<2;ir++){
+	//data->cal[it][il][ir]  -= data->cald[it][il][ir]; // delayed pedestal 
 	data->cal[it][il][ir] -= calav[it][il]; // average pedestal
 	data->cald[it][il][ir] -= pedestal->cald[it][il][ir];
+	//cout << it << " " << il << " " << calav[it][il] << endl;
       }
     }
   }
@@ -345,7 +348,7 @@ int A1PedeSubtract::ReadAveFile(char filename[]){
   }
   ifstream fin(filename);
   double buf[3];
-  
+  //double calav[2][16]; 
   Int_t j=0;
   while(!fin.eof()){
     if(fin.eof()) break;
@@ -355,7 +358,13 @@ int A1PedeSubtract::ReadAveFile(char filename[]){
     j++;
   }
   //fin.Close();
-    
+  //cout <<"Read Average Pedestal " << endl;
+  for(int it =0;it<2; it++){
+    for(int il =0;il<16; il++){
+      //cout << it << " " << il << " " << calav[it][il] << endl;
+    }
+  }
+  
   return OK;
 }
 // ******* A1PedeSubtract::ReadFile  **********************

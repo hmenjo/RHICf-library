@@ -1,12 +1,13 @@
 #ifndef __GSOBARPOSCALC_CPP__
 #define __GSOBARPOSCALC_CPP__
 
-//----------------------------------------------------------------------
-//                       GSObarPosCalc
-// +++ Logs ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-//  13 Sep. 2014: First edited by Y.Makino
-//  21 Aug. 2016: Major updates!
-//----------------------------------------------------------------------
+//================================================================//
+//                                                                //
+//                       GSObarPosCalc                            //
+//          13 Sep. 2014: First edited by Y.Makino                //
+//          21 Aug. 2016: Major updates!                          //
+//                                                                //
+//================================================================//
 
 #include <iostream>
 #include <iomanip>
@@ -18,86 +19,208 @@
 #include <TSpectrum.h>
 #include <TStyle.h>
 #include <TGraph.h>
+#include <TFile.h>
 
 #include "../include/GSObarPosCalc.h"
 
 using namespace std;
 
-const int GSObarPosCalc::NTOWER;
-const int GSObarPosCalc::NLAYER;
-const int GSObarPosCalc::NXY;
-const int GSObarPosCalc::NCH20;
-const int GSObarPosCalc::NCH40;
-double GSObarPosCalc::position_ts[GSObarPosCalc::NLAYER][GSObarPosCalc::NXY][GSObarPosCalc::NCH20]={};
-double GSObarPosCalc::position_tl[GSObarPosCalc::NLAYER][GSObarPosCalc::NXY][GSObarPosCalc::NCH40]={};
-const double GSObarPosCalc::tsp_sigma     = 1.0;
-const double GSObarPosCalc::ratio_threshold = 0.2; // ratio
-const double GSObarPosCalc::distance_threshold = 3.0;
-
+const int    GSObarPosCalc::NTOWER;
+const int    GSObarPosCalc::NLAYER;
+const int    GSObarPosCalc::NXY;
+const int    GSObarPosCalc::NCH20;
+const int    GSObarPosCalc::NCH40;
+double       GSObarPosCalc::position_ts[GSObarPosCalc::NLAYER][GSObarPosCalc::NXY][GSObarPosCalc::NCH20] = {};
+double       GSObarPosCalc::position_tl[GSObarPosCalc::NLAYER][GSObarPosCalc::NXY][GSObarPosCalc::NCH40] = {};
+const double GSObarPosCalc::tsp_sigma           = 1.0;// 1.0
+const double GSObarPosCalc::ratio_threshold     = 0.05; // ratio; 0.2
+const double GSObarPosCalc::distance_threshold  = 3.0;
 int GSObarPosCalc::position_table_ok;
 char name[256];
+char name2[256];
 
-GSObarPosCalc::GSObarPosCalc(){
-	Initialize();
-}
+GSObarPosCalc::GSObarPosCalc(){ Initialize(); }
+GSObarPosCalc::~GSObarPosCalc(){}
 
-GSObarPosCalc::~GSObarPosCalc(){;}
-
-// +++++++++++++++++++++++ CalcPos ++++++++++++++++++++++++++
 int GSObarPosCalc::CalcPos(char* option){
 
 	InitialParamEstimate();
-	IsWorthy();
 	FittingAll();
-
-	/*int trial = 0;
-
-	  while( trial < 1 ){
-
-	  ReconfigParam();
-	  FittingAll();
-
-	  ++trial;
-	  }*/
-
 	return 0;
 }
 
 TF1* get_Lorenzian(int tower, int npeak){
 
 	TF1* func;
-
 	double xmin = 0.0;
 	double xmax = 20.0*(tower+1);
 
-	if( npeak==2 )
-		func = new TF1("multi","[2]*([4]*([0]*0.5)/pow(((x-[1])*(x-[1])+[0]), 1.5) + (1- [4])*([3]*0.5)/pow(((x-[1])*(x-[1])+[3]), 1.5)) + [5] + [8]*([10]*([6]*0.5)/pow(((x-[7])*(x-[7])+[6]), 1.5) + (1- [10])*([9]*0.5)/pow(((x-[7])*(x-[7])+[9]), 1.5))",xmin,xmax);
-	else 
-		func = new TF1("single","[2]*([4]*([0]*0.5)/pow(((x-[1])*(x-[1])+[0]), 1.5) + (1- [4])*([3]*0.5)/pow(((x-[1])*(x-[1])+[3]), 1.5)) +[5]",xmin,xmax);
-
-	//    func = new TF1("lorentzian"," [2]*( [1]/( (x-[0])**2 + [1]**2  ) )/(TMath::Pi()) + [2]*[4]*( [3]/( (x-[0])**2 + [3]**2  ) )/(TMath::Pi())", xmin, xmax);
-	//    func = new TF1("single"," [0] * pow( 1 + pow( (x-[1]/([2]/2)), 2), [3] ) ", xmin, xmax);
+	if(npeak==2){
+		func = new TF1("multi", "[2]*([4]*([0]*0.5)/pow(((x-[1])*(x-[1])+[0]), 1.5) + (1-[4])*([3]*0.5)/pow(((x-[1])*(x-[1])+[3]), 1.5)) + [5] + [8]*([10]*([6]*0.5)/pow(((x-[7])*(x-[7])+[6]), 1.5) + (1-[10])*([9]*0.5)/pow(((x-[7])*(x-[7])+[9]), 1.5))", xmin, xmax);
+	}
+	else{
+		func = new TF1("single", "[2]*([4]*([0]*0.5)/pow(((x-[1])*(x-[1])+[0]), 1.5) + (1-[4])*([3]*0.5)/pow(((x-[1])*(x-[1])+[3]), 1.5)) + [5]", xmin, xmax);
+	}
 
 	return func;
 }
 
-// +++++++++++++++++++++++ Initialize +++++++++++++++++++++++
+void GSObarPosCalc::GetScan(TCanvas* c, int TSlayer, int TLlayer, int iev, int TShit, int TLhit){
+
+	c -> SetName(Form("iev: %d", iev));
+	c -> Divide(2, 2);
+
+	TH1D* h1[4];
+	TSpectrum* spec[4];
+	const int n = 1;
+	const double coe = 0.9;
+	double xpr[4][n], ypr[4][n], xsu[4][n], ysu[4][n];
+	TGraph* grpr[4];// x_prime
+	TGraph* grsu[4];// x_sub
+	TF1* fs[4];// Single fit.
+	TF1* fm[4];// Multi fit.
+	TF1* fm_ori[4];
+	TF1* fe[4];// Each function of multi fit.
+	fe[0] = (TF1*)f_each_draw[1][TLlayer][0][0] -> Clone("fe_0");
+	fe[1] = (TF1*)f_each_draw[1][TLlayer][0][1] -> Clone("fe_1");
+	fe[2] = (TF1*)f_each_draw[1][TLlayer][1][0] -> Clone("fe_2");
+        fe[3] = (TF1*)f_each_draw[1][TLlayer][1][1] -> Clone("fe_3");
+
+	for(int i=0;i<4;i++){
+                fe[i] -> SetLineWidth(1);
+                fe[i] -> SetLineColor(1);
+        }
+	for(int i=0;i<2;i++){
+
+		c -> cd(i+1);
+		h1[i] = (TH1D*)h_gsobar2[0][TSlayer][i] -> Clone(Form("h1_%d", i));
+		gPad -> SetLeftMargin(0.15);
+		gPad -> SetBottomMargin(0.15);
+		h1[i] -> GetXaxis() -> SetLabelSize(0.05);
+		if(i==0) h1[i] -> GetXaxis() -> SetTitle("GSO X bar #");
+		if(i==1) h1[i] -> GetXaxis() -> SetTitle("GSO Y bar #");
+		h1[i] -> GetXaxis() -> SetTitleSize(0.05);
+		h1[i] -> GetYaxis() -> SetLabelSize(0.05);
+		//h1[i] -> GetYaxis() -> SetTitle("Energy deposit (GeV)");
+		h1[i] -> GetYaxis() -> SetTitleSize(0.05);
+                h1[i] -> SetLineColor(1);
+                h1[i] -> SetStats(0);
+                h1[i] -> Draw();
+
+                spec[i] = new TSpectrum();
+                spec[i] -> Search(h1[i], tsp_sigma, "", ratio_threshold);
+
+                xpr[i][0] = x_prime[0][TSlayer][i];
+                ypr[i][0] = coe*y_prime[0][TSlayer][i];
+                grpr[i] = new TGraph(n, xpr[i], ypr[i]);
+                grpr[i] -> SetMarkerStyle(20);
+                grpr[i] -> SetMarkerColor(8);
+                grpr[i] -> Draw("P");
+
+                xsu[i][0] = x_sub[0][TSlayer][i];
+                ysu[i][0] = coe*y_sub[0][TSlayer][i];
+                grsu[i] = new TGraph(n, xsu[i], ysu[i]);
+                grsu[i] -> SetMarkerStyle(20);
+                grsu[i] -> SetMarkerColor(9);
+                grsu[i] -> Draw("P");
+
+                fs[i] = (TF1*)f_single[0][TSlayer][i] -> Clone(Form("fs_%d", i));
+                fs[i] -> SetLineWidth(1);
+                fs[i] -> Draw("same");
+
+                fm[i] = (TF1*)f_multi_draw[0][TSlayer][i] -> Clone(Form("fm_%d", i));
+                fm[i] -> SetLineWidth(1);
+                fm[i] -> SetLineColor(4);
+                fm[i] -> Draw("same");
+		fm_ori[i] = (TF1*)f_multi[0][TSlayer][i] -> Clone(Form("fm_ori_%d", i));
+
+		if(i==0) h1[i] -> SetTitle(Form("[X] S:%0.1f,  M:%0.1f,  %0.1f  Chi2: %f/ %f", 
+					   fs[i]->GetParameter(1), fm_ori[i]->GetParameter(1), fm_ori[i]->GetParameter(7),
+					   GetChi2Single(0, TSlayer, 0, "reduced"), GetChi2Multi(0, TSlayer, 0, "reduced")));
+		if(i==1) h1[i] -> SetTitle(Form("[Y] S:%0.1f,  M:%0.1f,  %0.1f\n  Chi2: %f/ %f", 
+					   fs[i]->GetParameter(1), fm_ori[i]->GetParameter(1), fm_ori[i]->GetParameter(7),
+					   GetChi2Single(0, TSlayer, 1, "reduced"), GetChi2Multi(0, TSlayer, 1, "reduced")));
+
+		c -> cd(i+3);
+                h1[i+2] = (TH1D*)h_gsobar2[1][TLlayer][i] -> Clone(Form("h1_%d", i+2));
+		gPad -> SetLeftMargin(0.15);
+                gPad -> SetBottomMargin(0.15);
+                h1[i+2] -> GetXaxis() -> SetLabelSize(0.05);
+                if(i==0) h1[i+2] -> GetXaxis() -> SetTitle("GSO X bar #");
+                if(i==1) h1[i+2] -> GetXaxis() -> SetTitle("GSO Y bar #");
+                h1[i+2] -> GetXaxis() -> SetTitleSize(0.05);
+                h1[i+2] -> GetYaxis() -> SetLabelSize(0.05);
+                h1[i+2] -> GetYaxis() -> SetTitle("Energy deposit (GeV)");
+                h1[i+2] -> GetYaxis() -> SetTitleSize(0.05);
+		h1[i+2] -> GetYaxis() -> SetTitleOffset(1.2);
+                h1[i+2] -> SetLineColor(1);
+                h1[i+2] -> SetStats(0);
+                h1[i+2] -> Draw();
+
+                spec[i+2] = new TSpectrum();
+                spec[i+2] -> Search(h1[i+2], tsp_sigma, "", ratio_threshold);
+
+                xpr[i+2][0] = x_prime[1][TLlayer][i];
+                ypr[i+2][0] = coe*y_prime[1][TLlayer][i];
+                grpr[i+2] = new TGraph(n, xpr[i+2], ypr[i+2]);
+                grpr[i+2] -> SetMarkerStyle(20);
+                grpr[i+2] -> SetMarkerColor(8);
+                grpr[i+2] -> Draw("P");
+
+                xsu[i+2][0] = x_sub[1][TLlayer][i];
+                ysu[i+2][0] = coe*y_sub[1][TLlayer][i];
+                grsu[i+2] = new TGraph(n, xsu[i+2], ysu[i+2]);
+                grsu[i+2] -> SetMarkerStyle(20);
+                grsu[i+2] -> SetMarkerColor(9);
+                grsu[i+2] -> Draw("P");
+
+                fs[i+2] = (TF1*)f_single[1][TLlayer][i] -> Clone(Form("fs_%d", i+2));
+                fs[i+2] -> SetLineWidth(1);
+                fs[i+2] -> Draw("same");
+
+                fm[i+2] = (TF1*)f_multi_draw[1][TLlayer][i] -> Clone(Form("fm_%d", i+2));
+		//printf("prime height: %f, sub height: %f\n\n", fm[i+2]->Eval(fm[i+2]->GetParameter(1)), fm[i+2]->Eval(fm[i+2]->GetParameter(7)));
+                fm[i+2] -> SetLineWidth(1);
+                fm[i+2] -> SetLineColor(4);
+                fm[i+2] -> Draw("same");
+		fm_ori[i+2] = (TF1*)f_multi[1][TLlayer][i] -> Clone(Form("fm_ori_%d", i+2));
+
+                if(i==0 && nhit_result[1]==2){
+                        fe[0] -> Draw("same");
+                        fe[1] -> Draw("same");
+                }
+                if(i==1 && nhit_result[1]==2){
+                        fe[2] -> Draw("same");
+                        fe[3] -> Draw("same");
+                }
+		
+		if(i==0) h1[i+2] -> SetTitle(Form("[X] S:%0.1f,  M:%0.1f,  %0.1f,  Chi2: %f/ %f",
+                                             fs[i+2]->GetParameter(1), fm_ori[i+2]->GetParameter(1), fm_ori[i+2]->GetParameter(7),
+                                             GetChi2Single(1, TLlayer, 0, "reduced"), GetChi2Multi(1, TLlayer, 0, "reduced")));
+                if(i==1) h1[i+2] -> SetTitle(Form("[Y] S:%0.1f,  M:%0.1f,  %0.1f,  Chi2: %f/ %f",
+                                             fs[i+2]->GetParameter(1), fm_ori[i+2]->GetParameter(1), fm_ori[i+2]->GetParameter(7),
+                                             GetChi2Single(1, TLlayer, 1, "reduced"), GetChi2Multi(1, TLlayer, 1, "reduced")));
+	}
+}
+
 int GSObarPosCalc::Initialize(){
-  
-	// default threshold value 
-	//noise_cut=30.0*0.001;
-	noise_cut = 0.05;
-	//cout << " GSObarPosCalc::Initialize()" << endl;
+
+	noise_cut = 0.02;
+
 	// --- Data container ---
 	for(int ilay=0; ilay<GSObarPosCalc::NLAYER; ++ilay){
 		for(int ixy=0; ixy<GSObarPosCalc::NXY; ++ixy){
 
 			// --- 20mm ---
 			sprintf(name,"h_gsobar_ts_lay%d_xy%d", ilay, ixy);
-			h_gsobar[0][ilay][ixy] = new TH1D(name, name, GSObarPosCalc::NCH20, 0, GSObarPosCalc::NCH20);    
+			sprintf(name2,"h_gsobar2_ts_lay%d_xy%d", ilay, ixy);
+			h_gsobar[0][ilay][ixy] = new TH1D(name, name, GSObarPosCalc::NCH20, 0, GSObarPosCalc::NCH20);
+			h_gsobar2[0][ilay][ixy] = new TH1D(name2, name2, 24, -2, 22);
 			// --- 40mm ---
-			sprintf(name,"h_gsobar_tl_lay%d_xy%d", ilay, ixy); 
-			h_gsobar[1][ilay][ixy] = new TH1D(name, name, GSObarPosCalc::NCH40, 0, GSObarPosCalc::NCH40);   
+			sprintf(name,"h_gsobar_tl_lay%d_xy%d", ilay, ixy);
+			sprintf(name2,"h_gsobar2_tl_lay%d_xy%d", ilay, ixy);
+			h_gsobar[1][ilay][ixy] = new TH1D(name, name, GSObarPosCalc::NCH40, 0, GSObarPosCalc::NCH40);
+			h_gsobar2[1][ilay][ixy] = new TH1D(name2, name2, 44, -2, 42);
 		}
 	}
 
@@ -109,14 +232,13 @@ int GSObarPosCalc::Initialize(){
 			sprintf(name,"g_gsobar_ts_lay%d_xy%d", ilay, ixy);
 			g_gsobar[0][ilay][ixy] = new TGraphErrors(GSObarPosCalc::NCH20);
 			g_gsobar[0][ilay][ixy]->SetName(name);      
-			g_gsobar[0][ilay][ixy]->SetLineWidth( 2 );      
+			g_gsobar[0][ilay][ixy]->SetLineWidth(2);      
 
 			// --- 40mm ---
 			sprintf(name,"g_gsobar_tl_lay%d_xy%d", ilay, ixy);
 			g_gsobar[1][ilay][ixy] = new TGraphErrors(GSObarPosCalc::NCH40);
 			g_gsobar[1][ilay][ixy]->SetName(name);      
-			g_gsobar[1][ilay][ixy]->SetLineWidth( 2 );      
-
+			g_gsobar[1][ilay][ixy]->SetLineWidth(2);      
 		}
 	}
 
@@ -125,23 +247,31 @@ int GSObarPosCalc::Initialize(){
 		for(int ilay=0; ilay<GSObarPosCalc::NLAYER; ++ilay){
 			for(int ixy=0; ixy<GSObarPosCalc::NXY; ++ixy){
 
-				f_single[it][ilay][ixy] = (TF1*) get_Lorenzian(it, 1);
-				f_multi[it][ilay][ixy] = (TF1*) get_Lorenzian(it, 2);
-				f_single[it][ilay][ixy]->SetLineColor( kRed );
-				f_multi[it][ilay][ixy]->SetLineColor( kBlue );
-				f_single[it][ilay][ixy]->SetNpx( 10000 );
-				f_multi[it][ilay][ixy]->SetNpx( 10000 );
+				f_single[it][ilay][ixy] = (TF1*)get_Lorenzian(it, 1);
+				f_multi[it][ilay][ixy] = (TF1*)get_Lorenzian(it, 2);
+				f_multi_draw[it][ilay][ixy] = (TF1*)get_Lorenzian(it, 2);
+				f_single[it][ilay][ixy]->SetLineColor(kRed);
+				f_multi[it][ilay][ixy]->SetLineColor(kBlue);
+				f_multi_draw[it][ilay][ixy]->SetLineColor(kBlue);
+				f_single[it][ilay][ixy]->SetNpx(10000);
+				f_multi[it][ilay][ixy]->SetNpx(10000);
+				f_multi_draw[it][ilay][ixy]->SetNpx(10000);
 
 				for(int imu=0;imu<2;imu++){
 
 					f_each[it][ilay][ixy][imu] = (TF1*) get_Lorenzian(it, 1);
 					f_each[it][ilay][ixy][imu] -> SetLineColor(1);
 					f_each[it][ilay][ixy][imu] -> SetNpx(10000);
+
+					f_each_draw[it][ilay][ixy][imu] = (TF1*) get_Lorenzian(it, 1);
+                                        f_each_draw[it][ilay][ixy][imu] -> SetLineColor(1);
+                                        f_each_draw[it][ilay][ixy][imu] -> SetNpx(10000);
 				}
 			}
 		}
 	}
 
+	// --- TSpectrum ---
 	for(int it=0; it<GSObarPosCalc::NTOWER; ++it){
 		for(int ilay=0; ilay<GSObarPosCalc::NLAYER; ++ilay){
 			for(int ixy=0; ixy<GSObarPosCalc::NXY; ++ixy){
@@ -155,15 +285,22 @@ int GSObarPosCalc::Initialize(){
 
 void GSObarPosCalc::GetEachContribution(int tower){
 
-	for(int il=0;il<2;il++){
+	for(int il=0;il<4;il++){
 		for(int ixy=0;ixy<2;ixy++){
 			for(int imu=0;imu<2;imu++){
 
 				double par[11];
 				f_multi[tower][il][ixy] -> GetParameters(&par[0]);
-
+				//for(int ipar=0;ipar<11;ipar++) printf("par[%d] = %f\n", ipar, par[ipar]);
 				if(imu==0) f_each[tower][il][ixy][imu] -> SetParameters(par[0], par[1], par[2], par[3], par[4], par[5]/2);
 				if(imu==1) f_each[tower][il][ixy][imu] -> SetParameters(par[6], par[7], par[8], par[9], par[10], par[5]/2);
+
+				//if(tower==1 && il==maxlay[tower] && ixy==1) printf("imu=%d, Integral=%f\n", imu, f_each[tower][il][ixy][imu] -> Integral(0, 40));
+
+				f_multi_draw[tower][il][ixy] -> GetParameters(&par[0]);
+                                //for(int ipar=0;ipar<11;ipar++) printf("par[%d] = %f\n", ipar, par[ipar]);
+                                if(imu==0) f_each_draw[tower][il][ixy][imu] -> SetParameters(par[0], par[1], par[2], par[3], par[4], par[5]/2);
+                                if(imu==1) f_each_draw[tower][il][ixy][imu] -> SetParameters(par[6], par[7], par[8], par[9], par[10], par[5]/2);
 			}	
 		}
 	}
@@ -176,7 +313,6 @@ double GSObarPosCalc::GetEachPeakRaw(int it, int il, int ixy, int imu){
 	if(imu==1) pos = GetFitParamMulti(it, il, ixy, 7);
 
 	int posbin = h_gsobar[it][il][ixy] -> FindBin(pos);
-
 	double candidate[3] = {h_gsobar[it][il][ixy]->GetBinContent(posbin-1), 
 			       h_gsobar[it][il][ixy]->GetBinContent(posbin),
 			       h_gsobar[it][il][ixy]->GetBinContent(posbin+1)};
@@ -204,7 +340,6 @@ void GSObarPosCalc::IsWorthy(){
 
 	worthy[0] = 0;
 	worthy[1] = 0;
-
 	int xworthy[2] = {0};
 	int yworthy[2] = {0};
 
@@ -219,7 +354,6 @@ void GSObarPosCalc::IsWorthy(){
 				for(int ibar=0;ibar<nbar;ibar++){
 
 					double edep = h_gsobar[itower][ilayer][ixy] -> GetBinContent(ibar+1);
-					
 					if(edep>noise_cut && ixy==0) xworthy[itower]++;
 					if(edep>noise_cut && ixy==1) yworthy[itower]++;								
 				}
@@ -232,59 +366,39 @@ void GSObarPosCalc::IsWorthy(){
 	}
 }
 
-// +++++++++++++++++++++++ ParamCheck +++++++++++++++++++++++
-void GSObarPosCalc::ParamCheck(){
-
-	cout <<"====== Watch these parameters! ======="<<endl;
-	cout<<"tsp_sigma          : "<<tsp_sigma <<"[GSO-bar, mm equivalent ]"<<endl;
-	cout<<"ratio_threshold    : "<<ratio_threshold <<"[no unit]"<<endl;
-	cout<<"distance_threshold : "<<distance_threshold<<"[mm]"<<endl;
-	cout<<"noise_cut          : "<<noise_cut <<"[GeV]"<<endl;
-	cout<<"======================================="<<endl;
-}
-
-
-// +++++++++++++++++++++++ SetData +++++++++++++++++++++++
 void GSObarPosCalc::SetData(A1Cal1 *data){
 
 	Reset();
-       
+
 	for(int ilay=0; ilay<GSObarPosCalc::NLAYER; ++ilay){
 		for(int ixy=0; ixy<GSObarPosCalc::NXY; ++ixy){
-			for(int ich=0; ich<GSObarPosCalc::NCH20; ++ich)
-				gsobar_ts_tmp[ilay][ixy][ich]=data->scifi0[ilay][ixy][ich];
-			for(int ich=0; ich<GSObarPosCalc::NCH40; ++ich)
-				gsobar_tl_tmp[ilay][ixy][ich]=data->scifi1[ilay][ixy][ich];
+			for(int ich=0; ich<GSObarPosCalc::NCH20; ++ich) gsobar_ts_tmp[ilay][ixy][ich]=data->scifi0[ilay][ixy][ich];
+			for(int ich=0; ich<GSObarPosCalc::NCH40; ++ich) gsobar_tl_tmp[ilay][ixy][ich]=data->scifi1[ilay][ixy][ich];
 		}
 	}
 
 	Fill2Hist();
 }
+
 void GSObarPosCalc::SetData(A1Cal2 *data){
 
 	Reset();
-	
+
 	for(int ilay=0; ilay<GSObarPosCalc::NLAYER; ++ilay){
-	  for(int ixy=0; ixy<GSObarPosCalc::NXY; ++ixy){
-	    for(int ich=0; ich<GSObarPosCalc::NCH20; ++ich) {
-	      //cout << ilay << " " << ixy << " " << ich << " " << setprecision(15) <<  data->scifi0[ilay][ixy][ich]<< endl;
-	      gsobar_ts_tmp[ilay][ixy][ich]=data->scifi0[ilay][ixy][ich];
-	    }
-	    for(int ich=0; ich<GSObarPosCalc::NCH40; ++ich) 
-	      gsobar_tl_tmp[ilay][ixy][ich]=data->scifi1[ilay][ixy][ich];
-	  }
+		for(int ixy=0; ixy<GSObarPosCalc::NXY; ++ixy){
+			for(int ich=0; ich<GSObarPosCalc::NCH20; ++ich) gsobar_ts_tmp[ilay][ixy][ich]=data->scifi0[ilay][ixy][ich];
+			for(int ich=0; ich<GSObarPosCalc::NCH40; ++ich) gsobar_tl_tmp[ilay][ixy][ich]=data->scifi1[ilay][ixy][ich];
+		}
 	}
-	
-	// --- Fill to histograms ---
+
 	Fill2Hist();
 }
 
-// +++++++++++++++++++++++ ReadPositionTable +++++++++++++++++++++++
 void GSObarPosCalc::ReadPositionTable(const char table[]){
 
 	// Reading a file of GSObar-positions 
 	ifstream fin(table);
-	if(!fin) cerr<<"GSObar alignment table does not exist."<<endl;
+	if(!fin) cerr << "GSObarPosCalc::ReadPositionTable - GSObar alignment table does not exist." <<endl;
 
 	char a[256];
 	int tower=0;
@@ -294,7 +408,6 @@ void GSObarPosCalc::ReadPositionTable(const char table[]){
 
 	while(1){
 		fin >> a;
-
 		if(strcmp(a,"DATA_END")==0) break;
 		if(strcmp(a,"GSOBAR")==0){
 			fin >> tower;
@@ -309,24 +422,20 @@ void GSObarPosCalc::ReadPositionTable(const char table[]){
 	position_table_ok=1;
 }
 
-// +++++++++++++++++++++++ Reset +++++++++++++++++++++++
 void GSObarPosCalc::Reset(){
 
 	for(int it=0; it<GSObarPosCalc::NTOWER; ++it){
 		for(int ilay=0; ilay<GSObarPosCalc::NLAYER; ++ilay){
 			for(int ixy=0; ixy<GSObarPosCalc::NXY; ++ixy){
 				h_gsobar[it][ilay][ixy]->Reset();
+				h_gsobar2[it][ilay][ixy]->Reset();
 				g_gsobar[it][ilay][ixy]->Set(0);
 
-				for(int i=0; i<6; ++i){
-
+				for(int i=0; i<6; ++i)
 					f_single[it][ilay][ixy]->SetParameter(i,0);
-					for(int imu=0;imu<2;imu++) f_each[it][ilay][ixy][imu] -> SetParameter(i, 0);					
-				}
-
 				for(int i=0; i<11; ++i){
-
 					f_multi[it][ilay][ixy]->SetParameter(i,0);
+					f_multi_draw[it][ilay][ixy]->SetParameter(i,0);
 				}
 
 				x_prime[it][ilay][ixy] = -1;
@@ -341,39 +450,31 @@ void GSObarPosCalc::Reset(){
 		for(int ixy=0; ixy<GSObarPosCalc::NXY; ++ixy){
 
 			// --- copied signals ---
-			for(int ich=0; ich<GSObarPosCalc::NCH20; ++ich) 
-				gsobar_ts_tmp[ilay][ixy][ich]=0;
-			for(int ich=0; ich<GSObarPosCalc::NCH40; ++ich) 
-				gsobar_tl_tmp[ilay][ixy][ich]=0;
-
-		}
-
-	}
-
-	for(int it=0; it<GSObarPosCalc::NTOWER; ++it){
-		for(int ilay=0; ilay<GSObarPosCalc::NLAYER; ++ilay){
-			for(int ixy=0; ixy<GSObarPosCalc::NXY; ++ixy){
-				nhit_each[it][ilay][ixy]=0;
-			}
+			for(int ich=0; ich<GSObarPosCalc::NCH20; ++ich) gsobar_ts_tmp[ilay][ixy][ich]=0;
+			for(int ich=0; ich<GSObarPosCalc::NCH40; ++ich) gsobar_tl_tmp[ilay][ixy][ich]=0;
 		}
 	}
 
 	for(int it=0; it<GSObarPosCalc::NTOWER; ++it){
 		for(int ilay=0; ilay<GSObarPosCalc::NLAYER; ++ilay){
+			for(int ixy=0; ixy<GSObarPosCalc::NXY; ++ixy) nhit_each[it][ilay][ixy]=0;
+		}
+	}
+
+
+	for(int it=0; it<GSObarPosCalc::NTOWER; ++it){
+		for(int ilay=0; ilay<GSObarPosCalc::NLAYER; ++ilay){
 			for(int ixy=0; ixy<GSObarPosCalc::NXY; ++ixy){
 
-				for(int ip=0; ip<6; ++ip)
-					init_param_single[ip]=0;
-				for(int ip=0; ip<11; ++ip)
-					init_param_multi[ip]=0;
-
+				for(int ip=0; ip<6; ++ip) init_param_single[ip]=0;
+				for(int ip=0; ip<11; ++ip) init_param_multi[ip]=0;
 			}
 		}
 	}
 }
 
 void GSObarPosCalc::Fill2Hist(){
-  
+
 	//  double pede_rms = 0.000006; // eqivalent to ADC count of 3.
 	int ped_rms_adc = 3; //[ADC]
 	double ave_conv_factor = 3.5e5; // [ADC/GeV@1000V]
@@ -395,17 +496,28 @@ void GSObarPosCalc::Fill2Hist(){
 		for(int ixy=0; ixy<GSObarPosCalc::NXY; ++ixy){
 
 			// --- 20mm ---
+			h_gsobar2[0][ilay][ixy]->SetBinContent(1, 0);
+                        h_gsobar2[0][ilay][ixy]->SetBinContent(2, 0);
 			for(int ich=0; ich<GSObarPosCalc::NCH20; ++ich){
 				h_gsobar[0][ilay][ixy]->SetBinContent(ich+1, gsobar_ts_tmp[ilay][ixy][ich]);
+				h_gsobar2[0][ilay][ixy]->SetBinContent(ich+3, gsobar_ts_tmp[ilay][ixy][ich]);
 				//h_gsobar[0][ilay][ixy]->SetBinError(ich+1,  err*gsobar_ts_tmp[ilay][ixy][ich] +  sqrt(ped_rms_gev)  );  
 				//if(ilay==1) printf("tower:0, layer:%d, xy:%d; (%d, %f)\n", ilay, ixy, ich, gsobar_ts_tmp[ilay][ixy][ich]); 
 			}
+			h_gsobar2[0][ilay][ixy]->SetBinContent(23, 0);
+                        h_gsobar2[0][ilay][ixy]->SetBinContent(24, 0);
+
 			// --- 40mm ---
+			h_gsobar2[1][ilay][ixy]->SetBinContent(1, 0);
+                        h_gsobar2[1][ilay][ixy]->SetBinContent(2, 0);
 			for(int ich=0; ich<GSObarPosCalc::NCH40; ++ich){
 				h_gsobar[1][ilay][ixy]->SetBinContent(ich+1, gsobar_tl_tmp[ilay][ixy][ich]);
+				h_gsobar2[1][ilay][ixy]->SetBinContent(ich+3, gsobar_tl_tmp[ilay][ixy][ich]);
 				//h_gsobar[1][ilay][ixy]->SetBinError(ich+1, err*gsobar_tl_tmp[ilay][ixy][ich] + sqrt(ped_rms_gev) );
 				//if(ilay==1) printf("tower:1, layer:%d, xy:%d; (%d, %f)\n", ilay, ixy, ich, gsobar_tl_tmp[ilay][ixy][ich]);
 			}
+                        h_gsobar2[1][ilay][ixy]->SetBinContent(43, 0);
+                        h_gsobar2[1][ilay][ixy]->SetBinContent(44, 0);
 		}
 	}
 
@@ -430,7 +542,6 @@ void GSObarPosCalc::Fill2Hist(){
 	MaskInvalidChannels();
 }
 
-// +++++++++++++++++++++++ MaskInvalidChannels  +++++++++++++++++++++++
 void GSObarPosCalc::MaskInvalidChannels(){
 
 	//--- dead channel ---
@@ -458,13 +569,15 @@ int GSObarPosCalc::ParLimits(){
 				// // multi
 				//printf("%0.1f %0.1f %0.1f\n", hight_lim[0], f_multi[it][ilay][ixy]->GetParameter(2), hight_lim[1]);
 				f_multi[it][ilay][ixy]->SetParLimits(0, width1_lim[0], width1_lim[1]);  // w1 
-				f_multi[it][ilay][ixy]->SetParLimits(1, -1.0, 1.0+20.*(it+1));          // x
+				//f_multi[it][ilay][ixy]->SetParLimits(1, -1.0, 1.0+20.*(it+1));          // x
+				f_multi[it][ilay][ixy]->SetParLimits(1, x_prime[it][maxlay[it]][ixy]-2, x_prime[it][maxlay[it]][ixy]+2);
 				f_multi[it][ilay][ixy]->SetParLimits(2, hight_lim[0], hight_lim[1]);    // h
 				f_multi[it][ilay][ixy]->SetParLimits(3, width2_lim[0], width2_lim[1]);  // w2
 				f_multi[it][ilay][ixy]->SetParLimits(4, ratio_lim[0], ratio_lim[1]);    // ratio
 				//	f_multi[it][ilay][ixy]->SetParLimits(5, -0.001, 0.001);              // base 
 				f_multi[it][ilay][ixy]->SetParLimits(6, width1_lim[0], width1_lim[1]);  // 2w1 
-				f_multi[it][ilay][ixy]->SetParLimits(7, -1.0, 1.0+20.*(it+1));          // 2x
+				//f_multi[it][ilay][ixy]->SetParLimits(7, -1.0, 1.0+20.*(it+1));          // 2x
+				f_multi[it][ilay][ixy]->SetParLimits(7, x_sub[it][maxlay[it]][ixy]-2, x_sub[it][maxlay[it]][ixy]+2);
 				f_multi[it][ilay][ixy]->SetParLimits(8, hight_lim[0], hight_lim[1]);    // 2h
 				f_multi[it][ilay][ixy]->SetParLimits(9, width2_lim[0], width2_lim[1]);  // 2w2
 				f_multi[it][ilay][ixy]->SetParLimits(10, ratio_lim[0], ratio_lim[1]);   // 2ratio
@@ -483,11 +596,8 @@ int GSObarPosCalc::ParLimits(){
 }
 
 int GSObarPosCalc::InitialParamSet(int tower, int layer, int xy, double* param_single, double* param_multi){
-  // for(int i =0;i<6;i++){
-  //   cout << "param_single"<< " " << *(param_single+i) << endl;
-  // }
-  //cout << "set parameter" << endl;
-  // multi
+
+	// multi
 	f_multi[tower][layer][xy]->SetParameters( param_multi );
 
 	// single 
@@ -500,22 +610,24 @@ int GSObarPosCalc::InitialParamEstimate(){
 
 	//  int giveup_fit[]={1, 1};
 
-	// Get maximum energy deposit layer and second maximum deposit one.
+	double max_sumBar[2][4] = {0};// [tower][layer]
+
         for(int it=0; it<2; ++it){
 
-		double edepsum[4] = {0};
+                for(int ilay=0;ilay<4;ilay++){
 
-                for(int ilay=0; ilay<4; ++ilay){
-		  //cout << "GetdE(it, ilay, 0)"<< " " << GetdE(it, ilay, 0) << endl;
-		  edepsum[ilay] += GetdE(it, ilay, 0) + GetdE(it, ilay, 1);
+                        max_sumBar[it][ilay] = GetdE(it, ilay, 0) + GetdE(it, ilay, 1);
                 }
 
-		maxlay[it] = TMath::LocMax(4, edepsum);
-		edepsum[maxlay[it]] = 0;
-		maxlay2[it] = TMath::LocMax(4, edepsum);
+                maxlay[it] = TMath::LocMax(4, max_sumBar[it]);
+                max_sumBar[it][maxlay[it]] = 0;
+                maxlay2[it] = TMath::LocMax(4, max_sumBar[it]);
         }
 
+	//printf("GSOPoaCalc maxlay: %d\n", maxlay[1]);
+
 	//printf("maxlay[0]: %d, maxlay[1]: %d\n", maxlay[0], maxlay[1]);
+
 
 	for(int it=0; it<GSObarPosCalc::NTOWER; ++it){
 
@@ -530,8 +642,8 @@ int GSObarPosCalc::InitialParamEstimate(){
 				y_sub[it][ilay][ixy] = 0;
 
 				// --- Peak search for init params ---
-				sh[it][ilay][ixy]->Search( h_gsobar[it][ilay][ixy], tsp_sigma, "nobackground nodraw goff", ratio_threshold);
-				//	sh[it][ilay][ixy]->Search( h_gsobar[it][ilay][ixy], tsp_sigma, "nobackground", ratio_threshold);
+				//sh[it][ilay][ixy]->Search( h_gsobar[it][ilay][ixy], tsp_sigma, "nobackground nodraw goff", ratio_threshold);
+				sh[it][ilay][ixy]->Search( h_gsobar2[it][ilay][ixy], tsp_sigma, "nodraw goff", ratio_threshold);
 
 				nhit[it][ilay][ixy] = sh[it][ilay][ixy]->GetNPeaks();
 				float* found_peak = sh[it][ilay][ixy]->GetPositionX();
@@ -592,7 +704,6 @@ int GSObarPosCalc::InitialParamEstimate(){
 				// for in case of minus value of y
 				if(y_prime[it][ilay][ixy]<0)  y_prime[it][ilay][ixy] = -y_prime[it][ilay][ixy];
 				if(y_sub[it][ilay][ixy]<0)    y_sub[it][ilay][ixy] = -y_sub[it][ilay][ixy];
-				
 			}
 		}
 	}
@@ -630,9 +741,16 @@ int GSObarPosCalc::InitialParamEstimate(){
                                 //init_param_multi[8] = y_sub[it][ilay][ixy];  // sub hight
                                 init_param_multi[9] = 10.0;     // sub width2
                                 init_param_multi[10] = 0.6;     // sub ratio
-				//cout << it << " " << ilay << " " << ixy << endl;
+
                                 InitialParamSet(it, ilay, ixy, init_param_single, init_param_multi);
+
+				/*if(it==1 && ilay==maxlay[it]) printf("prime: %f, height: %f, sub: %f, height: %f\n\n", 
+								     x_prime[it][ilay][ixy], y_prime[it][ilay][ixy], x_sub[it][maxlay[it]][ixy], y_sub[it][maxlay[it]][ixy]);*/
 			}
+
+			/*if(it==1 && (ilay==0||ilay==1)) printf("a0: %0.1f, a1: %0.1f,   b0: %0.1f, b1: %0.1f\n",
+							     x_prime[it][ilay][0], x_sub[it][ilay][0],
+							     x_prime[it][ilay][1], x_sub[it][ilay][1]);*/
 		}
 	}
 
@@ -645,7 +763,7 @@ void GSObarPosCalc::FittingAll(){
 
 	for(int it=0; it<GSObarPosCalc::NTOWER; ++it){
 
-		if(worthy[it]==1) continue;
+		//if(worthy[it]==0) continue;
 
 		for(int ilay=0; ilay<GSObarPosCalc::NLAYER; ++ilay){
 			for(int ixy=0; ixy<GSObarPosCalc::NXY; ++ixy){
@@ -655,24 +773,28 @@ void GSObarPosCalc::FittingAll(){
 
 				// -- multi --
 				MultiFit(it, ilay, ixy);
+
+				/*if(it==1 && ilay==maxlay[it]) printf("FittingAll(); Prime height: %f, Sub height: %f\n\n", 
+								     f_multi[it][maxlay[it]][ixy]->Eval(f_multi[it][maxlay[it]][ixy]->GetParameter(1)), 
+								     f_multi[it][maxlay[it]][ixy]->Eval(f_multi[it][maxlay[it]][ixy]->GetParameter(7)));*/
 			}
 		}
 	}
 }
 
-// +++++++++++++++++++++++ SingleFit +++++++++++++++++++++++v
 int GSObarPosCalc::SingleFit(int tower, int layer, int xy){
-  //cout << "single fit" << endl;
+
 	return g_gsobar[tower][layer][xy]->Fit( f_single[tower][layer][xy],"QR"); // Q0?
 }
 
-// +++++++++++++++++++++++ MultiFit +++++++++++++++++++++++v
 int GSObarPosCalc::MultiFit(int tower, int layer, int xy){
 
 	return g_gsobar[tower][layer][xy]->Fit( f_multi[tower][layer][xy],"QR");
+
+	//if(tower==1 && layer==maxlay[tower]) return g_gsobar[tower][layer][xy]->Fit( f_multi[tower][layer][xy],"R");
+	//else return g_gsobar[tower][layer][xy]->Fit( f_multi[tower][layer][xy],"QR");
 }
 
-// +++++++++++++++++++++++ GetChi2Single +++++++++++++++++++++++v
 double GSObarPosCalc::GetChi2Single(int tower, int layer, int xy, const char* option=""){
 
 	double chi2 = f_single[tower][layer][xy]->GetChisquare();
@@ -682,9 +804,9 @@ double GSObarPosCalc::GetChi2Single(int tower, int layer, int xy, const char* op
 		return chi2/dof;
 	else
 		return chi2;
+
 }
 
-// +++++++++++++++++++++++ GetChi2Multi +++++++++++++++++++++++v
 double GSObarPosCalc::GetChi2Multi(int tower, int layer, int xy, const char* option=""){
 
 	double chi2 = f_multi[tower][layer][xy]->GetChisquare();
@@ -697,7 +819,6 @@ double GSObarPosCalc::GetChi2Multi(int tower, int layer, int xy, const char* opt
 
 }
 
-// +++++++++++++++++++++++ GetFitParamSingle +++++++++++++++++++++++v
 double GSObarPosCalc::GetFitParamSingle(int tower, int layer, int xy, int param){
 
 	if( param>5 || param<0 ) return -1234;
@@ -707,7 +828,6 @@ double GSObarPosCalc::GetFitParamSingle(int tower, int layer, int xy, int param)
 
 }
 
-// +++++++++++++++++++++++ GetFitParamMulti +++++++++++++++++++++++v
 double GSObarPosCalc::GetFitParamMulti(int tower, int layer, int xy, int param){
 
 	if( param>12 || param<0 ) return -1234;
@@ -716,75 +836,6 @@ double GSObarPosCalc::GetFitParamMulti(int tower, int layer, int xy, int param){
 
 }
 
-// +++++++++++++++++++++++ ReconfigParam +++++++++++++++++++++++v
-int GSObarPosCalc::ReconfigParam(){
-
-	//
-	//
-	// フィッティングのループの中のルーチン。
-	// 各１層目と２層目でフィット結果（カイ２乗）を比較する。
-	// フィット結果がより良いものから、幅、比と位置のパラメータを抜き出して、次のフィットでもう一方が使えるようにする。
-	// 高さは各プレーンの最大値を使う？シングルは良いけども、マルチの場合どうするか？
-	//
-	//
-
-	// for(int it=0; it<2; ++it){
-	//   for(int ixy=0; ixy<2; ++ixy){
-
-	//     // ==== single hit =====
-	//     double chi2dof_1st = GetChi2Single(it,0,ixy,"reduced");
-	//     double chi2dof_2nd = GetChi2Single(it,1,ixy,"reduced");
-	//     double peakh_1st = GetPeakHeightSingle(it, 0, ixy);
-	//     double peakh_2nd = GetPeakHeightSingle(it, 0, ixy);
-
-	//     if( chi2dof_1st > chi2dof_2nd && peakh_2nd > noise_cut ){
-
-	// 	// When 2nd layer fitting was better than that of 1st
-	// 	double hight = TMath::MaxElement( g_gsobar[it][0][ixy]->GetN(), g_gsobar[it][0][ixy]->GetY());
-	// 	if(hight<0) hight=0.000001;
-	// 	double* param = f_single[it][1][ixy]->GetParameters();
-	// 	f_single[it][0][ixy]->SetParameters( param );
-	// 	f_single[it][0][ixy]->SetParameter(2, hight);
-	// 	//	cout<<f_single[it][0][ixy]->GetParameter(2)<<endl;
-
-	//     }else if( chi2dof_1st < chi2dof_2nd && peakh_1st > noise_cut ){
-
-	// 	// When 1st layer fitting was better than that of 2nd
-	//      	double hight = TMath::MaxElement(g_gsobar[it][1][ixy]->GetN(),g_gsobar[it][1][ixy]->GetY());
-	// 	if(hight<0) hight=0.000001;
-	// 	double* param = f_single[it][0][ixy]->GetParameters();
-	// 	f_single[it][1][ixy]->SetParameters( param );
-	// 	f_single[it][1][ixy]->SetParameter(2, hight);
-	//     }else{
-	// 	// In other case, optimization do not be performed. (No idea)
-	//     }
-
-	//     // ==== multi hit ====
-	//     chi2dof_1st = GetChi2Multi(it,0,ixy,"reduced");
-	//     chi2dof_2nd = GetChi2Multi(it,1,ixy,"reduced");
-	//     peakh_1st = GetPeakHeightMulti(it, 0, ixy, 0);
-	//     peakh_2nd = GetPeakHeightMulti(it, 1, ixy, 0);
-	//     double delta_1st = abs( GetFitParamMulti(it, 0, ixy, 1) - GetFitParamMulti(it, 0, ixy, 7) );
-	//     double delta_2nd = abs( GetFitParamMulti(it, 1, ixy, 1) - GetFitParamMulti(it, 1, ixy, 7) );
-
-	//     if( chi2dof_1st > chi2dof_2nd && peakh_2nd > noise_cut && delta_1st > distance_threshold ){
-	//     	double* param = f_multi[it][1][ixy]->GetParameters();
-	//     	f_multi[it][0][ixy]->SetParameters( param );
-
-	//     }else if( chi2dof_1st < chi2dof_2nd && peakh_1st > noise_cut && delta_2nd > distance_threshold ){
-	//     	double* param = f_multi[it][0][ixy]->GetParameters();
-	//     	f_multi[it][1][ixy]->SetParameters( param );
-
-	//     }else{
-	// 	// do nothing	
-	//     }
-	//   }
-	// }
-
-	return 0;
-}
-
-// +++++++++++++++++++++++ GetNumOfPeaksAboveThrehsold  +++++++++++++++++++++++
 int GSObarPosCalc::GetNumOfPeaksAboveThrehsold(int tower, int layer, int xy, char* mode, double threshold){
 
 	int nhit2=0;
@@ -809,18 +860,26 @@ int GSObarPosCalc::GetNumOfPeaksAboveThrehsold(int tower, int layer, int xy, cha
 		if( p_height2 > threshold )
 			++nhit2;
 
-		//TSpectrum
-		if(nhit[tower][layer][xy] < 2)
+		//if(tower==1 && (layer==0||layer==1)) printf("layer: %d, xy: %d, nhit: %d\n", layer, xy, nhit2);
+
+		// TSpectrum
+		if(nhit[tower][layer][xy] < 2){
+
 			nhit2 = 1;
+			f_multi[tower][layer][xy] -> SetParameter(7, f_multi[tower][layer][xy]->GetParameter(1));
+		}	
 
 		double par[11]={};  
 		f_multi[tower][layer][xy]->GetParameters( par );
 
-		// distance
-		if( abs( par[1]-par[7] ) < distance_threshold )
-			nhit2=1;
+		// Distance.
+		if( abs( par[1]-par[7] ) < distance_threshold ){
 
-		// ratio
+			nhit2=1;
+			f_multi[tower][layer][xy] -> SetParameter(7, f_multi[tower][layer][xy]->GetParameter(1));
+		}
+
+		// Peak height ratio.
 		if( p_height2 / p_height1 < ratio_threshold )
 			nhit2=1;
 	}
@@ -828,7 +887,6 @@ int GSObarPosCalc::GetNumOfPeaksAboveThrehsold(int tower, int layer, int xy, cha
 	return nhit2;
 }
 
-// +++++++++++++++++++++++ GetPeakHeightSingle +++++++++++++++++++++++
 double GSObarPosCalc::GetPeakHeightSingle(int tower, int layer, int xy){
 
 	double x1 = f_single[tower][layer][xy]->GetParameter( 1 );
@@ -837,7 +895,7 @@ double GSObarPosCalc::GetPeakHeightSingle(int tower, int layer, int xy){
 	return p_height;
 }
 
-// +++++++++++++++++++++++ GetPeakHeightMulti +++++++++++++++++++++++
+
 double GSObarPosCalc::GetPeakHeightMulti(int tower, int layer, int xy, int peak){
 
 	// if peak==0 -> return bigger one
@@ -857,50 +915,65 @@ double GSObarPosCalc::GetPeakHeightMulti(int tower, int layer, int xy, int peak)
 		return min( h_peak[0], h_peak[1] );
 }
 
-// +++++++++++++++++++++++ EvalNumOfHits +++++++++++++++++++++++v
 int GSObarPosCalc::EvalNumOfHits(int tower){
 
 	for(int il=0; il<4; ++il){
 		for(int ixy=0; ixy<2; ++ixy){
 			nhit_each[tower][il][ixy] = EvalNumOfHits(tower, il, ixy);
+
+			//if(tower==0 && il==maxlay[tower]) printf("tower: %d, il: %d, xy: %d, hit: %d\n", tower, il, ixy, nhit_each[tower][il][ixy]);
 		}
 	}
+	//cout << "" << endl;
 
 	// ==== Judge and Return ====
 
 	// --- Null hit case ---- 
 	int is_null=1;
 	for(int il=0; il<4; ++il){
-		for(int ixy=0; ixy<2; ++ixy){
+		/*for(int ixy=0; ixy<2; ++ixy){
 			if( nhit_each[tower][il][ixy]>0 ) is_null=0;
-		}
+		}*/
+
+		if(il==maxlay[tower] && nhit_each[tower][il][0]>0 && nhit_each[tower][il][1]>0) is_null=0;
 	}
 	if( is_null == 1 ){
 
 		nhit_result[tower] = 0;
 		return nhit_result[tower];
 	}
-	// -----------------------
 
-	// --- Multi hit case ----
-	// 1st-2nd coincidence  
-	for(int ixy=0; ixy<2; ++ixy){
-		if( nhit_each[tower][0][ixy] > 1 && nhit_each[tower][1][ixy] > 1 ){
+	xoverlap = false;
+	yoverlap = false;
 
-			nhit_result[tower] = 2;
-			return nhit_result[tower];
+	for(int ixy=0;ixy<2;ixy++){
+		for(int i=0;i<11;i++){
+			f_multi_draw[tower][maxlay[tower]][ixy] -> SetParameter(i, f_multi[tower][maxlay[tower]][ixy] -> GetParameter(i));
 		}
 	}
+	//if(tower==1) cout << f_multi_draw[tower][maxlay[tower]][0] -> Eval(8.1) << endl;
 
-	// x-y coincidence in 1st or 2nd
-	for(int il=0; il<2; ++il){
-		if( nhit_each[tower][il][0] > 1 && nhit_each[tower][il][1] > 1 ){
+	if(nhit_each[tower][maxlay[tower]][0]==2 && nhit_each[tower][maxlay[tower]][1]==2){
 
-			nhit_result[tower] = 2;
-			return nhit_result[tower];
-		}
+                nhit_result[tower] = 2;
+                return nhit_result[tower];
+        }
+
+	if(f_multi[tower][maxlay[tower]][0]->GetParameter(1)==f_multi[tower][maxlay[tower]][0]->GetParameter(7) && nhit_each[tower][maxlay[tower]][1]==2){
+
+		xoverlap = true;
+		
+		nhit_result[tower] = 2;
+                return nhit_result[tower];
 	}
-	// -----------------------
+
+	if(f_multi[tower][maxlay[tower]][1]->GetParameter(1)==f_multi[tower][maxlay[tower]][1]->GetParameter(7) && nhit_each[tower][maxlay[tower]][0]==2){
+
+		yoverlap = true;
+
+                nhit_result[tower] = 2;
+                return nhit_result[tower];
+	}
 
 	// Otherwise this event is regraded as a single event
 	nhit_result[tower] = 1;
@@ -915,27 +988,24 @@ int GSObarPosCalc::EvalNumOfHits(int tower, int layer, int xy){
 
 	double fit_comp = GetChi2Single(tower, layer, xy, "reduced") / GetChi2Multi(tower, layer, xy, "reduced"); // >1 -> MH is better
 
-	//if( nhit_mh > 1 && fit_comp > 1.0 ) return 2;
-	if(nhit_mh>1) return 2;
+	if( nhit_mh > 1 && fit_comp > 1.0 ) return 2;
+	//if(nhit_mh>1) return 2;
 	if(nhit_sh>0) return 1;
 
 	// otherwise no peak was found
 	return 0;
 }
 
-// +++++++++++++++++++++++ GetdE +++++++++++++++++++++++v
 double GSObarPosCalc::GetdE(int tower, int layer, int xy){
-  
+
 	return h_gsobar[tower][layer][xy]->Integral();
 }
 
-// +++++++++++++++++++++++ GetPeakPos +++++++++++++++++++++++v
 double GSObarPosCalc::GetPeakPos(int tower, int layer, int xy){
 
 	return GetFitParamSingle(tower, layer, xy, 1);
 }
 
-// +++++++++++++++++++++++ GetPeakPosMH +++++++++++++++++++++++v
 double GSObarPosCalc::GetPeakPosMH(int tower, int layer, int xy, int peak){
 
 	double pos=0;
@@ -948,51 +1018,6 @@ double GSObarPosCalc::GetPeakPosMH(int tower, int layer, int xy, int peak){
 	return pos;
 }
 
-// +++++++++++++++++++++++ QuickPos +++++++++++++++++++++++v
-double GSObarPosCalc::QuickPos(int tower, int layer, int xy){
-
-	//
-	// +++ Calc shower peak by using 'centre of mass' +++
-	//
-
-	double pos=0;
-
-	if(tower==0){
-
-		double norm_val = 0;
-		double val = 0;
-
-		for(int ich=0; ich<GSObarPosCalc::NCH20; ++ich){
-			double pos = (double)ich + 0.5; 
-			val       += pos * pow( gsobar_ts_tmp[layer][xy][ich], 3);
-			norm_val  += pow( gsobar_ts_tmp[layer][xy][ich],3);
-		}
-
-		// --- calc CoM ---
-		pos = val/norm_val;	
-
-
-	}else if(tower==1){
-
-		double norm_val = 0;
-		double val = 0;
-
-		for(int ich=0; ich<GSObarPosCalc::NCH40; ++ich){
-			double pos = (double)ich + 0.5; 
-			val       += pos * pow( gsobar_tl_tmp[layer][xy][ich], 3);
-			norm_val  += pow( gsobar_tl_tmp[layer][xy][ich],3);
-		}
-
-		// --- calc CoM ---
-		pos = val/norm_val;	
-
-	}    
-
-	return pos;
-
-}
-
-// +++++++++++++++++++++++ GetMaximumBin +++++++++++++++++++++++v
 int GSObarPosCalc::GetMaximumBin(int tower, int layer, int xy){
 
 	int the_ch = 0;
@@ -1021,8 +1046,7 @@ int GSObarPosCalc::GetMaximumBin(int tower, int layer, int xy){
 	return the_ch + 1;
 }
 
-// +++++++++++++++++++++++ FillMH4Rec +++++++++++++++++++++++
-void GSObarPosCalc::FillMH4Rec(RHICfRec* rec, int tower){
+void GSObarPosCalc::FillMH4Rec(A1Rec* rec, int tower){
 
 	double a1, b1, a2, b2;
 
@@ -1045,10 +1069,33 @@ void GSObarPosCalc::FillMH4Rec(RHICfRec* rec, int tower){
 			param_p2[3] =  GetFitParamMulti(tower, ilay, ixy, 9); // width2
 			param_p2[4] =  GetFitParamMulti(tower, ilay, ixy, 10); // ratio
 
+			if(tower==1 && ilay==maxlay[tower]){
+
+				if(ixy==0){
+
+					a1 = param_p1[1];
+					a2 = param_p2[1];
+				}
+
+				if(ixy==1){
+
+					b1 = param_p1[1];
+					b2 = param_p2[1];
+				}
+			}
+
 			// -- add multi hit --
-			rec->AddMHHit(tower, ilay, ixy, param_p1);
-			rec->AddMHHit(tower, ilay, ixy, param_p2);
+			//rec->AddMHHit(tower, ilay, ixy, param_p1);
+			//rec->AddMHHit(tower, ilay, ixy, param_p2);
 		}
+	}
+
+	if(nhit_result[0]==0 && nhit_result[1]>1){
+
+		/*printf("a1 = %0.1f, b1 = %0.1f, a2 = %0.1f, b2 = %0.1f\n", a1, b1, a2, b2);
+		printf("a1 = %0.1f, b1 = %0.1f, a2 = %0.1f, b2 = %0.1f\n",
+			rec->GetMHPar(1,maxlay[tower],0,0,1), rec->GetMHPar(1,maxlay[tower],1,0,1),
+			rec->GetMHPar(1,maxlay[tower],0,1,1), rec->GetMHPar(1,maxlay[tower],1,1,1));*/
 	}
 }
 

@@ -1,13 +1,11 @@
-#ifndef __GSOBARPOSCALC_H__
-#define __GSOBARPOSCALC_H__
+#ifndef __GSOBARPOSCALC_MINHO_H__
+#define __GSOBARPOSCALC_MINHO_H__
 
-//================================================================//
-//                                                                //
-//                       GSObarPosCalc                            //
-//          13 Sep. 2014: First edited by Y.Makino                //
-//          21 Aug. 2016: Major updates!                          //
-//                                                                //
-//================================================================//
+//-----------------------------------------------------------------
+//                       GSObarPosCalc_minho
+//          13 Sep. 2014: First edited by Y.Makino
+//          21 Aug. 2016: Major updates!
+//-----------------------------------------------------------------
 
 #include <string>
 #include <vector>
@@ -53,9 +51,9 @@ class GSObarPosCalc{
 		bool yoverlap;
 
 	private:
-		int worthy[2];// worthy[itower] = 1 means "itower" is worhty to analyze.
+		int worthy[2]; // worthy[itower] = 1 means "itower" is worhty to analyze.
 
-		int nhit[NTOWER][NLAYER][NXY];// Number of peaks by TSpectrum
+		int nhit[NTOWER][NLAYER][NXY]; // Number of peaks by TSpectrum
 		double x_prime[NTOWER][NLAYER][NXY];
 		double y_prime[NTOWER][NLAYER][NXY];
 		double x_sub[NTOWER][NLAYER][NXY];
@@ -63,20 +61,21 @@ class GSObarPosCalc{
 		double gsobar_ts_tmp[NLAYER][NXY][NCH20]; 
 		double gsobar_tl_tmp[NLAYER][NXY][NCH40];
 		static int position_table_ok; 
-		static double position_ts[NLAYER][NXY][NCH20];// position of each GSO-bar 
+		static double position_ts[NLAYER][NXY][NCH20]; // position of each GSO-bar 
 		static double position_tl[NLAYER][NXY][NCH40]; 
 
 		// Initial parameter for fitting.
 		double init_param_single[6];
 		double init_param_multi[11];
+		int tsp_nhits_each[NTOWER][NLAYER][NXY];
 
 		int nhit_each[NTOWER][NLAYER][NXY];
 		int nhit_result[NTOWER];
 
-		static const double tsp_sigma;// used in TSpectrum::Search()
-		static const double ratio_threshold;// peak ratio
-		static const double distance_threshold;// distance btw two peaks
-		double noise_cut;// A peak bellow this value [GeV] is not regarded as a peak. deflaut is 30 MeV
+		static const double tsp_sigma;// Used in TSpectrum::Search()
+		static const double ratio_threshold;// Ratio
+		static const double distance_threshold;// Distance btw two peaks
+		double noise_cut; // A peak bellow this value [GeV] is not regarded as a peak. deflaut is 30 MeV
 		double ave_cut;
 
 		int maxlay[2];
@@ -92,8 +91,11 @@ class GSObarPosCalc{
 		void ReadPositionTable(const char table[]); 
 
 		void Reset(); 
+
 		void Fill2Hist(); 
 		void MaskInvalidChannels(); 
+
+		void ParamCheck();
 
 		void IsWorthy();
 		int GetWorthy(int itower) { return worthy[itower]; };
@@ -101,36 +103,44 @@ class GSObarPosCalc{
 		int InitialParamSet(int tower, int layer, int xy, double* param_single, double* param_multi); 
 		int InitialParamEstimate();
 		int ParLimits();
-		void ParamCheck();
 
 		int CalcPos(char* option);
 
 		void FittingAll();  
 		int SingleFit(int tower, int layer, int xy);
 		int MultiFit(int tower, int layer, int xy);
+
 		double GetChi2Single(int tower, int layer, int xy, const char* option);
 		double GetChi2Multi(int tower, int layer, int xy, const char* option);
+
 		double GetFitParamSingle(int tower, int layer, int xy, int param);
 		double GetFitParamMulti(int tower, int layer, int xy, int param);
-		double GetPeakHeightSingle(int tower, int layer, int xy);
-                double GetPeakHeightMulti(int tower, int layer, int xy, int peak);
-                double GetPeakPos(int tower, int layer, int xy);
-                double GetPeakPosMH(int tower, int layer, int xy, int peak);
-		void FillMH4Rec(A1Rec* rec, int tower);	
 
 		int GetNumOfPeaksAboveThrehsold(int tower, int layer, int xy, char* mode, double threshold);
+
 		int EvalNumOfHits(int tower, int layer, int xy);
 		int EvalNumOfHits(int tower);
 
+		double GetPeakHeightSingle(int tower, int layer, int xy);
+		double GetPeakHeightMulti(int tower, int layer, int xy, int peak);
+
+		double GetPeakPos(int tower, int layer, int xy);
+		double GetPeakPosMH(int tower, int layer, int xy, int peak);
 		double GetdE(int tower, int layer, int xy);
+
 		int GetMaximumBin(int tower, int layer, int xy);
-		void GetScan(TCanvas* c, int TSlayer, int TLlyaer, int iev, int TShit, int TLhit);
+
+		void FillMH4Rec(A1Rec* rec, int tower);
+
+		void GetScan(TCanvas* c, int TSlayer, int TLlyaer, int iev, int TShit, int TLhit);	
 
 		void GetEachContribution(int tower);
+		
 		double GetEachPeakRaw(int it, int il, int ixy, int imu);
 		double GetEachPeakEstimated(int it, int il, int ixy, int imu);
 		double GetEachIntegral(int it, int il, int ixy, int imu);
 
 		//  ClassDef(foo,1);  
 };
+
 #endif

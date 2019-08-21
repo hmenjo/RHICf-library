@@ -61,7 +61,7 @@
 //    function,  SetPositionBeamCenter(x,y) and  SetPositionBeamPipeCenter(x,y).
 //    An example 
 //         RHICfPhys::SetPositionBeamCenter(1.0,1.0);
-//         RHICfPhys::SetPositionBeamPipeCenter(0.0,20.0);
+//         RHICfPhys::SetPositionBeamPipeCenter(0.0,20.0);  
 //         then 
 //         cout << phys->GlobalPosX_BC() << endl;   
 //    About the detail, see SimP also. 
@@ -79,13 +79,13 @@ ClassImp(RHICfPhys);
 
 #include <iostream>
 #include <iomanip>
-#include <cmath>
+#include <math.h>
 using namespace std;
 
 const int RHICfPhys::ALLPARTICLE;
 const int RHICfPhys::ELEMAG;
 const int RHICfPhys::HADRON;
-const double RHICfPhys::cDistance = 17799.7;
+const double RHICfPhys::cDistance = 141050.;
 const double RHICfPhys::cPi0mass  = 0.1349766;
 
 double RHICfPhys::sPositionBeamCenter[2] = {0.};
@@ -115,7 +115,7 @@ int RHICfPhys::clear(){
     flag[i] = 0;
   }
   
-  return 0;
+  return OK;
 }
 
 // ***********************************************************
@@ -153,7 +153,7 @@ int RHICfPhys::copydata(RHICfPhys* d){
     this->flag[i] = d->flag[i];
   }
 
-  return 0;
+  return OK;
 }
 
 // *****************************************************************

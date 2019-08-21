@@ -48,6 +48,9 @@
 // Added for RHICf 
 #pragma link C++ class RHICfRaw_Op2017;
 #pragma link C++ class RHICfScl_Op2017;
+#pragma link C++ class RHICfSinglePar;
+#pragma link C++ class RHICfPhotonPair;
+#pragma link C++ class RHICfCollection;
 // For Graphs
 #pragma link C++ class A1Cal1AccumHist;
 #pragma link C++ class A1Cal2AccumHist;

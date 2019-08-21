@@ -35,7 +35,8 @@ using namespace std;
 #define   REC_ESCALEFACTOR(i)     (10+i)
 #define  SIZE_CAL                 0
 //#define   CAL_CAL(i,l)            (16*i+l)
-#define  SIZE_POS_INIT           136
+//#define  SIZE_POS_INIT           136
+#define   SIZE_POS_INIT           396
 #define   POS_RES_HITPOS(i,j)     ( 0+i*2+j)                      // i:tower, j:view
 #define   POS_RES_NHITS(i)        ( 4+i)                          // i:tower
 #define   POS_NHITS(a,b,c)        ( 6+8*a+2*b+c)                  // a:tower, b:layer,c:xy 
@@ -60,7 +61,15 @@ using namespace std;
 #define  SIZE_TDC                 0
 #define  SIZE_COUNTER             0 
 
+// *** Newly developed for RHICf *** //
 
+#define   POS_MAXLAY(a)           (232+2*a)
+#define   POS_MAXLAY2(b)           (234+2*b)
+#define   POS_MHPOS(a,b,c,d)      (236+16*a+4*b+2*c+d)                  // a:tower, b:layer, c:xy, d:multi
+#define   POS_MHYHIS(a,b,c,d)     (268+16*a+4*b+2*c+d)
+#define   POS_MHYFUNC(a,b,c,d)    (300+16*a+4*b+2*c+d)
+#define   POS_MHINTEGRAL(a,b,c,d) (332+16*a+4*b+2*c+d)
+#define   POS_CHISQUARE(a,b,c,d)  (364+16*a+4*b+2*c+d)
 
 // -------------------------------------------------------------------
 // -----             CONSTRUCTOR/DESTORACTOR                     -----
@@ -162,7 +171,24 @@ void   A1Rec1::SetBunchNumber(int ib,int d){evinfo[EVINFO_BUNCHNUMBER(ib)] = d;}
 // From flags    
 // Flag from GPIO's (i-th)
 unsigned int A1Rec1::GetFlags(int i){ return flags[FLAGS_FLAGS(i)];}     
-void         A1Rec1::SetFlags(int i, unsigned int d){flags[FLAGS_FLAGS(i)] =d;} 
+void         A1Rec1::SetFlags(int i, unsigned int d){flags[FLAGS_FLAGS(i)] =d;}
+
+// *** Newly developed for RHICf *** //
+bool A1Rec1::IsShowerTrig(){ 
+
+	if((flags[FLAGS_FLAGS(0)] & 0x010)) return true;  
+	else return false;
+}
+bool A1Rec1::IsPi0Trig(){ 
+
+	if((flags[FLAGS_FLAGS(0)] & 0x080)) return true;
+	else return false;
+}
+bool A1Rec1::IsHighEMTrig(){ 
+	if((flags[FLAGS_FLAGS(0)] & 0x200)) return true;
+	else return false;  
+}
+
 // =============== Reconstruction ======================
 // From rec
 // Recommended reconstructed energy (tower)
@@ -339,5 +365,28 @@ int     A1Rec1::GetMHNumberOfHits(int tower){
 void    A1Rec1::SetMHNumberOfHits(int tower, int val){
   pos[POS_MH_NHIT_TOWER(tower)] = val;
 }
+
+// *** Newly developed for RHICf *** //
+
+int A1Rec1::GetMaxBarLayer(int it) { return pos[POS_MAXLAY(it)]; }
+void A1Rec1::SetMaxBarLayer(int it, int d) { pos[POS_MAXLAY(it)] = d; }
+int A1Rec1::GetMaxBarLayer2(int it) { return pos[POS_MAXLAY2(it)]; }
+void A1Rec1::SetMaxBarLayer2(int it, int d) { pos[POS_MAXLAY2(it)] = d; }
+
+double A1Rec1::GetMHPosition(int it, int il, int ixy, int imu) { return pos[POS_MHPOS(it,il,ixy,imu)]; }
+void A1Rec1::SetMHPosition(int it, int il, int ixy, int imu, double d) { pos[POS_MHPOS(it,il,ixy,imu)] = d; }
+double A1Rec1::GetMHPeakRaw(int it, int il, int ixy, int imu) { return pos[POS_MHYHIS(it,il,ixy,imu)]; }
+void A1Rec1::SetMHPeakRaw(int it, int il, int ixy, int imu, double d) { pos[POS_MHYHIS(it,il,ixy,imu)] = d; }
+double A1Rec1::GetMHPeakEstimated(int it, int il, int ixy, int imu) { return pos[POS_MHYFUNC(it,il,ixy,imu)]; }
+void A1Rec1::SetMHPeakEstimated(int it, int il, int ixy, int imu, double d) { pos[POS_MHYFUNC(it,il,ixy,imu)] = d; }
+double A1Rec1::GetMHIntegral(int it, int il, int ixy, int imu) { return pos[POS_MHINTEGRAL(it,il,ixy,imu)]; }
+void A1Rec1::SetMHIntegral(int it, int il, int ixy, int imu, double d) { pos[POS_MHINTEGRAL(it,il,ixy,imu)] = d; }
+
+double A1Rec1::GetChiSquare(int it, int il, int ixy, int imu) { 
+
+	//cout << "dict" << pos[POS_CHISQUARE(it,il,ixy,imu)] << endl;
+	return pos[POS_CHISQUARE(it,il,ixy,imu)]; 
+}
+void A1Rec1::SetChiSquare(int it, int il, int ixy, int imu, double d){ pos[POS_CHISQUARE(it,il,ixy,imu)] = d; }
 
 #endif
