@@ -31,11 +31,11 @@ void A1Reconstruction::Initialize() {
 	paramHitPeakThreshold    = 0.005;    // Not optimized yet
 	paramHitdEThreshold      = 0.05;     // Not optimized yet
 	paramSumdEThreshold      = 0.3;     // Not optimized yet
-	paramGSOLY20mm           = "/crhome/sato.kenta/RHICf/Analysis/RHIC/Reconstruction/tables/151004_dEratio_map_20mm_verTH2D.root";
-	paramGSOLY40mm           = "/crhome/sato.kenta/RHICf/Analysis/RHIC/Reconstruction/tables/151021_dEratio_map_40mm_verTH2D.root";
-	paramShowerLeakagePhoton = "/crhome/sato.kenta/RHICf/Analysis/RHIC/Reconstruction/tables/leakage_arm1_081118.root"; // only for leak-out
-	paramShowerLeakageHadron = "/crhome/sato.kenta/RHICf/Analysis/RHIC/Reconstruction/tables/leakage_arm1_081118.root"; // Not optimized yet
-	paramGSObarPosition      = "/crhome/sato.kenta/RHICf/Analysis/RHIC/Reconstruction/tables/gsobar_postable_160803.tab";
+	paramGSOLY20mm           = "../tables/151004_dEratio_map_20mm_verTH2D.root";
+	paramGSOLY40mm           = "../tables/151021_dEratio_map_40mm_verTH2D.root";
+	paramShowerLeakagePhoton = "../tables/leakage_arm1_081118.root"; // only for leak-out
+	paramShowerLeakageHadron = "../tables/leakage_arm1_081118.root"; // Not optimized yet
+	paramGSObarPosition      = "../tables/gsobar_postable_160803.tab";
 	
 	// Table of Scintillator Light Yield
 	fPosdep = new ScintiPosDepGSO();
@@ -370,21 +370,7 @@ int A1Reconstruction::CorrectionLightYieldPhoton() {
 			
 			x = fRec->GetResultHitPosition(tower, 0);
 			y = fRec->GetResultHitPosition(tower, 1);
-			//cout << x << " " << y << endl;
-			/*
-			if(tower ==0){
-                          if(x < 0.) x = 0.1; 
-                          if(20. < x) x = 19.9;
-                          if(y < 0.) y = 0.1;
-                          if(20. < y) y = 19.9;
-                        }
-                        if(tower ==1){
-                          if(x < 0.) x = 0.1; 
-                          if(40. < x) x = 39.9;
-                          if(y < 0.) y = 0.1;
-                          if(40. < y) y = 39.9; 
-                        }
-			*/
+			
 			fPosdep->Calibration(fCal, tower, x, y);
 		}
 		
@@ -395,32 +381,7 @@ int A1Reconstruction::CorrectionLightYieldPhoton() {
 			x2 = fRec->GetMHPosition(tower, t_layer[tower], 0, 1);
 			y2 = fRec->GetMHPosition(tower, t_layer[tower], 1, 1);
 			
-			//cout << x1 << " " << y1 << " " << x2 << " " << y2 << endl;
-			/*
-			if(tower ==0){
-                          if(x1 < 0) x1 = 0.1; 
-                          if(20 < x1) x1 = 19.9;
-                          if(x2 < 0) x2 = 0.1; 
-                          if(20 < x2) x2 = 19.9;
-                          if(y1 < 0) y1 = 0.1;
-                          if(20 < y1) y1 = 19.9;
-                          if(y2 < 0) y2 = 0.1;
-                          if(20 < y2) y2 = 19.9;
-                        }
-                        if(tower ==1){
-                          if(x1 < 0) x1 = 0.1; 
-                          if(40 < x1) x1 = 39.9;
-                           if(x2 < 0) x2 = 0.1; 
-                           if(40 < x2) x2 = 39,9;
-                          if(y1 < 0) y1 = 0.1;
-                          if(40 < y1) y1 = 39.9;
-                          if(y2 < 0) y2 = 0.1;
-                          if(40 < y2) y2 = 39.9;
-                        }
-			*/
-			
-			//if(fPos->GetHitNum(0)==0) printf("a1 = %0.1f, b1 = %0.1f, a2 = %0.1f, b2 = %0.1f\n", x1, y1, x2, y2);
-			
+						
 			double pRep = 0;
 			double qRep = 0;
 			
