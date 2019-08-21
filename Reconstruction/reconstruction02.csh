@@ -11,6 +11,7 @@ set TMP=`/usr/bin/printf '%08d' $RUN`;
 #INPUTFILE PATH
 set INPUTFILE="/mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/root_files/run${TMP}.root"
 set PEDEFILE="/mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run${TMP}/pede_run${TMP}.root"
+set AVEPEDEFILE="./tables/avarage_pedestal/average_pedestal_run${RUN}.dat"
 #OUTPUT DIRECTORY PATH
 set ANALBASEDIR="/crhome/sato.kenta/RHICf/data/rhicf_2017_reconstruct_lhcfs2"
 set ANALDIR="${ANALBASEDIR}/run${TMP}"
@@ -27,20 +28,15 @@ if(! -e $INPUTFILE )then
 endif
 
 # MAKE DIRECTORY FOR QUICK ANALYSIS RESULTS
-if( ! -d $QUICKANALDIR ) then
+if( ! -d $ANALDIR ) then
     /bin/mkdir -p $QUICKANALDIR
-endif
-
-# MAKE DIRECTORY FOR HISTOGRAMS
-if( ! -d $OUTPUTDIR ) then
-    /bin/mkdir -p $OUTPUTDIR
 endif
   
 cd $WORKDIR 
 
 /bin/date
 echo "--------------Reconstruction -------------------------------"
-$BINDIR/reconstruction02 -i $INPUTFILE -o $RECFILE -p $PEDEFILE -avep $AVEPEDEFILE -run ${RUN} -f ${START} -t ${END}     -b -q 
+$BINDIR/reconstruction02 -i $INPUTFILE -o $RECFILE -p $PEDEFILE -avep $AVEPEDEFILE -run ${RUN} -f ${START} -t ${END}
 
 /bin/date
 

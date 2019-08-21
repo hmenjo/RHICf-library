@@ -31,11 +31,11 @@ void A1Reconstruction::Initialize() {
 	paramHitPeakThreshold    = 0.005;    // Not optimized yet
 	paramHitdEThreshold      = 0.05;     // Not optimized yet
 	paramSumdEThreshold      = 0.3;     // Not optimized yet
-	paramGSOLY20mm           = "../tables/151004_dEratio_map_20mm_verTH2D.root";
-	paramGSOLY40mm           = "../tables/151021_dEratio_map_40mm_verTH2D.root";
-	paramShowerLeakagePhoton = "../tables/leakage_arm1_081118.root"; // only for leak-out
-	paramShowerLeakageHadron = "../tables/leakage_arm1_081118.root"; // Not optimized yet
-	paramGSObarPosition      = "../tables/gsobar_postable_160803.tab";
+	paramGSOLY20mm           = "./tables/151004_dEratio_map_20mm_verTH2D.root";
+	paramGSOLY40mm           = "./tables/151021_dEratio_map_40mm_verTH2D.root";
+	paramShowerLeakagePhoton = "./tables/leakage_arm1_081118.root"; // only for leak-out
+	paramShowerLeakageHadron = "./tables/leakage_arm1_081118.root"; // Not optimized yet
+	paramGSObarPosition      = "./tables/gsobar_postable_160803.tab";
 	
 	// Table of Scintillator Light Yield
 	fPosdep = new ScintiPosDepGSO();
