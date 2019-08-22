@@ -15,22 +15,24 @@ message("PATH(ROOT)  : ${ROOT_LIBRARIES}")
 
 file(GLOB sources 
 			 ${PROJECT_SOURCE_DIR}/suzukilib/*.cpp 
+			 ${PROJECT_SOURCE_DIR}/suzukilib/*.cc
 			 ${PROJECT_SOURCE_DIR}/src/*.cc 
 			 ${PROJECT_SOURCE_DIR}/src/*.cpp)
 file(GLOB headers 
 			 ${PROJECT_SOURCE_DIR}/suzukilib/*.hpp 
 			 ${PROJECT_SOURCE_DIR}/include/*.h )
 
-add_executable(convertor convertor.cc ${sources} ${headers})
 include_directories(${PROJECT_SOURCE_DIR}/include)
 include_directories(${PROJECT_SOURCE_DIR}/../Library/include)
 include_directories(${PROJECT_SOURCE_DIR}/../general/dict/include)
 include_directories(${PROJECT_SOURCE_DIR}/suzukilib/)
 include_directories(${ROOT_INCLUDE_DIR})
 
-set(libraries 	${PROJECT_SOURCE_DIR}/suzukilib/libsuzukiEvent.so
-					${PROJECT_SOURCE_DIR}/../Library/lib/libRHICf.so
+link_directories(${PROJECT_SOURCE_DIR}/suzukilib/)
+
+set(libraries 	${PROJECT_SOURCE_DIR}/../Library/lib/libRHICf.so
 					${PROJECT_SOURCE_DIR}/../general/dict/lib/libLHCfEvent.so)
 
+add_executable(convertor convertor.cc ${sources} ${headers})
 target_link_libraries(convertor ${libraries} ${ROOT_LIBRARIES})
 
