@@ -76,32 +76,6 @@ reconstruction02 : $(SRC_DIR)/reconstruction02.o $(SRC_DIR)/A1Calibration.o $(SR
 
 src/reconstruction02.o :$(INC_DIR)/A1Calibration.h   $(INC_DIR)/A1Reconstruction.h 
 
-adchists : src/adchists.o
-	$(CXX) $(CXXFLAGS) -o $(BIN_DIR)/$@ $^ \
-	$(LIBS) $(ROOTLIBS) $(LHCFLIBS)
-
-sim2exp : $(SRC_DIR)/sim2exp.o 
-	$(CXX) $(CXXFLAGS) -o $(BIN_DIR)/$@ $^ \
-	$(LIBS) $(ROOTLIBS) $(LHCFLIBS) $(RHICFLIB)
-
-makepedestalevents : $(SRC_DIR)/makepedestalevents.o 
-	$(CXX) $(CXXFLAGS) -o $(BIN_DIR)/$@ $^ \
-	$(LIBS) $(ROOTLIBS) $(LHCFLIBS) $(RHICFLIB)
-
-filldaqinfo : src/filldaqinfo.o
-	$(CXX) $(CXXFLAGS) -o $(BIN_DIR)/$@ $^ \
-        $(LIBS) $(ROOTLIBS) $(LHCFLIBS)
-
-src/filldaqinfo.o :$(INC_DIR)/ReadRunData.h $(INC_DIR)/ReadDAQLog.h
-
-drawhistograms :  $(SRC_DIR)/drawhistograms.o
-	$(CXX) $(CXXFLAGS) -o $(BIN_DIR)/$@ $^ \
-	$(LIBS) $(ROOTLIBS) $(LHCFLIBS)
-
-drawcalhists :  $(SRC_DIR)/drawcalhists.o
-	$(CXX) $(CXXFLAGS) -o $(BIN_DIR)/$@ $^ \
-	$(LIBS) $(ROOTLIBS) $(LHCFLIBS)
-
 $(SRC_DIR)/%.o  :  $(SRC_DIR)/%.cpp  $(INC_DIR)/%.h
 	$(CXX) $(CXXFLAGS) $(ROOTCFLAGS) $(OSFLAGS) -c $< -o $@
 
@@ -112,7 +86,7 @@ $(INC_DIR)/%.h :
 
 clean:
 	rm -f *.o */*.o */*~ *~ \#*
-	rm -f $(BIN_DIR)/reconstruction02 $(BIN_DIR)/sim2exp $(BIN_DIR)/makepedestalevents $(BIN_DIR)/adchists $(BIN_DIR)/adchists/filldaqinfo $(BIN_DIR)/drawhistograms $(BIN_DIR)/drawcalhists 
+	rm -f $(BIN_DIR)/reconstruction02 
 
 
 
