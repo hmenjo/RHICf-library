@@ -66,7 +66,7 @@ CXXFLAGS += $(INCALL)
 ROOTLIBS  += -Wl,-rpath,$(ROOTSYS)/lib -lSpectrum -lEG
 ROOTGLIBS += -Wl,-rpath,$(ROOTSYS)/lib
 
-PROGRAMS = reconstruction02 adchists filldaqinfo drawhistograms drawcalhists 
+PROGRAMS = reconstruction02 
 
 all: $(PROGRAMS)
 
