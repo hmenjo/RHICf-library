@@ -1,5 +1,5 @@
-#ifndef __RHICfREC0_CPP__
-#define __RHICfREC0_CPP__
+#ifndef __RHICFREC0_CPP__
+#define __RHICFREC0_CPP__
 
 #include "RHICfRec0.h"
 
@@ -14,7 +14,7 @@ ClassImp(RHICfRec0);
 
 #include <iostream>
 #include <iomanip>
-#include <cmath>
+#include <math.h>
 using namespace std;
 
 // -------------------------------------------------------------------
@@ -29,7 +29,7 @@ using namespace std;
 #define  SIZE_POS       0
 #define  SIZE_PID       0
 #define  SIZE_TDC       0
-#define  SIZE_COUNTER   0
+#define  SIZE_COUNTER   0 
 
 // -------------------------------------------------------------------
 // -----             CONSTRUCTOR/DESTORACTOR                     -----
@@ -55,7 +55,7 @@ int  RHICfRec0::resize(){
 	resize(tdc,     SIZE_TDC);
 	resize(counter, SIZE_COUNTER);
 	clear();
-	return 0;
+	return OK;
 }
 
 int  RHICfRec0::clear(){
@@ -74,7 +74,7 @@ int  RHICfRec0::clear(){
 	clear(pid,      0.);
 	clear(tdc,      0.);
 	clear(counter,  0.);
-	return 0;
+	return OK;
 }
 
 int RHICfRec0::copy(RHICfRec0* d){
@@ -103,18 +103,18 @@ int RHICfRec0::copydata(RHICfRec0* d){
 	copy(this->tdc,    d->tdc);
 	copy(this->counter,d->counter);
 
-	return 0;
+	return OK;
 }
 
 int RHICfRec0::FillToPhys(RHICfPhys* phys){
 	// Fill recommended results to phys
 
 	// Clear the "phys" buffer
-	phys->clear();
+	phys->clear();  
 
 	phys->run     = this->run;
 	phys->gnumber = this->gnumber;
-	phys->number  = this->number;
+	phys->number  = this->number; 
 	phys->time[0] = this->time[0];
 	phys->time[1] = this->time[1];
 
@@ -132,7 +132,7 @@ int RHICfRec0::FillToPhys(RHICfPhys* phys){
 				phys->pos[it][ixy] = GetResultHitPosition(it,ixy);
 			}
 		}
-	}
+	}   
 
 	// Fill PID Result
 	for(int it=0;it<2;it++){
@@ -146,7 +146,7 @@ int RHICfRec0::FillToPhys(RHICfPhys* phys){
 		//}
 	}
 
-	return 0;
+	return OK; 
 }
 
 void RHICfRec0::Show(){
@@ -196,8 +196,8 @@ void RHICfRec0::copy(vector<int> &v, vector<int> &d){
 	if(v.size() < d.size()){
 		resize(v, d.size());
 	}
-	for(int i=0;i<(int)d.size();i++){
-		v[i] = d[i];
+	for(int i=0;i<(int)d.size();i++){ 
+		v[i] = d[i]; 
 	}
 }
 
@@ -205,17 +205,17 @@ void RHICfRec0::copy(vector<unsigned int> &v, vector<unsigned int> &d){
 	if(v.size() < d.size()){
 		resize(v, d.size());
 	}
-	for(int i=0;i<(int)d.size();i++){
-		v[i] = d[i];
+	for(int i=0;i<(int)d.size();i++){ 
+		v[i] = d[i]; 
 	}
 }
 
 void RHICfRec0::copy(vector<double> &v, vector<double> &d){
 	if(v.size() < d.size()){
-		resize(v, d.size());
+		resize(v, d.size());  
 	}
-	for(int i=0;i<(int)d.size();i++){
-		v[i] = d[i];
+	for(int i=0;i<(int)d.size();i++){ 
+		v[i] = d[i]; 
 	}
 }
 
@@ -228,20 +228,20 @@ void RHICfRec0::copy(vector<double> &v, vector<double> &d){
 int    RHICfRec0::GetEventQuality(){return 0;}
 void   RHICfRec0::SetEventQuality(int d){;}
 // Beam Colliding flag
-int    RHICfRec0::GetBeamColConf(){ return 0;}
+int    RHICfRec0::GetBeamColConf(){ return 0;}             
 void   RHICfRec0::SetBeamColConf(int d){;}
 // Bunch Number (RHICf or STAR)
-int    RHICfRec0::GetBunchNumber(int ib){ return 0;}
+int    RHICfRec0::GetBunchNumber(int ib){ return 0;}        
 void   RHICfRec0::SetBunchNumber(int ib,int d){;}
 // =====================  Flags =========================
 // From flags
 // Flag from GPIO's (i-th)
-unsigned int RHICfRec0::GetFlags(int i){ return 0;}
-void         RHICfRec0::SetFlags(int i, unsigned int d){;}
+unsigned int RHICfRec0::GetFlags(int i){ return 0;}     
+void         RHICfRec0::SetFlags(int i, unsigned int d){;} 
 // Analysis Flags 
 // Analysis flag (i-th)
-unsigned int RHICfRec0::GetAnalysisFlags(int i){return 0;}
-void         RHICfRec0::SetAnalysisFlags(int i, unsigned int d){;}
+unsigned int RHICfRec0::GetAnalysisFlags(int i){return 0;} 
+void         RHICfRec0::SetAnalysisFlags(int i, unsigned int d){;} 
 
 // *** Newly developed for RHICf *** //
 
@@ -262,15 +262,15 @@ double RHICfRec0::GetResultEnergy(int it){
 }
 // Recommended reconstructed energy (tower, pid)
 double RHICfRec0::GetResultEnergy(int it,int pid){return 0.;}
-void   RHICfRec0::SetResultEnergy(int it,int pid,double d){;}
+void   RHICfRec0::SetResultEnergy(int it,int pid,double d){;} 
 // Sum dE(layer=0-15) (tower)
-double RHICfRec0::GetSumdE(int it){ return 0;}
+double RHICfRec0::GetSumdE(int it){ return 0;}             
 void   RHICfRec0::SetSumdE(int it,double d){;}
 // Sum dE(layer=1-12) (tower)
-double RHICfRec0::GetSumdE2(int it){ return 0;}
-void   RHICfRec0::SetSumdE2(int it,double d){;}
+double RHICfRec0::GetSumdE2(int it){ return 0;}             
+void   RHICfRec0::SetSumdE2(int it,double d){;} 
 // Shower Leakage parameter (tower)
-double RHICfRec0::GetLeakageOut(int it){ return 0;}
+double RHICfRec0::GetLeakageOut(int it){ return 0;}        
 void   RHICfRec0::SetLeakageOut(int it,double d){;}
 // Correction factor of light yield (tower, layer)
 double RHICfRec0::GetLightYield(int it, int il){ return 0;}
@@ -278,17 +278,13 @@ void   RHICfRec0::SetLightYield(int it, int il, double d){;}
 // Correction factor of energy scale (tower)
 double RHICfRec0::GetEnergyScaleFactor(int it){return 0.;}
 void   RHICfRec0::SetEnergyScaleFactor(int it,double d){;}
-double RHICfRec0::GetType2Energy(int it, int hit){return 0.;}
-void   RHICfRec0::SetType2Energy(int it, int hit, double d){;}
-double RHICfRec0::GetTyep2Position(int it, int ixy, int hit){return 0;}
-void   RHICfRec0::SetTyep2Position(int it, int ixy, int hit, double d){;}
 // ================= Calorimer =========================
 // From cal 
 // Calorimeter dE (tower, layer)
-double RHICfRec0::GetCal(int it, int il){ return 0;}
-void   RHICfRec0::SetCal(int it, int il, double d){;}
+double RHICfRec0::GetCal(int it, int il){ return 0;}        
+void   RHICfRec0::SetCal(int it, int il, double d){;} 
 // FC dE (arm, channel)
-double RHICfRec0::GetFC(int iarm,int ich){ return 0;}
+double RHICfRec0::GetFC(int iarm,int ich){ return 0;}      
 void   RHICfRec0::SetFC(int iarm,int ich,double d){;}
 // Transition fit results
 double RHICfRec0::GetTFitParam(int tower, int ipar){return 0.;}
@@ -306,31 +302,31 @@ double RHICfRec0::GetTMaxLeakin(int tower){return 0.;}
 // ================== Position ========================
 // From pos
 // Recommended hit position results 
-double RHICfRec0::GetResultHitPosition(int it, int ixy){return -1.;}
+double RHICfRec0::GetResultHitPosition(int it, int ixy){return -1.;}    
 void   RHICfRec0::SetResultHitPosition(int it, int ixy,double d){;}
 // Recommended number of hit results (tower)
-int    RHICfRec0::GetResultNumberOfHits(int it){return 0;}
-void   RHICfRec0::SetResultNumberOfHits(int it, int d){;}
+int    RHICfRec0::GetResultNumberOfHits(int it){return 0;}   
+void   RHICfRec0::SetResultNumberOfHits(int it, int d){;}   
 // Number of Hits in the tower (tower,layer,xy)
 int    RHICfRec0::GetNumberOfHits(int it,int il,int ixy){ return 0;}
-void   RHICfRec0::SetNumberOfHits(int it,int il,int ixy, int d){;}
+void   RHICfRec0::SetNumberOfHits(int it,int il,int ixy, int d){;} 
 // Hit Position in each layer (tower,layer,xy)
-double RHICfRec0::GetHitPosition(int it,int il,int ixy){ return 0.;}
-void   RHICfRec0::SetHitPosition(int it,int il,int ixy, double d){;}
+double RHICfRec0::GetHitPosition(int it,int il,int ixy){ return 0.;}    
+void   RHICfRec0::SetHitPosition(int it,int il,int ixy, double d){;} 
 // Strip number with maximum dE (tower,layer,xy)
-double RHICfRec0::GetPeakStrip(int it,int il,int ixy){ return 0;}
-void   RHICfRec0::SetPeakStrip(int it,int il,int ixy, double d){;}
+double RHICfRec0::GetPeakStrip(int it,int il,int ixy){ return 0;}   
+void   RHICfRec0::SetPeakStrip(int it,int il,int ixy, double d){;} 
 // dE at peak (tower,layer,xy)
-double RHICfRec0::GetdEAtPeak(int it,int il,int ixy){ return 0;}
+double RHICfRec0::GetdEAtPeak(int it,int il,int ixy){ return 0;}   
 void   RHICfRec0::SetdEAtPeak(int it,int il,int ixy,double d){;}
-// Saturation flag of silicon middle sample
-int    RHICfRec0::GetSiSatuFlag(int it,int il,int ixy){ return 0;}
+// Saturation flag of silicon middle sample 
+int    RHICfRec0::GetSiSatuFlag(int it,int il,int ixy){ return 0;}   
 void   RHICfRec0::SetSiSatuFlag(int it,int il,int ixy,int d){;}
-// Results of Background Fitting by a linear function
-double RHICfRec0::GetMHBkgPar(int layer, int xy, int ipar){return 0.;}
+// Results of Background Fitting by a linear function 
+double RHICfRec0::GetMHBkgPar(int layer, int xy, int ipar){return 0.;}  
 void   RHICfRec0::SetMHBkgPar(int layer, int xy, int ipar, double val){;}
-// Number of Hits in the layer (layer, xy)
-int    RHICfRec0::GetMHNhits(int layer, int xy){return 0;}
+// Number of Hits in the layer (layer, xy) 
+int    RHICfRec0::GetMHNhits(int layer, int xy){return 0;}         
 void   RHICfRec0::SetMHNhits(int layer, int xy, int nhits){;}
 
 // *** Newly developed for RHICf *** //
@@ -346,16 +342,16 @@ void   RHICfRec0::SetMaxBarLayer2(int it, int d) {;}
 int    RHICfRec0::GetMHParPos(int layer,int xy, int ihits, int ipar){return 0;}
 // Parameter of Multi-hit fitting (layer, xy, ihit, ipar);
 double RHICfRec0::GetMHPar(int layer,int xy, int ihit, int ipar){return 0;}
-// To modify the parameter value.
+// To modify the parameter value. 
 void   RHICfRec0::SetMHPar(int layer,int xy, int ihit, int ipar,double val){;}
 bool   RHICfRec0::GetMHDiscardedFlag(int layer,int xy, int ihit){return true;}
-// Add new the hit parameters
-int    RHICfRec0::AddMHHit(int layer, int xy, double *par){return 0;}
-// Erase the hit in the array.
-int    RHICfRec0::EraseMHHit(int layer, int xy, int ihit){return 0;}
+// Add new the hit parameters  
+int    RHICfRec0::AddMHHit(int layer, int xy, double *par){return OK;}
+// Erase the hit in the array. 
+int    RHICfRec0::EraseMHHit(int layer, int xy, int ihit){return OK;} 
 // Number of hits in the tower (except discarded peaks)
-int    RHICfRec0::GetMHNumberOfHits(int tower){return 0;}
-void   RHICfRec0::SetMHNumberOfHits(int tower, int val){;}
+int    RHICfRec0::GetMHNumberOfHits(int tower){return 0;}             
+void   RHICfRec0::SetMHNumberOfHits(int tower, int val){;} 
 // Each position of MH
 double RHICfRec0::GetMHPosition(int it,int il,int ixy,int imu) {return -1.;}
 void RHICfRec0::SetMHPosition(int it,int il,int ixy, int imu, double d) {;}
@@ -368,23 +364,26 @@ void RHICfRec0::SetMHPeakEstimated(int it,int il,int ixy,int imu, double d) {;}
 // Each dE esimated by integration of each contribution to MH function
 double RHICfRec0::GetMHIntegral(int it,int il,int ixy,int imu) {return -1.;}
 void RHICfRec0::SetMHIntegral(int it,int il,int ixy,int imu, double d) {;}
+// Chi2
+double RHICfRec0::GetChiSquare(int it,int il,int ixy,int imu) {return -1.;}
+void RHICfRec0::SetChiSquare(int it,int il,int ixy,int imu, double d) {;}
 
 // ===================== PID =========================
 // From pid 
 // PID result (tower) 
 int    RHICfRec0::GetResultPID(int it){return -1;}
-void   RHICfRec0::SetResultPID(int it,int d){;}
+void   RHICfRec0::SetResultPID(int it,int d){;}               
 // L20% (tower)
-double RHICfRec0::GetL20(int it){ return 0;}
+double RHICfRec0::GetL20(int it){ return 0;}                  
 void   RHICfRec0::SetL20(int it,double d){;}
-// L90% (tower)
-double RHICfRec0::GetL90(int it){ return 0;}
-void   RHICfRec0::SetL90(int it,double d){;}
+// L90% (tower) 
+double RHICfRec0::GetL90(int it){ return 0;}                   
+void   RHICfRec0::SetL90(int it,double d){;} 
 // L2D  (tower) 
-double RHICfRec0::GetL2D(int it){ return 0;}
-void   RHICfRec0::SetL2D(int it,double d){;}
-// Results of transition fiting (tower, parameter) -> Moved to "cal" for A1Rec3
-double RHICfRec0::GetTransitionFit(int it,int ip){ return 0;}
+double RHICfRec0::GetL2D(int it){ return 0;}                   
+void   RHICfRec0::SetL2D(int it,double d){;} 
+// Results of transition fiting (tower, parameter) -> Moved to "cal" for A2Rec3
+double RHICfRec0::GetTransitionFit(int it,int ip){ return 0;} 
 void   RHICfRec0::SetTransitionFit(int it,int ip,double d){;}
 double RHICfRec0::GetL20wocorr(int tower){return 0.;}
 void   RHICfRec0::SetL20wocorr(int tower, double val){;}
@@ -393,12 +392,12 @@ void   RHICfRec0::SetL90wocorr(int tower, double val){;}
 // ===================== TDC ========================
 // From tdc 
 // TDC value of BPTX (beam 1 or 2)
-double RHICfRec0::GetTDC_BPTX(int ib){ return 0;}
+double RHICfRec0::GetTDC_BPTX(int ib){ return 0;}            
 void   RHICfRec0::SetTDC_BPTX(int ib, double d){;}
 // ================== COUNTER =======================
 // From counter
 // Counter Value (i-th)
-double RHICfRec0::GetCounter(int i){ return 0;}
-void   RHICfRec0::SetCounter(int i,double d){;}
+double RHICfRec0::GetCounter(int i){ return 0;}               
+void   RHICfRec0::SetCounter(int i,double d){;}       
 
 #endif

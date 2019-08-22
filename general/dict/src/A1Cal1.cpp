@@ -319,6 +319,7 @@
 ClassImp(A1Cal1);
 #endif
 
+#include <fstream>
 #include <math.h>
 
 // ***********************************************************
@@ -596,15 +597,23 @@ int A1Cal1::subtract(A1Cal1* d, bankio option){
   // Subtract data of "d" from this
   // (default option:0x1FF)
 
+	//FILE* fped = fopen(Form("/ccj/u/mhkim/RHICf/analysis/Reconstruction/STARdb/ped/plate%d.txt", this->run), "w");
+
   if(option & CAL){
     for(int it=0;it<2;it++){
       for(int il=0;il<16;il++){
 	for(int ir=0;ir<2;ir++){
+		double before = cal[it][il][ir];
 	  this->cal[it][il][ir]  -= d->cal[it][il][ir];
+		double after = cal[it][il][ir];
+
+		//if(ir==0) printf("tower:%d, plate:%d, %f - %f = %f\n", it, il, before, d->cal[it][il][ir], after);
+		//if(ir==0) fprintf(fped, "%f\n", d->cal[it][il][ir]);
 	}
       }
     }  
   }
+	//fclose(fped);
 
   if(option & CALD){
     for(int it=0;it<2;it++){

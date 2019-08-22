@@ -7,6 +7,7 @@
 // --------------------------------------------------------------------
 
 #include <TNamed.h>
+#include "../../general/dict/include/globaldef.h"
 
 class RHICfPhys : public TNamed {
  public:

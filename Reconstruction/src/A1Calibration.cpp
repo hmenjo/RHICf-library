@@ -18,8 +18,7 @@ int A1Calibration::Initalize() {
 	// Outputs
 	fCal1 = new A1Cal1("a1cal", "");
 	fCal2 = new A1Cal2M("a1cal2", "");
-	
-	
+		
 	// Functions
 	fRawToCal1 = new A1RawToCal1();
 	fRawToCal1->ReadScifiPosTable((char *) paramMAPMTtable.Data());
@@ -65,7 +64,7 @@ int A1Calibration::SetAvePedestalFile(const char *filename) {
 int A1Calibration::SetupDefault_RHICfOp2017() {
 	dirLibrary                   = LIBDIR;       // LIBDIR is defined in Makefile
 	//paramPedestalFile            = "";           // No default file
-	paramConversionTable         = dirLibrary + "/tables/170617_conversion_factors_rhicf.tab";
+	paramConversionTable         = "./tables/conversion_factor_RHIC_pp_bar_op_plate.tab";
 	paramHVgainTable             = dirLibrary + "/tables/GainTable_Fit_20170427.txt";
 	paramHvtable                 = dirLibrary + "/config/hvtable_rhicf2017_normal.txt";
 	paramGSObarHVtable           = dirLibrary + "/tables/MAPMTgaintable_20170501.txt";

@@ -25,7 +25,7 @@ class RHICfSimIncidents : public TNamed {
   int     copy(RHICfSimIncidents* );      // not yet
   int     copydata(RHICfSimIncidents* );  // not yet
   
-  virtual void    Delete(Option_t *option=""){particles.Delete();}
+  void    Delete(){particles.Delete();}
   
   int     GetN(){return np;}
   void    Add(RHICfSimP* d);

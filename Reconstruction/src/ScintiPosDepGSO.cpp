@@ -36,10 +36,10 @@ int ScintiPosDepGSO::Init(){
 }
 
 // ++++++++++++++++ SetdEMapArm1 ++++++++++++++++++++
-int ScintiPosDepGSO::SetdEMapArm1(char* map20mm, char* map40mm){
+int ScintiPosDepGSO::SetdEMapArm1(char* map20mm, char* map40mm, char* map20mmhadron, char* map40mmhadron){
 
-	SetdEMap20mm(map20mm);
-	SetdEMap40mm(map40mm);
+	SetdEMap20mm(map20mm, map20mmhadron);
+	SetdEMap40mm(map40mm, map40mmhadron);
 
 	return 0;
 }
@@ -54,7 +54,7 @@ int ScintiPosDepGSO::SetdEMapArm2(char* map25mm, char* map32mm){
 }
 
 // ++++++++++++++++ SetdEMap20mm ++++++++++++++++++++
-int ScintiPosDepGSO::SetdEMap20mm(char* map20mm){
+int ScintiPosDepGSO::SetdEMap20mm(char* map20mm, char* map20mmhadron){
 
 	TFile* fin = new TFile(map20mm,"read");
 	if(!fin) cerr<<"File not found in ScintiPosDepGSO::SetdEMap20mm(char* map20mm)"<<endl;
@@ -70,11 +70,17 @@ int ScintiPosDepGSO::SetdEMap20mm(char* map20mm){
 
 	map20mm_ok = true;
 
+	TFile* fin2 = new TFile(map20mmhadron, "read");
+        if(!fin2) cerr<<"File not found in ScintiPosDepGSO::SetdEMap20mm(char* map20mmhadron)"<<endl;
+
+        demap_20mmhadron = (TH2D*) fin2->Get("h2map_tg0");
+        map20mmhadron_ok = true;	
+
 	return 0;
 }
 
 // ++++++++++++++++ SetdEMap40mm ++++++++++++++++++++
-int ScintiPosDepGSO::SetdEMap40mm(char* map40mm){
+int ScintiPosDepGSO::SetdEMap40mm(char* map40mm, char* map40mmhadron){
 
 	TFile* fin = new TFile(map40mm,"read");
 	if(!fin) cerr<<"File not found in ScintiPosDepGSO::SetdEMap40mm(char* map40mm)"<<endl;
@@ -89,6 +95,12 @@ int ScintiPosDepGSO::SetdEMap40mm(char* map40mm){
 	}
 
 	map40mm_ok = true;
+
+	TFile* fin2 = new TFile(map40mmhadron, "read");
+        if(!fin2) cerr<<"File not found in ScintiPosDepGSO::SetdEMap40mm(char* map40mmhadron)"<<endl;
+                
+        demap_40mmhadron = (TH2D*) fin2->Get("h2map_tg1");
+        map40mmhadron_ok = true;
 
 	return 0;
 }
@@ -136,7 +148,25 @@ double ScintiPosDepGSO::GetEfficiency(int detector, int tower, int layer, double
 	// }
 
 	return eff;
+}
 
+double ScintiPosDepGSO::GetEfficiencyHadron(int detector, int tower, double x, double y){
+        // detector (1/2) <-> (Arm1/Arm2)
+        // tower    (0/1) <-> (TS/TL)
+
+        double eff=0;
+
+        if( detector==1 && tower==0 ){
+                eff = demap_20mmhadron -> Interpolate(x, y);
+        }else if(detector==1 && tower==1 ){
+                eff = demap_40mmhadron -> Interpolate(x, y);
+        }/*else if(detector==2 && tower==0 ){
+                eff = demap_25mm[ layer ]->Interpolate(x, y);
+        }else if(detector==2 && tower==1 ){
+                eff = demap_32mm[ layer ]->Interpolate(x, y);
+        }*/
+
+        return eff;
 }
 
 // ++++++++++++++++ Calibration ++++++++++++++++++++
@@ -158,8 +188,10 @@ int ScintiPosDepGSO::Calibration(A1Cal2* a1cal2, int tower, double x, double y){
 		}
 
 		//if(tower==1 && ilay==1) printf("%0.1f\n", a1cal2->cal[tower][ilay]);
-
+		double Etmp = a1cal2->cal[tower][ilay];
 		a1cal2->cal[tower][ilay] /= eff;
+		//printf("layer:%d, %0.2f / %0.2f = %0.2f\n", ilay, Etmp, eff, a1cal2->cal[tower][ilay]);
+		//a1cal2->cal[tower][ilay] *= (1./0.903);
 
 		//if(tower==1 && ilay==1) printf("%0.1f\n", a1cal2->cal[tower][ilay]);
 		//if(tower==1 && ilay==1) printf("   \n");
@@ -202,7 +234,10 @@ int ScintiPosDepGSO::Calibration(A1Cal2* a1cal2, int tower, double p, double q, 
 		//if(tower==1 && ilay==1) printf("%0.1f\n", a1cal2->cal[tower][ilay]);
 
 		//printf("%f -->", a1cal2->cal[tower][ilay]);
+		double Etmp = a1cal2->cal[tower][ilay];
 		a1cal2->cal[tower][ilay] /= eff1*p+eff2*q;
+		//printf("layer:%d, %0.2f --> %0.2f\n", ilay, Etmp, a1cal2->cal[tower][ilay]);
+		//a1cal2->cal[tower][ilay] *= (1./0.903);
 
 		//printf(" %f\n", a1cal2->cal[tower][ilay]);
 		//if(tower==1 && ilay==1) printf("%0.1f\n", a1cal2->cal[tower][ilay]);
