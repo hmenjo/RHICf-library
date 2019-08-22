@@ -22,7 +22,7 @@
 #include "GParam.h"
 #include "GParamD64.h"
 #include "SPSAdamo.h"
-#include "RHICfCollection.h"
+//#include "RHICfCollection.h"
 //#include "TLHCFSDATA.h"
 #include "A1Raw_pp2015.h"
 #include "A2Raw_pp2015.h"
@@ -90,7 +90,7 @@ class LHCfEvent : public TNamed {
 		A2Phys*     GetA2Phys(const char *name="a2phys"){return (A2Phys*)FindObject(name);}
 		A2Info*     GetA2Info(const char *name="a2info"){return (A2Info*)FindObject(name);}
 		A2Scl*      GetA2Scl(const char *name="a2scl")  {return (A2Scl*)FindObject(name);}
-		RHICfCollection* GetRHICfCollection(const char* name = "rhicfcol") {return (RHICfCollection*)FindObject(name);}
+		//RHICfCollection* GetRHICfCollection(const char* name = "rhicfcol") {return (RHICfCollection*)FindObject(name);}
 		//TLHCFSDATA* GetTLHCFSDATA(const char *name){return (TLHCFSDATA*)FindObject(name);}
 		// For Operation 2015
 		A1Raw_pp2015* GetA1Raw_pp2015(const char *name="a1raw"){return (A1Raw_pp2015*)FindObject(name);}

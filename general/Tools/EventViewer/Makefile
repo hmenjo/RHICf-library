@@ -32,20 +32,19 @@ FUNC_DIR      = $(LIBDIR)/func
 FUNC_INC      = $(FUNC_DIR)/include
 FUNC_SRC      = $(FUNC_DIR)/src
 FUNC_LIB      = $(FUNC_DIR)/lib
-SCNAME        = libLHCfSC.so
-SC_DIR        = $(LIBDIR)/sc
-SC_INC        = $(SC_DIR)/include
-SC_SRC        = $(SC_DIR)/src
-SC_LIB        = $(SC_DIR)/lib
-LHCFLIBS      = $(DICT_LIB)/$(DICTNAME) $(FUNC_LIB)/$(FUNCNAME) \
-                $(SC_LIB)/$(SCNAME)
-LHCFLIBS      += -Wl,-rpath,$(DICT_LIB) -Wl,-rpath,$(FUNC_LIB) -Wl,-rpath,$(SC_LIB)
+#SCNAME        = libLHCfSC.so
+#SC_DIR        = $(LIBDIR)/sc
+#SC_INC        = $(SC_DIR)/include
+#SC_SRC        = $(SC_DIR)/src
+#SC_LIB        = $(SC_DIR)/lib
+LHCFLIBS      = $(DICT_LIB)/$(DICTNAME) $(FUNC_LIB)/$(FUNCNAME) 
+LHCFLIBS      += -Wl,-rpath,$(DICT_LIB) -Wl,-rpath,$(FUNC_LIB) 
 #
 #--------------------------------------------------
 # For this codes
 #
 BIN_DIR       = ./
-INCALL += -I$(DICT_INC) -I$(FUNC_INC) -I$(SC_INC) -I./include 
+INCALL += -I$(DICT_INC) -I$(FUNC_INC) -I./include 
 CDIR    = \"$(shell pwd)\"
 COPTION = -DEVENTVIEWDIR=$(CDIR)
 
