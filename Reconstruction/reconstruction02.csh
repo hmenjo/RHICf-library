@@ -11,7 +11,7 @@ set TMP=`/usr/bin/printf '%08d' $RUN`;
 #INPUTFILE PATH
 set INPUTFILE="/mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/root_files/run${TMP}.root"
 set PEDEFILE="/mnt/lhcfs3/data5/RHICf_DATA1/RHICf_Op2017/quickanalysis_results/run${TMP}/pede_run${TMP}.root"
-set AVEPEDEFILE="./tables/avarage_pedestal/average_pedestal_run${RUN}.dat"
+set AVEPEDEFILE="./tables/average_pedestal/average_pedestal_run${RUN}.dat"
 #OUTPUT DIRECTORY PATH
 set ANALBASEDIR="/crhome/sato.kenta/RHICf/data/rhicf_2017_reconstruct_lhcfs2"
 set ANALDIR="${ANALBASEDIR}/run${TMP}"
