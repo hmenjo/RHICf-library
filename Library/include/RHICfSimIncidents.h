@@ -32,31 +32,29 @@ class RHICfSimIncidents : public TNamed {
   RHICfSimP* Get(int i){return (RHICfSimP*)(particles.At(i));}
   
   int     GetNHit(int id, int it, 
-		  double ke_threshold=0.0,double edgecut=0.0,
-		  double offsetx=RHICfSimP::GetOffset(0), 
-		  double offsety=RHICfSimP::GetOffset(1));
-          // Number of selected RHICfSimP are filled in ref[10];   
-  RHICfSimP* GetHit(int id, int it, int ik=0,double edgecut=0.0,
-		 double offsetx=RHICfSimP::GetOffset(0),
-		 double offsety=RHICfSimP::GetOffset(0));
-  int     GetRefNumber(int i){return ref[i];}
+						double ke_threshold=0.0,double edgecut=0.0,
+						double offsetx=RHICfSimP::GetOffset(0), 
+						double offsety=RHICfSimP::GetOffset(1));
+  // Number of selected RHICfSimP are filled in ref[10];   
+  RHICfSimP*   GetHit(int id, int it, int ik=0,double edgecut=0.0,
+							 double offsetx=RHICfSimP::GetOffset(0),
+							 double offsety=RHICfSimP::GetOffset(0));
+  int          GetRefNumber(int i){return ref[i];}
   RHICfSimP*   GetRef(int i){return Get(ref[i]);}
-          // Can get particle from ref list after execution of GetNHit();   
-
+  // Can get particle from ref list after execution of GetNHit();   
+  
   void    Show(int id=0,int it=0,
-	       double ke_threshold=0.0,double edgecut=0.0,
-	       double offsetx=RHICfSimP::GetOffset(0), 
-	       double offsety=RHICfSimP::GetOffset(1));
+					double ke_threshold=0.0,double edgecut=0.0,
+					double offsetx=RHICfSimP::GetOffset(0), 
+					double offsety=RHICfSimP::GetOffset(1));
   
   // -------- For Analysis ------------------------------ 
   static  double CalPi0Mass(RHICfSimP* p1, RHICfSimP* p2);
   static  double CalPi0Distance(RHICfSimP* p1, RHICfSimP* p2);
   static  double CalPi0Energy(RHICfSimP* p1, RHICfSimP* p2);
-  static  double CalPi0Momentum(RHICfSimP* p1, RHICfSimP* p2,
-				int dir,double offsetx=0.,double offsety=0.);
-                  // [GeV/c] dir: 0=x,1=y,3=z
-  static  double CalPi0Pt(RHICfSimP* p1, RHICfSimP* p2,
-			  double offsetx=0.,double offsety=0.);
+  static  double CalPi0Momentum(RHICfSimP* p1, RHICfSimP* p2, int dir);
+  // [GeV/c] dir: 0=x,1=y,3=z
+  static  double CalPi0Pt(RHICfSimP* p1, RHICfSimP* p2);
   ClassDef(RHICfSimIncidents,1);
 };
 

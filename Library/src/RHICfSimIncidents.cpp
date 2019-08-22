@@ -59,6 +59,8 @@ ClassImp(RHICfSimIncidents);
 #include <math.h>
 using namespace std;
 
+#include <TMath.h>
+
 int RHICfSimIncidents::clear(){
   // Clear the array of RHICfSimP. It don't delete RHICfSimP. 
   run = 0;
@@ -189,70 +191,66 @@ void RHICfSimIncidents::Show(int id,int it,
 }
 
 double RHICfSimIncidents::CalPi0Mass(RHICfSimP* p1, RHICfSimP* p2){
-  // Reconstruction of invariant mass from two partciles.
+  // Reconstruction of invariant mass from two partciles. [MeV]
   // Be careful to use it. some parameters are fixed in this function.
   // 
   double r2;
-  double mass;
-  r2 = (p1->pos[0]-p2->pos[0])*(p1->pos[0]-p2->pos[0])
-    +(p1->pos[1]-p2->pos[1])*(p1->pos[1]-p2->pos[1]);
-  mass = sqrt(p1->energy*p2->energy*r2)/139800.*1000.;
-  return mass;
+  r2 = CalPi0Distance(p1,p2);
+  return  TMath::Sqrt(p1->Energy()*p2->Energy())*r2/RHICfSimP::cDistancefromIP*1000.;
 }
 
 double RHICfSimIncidents::CalPi0Distance(RHICfSimP* p1, RHICfSimP* p2){
   // Calculate the distance between two hit positions.
   double r2;
-  r2 = (p1->pos[0]-p2->pos[0])*(p1->pos[0]-p2->pos[0])
-    +(p1->pos[1]-p2->pos[1])*(p1->pos[1]-p2->pos[1]);
-  return sqrt(r2);
+  r2 = TMath::Power(p1->PosX()-p2->PosX(),2)
+    +TMath::Power(p1->PosX()-p2->PosY(),2);
+  return TMath::Sqrt(r2);
 }
 
 double RHICfSimIncidents::CalPi0Energy(RHICfSimP* p1, RHICfSimP* p2){
   //  return p1->energy + p2->energy;
-  return p1->energy + p2->energy;
+  return p1->Energy() + p2->Energy();
 }
 
-double RHICfSimIncidents::CalPi0Momentum(RHICfSimP* p1, RHICfSimP* p2,
-				    int dir,double offsetx,double offsety){
+double RHICfSimIncidents::CalPi0Momentum(RHICfSimP* p1, RHICfSimP* p2, int dir){
   // Reconstruct the Pi0 momentum from two RHICfSimP.
   // Be careful to use this function
   //  dir   :  0 , 1, 2 for x, y, z
   double mon1,mon2,hitpoint;
+  const double d = RHICfSimP::cDistancefromIP;
   if(dir==0){
-    hitpoint = p1->pos[0] + offsetx;
-    mon1 = p1->energy*(hitpoint/139800.);
-    hitpoint = p2->pos[0] + offsetx;
-    mon2 = p2->energy*(hitpoint/139800.);
+    hitpoint = p1->GPosX_BC();
+    mon1 = p1->Energy()*(hitpoint/d);
+    hitpoint = p2->GPosX_BC();
+    mon2 = p2->Energy()*(hitpoint/d);
     return mon1 + mon2;
   }
   else if(dir==1){
-    hitpoint = p1->pos[1] + offsety;
-    mon1 = p1->energy*(hitpoint/139800.);
-    hitpoint = p2->pos[1] + offsety;
-    mon2 = p2->energy*(hitpoint/139800.);
+    hitpoint = p1->GPosY_BC();
+    mon1 = p1->Energy()*(hitpoint/d);
+    hitpoint = p2->GPosY_BC();
+    mon2 = p2->Energy()*(hitpoint/d);
     return mon1 + mon2;
   }
   else if(dir==2){
-    hitpoint = (p1->pos[0] + offsetx)*(p1->pos[0] + offsetx)
-      +  (p1->pos[1] + offsety)*(p1->pos[1] + offsety);
-    mon1 = p1->energy*sqrt(1-hitpoint/(139800.*139800.)); 
-    hitpoint = (p2->pos[0] + offsetx)*(p2->pos[0] + offsetx)
-      +  (p2->pos[1] + offsety)*(p2->pos[1] + offsety);
-    mon2 = p2->energy*sqrt(1-hitpoint/(139800.*139800.)); 
+    hitpoint = TMath::Power(p1->GPosX_BC(),2) 
+      +  TMath::Power(p2->GPosX_BC(),2); 
+    mon1 = p1->Energy()*TMath::Sqrt(1-hitpoint/(d*d)); 
+	 hitpoint = TMath::Power(p1->GPosY_BC(),2) 
+		+  TMath::Power(p2->GPosY_BC(),2); 
+    mon2 = p2->Energy()*TMath::Sqrt(1-hitpoint/(d*d)); 
     return mon1 + mon2;
   }
   return 0.;
 }
 
-double RHICfSimIncidents::CalPi0Pt(RHICfSimP* p1, RHICfSimP* p2,
-			      double offsetx,double offsety){ 
+double RHICfSimIncidents::CalPi0Pt(RHICfSimP* p1, RHICfSimP* p2){ 
   // Reconstruct the Pi0 Pt from two RHICfSimP.
   // Be careful to use this function
   double px,py;
-  px = CalPi0Momentum(p1,p2,0,offsetx,offsety);
-  py = CalPi0Momentum(p1,p2,1,offsetx,offsety);
-  return sqrt(px*px+py*py);
+  px = CalPi0Momentum(p1,p2,0);
+  py = CalPi0Momentum(p1,p2,1);
+  return TMath::Sqrt(px*px+py*py);
 }
 
 #endif

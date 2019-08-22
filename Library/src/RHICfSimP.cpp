@@ -136,6 +136,9 @@ ClassImp(RHICfSimP);
 #include <math.h>
 using namespace std;
 
+// Static const
+const double RHICfSimP::cDistancefromIP =  17799.7;
+
 // Static valuables.
 double RHICfSimP::sPositionBeamCenter[2] = {0.};
 double RHICfSimP::sPositionBeamPipe[2]   = {0.};
@@ -146,147 +149,80 @@ int RHICfSimP::clear(){
   //  code = 0;
   //  subcode = 0;
   //  charge = 0;
-  pdgcode=0;
-  user = 0;
-  energy = 0;
-  for(int i=0;i<3;i++){
-    pos[i] = 0.;
-    mom[i] = 0.;
-  }
+ 
+  Clear();
   return 1;
 }
 
 
 int RHICfSimP::copy(RHICfSimP* d){
-  // Copy all data, name and tile.
+  // Copy all data
+  // For compatibility with old LHCf class
   
-  this->SetName(d->GetName());
-  this->SetTitle(d->GetTitle());
-  return copydata(d);
+  Copy(*d);
+  return 1;
 }
 
 
 int RHICfSimP::copydata(RHICfSimP* d){
   // Copy only the data 
-
-  this->pdgcode = d->pdgcode;
-  //  this->code = d->code;
-  //  this->subcode = d->subcode;
-  //  this->charge = d->charge;
-  this->user = d->user;
-  this->energy = d->energy;
-  for(int i=0;i<3;i++){
-    this->pos[i] = d->pos[i];
-    this->mom[i] = d->mom[i];
-  }
+  // For compatibility with old LHCf class
+  Copy(*d);
   return 1;
 } 
 
 double RHICfSimP::PosX(){
   // Hit X-position "on the calorimeter surface"
-  // Extraporate the position on End2End surface (the front of TAN) 
-  // to the position on the calorimeter surface by using pos and mom
-  //  const double distanceTANtoCal = 1245.;  //[mm]
-  const double distanceTANtoCal = 0.;  //[mm]
+  // The position is projected to the surface with considering the direction 
+  // of the particle 
+
   double momentum = Momentum();
+  double pos,d,dir;
+  pos  = fPosition.X();
+  d    = cDistancefromIP - fPosition.Z();
+  dir  = fFMomentum.Px()/Momentum();
   if(momentum>0.){
-    return pos[0] + MomX()/momentum*distanceTANtoCal;
+    return pos + d*dir;
   }
   else{
-    return pos[0];
+    return pos;
   }
 }
 
 double RHICfSimP::PosY(){ 
   // Hit Y-position "on the calorimeter surface"
-  // Extraporate the position on End2End surface (the front of TAN) 
-  // to the position on the calorimeter surface by using pos and mom
-  //  const double distanceTANtoCal = 1245.;  //[mm]
-  const double distanceTANtoCal = 0.;  //[mm]
   double momentum = Momentum();
+  double pos,d,dir;
+  pos  = fPosition.Y();
+  d    = cDistancefromIP - fPosition.Z();
+  dir  = fFMomentum.Py()/Momentum();
   if(momentum>0.){
-    return pos[1] + MomY()/momentum*distanceTANtoCal;
+    return pos + d*dir;
   }
   else{
-    return pos[1];
-  } 
+    return pos;
+  }
 }
 
 double RHICfSimP::PosZ(){
   // Hit Z-position "on the calorimeter surface"
-  // return  1398.00 cm (TAN surface) 
-  //        +124.5 cm (From TAN surface to calorimeter surface)
-  //  const double distanceTANtoCal = 1245.;  //[mm]
-  //  const double distancefromIP = 13980.0;  //[mm]
-  const double distanceTANtoCal = 0.;  //[mm]
-  const double distancefromIP = 17799.7;  //[mm]
-  return distancefromIP + distanceTANtoCal;
+  return cDistancefromIP;
 }
 
 double RHICfSimP::KineticEnergy(){
   // Energy() - Mass() 
   // Unit : GeV
-  return energy - Mass();
+  return fFMomentum.Energy() - Mass();
 }
 
 double RHICfSimP::Mass(){
   // Mass of the particle. [GeV]
-  // Mass are given only for the following partciles.
-  //   photon     :  0 
-  //   e+/e-      :  0.000511
-  //   muon       :  0.1056
-  //   pi0        :  0.1350
-  //   pi+/pi-    :  0.1396
-  //   K0         :  0.4977
-  //   K+-        :  0.4937
-  //   p          :  0.9396
-  //   n          :  0.9383
-  //   lambda     :  1.1157
-  //   sigma+     :  1.1894
-  //   sigma-     :  1.1974
-  //   sigma0     :  1.1926
-  //   xi0        :  1.3148
-  //   xi+-       :  1.3213
-  //   eta        :  0.5473
-  //   the others give 0 .
-
-  return TDatabasePDG::Instance()->GetParticle(pdgcode)->Mass();
-
-  /*
-  if(code==1){ return 0;}            // photon
-  if(code==2){ return 0.000511;}     // electron
-  if(code==3){ return 0.1056;}       // muon
-  if(code==4){                       // pion
-    if(charge==0){return 0.1350;}
-    else {return 0.1396;}
-  }
-  if(code==5){                       // keon
-    if(charge==0){return 0.4977;}
-    else{return 0.4937;}
-  }
-  if(code==6){                       // proton, neutron 
-    if(charge==0){return 0.9396;}
-    else{return 0.9383;}
-  }
-  if(code==18){return 1.1157;}       // lambda
-  if(code==19){                      // sigma
-    if(charge==1){return 1.1894;}
-    else if(charge==-1){return 1.1974;}
-    else {return 1.1926;}
-  }
-  if(code==20){                      // xi
-    if(charge==0){return 1.3148;}
-    else{ return 1.3213;}
-  }
-  if(code==28){ return 0.5473;}      // eta
-  return 0.;
-  */
+  return TDatabasePDG::Instance()->GetParticle(fPdgcode)->Mass();
 }
 
 double RHICfSimP::Momentum(){
   // Momentum [GeV]
-  // sqrt(mom[0]*mom[0]+mom[1]*mom[1]+mom[2]*mom[2]);
-  return sqrt(mom[0]*mom[0]+mom[1]*mom[1]+mom[2]*mom[2]);
+  return fFMomentum.P();
 }
 
 void RHICfSimP::CalPos(int id,int it,double &x,double &y,
@@ -457,8 +393,8 @@ void RHICfSimP::Show(int id,int it,double offsetx,double offsety){
   // 
   int check=0;
   double x[3],y[3];
-  if(id==1 || id==2 || id==10 || id==20){
-    if(it==0 || it==1 || it==20 || it==40 || it==25 || it==32){
+  if(id==1 || id==10){
+    if(it==0 || it==1 || it==20 || it==40 ){
       check=1;
       x[0] = CalPosX(id,it,offsetx,offsety);
       y[0] = CalPosY(id,it,offsetx,offsety);
@@ -478,18 +414,16 @@ void RHICfSimP::Show(int id,int it,double offsetx,double offsety){
     x[0] = PosX();
     y[0] = PosY();
   }
+
   ios::fmtflags cflags;
   cflags = cout.flags();
   cout.setf(ios::fixed);
-  //  cout << setw(2) << code << " " 
-  //       << setw(3) << subcode << " "
-  //       << setw(3) << charge << " "
-  cout << setw(8) << pdgcode << " "
-       << setw(5) << user << "  "
+  cout << setw(8) << fPdgcode << " "
+       << setw(5) << fTrackID << "  "
        << setw(8) << setprecision(1) << KineticEnergy() << "   ";
   for(int i=0;i<check;i++){
     cout << setw(6) << setprecision(2) << x[i] << " " 
-	 << setw(6) << setprecision(2) << y[i] << "  ";
+			<< setw(6) << setprecision(2) << y[i] << "  ";
   }
   cout << endl; 
   cout.flags(cflags);
@@ -550,84 +484,102 @@ double RHICfSimP::GlobalPos_BeamPipe(int ixy){
   return PositionShift(ixy, 0.0, 0.0); 
 }
 
-void RHICfSimP::Clear()
+void RHICfSimP::Clear(Option_t* option)
 {
-    Name = "";
-    FMomentum = TLorentzVector(0, 0, 0, 0);
-    Position = TVector3(0, 0, 0);
-    OriginalPName = "";
-    OriginalP4Momentum = TLorentzVector(0, 0, 0, 0);
-    OriginalPPosition = TVector3(0, 0, 0);
-    TrackID = 0;
-    Tower = -1;
+  TNamed::Clear(option);
+  fPdgcode = 0;
+  //fName = "";
+  fFMomentum = TLorentzVector(0, 0, 0, 0);
+  fPosition = TVector3(0, 0, 0);
+  //fOriginalPName = "";
+  //fOriginalP4Momentum = TLorentzVector(0, 0, 0, 0);
+  //fOriginalPPosition = TVector3(0, 0, 0);
+  fTrackID = 0;
+  //fTower = -1;
 }
 
-void RHICfSimP::SetName(TString tmps)
-{
-    Name = tmps;
+void RHICfSimP::Copy(RHICfSimP& obj){
+  TNamed::Copy(obj);
+  fPdgcode = obj.fPdgcode;
+  //fName    = obj.fName;
+  fFMomentum = obj.fFMomentum;
+  fPosition  = obj.fPosition;
+  fTrackID   = obj.fTrackID;
 }
+
+// void RHICfSimP::SetName(TString tmps)
+// {
+//   fName = tmps;
+// }
 
 void RHICfSimP::Set4Momentum(TLorentzVector tmp4vec)
 {
-    FMomentum = tmp4vec;
+  fFMomentum = tmp4vec;
 }
 
 void RHICfSimP::SetPosition(TVector3 tmp3vec)
 {
-    Position = tmp3vec;
+  fPosition = tmp3vec;
 }
 
-void RHICfSimP::SetOriginalPName(TString tmps)
-{
-    OriginalPName = tmps;
-}
+// void RHICfSimP::SetOriginalPName(TString tmps)
+// {
+//   fOriginalPName = tmps;
+// }
 
-void RHICfSimP::SetOriginalP4Momentum(TLorentzVector tmp4vec)
-{
-    OriginalP4Momentum = tmp4vec;
-}
+// void RHICfSimP::SetOriginalP4Momentum(TLorentzVector tmp4vec)
+// {
+//   fOriginalP4Momentum = tmp4vec;
+// }
 
-void RHICfSimP::SetOriginalPPosition(TVector3 tmp3vec)
-{
-    OriginalPPosition = tmp3vec;
-}
+// void RHICfSimP::SetOriginalPPosition(TVector3 tmp3vec)
+// {
+//   fOriginalPPosition = tmp3vec;
+// }
 
 void RHICfSimP::SetTrackID(Int_t tmpi)
 {
-    TrackID = tmpi;
+  fTrackID = tmpi;
 }
 
-void RHICfSimP::SetTower(Int_t tmptower)
-{
-    Tower = tmptower;
-}
+// void RHICfSimP::SetTower(Int_t tmptower)
+// {
+//   fTower = tmptower;
+// }
 
-TVector3 RHICfSimP::GetFramePosition(const Double_t& offset)
-{
-    TVector3 tmpvec3;
-    
-    return tmpvec3;
-}
+// TVector3 RHICfSimP::GetFramePosition(const Double_t& offset)
+// {
+//   TVector3 tmpvec3;
+//   return tmpvec3;
+// }
 
-RHICfSimP::RHICfSimP(const RHICfSimP &rhs): Name(rhs.Name), FMomentum(rhs.FMomentum), Position(rhs.Position), OriginalPName(rhs.OriginalPName), OriginalPPosition(rhs.OriginalPPosition), OriginalP4Momentum(rhs.OriginalP4Momentum), TrackID(rhs.TrackID), Tower(rhs.Tower)
-{
-
-}
+RHICfSimP::RHICfSimP(const RHICfSimP &rhs): fPdgcode(rhs.fPdgcode),
+														  //fName(rhs.fName),
+														  fFMomentum(rhs.fFMomentum), 
+														  fPosition(rhs.fPosition), 
+														  //fOriginalPName(rhs.fOriginalPName),
+														  //fOriginalPPosition(rhs.fOriginalPPosition), 
+														  //fOriginalP4Momentum(rhs.fOriginalP4Momentum), 
+														  fTrackID(rhs.fTrackID)
+														  //fTower(rhs.fTower)
+{;}
 
 RHICfSimP& RHICfSimP::operator=(const RHICfSimP& rhs)
 {
     TNamed::operator=(rhs);
-    Name = rhs.Name;
-    FMomentum = rhs.FMomentum;
-    Position = rhs.Position;
-    OriginalPName = rhs.OriginalPName;
-    OriginalPPosition = rhs.OriginalPPosition;
-    OriginalP4Momentum = rhs.OriginalP4Momentum;
-    TrackID = rhs.TrackID;
-    Tower = rhs.Tower;
+    fPdgcode = rhs.fPdgcode;
+	 //fName = rhs.fName;
+    fFMomentum = rhs.fFMomentum;
+    fPosition = rhs.fPosition;
+    //fOriginalPName = rhs.fOriginalPName;
+    //fOriginalPPosition = rhs.fOriginalPPosition;
+    //fOriginalP4Momentum = rhs.fOriginalP4Momentum;
+    fTrackID = rhs.fTrackID;
+    //fTower = rhs.fTower;
     return *this;
-
 }
+
+
   
 
 #endif
