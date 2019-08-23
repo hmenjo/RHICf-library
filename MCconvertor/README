@@ -1,7 +1,9 @@
 Steps for compiling the convertor 
 
 1. Compile suzuki library
-   go to suzukilib and "make"
-
+   go to suzukilib and "make cleanall" and "make"
+	
 2. Cmake and make 
    go to ./build and "cmake ..", then "make"
+   if you cmake in CCJ, please add cmake option 
+   "cmake -DCMAKE_CXX_COMPILER=/ccj/w/r01/RHICf/linux5/local/gcc-4.9.2/bin/c++-4.9.2 -DCMAKE_C_COMPILER=/ccj/w/r01/RHICf/linux5/local/gcc-4.9.2/bin/gcc-4.9.2 ../"

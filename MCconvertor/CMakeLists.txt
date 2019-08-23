@@ -9,7 +9,7 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} $ENV{ROOTSYS}/etc/cmake)
 #list(APPEND CMAKE_PREFIX_PATH /ccj/w/r01/RHICf/linux5/opt/root_v5.34.36)
 #set(CMAKE_MODULE_PATH /ccj/w/r01/RHICf/linux5/opt/root_v5.34.36/etc/cmake ${CMAKE_MODULE_PATH})
 
-find_package(ROOT REQUIRED COMPONENTS RIO Net)
+find_package(ROOT REQUIRED COMPONENTS RIO Net EG)
 message("PATH(CMAKE) : ${CMAKE_MODULE_PATH}")
 message("PATH(ROOT)  : ${ROOT_LIBRARIES}")
 
