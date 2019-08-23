@@ -82,7 +82,7 @@ int A1Reconstruction::SetData(A1Cal2M *cal){
 	fCalOrg->copy(cal);
 
 	// Bunch offset.
-	ifstream fbunch("/ccj/w/r01/mhkim/RHICf/analysis/tables/bunchoffset.dat");
+	ifstream fbunch("./tables/bunchoffset.dat");
 	int runnum;
 	while(!fbunch.eof()){
 		fbunch >> runnum;
