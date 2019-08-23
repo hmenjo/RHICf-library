@@ -36,7 +36,7 @@ cd $WORKDIR
 
 /bin/date
 echo "--------------Reconstruction -------------------------------"
-$BINDIR/reconstruction02 -i $INPUTFILE -o $RECFILE -p $PEDEFILE -avep $AVEPEDEFILE -run ${RUN} -f ${START} -t ${END}
+$BINDIR/reconstruction02 -r TS -i $INPUTFILE -o $RECFILE -p $PEDEFILE -avep $AVEPEDEFILE -f ${START} -t ${END}
 
 /bin/date
 
