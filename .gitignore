@@ -1,0 +1,53 @@
+# Prerequisites
+*.d
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+
+# Emacs old files
+*~
+
+# Files depending on the ROOT version
+libLHCfEvent.*
+libLHCfFunction.*
+libLHCfSC.*
+libRHICf.*
+/MCconvertor/suzukilib/dict.*
+libRHICfrootFunctions.*
+libEventView.*
+
+# build directory 
+/MCconvertor/build/*
+
+# binary files
+RHICfroot
+/Utility/makehistograms/bin/*
+eventview
+

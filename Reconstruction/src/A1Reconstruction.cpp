@@ -36,14 +36,17 @@ int A1Reconstruction::Initialize(){
 	TString dirLibrary = LIBDIR;
 	TString dirWork = WORKDIR;
 
+	// Energy threshold criteria for hit detection
+	cEnergyThreshold = 10.;
+
 	// Leakage-out correction.
 	paramGSOLY20mm = dirWork + "/tables/" + runtype + "/leakageout_verTH2D_photon.root";
-        paramGSOLY40mm = dirWork + "/tables/" + runtype + "/leakageout_verTH2D_photon.root";
+	paramGSOLY40mm = dirWork + "/tables/" + runtype + "/leakageout_verTH2D_photon.root";
 	paramGSOLY20mmHadron = dirWork + "/tables/" + runtype + "/leakageout_verTH2D_neutron.root";
-        paramGSOLY40mmHadron = dirWork + "/tables/" + runtype + "/leakageout_verTH2D_neutron.root";
+	paramGSOLY40mmHadron = dirWork + "/tables/" + runtype + "/leakageout_verTH2D_neutron.root";
 	fPosdep = new ScintiPosDepGSO();
-        fPosdep->SetdEMapArm1((char *) paramGSOLY20mm.Data(), (char *) paramGSOLY40mm.Data(), 
-                              (char *) paramGSOLY20mmHadron.Data(), (char *) paramGSOLY40mmHadron.Data());
+	fPosdep->SetdEMapArm1((char *) paramGSOLY20mm.Data(), (char *) paramGSOLY40mm.Data(), 
+								 (char *) paramGSOLY20mmHadron.Data(), (char *) paramGSOLY40mmHadron.Data());
 	// Leakage-in correction.
 	paramShowerLeakagePhoton = dirWork + "/tables/" + runtype + "/leakagein_verTH2D_photon.root";
 	paramShowerLeakageHadron = dirLibrary + "/tables/leakage_arm1_081118.root";// Not optimized yet.
@@ -111,7 +114,8 @@ int A1Reconstruction::Reconstruct(){
 
 	ReconstructPID();
 	ReconstructHitPosition();
-	if(fPos->GetWorthy(0)>0 || fPos->GetWorthy(1)>0) ReconstructEnergy();
+	
+	if(fPos->GetWorthy(0)>0 || fPos->GetWorthy(1)>0) ReconstructEnergy();	
 
 	return 0;
 }
@@ -165,8 +169,8 @@ int A1Reconstruction::ReconstructPID(){
 	fRec->SetL90(1, L90[1]);
 
 	for(int itower=0; itower<2; itower++){
-		if(8<fRec->GetL90(itower) && fRec->GetL90(itower)<18) fRec->SetResultPID(itower, A1Phys::ELEMAG);
-		else fRec->SetResultPID(itower, A1Phys::HADRON);
+		if(8<fRec->GetL90(itower) && fRec->GetL90(itower)<18) fRec->SetResultPID(itower, RHICfPhys::ELEMAG);
+		else fRec->SetResultPID(itower, RHICfPhys::HADRON);
 	}
 
 	return 0;
@@ -210,15 +214,15 @@ int A1Reconstruction::ReconstructHitPosition(){
 
 					// Hit position.
 					double pos = fPos->GetPeakPos(it, il, ixy);
-                                        fRec->SetHitPosition(it, il, ixy, pos);
+					fRec->SetHitPosition(it, il, ixy, pos);
 
 					// Bin position.
 					int bin = fPos->GetMaximumBin(it, il, ixy);
-                                        fRec->SetPeakPosition( it, il, ixy, bin);
+					fRec->SetPeakPosition( it, il, ixy, bin);
 
 					// Peak height.
 					double peakheight = fPos -> GetPeakHeightSingle(it, il, ixy);
-                                        fRec->SetdEAtPeak( it, il, ixy, peakheight);
+					fRec->SetdEAtPeak( it, il, ixy, peakheight);
 
 					// Number of hits in each layer
 					int nhiteach = fPos->EvalNumOfHits(it, il, ixy);
@@ -228,20 +232,20 @@ int A1Reconstruction::ReconstructHitPosition(){
 					double chi2 = fPos -> GetChi2Single(it, il, ixy, "reduced");
 					fRec -> SetChiSquare(it, il, ixy, 0, chi2);
 					chi2 = fPos -> GetChi2Multi(it, il, ixy, "reduced");
-                                        fRec -> SetChiSquare(it, il, ixy, 1, chi2);
+					fRec -> SetChiSquare(it, il, ixy, 1, chi2);
 				}
 			}
 			// Final hit position.
-                        double posx = fPos->GetPeakPos(it, t_layer[it], 0);
-                        double posy = fPos->GetPeakPos(it, t_layer[it], 1);
-                        fRec->SetResultHitPosition(it, 0, posx);
-                        fRec->SetResultHitPosition(it, 1, posy);
-
-                        // Number of hits.
-                        nhit[it] = fPos->EvalNumOfHits(it);
-                        fRec->SetResultNumberOfHits(it, nhit[it]);
+			double posx = fPos->GetPeakPos(it, t_layer[it], 0);
+			double posy = fPos->GetPeakPos(it, t_layer[it], 1);
+			fRec->SetResultHitPosition(it, 0, posx);
+			fRec->SetResultHitPosition(it, 1, posy);
+			
+			// Number of hits.
+			nhit[it] = fPos->EvalNumOfHits(it);
+			fRec->SetResultNumberOfHits(it, nhit[it]);
 		}
-
+		
 		// Multi hit.
 		double a1, b1, a2, b2;
 		for(int it=0; it<2; ++it){
@@ -281,19 +285,21 @@ int A1Reconstruction::ReconstructHitPosition(){
 		}
 	}
 
-	/*if(fPos->EvalNumOfHits(0)>=2){                                                                                                                       
-		fRec->SetMHNumberOfHits(0,2);                                                                                                                         
-		fPos->FillMH4Rec(fRec, 0);                                                                                                                              
+	/*if(fPos->EvalNumOfHits(0)>=2){   
+		fRec->SetMHNumberOfHits(0,2);       
+		fPos->FillMH4Rec(fRec, 0);     
 	} 
 	if(fPos->EvalNumOfHits(1)>=2){ 
-		fRec->SetMHNumberOfHits(1,2);                                    
-		fPos->FillMH4Rec(fRec, 1);                                                                                                                              
+		fRec->SetMHNumberOfHits(1,2);  
+		fPos->FillMH4Rec(fRec, 1); 
 	}*/
 
 	return 0;
 }
 
 int A1Reconstruction::ReconstructEnergy(){
+
+  //----------------------- Photon and Pi0 -----------------------------------//
 
 	// Hit decision by using sum dE
 	for (int tower=0; tower<2; ++tower){
@@ -302,26 +308,43 @@ int A1Reconstruction::ReconstructEnergy(){
 		fRec->SetSumdE2(tower, fCal->calsum2(tower, 1, 11));
 		/*if (fRec->GetResultNumberOfHits(tower) > 0 && sumdE < paramSumdEThreshold)
 			fRec->SetResultNumberOfHits(tower, -3);*/
+
+		// Check the number of hits with the value of simplified energy reconstruction. 
+		if( ReconstructEnergyPhotonSimple(tower) < cEnergyThreshold ){
+		  fRec->SetResultNumberOfHits(tower,0); //  Kill the hit if E<threshold
+		} 
 	}
 
 	// Type-I pi0.
-	if (fRec->GetResultNumberOfHits(0)==1 && fRec->GetResultNumberOfHits(1)==1) ReconstructEnergyPhotonDouble();
+	if (fRec->GetResultNumberOfHits(0)>0 && fRec->GetResultNumberOfHits(1)>1) {
+	  ReconstructEnergyPhotonDouble();
+	  
+	  // Check the number of hits again
+	  for(int it=0;it<2;it++){
+		 double energy = fRec->GetResultEnergy(it, RHICfPhys::ELEMAG);
+		 if(energy < cEnergyThreshold){
+          fRec->SetResultNumberOfHits(it,0); //  Kill the hit if E<threshold
+		 }
+	  }
+	}
+
 	// Single photon and Type-II pi0.
+	// For the small tower 
 	if (fRec->GetResultNumberOfHits(0)>0 && fRec->GetResultNumberOfHits(1)==0){
 
 		CorrectionLightYieldPhoton();
 		ReconstructEnergyPhotonSingle(0);
 	}
+	// For the large tower 
 	if (fRec->GetResultNumberOfHits(0)==0 && fRec->GetResultNumberOfHits(1)>0){
 
 		CorrectionLightYieldPhoton();
 		ReconstructEnergyPhotonSingle(1);
 	}
 
-	// Neutron.
+	//------------------------   Hadrons   ---------------------------//
 	fCal->copydata(fCalOrg, A1Cal2::CAL);// Reset the LY correction
 	for (int tower=0; tower<2; ++tower){
-
 		if (fRec->GetResultNumberOfHits(tower) == 0) continue;
 		ReconstructEnergyHadron(tower);
 	}
@@ -355,11 +378,11 @@ int A1Reconstruction::CorrectionLightYieldPhoton(){
 			if(!fPos->xoverlap) p += fRec -> GetMHPeakEstimated(tower, t_layer[tower], 0, 0);
 			if(!fPos->yoverlap) p += fRec -> GetMHPeakEstimated(tower, t_layer[tower], 1, 0);
 			if(!fPos->xoverlap) p += fRec -> GetMHPeakEstimated(tower, t_layer2[tower], 0, 0);
-                        if(!fPos->yoverlap) p += fRec -> GetMHPeakEstimated(tower, t_layer2[tower], 1, 0);
+			if(!fPos->yoverlap) p += fRec -> GetMHPeakEstimated(tower, t_layer2[tower], 1, 0);
 			if(!fPos->xoverlap) q += fRec -> GetMHPeakEstimated(tower, t_layer[tower], 0, 1);
-                        if(!fPos->yoverlap) q += fRec -> GetMHPeakEstimated(tower, t_layer[tower], 1, 1);
-                        if(!fPos->xoverlap) q += fRec -> GetMHPeakEstimated(tower, t_layer2[tower], 0, 1);
-                        if(!fPos->yoverlap) q += fRec -> GetMHPeakEstimated(tower, t_layer2[tower], 1, 1);
+			if(!fPos->yoverlap) q += fRec -> GetMHPeakEstimated(tower, t_layer[tower], 1, 1);
+			if(!fPos->xoverlap) q += fRec -> GetMHPeakEstimated(tower, t_layer2[tower], 0, 1);
+			if(!fPos->yoverlap) q += fRec -> GetMHPeakEstimated(tower, t_layer2[tower], 1, 1);
 
 			p = p/(p+q);
 			q = 1-p;
@@ -368,6 +391,18 @@ int A1Reconstruction::CorrectionLightYieldPhoton(){
 	}
 
 	return 0;
+}
+
+double A1Reconstruction::ReconstructEnergyPhotonSimple(int tower){
+  // simplifed energy reconstruction only for N_hit calculation with E_threshold 
+  double x = fRec->GetResultHitPosition(tower, 0);
+  double y = fRec->GetResultHitPosition(tower, 1);
+
+  double sum = 0.;
+  for(int il=1;il<=11;il++){
+	 sum += fCal->cal[tower][il] * fLeakPhoton->GetLeakinFactorll(tower, il, x, y);
+  }
+  return EnergyConversionPhoton(tower, sum);
 }
 
 int A1Reconstruction::ReconstructEnergyPhotonSingle(int tower){
@@ -384,7 +419,7 @@ int A1Reconstruction::ReconstructEnergyPhotonSingle(int tower){
 	//sum[tower]        = fCal->calsum2(tower, 1, 12);
 	sum[tower] = fCal -> calsum2(tower, 1, 11);
 	sumc[tower]       = sum[tower];
-	sum[tower_nohit]  = fCal->calsum2(tower_nohit, 1, 12);
+	sum[tower_nohit]  = fCal->calsum2(tower_nohit, 1, 11);
 	//sumc[tower_nohit] = sum[tower_nohit] - sumc[tower] * fLeakPhoton->GetLeakinFactor(1, tower, x, y);
 	//cout << sumc[1] << endl;
 
@@ -392,7 +427,7 @@ int A1Reconstruction::ReconstructEnergyPhotonSingle(int tower){
 	for (int tower=0; tower<2; tower++){
 		fRec->SetSumdE(tower, fCal->calsum2(tower, 0, 15));
 		fRec->SetSumdE2(tower, sumc[tower]);
-		fRec->SetResultEnergy(tower, A1Phys::ELEMAG, EnergyConversionPhoton(tower, sumc[tower]));
+		fRec->SetResultEnergy(tower, RHICfPhys::ELEMAG, EnergyConversionPhoton(tower, sumc[tower]));
 		// For the moment, even in hadron events the same conversion function is applied.
 		// rec->SetResultEnergy(tower,A1Phys::HADRON, EnergyConversion(tower,sumc[tower]));
 	}
@@ -401,7 +436,7 @@ int A1Reconstruction::ReconstructEnergyPhotonSingle(int tower){
 
 int A1Reconstruction::ReconstructEnergyPhotonDouble() {
 
-	cout << "Type-I pi0" << endl;
+  //cout << "Type-I pi0" << endl;
 
 	double x[2], y[2];
 	double sumc[2];
@@ -446,7 +481,7 @@ int A1Reconstruction::ReconstructEnergyPhotonDouble() {
 	for (int tower = 0; tower < 2; tower++) {
 		fRec->SetSumdE(tower, fCal->calsum2(tower, 0, 15));
 		fRec->SetSumdE2(tower, sumc[tower]);
-		fRec->SetResultEnergy(tower, A1Phys::ELEMAG, EnergyConversionPhoton(tower, sumc[tower]));
+		fRec->SetResultEnergy(tower, RHICfPhys::ELEMAG, EnergyConversionPhoton(tower, sumc[tower]));
 	}
 
 	return 0;
@@ -472,7 +507,7 @@ int A1Reconstruction::ReconstructEnergyHadron(int tower) {
 
 	sumc = sum/eff;
 	//printf("(%0.1f, %0.1f): %f --> %f\n", x, y, sum, sumc); 
-	fRec->SetResultEnergy(tower, A1Phys::HADRON, EnergyConversionHadron(tower, sumc));
+	fRec->SetResultEnergy(tower, RHICfPhys::HADRON, EnergyConversionHadron(tower, sumc));
 
 	return 0;
 }

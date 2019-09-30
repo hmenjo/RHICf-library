@@ -37,7 +37,7 @@ class A1Reconstruction{
 		ConShowerLeakage *fLeakPhoton;// Shower leakage-in correction.
 		ConShowerLeakage *fLeakHadron;//
 		ScintiPosDepGSO *fPosdep;// Shower leakage-out correction.
-
+		
 		TString paramGSOLY20mm;
 		TString paramGSOLY40mm;
 		TString paramGSOLY20mmHadron;
@@ -46,6 +46,9 @@ class A1Reconstruction{
 		TString paramShowerLeakageHadron;
 		TString paramGSObarPosition;
 
+   private:
+		double cEnergyThreshold; 
+		
 	public:
 		A1Reconstruction();
 		~A1Reconstruction();
@@ -64,6 +67,7 @@ class A1Reconstruction{
 		int ReconstructPID();
 		int ReconstructEnergy();
 		int CorrectionLightYieldPhoton();
+		double ReconstructEnergyPhotonSimple(int tower);
 		int ReconstructEnergyPhotonSingle(int tower);
 		int ReconstructEnergyPhotonDouble();
 		int ReconstructEnergyHadron(int tower);
