@@ -316,7 +316,7 @@ int A1Reconstruction::ReconstructEnergy(){
 	}
 
 	// Type-I pi0.
-	if (fRec->GetResultNumberOfHits(0)>0 && fRec->GetResultNumberOfHits(1)>1) {
+	if (fRec->GetResultNumberOfHits(0)>0 && fRec->GetResultNumberOfHits(1)>0) {
 	  ReconstructEnergyPhotonDouble();
 	  
 	  // Check the number of hits again

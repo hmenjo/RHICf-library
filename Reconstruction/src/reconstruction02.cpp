@@ -123,20 +123,34 @@ int main(int argc, char **argv) {
 		}
 	}
 
-	if(arg_runtype=="" || arg_inputfilename=="" || arg_outputfilename=="" || arg_pedefile=="" || arg_startiev=="" || arg_endiev=="" ||
-	   arg_avepedefile=="" || (arg_runtype!="TS" && arg_runtype!="TL" && arg_runtype!="TOP")){
 
-		printhelp();
-                return 0;
-        }
+	if(arg_simulationmode == SIM_OFF || arg_simulationmode == SIM_CAL1){
+		if(arg_runtype=="" || arg_inputfilename=="" || arg_outputfilename=="" || arg_pedefile=="" || arg_startiev=="" || arg_endiev=="" || arg_avepedefile=="" || (arg_runtype!="TS" && arg_runtype!="TL" && arg_runtype!="TOP")){
+
+			printf("simulation mode is SIM_OFF or SIM_CAL1\n");		
+			printhelp();
+        		return 0;
+
+        	}	
+	}
+	if(arg_simulationmode == SIM_SIM){
+		if(arg_runtype=="" || arg_inputfilename=="" || arg_outputfilename=="" || arg_startiev=="" || arg_endiev=="" || (arg_runtype!="TS" && arg_runtype!="TL" && arg_runtype!="TOP")){
+
+			printf("simulation mode is SIM_SIM\n");
+                        printhelp();
+                        return 0;
+
+		}	
+	}
 	
+
 	// Parameters
 	TString  inputfilename  = arg_inputfilename;
 	TString  outputfilename = arg_outputfilename;
 	TString  pedefile       = arg_pedefile;
 	TString  avepedefile       = arg_avepedefile;
 	EVENTCUT paramEventCut  = arg_eventcut;
-	bool     debugmoe       = arg_debugmode;
+	bool     debugmode       = arg_debugmode;
 	SIMMODE  simulationmode = arg_simulationmode;
 	int      startiev       = atoi(arg_startiev);
 	int      endiev         = atoi(arg_endiev);
@@ -146,10 +160,12 @@ int main(int argc, char **argv) {
 
 	// A1Calibration.
 	A1Calibration *calibration = new A1Calibration();
-	calibration->SetupDefault_RHICfOp2017();
-	calibration->SetPedestalFile(pedefile.Data());
-	calibration->SetAvePedestalFile(avepedefile.Data());
-	calibration->Initalize();
+	if(arg_simulationmode==SIM_OFF || arg_simulationmode==SIM_CAL1){
+		calibration->SetupDefault_RHICfOp2017();
+		calibration->SetPedestalFile(pedefile.Data());
+		calibration->SetAvePedestalFile(avepedefile.Data());
+		calibration->Initalize();
+	}
 	
 	// A1Reconstruction.	
 	A1Reconstruction *reconstruction = new A1Reconstruction();
@@ -222,7 +238,8 @@ int main(int argc, char **argv) {
 		// Cut SlowControl, Scaler Events
 		if (simulationmode == SIM_OFF && !ev->Check("a1raw")) { continue; }
 		if (simulationmode == SIM_CAL1 && !ev->Check("a1cal1")) { continue; }
-		if (simulationmode == SIM_SIM && !ev->Check("a1sim")) { continue; }
+		//if (simulationmode == SIM_SIM && !ev->Check("a1sim")) { continue; }
+		if (simulationmode == SIM_SIM && !ev->Check("a1cal2")) { continue; }
 		nevent_sel1++;
 		
 		// === EVENT SELECTION 2 ===
@@ -269,7 +286,9 @@ int main(int argc, char **argv) {
 		// For MC true
 		else if (simulationmode == SIM_SIM){
 
-			reconstruction->SetData((A1Cal2M *) ev->Get("a1sim"));
+			//reconstruction->SetData((A1Cal2M *) ev->Get("a1sim"));
+			reconstruction->SetData((A1Cal2M *) ev->Get("a1cal2"));
+			cal2 = (A1Cal2M *) ev->Get("a1cal2");
 		}
 
 		// Reconstruction.
@@ -288,7 +307,7 @@ int main(int argc, char **argv) {
 		//reconstruction->GetRec()->Show(); // For debug
 
 		if (ev->Check("a1simin")) oev->Add(ev->Get("a1simin"));
-		if (debugmoe) oev->Add(calibration->GetCal2());
+		if (debugmode) oev->Add(calibration->GetCal2());
 		if (ev->Check("star")) oev->Add(ev->Get("star"));
 
 		otree->Fill();
@@ -299,7 +318,7 @@ int main(int argc, char **argv) {
 		int TShit = rec -> GetResultNumberOfHits(0);
                 int TLhit = rec -> GetResultNumberOfHits(1);
                 if(TShit==1 && TLhit==1) ntype1++;
-                if(TShit==0 && TLhit==2) ntype2++;
+                if((TShit==0 && TLhit==2) || (TShit==2 && TLhit==0)) ntype2++;
 
                 int scanNum = reconstruction -> GetScanNum(TShit, TLhit);
                 int tsmax = rec -> GetMaxBarLayer(0);
