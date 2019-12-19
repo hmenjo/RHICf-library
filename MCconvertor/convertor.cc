@@ -336,8 +336,8 @@ int main(int argc, char** argv)
 		DepEInGSOBar  = RHICfContainer->GetBar();
 		DepEInBBC   = fBBCContainer->GetContainer();
 		
-		//NopInZDC  = fZDCContainer->GetNphoton();
-		//DepEInSMD  = fZDCContainer->GetSMD();
+		NopInZDC  = fZDCContainer->GetNphoton();
+		DepEInSMD  = fZDCContainer->GetSMD();
 		
 		// Header of A1Cal2 ---------------------------------
 		Cal2M->run = Run;
@@ -374,7 +374,7 @@ int main(int argc, char** argv)
 		} // end of conversion Arm1 responce --
 		
         // Conversion ZDC response
-	/*	
+		
         for (int iZDC = 0; iZDC < 3; iZDC++) 
         {
 		  (fZDC->ZDCNOP)[iZDC] = NopInZDC[iZDC];
@@ -399,7 +399,7 @@ int main(int argc, char** argv)
 		  //Junsang****cout << (fZDC->SMDVdE)[j] << endl;
 		  }
         }
-	*/
+	
 
 		// Conversion BBC response --------------------		
 		for (int iEW = 0; iEW < 2; iEW++) {
