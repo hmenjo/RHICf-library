@@ -29,6 +29,7 @@
 
 const double rhicf_posz=17799.7; /// position of the 1st tungsten
 
+
 typedef LHCfEvent RHICfEvent;
 using namespace std;
 
@@ -283,7 +284,7 @@ int main(int argc, char** argv)
   ChainForInput -> SetMakeClass(1);
   ChainForInput -> SetBranchAddress("mc", &RHICfContainer);
   ChainForInput -> SetBranchAddress("bbc", &fBBCContainer);
-  //ChainForInput -> SetBranchAddress("zdc", &fZDCContainer);
+  ChainForInput -> SetBranchAddress("zdc", &fZDCContainer);
   
   //ChainForInput -> SetBranchAddress("RunInfo", &SimRunInfo);
   
@@ -305,8 +306,8 @@ int main(int argc, char** argv)
   vector<vector<double> > DepEInPlate;//2D vector for saving deposit energy in GSO plate
   vector<vector<vector<vector<double> > > > DepEInGSOBar;//4D vector for saving deposit energy in GSO bar
   // ZDC
-  //vector<int> NopInZDC;
-  //vector<vector<double> > DepEInSMD;
+  vector<int> NopInZDC;
+  vector<vector<double> > DepEInSMD;
   // BBC
   vector<vector<BBC*> > DepEInBBC;
   
@@ -334,6 +335,7 @@ int main(int argc, char** argv)
 		DepEInPlate   = RHICfContainer->GetPlate();
 		DepEInGSOBar  = RHICfContainer->GetBar();
 		DepEInBBC   = fBBCContainer->GetContainer();
+		
 		//NopInZDC  = fZDCContainer->GetNphoton();
 		//DepEInSMD  = fZDCContainer->GetSMD();
 		
@@ -357,13 +359,13 @@ int main(int argc, char** argv)
 			 for(int GSOBarXY=0; GSOBarXY<2; GSOBarXY++){
 				if(iTower==0){
 				  for(int iCH=0; iCH<20; iCH++){
-					 (Cal2M->scifi0)[iGSOBarDepth][GSOBarXY][iCH] = DepEInGSOBar[iTower][iGSOBarDepth][GSOBarXY][iCH];
+					 (Cal2M->scifi0)[iGSOBarDepth][GSOBarXY][iCH] = DepEInGSOBar[iTower][iGSOBarDepth][GSOBarXY][iCH]/1000.;
 					 //Junsang****cout << (Cal2M->scifi0)[iGSOBarDepth][GSOBarXY][iCH] << endl;
 				  }
 				} 
 				else {
 				  for(int iCH=0; iCH<40; iCH++) {
-					 (Cal2M->scifi1)[iGSOBarDepth][GSOBarXY][iCH] = DepEInGSOBar[iTower][iGSOBarDepth][GSOBarXY][iCH];
+					 (Cal2M->scifi1)[iGSOBarDepth][GSOBarXY][iCH] = DepEInGSOBar[iTower][iGSOBarDepth][GSOBarXY][iCH]/1000.;
 					 //Junsang****cout << (Cal2M->scifi1)[iTower][iGSOBarDepth][GSOBarXY][iCH] << endl;
 				  }
 				}
@@ -372,15 +374,15 @@ int main(int argc, char** argv)
 		} // end of conversion Arm1 responce --
 		
         // Conversion ZDC response
-		/*
+	/*	
         for (int iZDC = 0; iZDC < 3; iZDC++) 
         {
 		  (fZDC->ZDCNOP)[iZDC] = NopInZDC[iZDC];
 		  //Junsang****cout << (fZDC->ZDCNop)[iZDC] << endl;
         }
-		*/
+		
 		// Conversion SMD response
-		/*
+		
         for (int iXY = 0; iXY < 2; iXY++) 
         {
 		  if (iXY==0) 
@@ -397,7 +399,7 @@ int main(int argc, char** argv)
 		  //Junsang****cout << (fZDC->SMDVdE)[j] << endl;
 		  }
         }
-		*/
+	*/
 
 		// Conversion BBC response --------------------		
 		for (int iEW = 0; iEW < 2; iEW++) {
@@ -459,7 +461,7 @@ int main(int argc, char** argv)
 		
 		RHICfEvents->Add(a1simin);
 		RHICfEvents->Add(Cal2M);
-		//RHICfEvents -> Add(fZDC);
+		RHICfEvents -> Add(fZDC);
 		RHICfEvents->Add(fBBC);
 		//a1simin->Show();
 		
