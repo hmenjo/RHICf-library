@@ -399,8 +399,22 @@ double A1Reconstruction::ReconstructEnergyPhotonSimple(int tower){
   double y = fRec->GetResultHitPosition(tower, 1);
 
   double sum = 0.;
+  double eff = 0.;
   for(int il=1;il<=11;il++){
-	 sum += fCal->cal[tower][il] * fLeakPhoton->GetLeakinFactorll(tower, il, x, y);
+    eff = fPosdep -> GetEfficiency(1, tower, il, x, y);
+    
+    if(eff < 0.1 || eff > 2.){
+      double towersize = (tower==0?20.0:40.0);
+      double edgesize  = (il<12?1.0:2.0);
+      if( x < edgesize )          x = edgesize;
+      if( x > towersize-edgesize) x = towersize-edgesize;
+      if( y < edgesize )          y = edgesize;
+      if( y > towersize-edgesize) y = towersize-edgesize;
+      eff = fPosdep -> GetEfficiency(1, tower, il, x, y);
+    }
+    sum += fCal->cal[tower][il]/eff;
+
+    //sum += fCal->cal[tower][il] * fLeakPhoton->GetLeakinFactorll(tower, il, x, y);
   }
   return EnergyConversionPhoton(tower, sum);
 }
