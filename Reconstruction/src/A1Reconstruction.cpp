@@ -527,19 +527,24 @@ int A1Reconstruction::ReconstructEnergyHadron(int tower) {
 }
 
 double A1Reconstruction::EnergyConversionPhoton(int tower, double sumdE){
-
+        
 	if(runtype=="TS"){
-		printf("tower = %d\n", tower);
-		if(tower==0) return 31.4127*sumdE+1.99042;
-		if(tower==1) return 27.5125*sumdE+1.73390;
+	  if(tower==0) return 31.1666*sumdE+1.39715; // Reference : latest Minho's analysis note in 2020/02/
+	  if(tower==1) return 27.3389*sumdE+1.12892;
+	  //if(tower==0) return 31.4127*sumdE+1.99042; // Minho's old study
+	  //if(tower==1) return 27.5125*sumdE+1.73390;
 	}
 	if(runtype=="TL"){
-		if(tower==0) return 31.4127*sumdE;
-                if(tower==1) return 27.5125*sumdE;
+	  if(tower==0) return 31.1323*sumdE+1.42462;
+          if(tower==1) return 27.3429*sumdE+1.11522;
+	  //if(tower==0) return 31.4127*sumdE;
+	  //if(tower==1) return 27.5125*sumdE;
 	}
 	if(runtype=="TOP"){
-		if(tower==0) return 31.2272*sumdE;
-		if(tower==1) return 27.3025*sumdE;
+	  if(tower==0) return 31.1749*sumdE+1.41172;
+          if(tower==1) return 27.3434*sumdE+1.12205;
+	  //if(tower==0) return 31.2272*sumdE;
+	  //if(tower==1) return 27.3025*sumdE;
 	}
 
 	return 0;
