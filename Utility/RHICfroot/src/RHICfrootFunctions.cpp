@@ -9,6 +9,7 @@
 #include "LHCfEvent.h"
 
 
+
 /////////////////////////////////////////////////////////////////////////////////
 
 // ====              RHICfEvents_Show             ====
@@ -112,6 +113,31 @@ void RHICfEvents_GetRec_Show(const int iev){
   return ;
 }
 
+////////////////////////////////////
+A1CalEventHist* RHICfEventView(A1Cal2 *cal, TString op){
+  static A1CalEventHist *eventview = NULL;
 
+  if(eventview==NULL){
+         eventview = new A1CalEventHist();
+         eventview->Initialize();
+         eventview->DrawCanvas1("lowscifiall");
+         eventview->DrawCanvas2();
+         eventview->SetDisplayVersion_RHICf_Op2017();
+  }
+
+  if(cal==NULL) return eventview;
+  eventview->Fill(cal);
+  eventview->UpdateCanvas1();
+  eventview->UpdateCanvas2();
+
+  if(op.Contains("Wait") || op.Contains("wait")){
+         eventview->c1->WaitPrimitive();
+  }
+  return eventview;
+}
+
+A1CalEventHist* RHICfEventView_Cal2(int iev, TString op){
+  return RHICfEventView( RHICfEvents_GetCal2(iev), op);
+}
 #endif
 

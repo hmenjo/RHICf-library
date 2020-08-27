@@ -18,4 +18,7 @@
 
 #pragma link C++ function RHICfEvents_GetRec_Show(const int );
 
+// added in 27 Aug 2020
+#pragma link C++ function RHICfEventView(A1Cal2M* , TString );
+#pragma link C++ function RHICfEventView_Cal2(int , TString );
 #endif
