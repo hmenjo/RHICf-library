@@ -57,8 +57,8 @@ INCALL += -I$(INC_DIR)
 
 CXXFLAGS +=  $(INCALL) -DPATHBASE=\"$(PWD)/../../\"
 
-ROOTLIBS  += -Wl,-rpath,$(ROOTSYS)/lib
-ROOTGLIBS += -Wl,-rpath,$(ROOTSYS)/lib
+ROOTLIBS  += -Wl,-rpath,$(ROOTSYS)/lib -lEG
+ROOTGLIBS += -Wl,-rpath,$(ROOTSYS)/lib -lEG
 
 PROGRAMS = RHICfroot
 
