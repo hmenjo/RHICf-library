@@ -1,0 +1,50 @@
+PARAM_START
+FORMAT:  PARTICLE_DEFINE
+TYPE:    1
+VERSION: 201
+DATE:    100928
+COMMENT: Modified according to the study of dependency on Epics Version(old/8.81)
+         Original :   pdef_sps07_arm2_081003.out
+         layer 1-9  : multiply by retio of mean dE at 150GeV electron
+         the others : multiply by 0.9877 (from comparison of muon dE's)
+PARAM_END
+
+DATA_START
+DETECTOR   2
+HV0   1000
+ADC   0  0   33.287
+ADC   0  1   40.570
+ADC   0  2   35.689
+ADC   0  3   36.972
+ADC   0  4   32.616
+ADC   0  5   29.409
+ADC   0  6   38.795
+ADC   0  7   48.543
+ADC   0  8   32.715
+ADC   0  9   48.309
+ADC   0 10   27.630
+ADC   0 11   32.814
+ADC   0 12   28.709
+ADC   0 13   41.717
+ADC   0 14   37.855
+ADC   0 15   37.588
+
+HV1   1000
+ADC   1  0   37.661
+ADC   1  1   36.189
+ADC   1  2   38.774
+ADC   1  3   33.621
+ADC   1  4   30.587
+ADC   1  5   31.513
+ADC   1  6   37.824
+ADC   1  7   31.213
+ADC   1  8   31.449
+ADC   1  9   45.192
+ADC   1 10   37.750
+ADC   1 11   36.139
+ADC   1 12   32.156
+ADC   1 13   35.045
+ADC   1 14   32.530
+ADC   1 15   33.990
+
+DATA_END

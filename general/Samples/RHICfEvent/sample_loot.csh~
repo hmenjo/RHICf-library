@@ -1,0 +1,6 @@
+#/bin/tcsh
+
+for ((i=2890; i< 2990; i++)) 
+do echo  "$i" >> param1.dat ;
+./sample_eventloop -i $rootdata/run0000"$i".root >> param1.dat
+done

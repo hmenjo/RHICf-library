@@ -1,0 +1,48 @@
+PARAM_START
+FORMAT:  PARTICLE_DEFINE
+TYPE:    1
+VERSION: 000
+DATE:    150506
+COMMENT: 0-4 use electrons, 5-15 use protons
+         
+PARAM_END
+
+DATA_START
+DETECTOR   1
+HV0  600
+ADC     0          0    894.854
+ADC     0          1    859.601
+ADC     0          2    609.282
+ADC     0          3    821.759
+ADC     0          4    799.297
+ADC     0          5    380.958
+ADC     0          6    857.010
+ADC     0          7    761.237
+ADC     0          8    818.422
+ADC     0          9   1352.801
+ADC     0         10   1031.714
+ADC     0         11   1171.000
+ADC     0         12   1030.244
+ADC     0         13   1174.520
+ADC     0         14    991.790
+ADC     0         15   1188.935
+
+HV1  600
+ADC      1          0   1018.111
+ADC      1          1    805.087
+ADC      1          2   1150.536
+ADC      1          3   1046.113
+ADC      1          4    742.062
+ADC      1          5    566.566
+ADC      1          6    995.254
+ADC      1          7    615.613
+ADC      1          8   1015.227
+ADC      1          9   1310.913
+ADC      1         10   1043.085
+ADC      1         11    930.764
+ADC      1         12    988.788
+ADC      1         13   1010.353
+ADC      1         14    979.360
+ADC      1         15   1428.667
+
+DATA_END

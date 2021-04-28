@@ -1,0 +1,544 @@
+#ifndef __A1PEDESUBTACT_CPP__
+#define __A1PEDESUBTACT_CPP__
+
+#include "A1PedeSubtract.h"
+
+//----------------------------------------------------------------------
+//
+//
+//
+// 
+// +++ Logs ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//  ?? ???. 08: First edited by H.MENJO
+//  30 Jan. 10: Modified Subtract() to subtract the offset of cal after the 
+//              subtraction of delay gate.   
+//  31 Jan. 10: Added  ClassDef and ClassImp to make a manual automanitically by H.MENJO. 
+//----------------------------------------------------------------------
+
+#if !defined(__CINT__)
+ClassImp(A1PedeSubtract);
+#endif
+
+#include <iostream>
+#include <iomanip>
+#include <cstring>
+#include <math.h>
+#include <cstdio>
+using namespace std;
+
+// ******* A1PedeSubtract Definition *********************
+const int   A1PedeSubtract::DEFAULT_ACCUM_NEVENT;
+const char* A1PedeSubtract::PEDESTAL_NAME    = "a1pedestal";
+const char* A1PedeSubtract::PEDESTAL_TITLE   = "Arm#1 Pedestal";
+const char* A1PedeSubtract::PEDESIGMA_NAME   = "a1pedesigma";
+const char* A1PedeSubtract::PEDESIGMA_TITLE  = "Arm#1 RMS of pedestal";
+const char* A1PedeSubtract::PEDESTAL2_NAME   = "a1pedestal2";
+const char* A1PedeSubtract::PEDESTAL2_TITLE  = "Arm#1 Offset of Pedestal";
+const char* A1PedeSubtract::PEDESIGMA2_NAME  = "a1pedesigma2";
+const char* A1PedeSubtract::PEDESIGMA2_TITLE = "Arm#1 RMS After subtruction";
+const char* A1PedeSubtract::DEFAULT_FILENAME  = "config/pedestal.root";
+
+// ******* A1PedeSubtract::A1PedeSubtract  ****************
+A1PedeSubtract::A1PedeSubtract(){
+  accum_nevent = DEFAULT_ACCUM_NEVENT;
+  Initialize();
+  
+  return ;
+}
+
+// ******* A1PedeSubtract::~A1PedeSubtract  ****************
+A1PedeSubtract::~A1PedeSubtract(){
+  if(pedeaccum)  delete pedeaccum;
+  if(pedeaccum2) delete pedeaccum2; 
+  if(pedestal)   delete pedestal;
+  if(pedesigma)  delete pedesigma; 
+  if(pedeaccum2_1) delete pedeaccum2_1;
+  if(pedeaccum2_2) delete pedeaccum2_2;
+  if(pedestal2)    delete pedestal2;
+  if(pedesigma2)   delete pedesigma2;  
+  return ;
+}
+
+
+
+// ******* A1PedeSubtract::Initialize *********************
+int A1PedeSubtract::Initialize(){
+  pedeaccum    = new A1Cal1();  
+  pedeaccum2   = new A1Cal1();
+  pedestal     = new A1Cal1((char*)PEDESTAL_NAME,(char*)PEDESTAL_TITLE);
+  pedesigma    = new A1Cal1((char*)PEDESIGMA_NAME,(char*)PEDESIGMA_TITLE);
+  pedeaccum2_1 = new A1Cal1();
+  pedeaccum2_2 = new A1Cal1();
+  pedestal2    = new A1Cal1((char*)PEDESTAL2_NAME,(char*)PEDESTAL2_TITLE);
+  pedesigma2   = new A1Cal1((char*)PEDESIGMA2_NAME,(char*)PEDESIGMA2_TITLE);
+  opoffsetsubtraction = true;
+ 
+  AccumClear();
+  return OK;
+}
+
+// ******* A1PedeSubtract::AccumClear  ********************
+int A1PedeSubtract::AccumClear(){
+  nevent = 0;
+  
+  pedeaccum->clear();
+  pedeaccum2->clear();
+
+  pedeaccum2_1->clear();
+  pedeaccum2_2->clear();
+
+  return OK;
+}
+
+// ******* A1PedeSubtract::FillPedeEvent  ********************
+int A1PedeSubtract::FillPedeEvent(A1Cal1* data){  
+  if(nevent==0){
+    pedeaccum->copydata(data ,0);
+    pedeaccum2->copydata(data ,0);
+  }
+  pedeaccum->add(data,
+		 A1Cal1::CAL | A1Cal1::CALD | A1Cal1::FC | A1Cal1::FCD |
+		 A1Cal1::SCIFI0 |  A1Cal1::SCIFI1 |
+		 A1Cal1::LASER | A1Cal1::LASERD | A1Cal1::EMPTYADC );
+  AddSqare(data);
+
+  // For offset subtraction After subtraction of delayed gate
+  if(opoffsetsubtraction){  
+    if(nevent==0){
+      pedeaccum2_1->copydata(data ,0);
+      pedeaccum2_2->copydata(data ,0);
+    }
+    datatmp.copydata( data,
+		      A1Cal1::CAL | A1Cal1::CALD  | A1Cal1::FC |  
+		      A1Cal1::FCD | A1Cal1::LASER | A1Cal1::LASERD );
+    Subtraction1(&datatmp); // subtraction of delayed gate
+    pedeaccum2_1->add(&datatmp,
+		      (A1Cal1::CAL | A1Cal1::FC | A1Cal1::LASER) );   
+    AddSqare2(&datatmp);
+  }
+  
+  nevent++;
+  return OK;
+}
+
+// ******* A1PedeSubtract::CalPedestal  ********************
+int A1PedeSubtract::CalPedestal(){
+  
+  pedeaccum->divide((double)nevent,
+		    A1Cal1::CAL | A1Cal1::CALD | A1Cal1::FC | A1Cal1::FCD | 
+		    A1Cal1::SCIFI0 |  A1Cal1::SCIFI1 |
+		    A1Cal1::LASER | A1Cal1::LASERD | A1Cal1::EMPTYADC);
+  pedestal->copydata(pedeaccum,
+		     A1Cal1::CAL | A1Cal1::CALD | A1Cal1::FC | A1Cal1::FCD | 
+		     A1Cal1::SCIFI0 |  A1Cal1::SCIFI1 |
+		     A1Cal1::LASER | A1Cal1::LASERD | A1Cal1::EMPTYADC); 
+  pedeaccum2->divide((double)nevent,
+		     A1Cal1::CAL | A1Cal1::CALD | A1Cal1::FC | A1Cal1::FCD | 
+		     A1Cal1::SCIFI0 |  A1Cal1::SCIFI1 |
+		     A1Cal1::LASER | A1Cal1::LASERD | A1Cal1::EMPTYADC);
+  CalSigma();  // results are filled in pedesigma  
+
+  
+  // For offset subtraction After subtraction of delayed gate
+  if(opoffsetsubtraction){
+    pedeaccum2_1->divide((double)nevent,
+			 A1Cal1::CAL | A1Cal1::FC  | A1Cal1::LASER);
+    pedestal2->copydata(pedeaccum2_1,
+			A1Cal1::CAL | A1Cal1::FC  | A1Cal1::LASER);
+    pedeaccum2_2->divide((double)nevent,
+			 A1Cal1::CAL | A1Cal1::FC  | A1Cal1::LASER );
+    CalSigma2();  // results are filled in pedesigma  
+  }  
+
+  AccumClear();
+  return OK;
+}
+
+// ******* A1PedeSubtract::Subtract  **********************
+int A1PedeSubtract::Subtract(A1Cal1* data, A1Cal1* pede){ 
+  // ***** PEDESTAL DATA *****
+  if(data->flag_pede){ 
+    FillPedeEvent(data);
+
+    if(accum_nevent > 0 && nevent>=accum_nevent){      
+      CalPedestal();    
+      if(pede!=0) pede->copydata(pedestal);
+    }
+  }
+  
+  Subtraction(data);
+
+  return OK;
+  
+}
+
+// ******* A1PedeSubtract::Subtraction  **********************
+int A1PedeSubtract::Subtraction(A1Cal1* data){ 
+  if( Subtraction1(data) != OK) {return ERROR;}
+  if( opoffsetsubtraction ){
+    if( Subtraction2(data) != OK) {return ERROR;}  
+  }
+  return OK;
+}
+
+int A1PedeSubtract::Subtraction1(A1Cal1* data, int op){
+  // for calorimeter
+  for(int it=0;it<2;it++){
+    for(int il=0;il<16;il++){
+      for(int ir=0;ir<2;ir++){
+	data->cal[it][il][ir]  -= data->cald[it][il][ir];
+	data->cald[it][il][ir] -= pedestal->cald[it][il][ir];
+      }
+    }
+  }
+  // for the other ADCs
+  for(int id=0;id<2;id++){
+    for(int ich=0;ich<4;ich++){
+      //data->fc[id][ich] -= pedestal->fc[id][ich];
+      data->fc[id][ich]  -= data->fcd[id][ich];
+      data->fcd[id][ich] -= pedestal->fcd[id][ich];
+    }
+  }
+  for(int imon=0;imon<2;imon++){   
+    data->laser[imon]  -= data->laserd[imon];
+    data->laserd[imon] -= pedestal->laserd[imon];
+  }
+  for(int ich=0;ich<8;ich++){
+    data->emptyadc[ich] -= pedestal->emptyadc[ich];
+  }
+
+  // for Scifi
+  for(int il=0;il<4;il++){
+    for(int ixy=0;ixy<2;ixy++){
+      for(int ipos=0;ipos<20;ipos++){
+	data->scifi0[il][ixy][ipos] -= pedestal->scifi0[il][ixy][ipos];
+      }
+      for(int ipos=0;ipos<40;ipos++){
+	data->scifi1[il][ixy][ipos] -= pedestal->scifi1[il][ixy][ipos];
+      }
+    }
+  } 
+  
+  // for TDC0
+  // Subtract the offset of L3T[ch1]
+  double tdc_base;
+  if(data->tdc0flag[1][0]>=0){
+    tdc_base = data->tdc0[1][0];
+    for(int ich=0;ich<12;ich++){
+      for(int ihit=0;ihit<16;ihit++){
+	if(data->tdc0flag[ich][ihit]<0){continue;}
+	data->tdc0[ich][ihit] -= tdc_base;
+      }
+    }
+  }
+  
+  return OK;
+  
+}
+
+int A1PedeSubtract::Subtraction2(A1Cal1* data){
+  data->subtract(pedestal2, A1Cal1::CAL | A1Cal1::FC  | A1Cal1::LASER);
+  return OK;
+}
+
+// ******* A1PedeSubtract::WriteFile  **********************
+int A1PedeSubtract::WriteFile(char filename[]){
+  if(strcmp(filename,"")==0){
+    strcpy(filename,DEFAULT_FILENAME);
+  }
+  
+  TFile* file = new TFile(filename,"UPDATE");
+  pedestal->Write(0,TObject::kOverwrite); 
+  pedesigma->Write(0,TObject::kOverwrite);  
+  pedestal2->Write(0,TObject::kOverwrite);
+  pedesigma2->Write(0,TObject::kOverwrite);
+  file->Close();
+  
+  return OK;
+}
+
+// ******* A1PedeSubtract::ReadFile  **********************
+int A1PedeSubtract::ReadFile(char filename[]){
+  A1Cal1 *tmp;
+  bool err_check = false;
+
+  if(strcmp(filename,"")==0){
+    strcpy(filename,DEFAULT_FILENAME);
+  }
+  
+  TFile* file = new TFile(filename);
+  if(file->IsZombie()){
+    cerr << "[A1PedeSubtract::ReadFile] "
+	 << "Cannot Open " << filename << endl;
+    return ERROR;
+  }
+
+  if(!file->Get(PEDESTAL_NAME)){
+    cerr << "[A1PedeSubtract::ReadFile] "
+	 << "Cannot Find " << PEDESTAL_NAME << " in " << filename 
+	 << endl;
+    err_check = true;
+  }
+  else{
+    tmp = (A1Cal1*) file->Get(PEDESTAL_NAME) ;  
+    pedestal->copydata(tmp);
+  }
+  
+  if(!file->Get(PEDESIGMA_NAME)){
+    cerr << "[A1PedeSubtract::ReadFile] "
+	 << "Cannot Find " << PEDESIGMA_NAME << " in " << filename 
+	 << endl;
+    err_check = true;
+  }
+  else{
+    tmp = (A1Cal1*) file->Get(PEDESIGMA_NAME) ;  
+    pedesigma->copydata(tmp);
+  } 
+  
+  if(!file->Get(PEDESTAL2_NAME)){
+    cerr << "[A1PedeSubtract::ReadFile] "
+	 << "Cannot Find " << PEDESTAL2_NAME << " in " << filename 
+	 << endl;
+    err_check = true;
+  }
+  else{
+    tmp = (A1Cal1*) file->Get(PEDESTAL2_NAME) ;  
+    pedestal2->copydata(tmp);
+  }
+  
+  if(!file->Get(PEDESIGMA2_NAME)){
+    cerr << "[A1PedeSubtract::ReadFile] "
+	 << "Cannot Find " << PEDESIGMA2_NAME << " in " << filename 
+	 << endl;
+    err_check = true;
+  }
+  else{
+    tmp = (A1Cal1*) file->Get(PEDESIGMA2_NAME) ;  
+    pedesigma2->copydata(tmp);
+  } 
+
+  file->Close();
+
+  return OK;
+}
+
+// ********  A1PedeSubtract::AddSqare  **********
+int A1PedeSubtract::AddSqare(A1Cal1* data){
+  double tmp;
+
+  // for Calorimeter
+  for(int it=0;it<2;it++){
+    for(int il=0;il<16;il++){
+      for(int ir=0;ir<2;ir++){
+	tmp = data->cal[it][il][ir];
+	pedeaccum2->cal[it][il][ir] += tmp*tmp;
+	tmp = data->cald[it][il][ir];
+	pedeaccum2->cald[it][il][ir] += tmp*tmp;
+      }
+    }
+  }
+
+  // +++++ for the other ADCs +++++
+  for(int id=0;id<2;id++){
+    for(int ich=0;ich<4;ich++){
+      tmp =  data->fc[id][ich];
+      pedeaccum2->fc[id][ich] += tmp*tmp;
+      tmp =  data->fcd[id][ich];
+      pedeaccum2->fcd[id][ich] += tmp*tmp;  
+    }
+  }
+  for(int imon=0;imon<2;imon++){
+    tmp = data->laser[imon];
+    pedeaccum2->laser[imon] += tmp*tmp;
+    tmp = data->laserd[imon];
+    pedeaccum2->laserd[imon] += tmp*tmp; 
+  }
+  for(int ich=0;ich<8;ich++){
+    tmp = data->emptyadc[ich];
+    pedeaccum2->emptyadc[ich] += tmp*tmp;
+  } 
+
+  // for Scifi
+  for(int il=0;il<4;il++){
+    for(int ixy=0;ixy<2;ixy++){
+      for(int ipos=0;ipos<20;ipos++){
+	tmp = data->scifi0[il][ixy][ipos];
+	pedeaccum2->scifi0[il][ixy][ipos] += tmp*tmp;
+      }
+      for(int ipos=0;ipos<40;ipos++){
+	tmp = data->scifi1[il][ixy][ipos];
+	pedeaccum2->scifi1[il][ixy][ipos] += tmp*tmp;	
+      }
+    }
+  } 
+  
+  return OK;
+}
+
+int A1PedeSubtract::AddSqare2(A1Cal1* data){
+  double tmp;
+  
+  for(int it=0;it<2;it++){
+    for(int il=0;il<16;il++){
+      for(int ir=0;ir<2;ir++){
+	tmp = data->cal[it][il][ir];
+	pedeaccum2_2->cal[it][il][ir] += tmp*tmp;
+      }
+    }
+  }
+  
+  for(int id=0;id<2;id++){
+    for(int ich=0;ich<4;ich++){
+      tmp =  data->fc[id][ich];
+      pedeaccum2_2->fc[id][ich] += tmp*tmp;
+    }
+  }
+
+  for(int imon=0;imon<2;imon++){
+    tmp = data->laser[imon];
+    pedeaccum2_2->laser[imon] += tmp*tmp;
+  }
+  
+  return OK;
+}
+
+int A1PedeSubtract::CalSigma(){
+  double av,avs;
+  if(nevent==0){return ERROR;}
+  
+  pedesigma->copydata(pedeaccum2,0);
+  
+  // +++++ for Calorimeter +++++++
+  for(int it=0;it<2;it++){
+    for(int il=0;il<16;il++){
+      for(int ir=0;ir<2;ir++){
+	av  = pedeaccum->cal[it][il][ir];
+	avs = pedeaccum2->cal[it][il][ir];
+	pedesigma->cal[it][il][ir] = sqrt(avs - av*av);
+	av  = pedeaccum->cald[it][il][ir];
+	avs = pedeaccum2->cald[it][il][ir];
+	pedesigma->cald[it][il][ir] = sqrt(avs - av*av);	
+      }
+    }
+  }
+  
+  // +++++ for the other ADCs +++++
+  for(int id=0;id<2;id++){
+    for(int ich=0;ich<4;ich++){
+      av  = pedeaccum->fc[id][ich];
+      avs = pedeaccum2->fc[id][ich];
+      pedesigma->fc[id][ich] = sqrt(avs - av*av);
+
+      av  = pedeaccum->fcd[id][ich] ; 
+      avs = pedeaccum2->fcd[id][ich] ; 
+      pedesigma->fcd[id][ich]  = sqrt(avs - av*av);
+    }
+  }
+  for(int imon=0;imon<2;imon++){  
+    av  = pedeaccum->laser[imon] ; 
+    avs = pedeaccum2->laser[imon] ; 
+    pedesigma->laser[imon]  = sqrt(avs - av*av);
+    av  = pedeaccum->laserd[imon] ; 
+    avs = pedeaccum2->laserd[imon] ; 
+    pedesigma->laserd[imon]  = sqrt(avs - av*av); 
+  }
+  for(int ich=0;ich<8;ich++){
+    av  = pedeaccum->emptyadc[ich] ; 
+    avs = pedeaccum2->emptyadc[ich] ; 
+    pedesigma->emptyadc[ich]  = sqrt(avs - av*av); 
+  } 
+
+  // for Scifi
+  for(int il=0;il<4;il++){
+    for(int ixy=0;ixy<2;ixy++){
+      for(int ipos=0;ipos<20;ipos++){
+	av  = pedeaccum->scifi0[il][ixy][ipos] ; 
+	avs = pedeaccum2->scifi0[il][ixy][ipos]; 
+	pedesigma->scifi0[il][ixy][ipos]  = sqrt(avs - av*av); 
+      }
+      for(int ipos=0;ipos<40;ipos++){
+	av  = pedeaccum->scifi1[il][ixy][ipos] ; 
+	avs = pedeaccum2->scifi1[il][ixy][ipos]; 
+	pedesigma->scifi1[il][ixy][ipos]  = sqrt(avs - av*av);	
+      }
+    }
+  } 
+
+  return OK;
+}
+
+int A1PedeSubtract::CalSigma2(){
+  double av,avs;
+  if(nevent==0){return ERROR;}
+  
+  pedesigma2->copydata(pedeaccum2_2,0);
+
+  for(int it=0;it<2;it++){
+    for(int il=0;il<16;il++){
+      for(int ir=0;ir<2;ir++){
+	av  = pedeaccum2_1->cal[it][il][ir];
+	avs = pedeaccum2_2->cal[it][il][ir];
+	pedesigma2->cal[it][il][ir] = sqrt(avs - av*av);	
+      }
+    }
+  }
+
+  for(int id=0;id<2;id++){
+    for(int ich=0;ich<4;ich++){
+      av  = pedeaccum2_1->fc[id][ich];
+      avs = pedeaccum2_2->fc[id][ich];
+      pedesigma2->fc[id][ich] = sqrt(avs - av*av);
+    }
+  }
+  for(int imon=0;imon<2;imon++){  
+    av  = pedeaccum2_1->laser[imon] ; 
+    avs = pedeaccum2_2->laser[imon] ; 
+    pedesigma2->laser[imon]  = sqrt(avs - av*av);
+  }
+
+  return OK;
+}
+
+// --------------------------------------------------------
+// ------        FUNCTIONS FOR ONLINE ANALYSIS       ------
+// --------------------------------------------------------
+
+// ******* A1PedeSubtract::Init ***************************
+int A1PedeSubtract::Init(A1Cal1* pede){ 
+  // For online analysis
+  
+  if(ReadFile((char*)DEFAULT_FILENAME) == OK){
+    cout << "[PedeSubtract] Loaded " << DEFAULT_FILENAME << endl;
+    if(pede){
+      pede->copydata(pedestal);
+    }
+  }
+  else{
+    cout << "[PedeSubtract] Failed to Load " << DEFAULT_FILENAME << endl;
+  }
+  return OK;
+}
+
+// ******* A1PedeSubtract::Exit ***************************
+int A1PedeSubtract::Exit(){ 
+  // For online analysis
+  
+  WriteFile((char*)DEFAULT_FILENAME);
+  cout << "[PedeSubtract] Wrote " << DEFAULT_FILENAME << endl;
+  return OK;
+}
+
+// ******* A1PedeSubtract::Bor ****************************
+int A1PedeSubtract::Bor(){
+  // For online analysis
+  
+  return OK;
+}
+
+// ******* A1PedeSubtract::Eor ****************************
+int A1PedeSubtract::Eor(){ 
+  // For online analysis
+  return OK;
+}
+
+#endif 

@@ -1,0 +1,12 @@
+#
+#  Beam center during 13TeV MC
+#  
+#  FORMAT: HEADER, FILL_NUM, X[mm], Y[mm] 
+#  X/Y: GLOBAL COORDINATION ( TS center is (0,0) )
+#
+# --Log-----------------------------------------
+#
+START
+BC DPM -1 -1.6  0.0
+BC QGS -1 0.94 1.1
+END

@@ -1,0 +1,15 @@
+#
+#  Beam center during 13TeV operation
+#  
+#  FORMAT: HEADER, FILL_NUM, X[mm], Y[mm] 
+#  X/Y: GLOBAL COORDINATION ( TS center is (0,0) )
+#
+# --Log-----------------------------------------
+#  [last updated] 17.Oct.2016 Y.Makino,  ref Makino's study (based on Menjo's one)
+#                 08.Feb.2016 Y.Makino,  ref Menjo's study ( -2.03,  1.41)
+#                 25.Nov.2015 Q.Zhou,    ref 15.Oct.2015 Analysis meeting (-1.48 1.62) 
+#                 31.Aug.2015 Y.Makino,  ref 23.Jul.2015 Analysis meeting 
+
+START
+BC 3855 -2.04 1.44
+END

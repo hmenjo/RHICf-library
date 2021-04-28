@@ -1,0 +1,29 @@
+PARAM_START
+FORMAT:     HVTABLE
+TYPE:       1
+VERSION:    2
+COMMENT:    Normal Gain for RHICf 2017 operation.
+  format    
+    HV0  [value]x16  H.V. of 20mm tower 
+    HV1  [value]x16  H.V. of 40mm tower
+    SCIFIHV  [value]x1  H.V. of Scifi. It must be H.V. value, not control L.V. value.
+    FCHV1 [value]x1  control L.V. value for Arm#1 FC H.V.
+    FCHV2 [value]x1  control L.V. value for Arm#2 FC H.V.
+PARAM_END
+
+DATA_START
+HV0   650   720   775   635   660   835   660   680 
+      685   650   695   715   705   705   770   675 
+HV1   665   690   645   600   600   735   700   730 
+      715   715   700   695   655   680   670   705 
+SCIFIHV   650.0
+FCHV1     3.6
+FCHV2     2.6
+DATA_END
+
+#######################################
+Old one (Before 17 June 2017)
+#HV0   650   720   775   715   660   835   660   680 
+      685   650   695   715   705   705   770   675 
+#HV1   665   690   645   665   660   735   700   640 
+      715   715   700   695   655   680   670   705 

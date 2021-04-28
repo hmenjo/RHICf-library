@@ -1,0 +1,7 @@
+If the error is happened, please comment out "#EXPLLINKLIBS += -lEG" in Makefile
+############################################################
+Cf-library/Library/lib/libRHICf.so -lEG  
+/usr/bin/ld: cannot find -lEG
+collect2: error: ld returned 1 exit status
+make: *** [/home/satoken/RHICf/Reconstruction/RHICf-library/Library/lib/libRHICf.so] Error 1
+##############################################################

@@ -1,0 +1,1403 @@
+begin convertor
+InputFileName 171105QGSJET2_TS20030000.root
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:       0   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:       1   NP: 2
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0         22    10      87.5    14.40  18.25  
+   1         22   -20       0.0     0.73 -48.10  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:       2   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:       3   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:       4   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:       5   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:       6   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:       7   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:       8   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:       9   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:      10   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:      11   NP: 1
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0       2212    40     149.8   142.57 -52.40  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:      12   NP: 4
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0         22     9      42.1   -26.25  -9.90  
+   1         11     9       0.9   -143.88  24.36  
+   2         22    -9       0.0   -50.33 -18.49  
+   3         22    -9       0.0   -56.19  34.25  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:      13   NP: 5
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0       2212    26     146.3   115.57  -8.01  
+   1         22     2       0.1    -3.36  65.42  
+   2         22     2       0.0    34.66  78.74  
+   3         22    -2       0.0   -47.81  62.23  
+   4         22    -2       0.0   108.71  -2.04  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:      14   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:      15   NP: 2
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0        -11    57      15.5   -1031.13   9.54  
+   1         22    57      12.7   -86.82  41.15  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:      16   NP: 1
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0       2112    11     202.9   -31.57  13.44  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:      17   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:      18   NP: 1
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0         22    46       5.3   -52.42   9.33  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:      19   NP: 2
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0       2112    34     175.5   -53.70  20.10  
+   1         22     3      27.3   -93.59  24.41  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:      20   NP: 1
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0        211    10      70.6    88.58 -44.75  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:      21   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:      22   NP: 1
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0       2112    13     238.5    32.88   7.08  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:      23   NP: 2
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0        -11    44       0.4    42.66 -26.78  
+   1         22   -44       0.1   -25.91  18.96  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:      24   NP: 1
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0        211    63      99.8    60.88  -1.65  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:      25   NP: 2
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0       2112    15     216.2   -28.36  17.49  
+   1       2112    15     216.2   -28.36  17.49  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:      26   NP: 1
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0       2212    30     132.8    37.46  75.99  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:      27   NP: 4
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0         22    23       6.8   -135.77 -35.71  
+   1         22     5       4.2   -48.00 -53.72  
+   2         22    23       1.3   211.23 -63.19  
+   3         22   -23       0.0    16.98  48.01  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:      28   NP: 2
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0       2112    19      99.0   -20.31  29.36  
+   1       2112    19      99.0   -20.31  29.36  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:      29   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:      30   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:      31   NP: 6
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0         11     3       2.5   975.05 -618.36  
+   1         22    -3       0.1    33.51 -65.43  
+   2         22    -3       0.0    -6.72 -53.27  
+   3         22     3       0.0    39.20  12.59  
+   4         22    -3       0.0    47.48  27.03  
+   5         22    -3       0.0    38.60  22.07  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:      32   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:      33   NP: 1
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0       2112    34      61.4    34.70  96.67  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:      34   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:      35   NP: 1
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0         11     4       7.2   -1040.60 328.31  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:      36   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:      37   NP: 1
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0         22    18      83.7     6.71  15.03  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:      38   NP: 3
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0         22    38       0.3   -151.39 989.22  
+   1         22   -38       0.1    -3.96  78.40  
+   2         22    38       0.1   -110.23 -92.35  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:      39   NP: 1
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0         22    28       9.3   -23.50  47.21  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:      40   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:      41   NP: 1
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0         22    54      21.9    91.31 -39.00  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:      42   NP: 1
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0       2112     1     148.5   -18.71 -19.34  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:      43   NP: 1
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0         22     6       4.6    39.60 -56.44  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:      44   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:      45   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:      46   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:      47   NP: 1
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0         22    28       8.6   -17.43  56.70  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:      48   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:      49   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:      50   NP: 1
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0       2212     1     254.1    86.14   0.25  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:      51   NP: 1
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0       2212    19     249.8    29.91  34.83  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:      52   NP: 1
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0        321     3      33.1   -131.74 -151.32  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:      53   NP: 1
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0       2112     7     183.7    19.30 -33.07  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:      54   NP: 1
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0       2112    11     135.4    32.05 -48.75  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:      55   NP: 1
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0         22     4       0.0    12.99 100.45  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:      56   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:      57   NP: 2
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0       2212    37     116.1    90.08 -12.77  
+   1         22   -38       0.1   -10.98 -19.17  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:      58   NP: 1
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0        -11     8       6.3   217.98 -55.40  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:      59   NP: 1
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0        211     3     120.0    93.23 -15.72  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:      60   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:      61   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:      62   NP: 3
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0       2112    17     198.5   -24.76 -35.31  
+   1       2112    17     198.5   -24.77 -35.33  
+   2         22    16       8.2    48.04  85.78  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:      63   NP: 3
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0         22     8      47.7     0.69 -55.95  
+   1         22    34       0.8   -117.46 182.28  
+   2         11     8       0.6    82.75 -101.04  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:      64   NP: 8
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0         11    20       9.4   -58.88  12.45  
+   1         11    20       2.0   -80.00  40.82  
+   2         22    20       0.1   -58.00  66.68  
+   3         11    20       0.1   978.78 132.20  
+   4         22   -20       0.1   -31.93  40.14  
+   5         22   -20       0.0     9.72 -27.33  
+   6         22    20       0.0   -26.00  14.15  
+   7         22   -20       0.0   -25.70  49.17  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:      65   NP: 1
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0       2112    16     245.5   -28.42   7.63  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:      66   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:      67   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:      68   NP: 1
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0       2112    38     123.2    61.48   7.11  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:      69   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:      70   NP: 1
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0       2212    53     118.8    90.40 -50.65  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:      71   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:      72   NP: 1
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0       2212    18     122.4    87.26 -17.09  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:      73   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:      74   NP: 1
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0       2212     1     129.0    88.56  -4.65  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:      75   NP: 1
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0       -211     4      86.5   -74.31 -14.32  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:      76   NP: 4
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0         22     7       0.4   -34.20  -3.14  
+   1        -11     7       0.3    10.04  46.41  
+   2         22     7       0.0   -18.60 -22.65  
+   3         22    -7       0.0    60.56 -16.56  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:      77   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:      78   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:      79   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:      80   NP: 2
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0       2112    23     229.1    45.45 -16.56  
+   1       2112    23     229.1    45.45 -16.56  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:      81   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:      82   NP: 1
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0       -211    24     127.3   -92.01   5.09  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:      83   NP: 1
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0       2112    29     228.8     3.37  19.06  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:      84   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:      85   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:      86   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:      87   NP: 3
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0       2212    21      98.9    85.82 -28.95  
+   1         22     9      99.4    43.40  27.85  
+   2         22    13       7.4    -0.59 -84.24  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:      88   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:      89   NP: 1
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0       2112    27     226.9   -10.24 -18.22  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:      90   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:      91   NP: 3
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0         22    15       3.8   -89.62  29.06  
+   1         11    18       2.9   -715.55 -999.73  
+   2        -11    18       1.8   209.65 -985.63  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:      92   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:      93   NP: 15
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0       2112    68      69.4    20.00  62.32  
+   1        211    11      10.4    78.66 252.66  
+   2         22   -24       1.1   -36.69  55.05  
+   3         22    24       0.8   -33.17  72.26  
+   4         22   -24       0.1    -9.28  32.92  
+   5         22   -24       0.0     4.49   5.84  
+   6         22   -24       0.0     1.23  13.06  
+   7         22   -24       0.0    -0.41  57.47  
+   8         22    24       0.0   697.23 997.60  
+   9         22   -24       0.0   -20.98 -49.59  
+  10         22    24       0.0   -998.55 -519.32  
+  11         22   -24       0.0    33.36  57.47  
+  12         22   -24       0.0    22.60  -7.80  
+  13         22   -24       0.0   -176.54 -67.59  
+  14         22   -24       0.0    -7.82 -29.38  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:      94   NP: 1
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0       2112    19     150.2    -0.12 -23.07  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:      95   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:      96   NP: 1
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0         22     5      13.7    70.08  42.14  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:      97   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:      98   NP: 1
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0        -11    56      16.7   -1038.57 436.51  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:      99   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     100   NP: 1
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0       2212    27     203.1    76.17  34.80  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     101   NP: 3
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0         11     3       2.6   481.04 1031.68  
+   1         22    -3       0.0   -23.55 -46.29  
+   2         22    -1       0.0   -29.32   9.84  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     102   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     103   NP: 1
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0       2112    16     227.3    -1.78 -69.38  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     104   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     105   NP: 2
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0       3122    45      78.7   -28.54 -64.12  
+   1         22   -44       0.0    27.90 -73.55  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     106   NP: 2
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0         22    -9       0.0   -34.48 -39.41  
+   1         22    -9       0.0    44.95  19.69  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     107   NP: 1
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0       2112    17     227.0   -14.67   8.24  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     108   NP: 1
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0       2112    30      89.8    11.61 -40.85  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     109   NP: 1
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0         22    32       9.3    -3.45 -18.27  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     110   NP: 2
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0       2212    16     139.6    90.77 -12.94  
+   1        211    18      82.0    97.28  32.55  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     111   NP: 2
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0       2212    40      62.0    68.95 -11.86  
+   1        211    41      33.3   167.74  18.88  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     112   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     113   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     114   NP: 2
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0         22   -12       0.0   -50.78 -28.13  
+   1         22   -12       0.0    49.68 -56.56  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     115   NP: 10
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0       2112    34     140.2    68.52 -63.13  
+   1        -11    25       0.8    93.96 -38.27  
+   2        -11    25       0.5   -323.93 -1012.34  
+   3         22   -25       0.1    -4.39   4.77  
+   4         22   -25       0.0    -5.04  21.06  
+   5         22   -25       0.0     5.14   5.77  
+   6         22   -25       0.0    -3.65  99.92  
+   7         22   -25       0.0    -2.28  81.20  
+   8         22   -25       0.0    29.78  65.17  
+   9         22   -25       0.0    -6.07  37.72  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     116   NP: 2
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0         22    -3       0.0    45.13   8.51  
+   1         22    -3       0.0    25.65  57.97  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     117   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     118   NP: 1
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0       2212    39      97.4    83.06  10.13  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     119   NP: 2
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0         22    -7       0.0    -4.53  20.97  
+   1         22    -7       0.0    21.33  83.46  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     120   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     121   NP: 1
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0       2212    23     138.2    62.73 -46.81  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     122   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     123   NP: 1
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0       2212    46     150.0    78.45 -44.75  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     124   NP: 1
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0       2212    34     181.8    64.53  88.40  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     125   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     126   NP: 1
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0       2112    32      67.7    52.89  -7.82  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     127   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     128   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     129   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     130   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     131   NP: 1
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0       2212    37      91.1   139.44  67.15  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     132   NP: 1
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0       2212    23      73.2   101.31  49.12  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     133   NP: 8
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0       2212    34      76.3   126.60 -22.51  
+   1         22     1       7.6    42.06  51.30  
+   2         22    20       0.7   -33.03  -3.93  
+   3         22    20       0.3    -8.30 -24.53  
+   4         22    20       0.1    35.79  98.50  
+   5         22    20       0.0    11.56  89.57  
+   6         22   -20       0.0    44.49  14.32  
+   7         22   -20       0.0    33.66 -10.36  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     134   NP: 1
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0       2112    11      78.4   -76.50 -54.10  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     135   NP: 2
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0         11    29      16.7   -60.91 -58.95  
+   1        -11    29       2.9   124.91 -43.89  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     136   NP: 2
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0         22   102       5.2    15.76  36.14  
+   1         22   -87       0.0    -8.24  79.12  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     137   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     138   NP: 1
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0       2212     9     238.8    81.28 -14.15  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     139   NP: 1
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0       2112    22     114.1   -13.71  14.89  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     140   NP: 1
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0       2112    20     125.7    59.78  46.52  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     141   NP: 1
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0       2112    37     209.0    31.17  -7.22  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     142   NP: 1
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0       2112    25     228.2    -2.62   9.83  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     143   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     144   NP: 1
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0         22    71       0.0   -11.20 1002.36  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     145   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     146   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     147   NP: 1
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0       2112     1     234.4   -52.67   4.41  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     148   NP: 1
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0       2212    59     181.7    57.28   0.05  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     149   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     150   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     151   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     152   NP: 2
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0         22   -73       0.1     3.33 -11.87  
+   1         22   -89       0.0   -59.13 -13.46  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     153   NP: 1
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0       2112    10     193.3   -12.44 -36.22  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     154   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     155   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     156   NP: 1
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0        -11    31       2.0   219.23 -991.52  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     157   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     158   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     159   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     160   NP: 2
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0       3122    62     146.3    46.95  87.53  
+   1         22    61       7.0    18.73 -88.32  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     161   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     162   NP: 1
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0        211    62      83.4    70.33 -26.62  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     163   NP: 1
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0         22   -32       0.0    36.86  57.99  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     164   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     165   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     166   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     167   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     168   NP: 1
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0       2112    17     202.2     5.30 -35.13  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     169   NP: 3
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0         22    35      55.6   -59.58 -13.07  
+   1         22    35      37.3   -19.65 -47.57  
+   2         11    31       6.0   -319.28 156.83  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     170   NP: 3
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0         22     8       0.6   -64.67 -35.64  
+   1         22    -8       0.1    31.80 -55.91  
+   2         22    -8       0.0   -58.51  79.51  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     171   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     172   NP: 3
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0       2112     1     163.7    12.09 -33.05  
+   1       2112     1     163.7    12.09 -33.05  
+   2        211     2      90.2    81.35  93.02  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     173   NP: 2
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0         22     1      47.0    41.19 -53.63  
+   1         22     1      19.7   -35.77 -71.33  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     174   NP: 2
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0         22     5      90.9   -19.62 -53.47  
+   1         22     5      80.6     5.74 -41.44  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     175   NP: 1
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0         22    48       8.9   -65.59  49.58  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     176   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     177   NP: 1
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0       2212    58      94.2    86.57  21.59  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     178   NP: 1
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0         22    63       9.5    47.59  55.58  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     179   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     180   NP: 8
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0       2212    25     101.6    50.22 -58.52  
+   1      -2112     9      40.0    28.78  55.98  
+   2         22     4      12.3   -36.44   7.50  
+   3        -11     4       2.0    80.63 -45.47  
+   4         22     4       0.3    59.71  48.78  
+   5         22    -4       0.1   -10.46  54.21  
+   6         22    -4       0.0    32.79   2.78  
+   7         22    -4       0.0   -28.35  57.52  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     181   NP: 1
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0       2212    17     152.4    97.97 -14.15  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     182   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     183   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     184   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     185   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     186   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     187   NP: 1
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0         22   -10       0.0   -41.85   8.71  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     188   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     189   NP: 4
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0         22    31      25.9    32.83 -52.14  
+   1         22    31      25.9    32.83 -52.14  
+   2         22   -67       0.0    39.04  72.53  
+   3         22   -67       0.0    42.96  -8.58  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     190   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     191   NP: 2
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0         22    56      37.6   -59.45  -8.14  
+   1         22   -34       0.0     3.45 -33.50  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     192   NP: 2
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0         11    21       0.2    20.27  85.51  
+   1         22   -21       0.1    34.85   4.93  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     193   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     194   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     195   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     196   NP: 4
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0       2112     3     189.9    28.13 -22.02  
+   1       2112     3     189.9    28.13 -22.02  
+   2         11     2       0.2    42.46 -139.20  
+   3         22    -2       0.0   -16.83  40.19  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     197   NP: 1
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0         22     1     134.3   -16.13 -15.56  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     198   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     199   NP: 1
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0       -211    47      82.8   -86.75  58.99  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     200   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     201   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     202   NP: 1
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0       2212    29     156.7    52.85 -63.72  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     203   NP: 1
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0       2112    25     126.2   -23.09  13.99  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     204   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     205   NP: 2
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0         22     1       0.1   -86.81 -59.37  
+   1         22    -1       0.0   -26.21 -66.38  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     206   NP: 2
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0       2112    18     169.0    18.68  20.40  
+   1         22     3      37.9    79.21  46.99  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     207   NP: 1
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0       2212    53     122.9    89.85 -68.19  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     208   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     209   NP: 1
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0       2212    32      78.4    24.35 -81.11  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     210   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     211   NP: 1
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0        211    70      40.7    68.24  -8.57  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     212   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     213   NP: 1
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0         22    -5       0.1    56.78 -70.33  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     214   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     215   NP: 2
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0         22    12     124.9   -37.46   8.63  
+   1         22    12      47.2   -13.45 -11.42  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     216   NP: 8
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0         22    47      32.4     9.58 -12.96  
+   1         11    21       9.9   -56.81  11.20  
+   2         11    47       2.2   296.72 -995.89  
+   3         22   -47       0.0   -52.45   9.46  
+   4         22    21       0.0   -491.51 -1002.55  
+   5         22   -47       0.0   -39.87   5.86  
+   6         22   -47       0.0     3.11  36.79  
+   7         22   -21       0.0   -40.26 -135.87  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     217   NP: 13
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0        211     1      17.9   223.72 -37.18  
+   1         11    25       6.7   -117.32  30.21  
+   2        -11    25       2.0   115.66  13.28  
+   3         22    25       0.4    21.91  22.11  
+   4         22   -25       0.0   -43.16  57.04  
+   5         22   -25       0.0   -35.55  78.29  
+   6         22    25       0.0    52.04  43.16  
+   7         22   -25       0.0    10.94  45.24  
+   8         22    25       0.0   1002.63 -373.81  
+   9         22   -25       0.0    -0.10   1.55  
+  10         22   -25       0.0   108.96  12.50  
+  11         22   -25       0.0   -39.97  11.00  
+  12         22    -9       0.0    23.57  14.25  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     218   NP: 3
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0         22     1      78.6   -12.02 -25.61  
+   1         22     1      54.0     6.99   5.99  
+   2         22     1      54.0     6.99   5.99  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     219   NP: 10
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0         11     2      13.1   -110.85 -58.84  
+   1        -11     2       3.9   125.62   3.21  
+   2        -11     2       3.1   114.36 -62.46  
+   3         22     2       1.6   -56.56 -109.60  
+   4         22     2       1.4   -83.15 -95.52  
+   5         11     2       0.9   -118.09 -65.18  
+   6        -11     2       0.2    75.21   9.92  
+   7         22     2       0.1   -17.22  97.91  
+   8         22     2       0.0    86.73  62.34  
+   9         22    -2       0.0    31.73   4.78  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     220   NP: 3
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0         22    77      21.3    -4.17 -69.27  
+   1         22    75      12.1    -5.22  45.66  
+   2         22   -75       0.1   -45.79  67.50  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     221   NP: 2
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0       2112    22     243.7    39.48 -20.86  
+   1       2112    22     243.7    39.57 -20.97  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     222   NP: 2
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0       2212    22     155.4    66.89  47.31  
+   1         22   -19       0.0   -46.21 -39.95  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     223   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     224   NP: 1
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0         22    56      13.0    40.93 -11.72  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     225   NP: 2
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0       2112    15      75.9    43.29  35.87  
+   1         22     4       2.0    35.98 -65.11  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     226   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     227   NP: 1
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0       2112    12      14.1   -10.88  45.11  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     228   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     229   NP: 3
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0        -11     9      27.9   110.77  52.07  
+   1         11     9       6.0   -62.03  35.79  
+   2         22    -9       0.0     5.34 -77.52  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     230   NP: 1
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0       -211    12     136.6   -79.87 -56.49  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     231   NP: 1
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0       2112    27     238.1   -22.00   0.13  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     232   NP: 2
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0         22    41      38.1    -8.72  28.28  
+   1         22    41      38.1    -8.72  28.28  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     233   NP: 1
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0         22    15      14.2    -5.45 -93.40  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     234   NP: 7
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0         22    71      17.3   -62.16  -9.85  
+   1        -11    66       0.8   1102.13 -614.39  
+   2         22   -66       0.0    24.56 -52.05  
+   3         22   -66       0.0    41.19   2.27  
+   4         22   -66       0.0   -12.21 -13.89  
+   5         22   -66       0.0    14.31  13.47  
+   6         22   -72       0.0    16.56 -59.52  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     235   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     236   NP: 1
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0       3122    34      70.7    58.53 -51.73  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     237   NP: 13
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0         22    38      38.6   -13.07  44.50  
+   1         22    38      38.6   -13.07  44.50  
+   2         22    59       2.5   -37.90 -71.09  
+   3         22    38       2.0   -11.08  72.16  
+   4         22    38       0.3    27.80  52.84  
+   5         22    38       0.3   -10.77 115.36  
+   6         22    38       0.2    32.18 -95.97  
+   7         11    38       0.1   557.73  -0.39  
+   8         22   -70       0.0     5.51   8.44  
+   9         22   -38       0.0   -35.55  58.01  
+  10         22   -38       0.0   -30.24  75.69  
+  11         22    38       0.0   -49.94   3.35  
+  12         22   -38       0.0    -8.85 -15.66  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     238   NP: 1
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0         22   -50       0.0    23.41   5.27  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     239   NP: 1
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0        211    17      86.2    84.58 -36.36  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     240   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     241   NP: 3
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0       2212    28     131.6   110.25  15.80  
+   1       2212    31      14.1   -42.45 -279.70  
+   2         22    25       0.2    -1.37 -91.38  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     242   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     243   NP: 1
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0       2212    37     248.1    83.14 -51.22  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     244   NP: 9
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0         22     5       1.4   137.19 -50.34  
+   1        -11     5       0.8   214.20 -19.51  
+   2        -11     5       0.4   126.04  30.01  
+   3         22     5       0.1   139.00  -7.96  
+   4         22     5       0.1   -36.13 -34.49  
+   5         22    -5       0.0   -37.64 -37.47  
+   6         22     5       0.0   -52.22  73.33  
+   7         22    -5       0.0    46.94 -54.32  
+   8         22    -5       0.0     1.02 -43.50  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     245   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     246   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     247   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     248   NP: 1
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0       2212    25      88.2    94.29   4.33  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     249   NP: 1
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0         22    20       7.0   -47.57 -61.77  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     250   NP: 2
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0         11    21       0.5   -216.46 -384.49  
+   1         22    13       0.2    79.03  61.90  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     251   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     252   NP: 1
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0         22    15      73.0   -32.20 -47.53  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     253   NP: 1
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0         22    19      26.6    19.32  71.85  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     254   NP: 2
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0         11     1       1.7   -33.99  28.63  
+   1        -11     1       0.5   199.59 -18.92  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     255   NP: 5
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0        130    22      46.7     6.89 -16.98  
+   1         22    21      36.9     1.29  42.59  
+   2         22    21       0.1    81.72 -64.02  
+   3         22    21       0.0    52.88   6.53  
+   4         22   -21       0.0   -59.02  41.47  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     256   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     257   NP: 6
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0       2212    17     145.2    54.93  77.69  
+   1         22    16      10.4    31.25 -25.99  
+   2         22    16       0.4     4.04   6.25  
+   3         22   -16       0.0   -39.17 -49.30  
+   4         22   -16       0.0   -41.02  30.55  
+   5         22   -16       0.0    -3.18  40.72  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     258   NP: 1
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0        211     4      38.4    97.73  29.01  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     259   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     260   NP: 0
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     261   NP: 1
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0       2212     5     188.1   108.29  20.37  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     262   NP: 1
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0       2112    11     177.8    27.19 -59.07  
+ =================== SimIncidents =======================
+ NAME:    a1simin      TITLE: RHICf particle Info
+ RUN:      0    GNUMBER:       0  NUMBER:     263   NP: 1
+ -IP-  -PARTICLE-  USER -KE[GeV]-  -POS_XY[mm] global-
+   0       2112     1     159.6    21.10 -30.85  

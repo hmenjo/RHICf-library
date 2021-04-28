@@ -1,0 +1,88 @@
+#ifndef __A1PEDESUBTACT_H__
+#define __A1PEDESUBTACT_H__
+
+
+//-----------------------------------------------------------------
+//                         A1PedeSubtract   
+//-----------------------------------------------------------------
+
+#include <TObject.h>
+#include <TFile.h>
+#include "globaldef.h"
+#include "A1Cal1.h"
+using namespace std;
+
+class A1PedeSubtract {
+ private:
+  int    nevent;
+  A1Cal1 *pedeaccum; 
+  A1Cal1 *pedeaccum2;      // square values
+  A1Cal1 *pedestal;
+  A1Cal1 *pedesigma;       // contain RMS of silicon
+  
+  // For subtraction of offset after subtraction by delayed gate
+  // if opoffsetsubtraction is true (default), subtract the offset. 
+  bool    opoffsetsubtraction;
+  A1Cal1 *pedeaccum2_1;
+  A1Cal1 *pedeaccum2_2;    // contain silicon*2
+  A1Cal1 *pedestal2;       // 
+  A1Cal1 *pedesigma2;      // contain RMS of silicon
+  A1Cal1 datatmp;
+
+  int    accum_nevent;     // number of accumrated event for pedestal.
+  
+ public:
+  A1PedeSubtract();
+  virtual ~A1PedeSubtract();
+  
+  int     Initialize();
+  int     SetPedestal(A1Cal1* p){pedestal->copydata(p);return OK;}
+  int     SetAccumNEvent(int n){accum_nevent=n; return OK;}
+  int     AccumClear(); 
+  int     FillPedeEvent(A1Cal1* data);
+  int     CalPedestal();
+  int     Subtract(A1Cal1* data, A1Cal1* pede=0);  // Subtraction including cal. of pedestal.
+  int     Subtraction(A1Cal1* data);               // Only subtraction
+  int     Subtraction1(A1Cal1* data, int op=0);    // op : for internal use. 
+  int     Subtraction2(A1Cal1* data);              // Offset subtraction
+  void    SetOffsetSubtraction(bool b=true){opoffsetsubtraction = b;}
+  bool    GetOffsetSubtraction(){return opoffsetsubtraction;} 
+  int     WriteFile(char filename[]="");
+  int     ReadFile(char filename[]="");
+
+  A1Cal1* GetPedestal() {return pedestal;}
+  A1Cal1* GetPedesigma(){return pedesigma;}
+  A1Cal1* GetPedestal2() {return pedestal2;}
+  A1Cal1* GetPedesigma2(){return pedesigma2;}
+
+  // internal function
+  int  AddSqare(A1Cal1* data);
+  int  AddSqare2(A1Cal1* data); // After subtraction od delayed gate
+  int  CalSigma();
+  int  CalSigma2();             // After subtraction od delayed gate
+
+  // for online analysis
+  int Init(A1Cal1* pede = 0);
+  int Exit();
+  int Bor();
+  int Eor();
+  int Loop(A1Cal1* data,A1Cal1* pede){return Subtract(data,pede);}
+  
+ private:
+  static const int    DEFAULT_ACCUM_NEVENT = 100;
+  static const char*  PEDESTAL_NAME;
+  static const char*  PEDESTAL_TITLE;
+  static const char*  PEDESIGMA_NAME;
+  static const char*  PEDESIGMA_TITLE; 
+  static const char*  PEDESTAL2_NAME;
+  static const char*  PEDESTAL2_TITLE;
+  static const char*  PEDESIGMA2_NAME;
+  static const char*  PEDESIGMA2_TITLE;
+  static const char*  DEFAULT_FILENAME; 
+  
+  ClassDef(A1PedeSubtract,1);   // Pedestal subtraction for Arm1
+};
+
+
+
+#endif 

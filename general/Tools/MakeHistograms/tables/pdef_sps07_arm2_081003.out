@@ -1,0 +1,51 @@
+PARAM_START
+FORMAT:  PARTICLE_DEFINE
+TYPE:    1
+VERSION: 200
+DATE:    081003
+COMMENT: Combined the results of shower fit with that of muon fit.
+	 25mm:1-9      pdef_25mm_150GeV_HV600_mean_01_080828.out
+	 25mm:0,10-15  pdef_MUON_25mm_080829_07f.txt
+	 32mm:1-9      pdef_32mm_150GeV_HV600_mean_01_080925.out
+	 32mm:0,10-15  pdef_MUON_32mm_080830_08f.txt
+PARAM_END
+
+DATA_START
+DETECTOR   2
+HV0   1000
+ADC   0  0   33.702
+ADC   0  1   39.486
+ADC   0  2   34.943
+ADC   0  3   36.251
+ADC   0  4   32.463
+ADC   0  5   29.492
+ADC   0  6   38.978
+ADC   0  7   49.333
+ADC   0  8   33.384
+ADC   0  9   49.514
+ADC   0 10   27.974
+ADC   0 11   33.223
+ADC   0 12   29.067
+ADC   0 13   42.237
+ADC   0 14   38.326
+ADC   0 15   38.056
+
+HV1   1000
+ADC   1  0   38.130
+ADC   1  1   34.984
+ADC   1  2   37.927
+ADC   1  3   33.051
+ADC   1  4   30.546
+ADC   1  5   31.747
+ADC   1  6   38.080
+ADC   1  7   31.857
+ADC   1  8   32.218
+ADC   1  9   46.321
+ADC   1 10   38.220
+ADC   1 11   36.589
+ADC   1 12   32.556
+ADC   1 13   35.481
+ADC   1 14   32.935
+ADC   1 15   34.413
+
+DATA_END

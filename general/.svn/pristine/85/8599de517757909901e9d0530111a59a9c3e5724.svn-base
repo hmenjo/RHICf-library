@@ -1,0 +1,3 @@
+Sun May  3 18:00:33 2015 [ODBEdit] [odb.c:992:db_open_database] Removing client 'Analyzer1', pid 21095, index 0 because the pid no longer exists
+Sun May  3 18:00:33 2015 [ODBEdit] Deleted entry '/System/Clients/1' for client 'Analyzer1'
+

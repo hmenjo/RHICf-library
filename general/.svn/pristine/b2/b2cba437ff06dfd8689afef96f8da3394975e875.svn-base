@@ -1,0 +1,753 @@
+# ---------------------------------------------------------- 
+START_RUNINFO   RUN02347
+ FORMAT    1
+ -GENERAL
+   RUN         2347
+   START_TIME  1260137850    Sun Dec  6 23:17:30 2009
+   END_TIME    1260141919    Mon Dec  7 00:25:19 2009
+   GENRAL_COMMENTS  
+
+ -NEVENTS
+   TOTAL             3923
+   ARM1              1830
+   ARM1_L2TA           65
+   ARM1_L2TP         1765
+   ARM1_LASER           0
+   ARM2              1345
+   ARM2_L2TA           86
+   ARM2_L2TP         1259
+   ARM2_LASER           0
+   ARM1_SCL           399
+   ARM2_SCL           393
+   SLOWCONTROL          0
+   DIPV                 0
+   DIPH                 0
+   DIPVH                0
+
+
+ -BEAM_INFORMATION
+   STABLE_BEAM        0
+   BEAM1_AVINTENSITY  0.0000e+00
+   BEAM2_AVINTENSITY  0.0000e+00
+   BEAM1_NBUNCHES     4
+   BRAM1_BUNCHES
+       1   1  0.0000e+00     1783   3  0.0000e+00     2674   1  0.0000e+00     
+    3120   2  0.0000e+00     
+   BEAM2_NBUNCHES  4
+   BRAM2_BUNCHES
+       1   1  0.0000e+00     1780   3  0.0000e+00     2226   2  0.0000e+00     
+    2674   1  0.0000e+00     
+   BEAM_AVERAGELUMINOSITYPERBUNCH
+    0.00000e+00    0.00000e+00    0.00000e+00    
+    0.00000e+00    
+   BEAM_COMMENTS   No data of IntensityPerBunch.
+
+ -ANALYSIS_INFOMATION 
+   ANA_QUALITY     1
+   ANA_CUT_STIME   1260137850    Sun Dec  6 23:17:30 2009
+   ANA_CUT_ETIME   1260141730    Mon Dec  7 00:22:10 2009
+   ANA_ARM1_NEVENT            1830
+   ANA_ARM1_NEVENT_L1TA         65
+   ANA_ARM2_NEVENT            1345
+   ANA_ARM2_NEVENT_L1TA         86
+   ANA_COMMENTS    No data of IntensityPerBunch.
+
+END_RUNINFO     RUN02347
+
+
+# ---------------------------------------------------------- 
+START_RUNINFO   RUN02349
+ FORMAT    1
+ -GENERAL
+   RUN         2349
+   START_TIME  1260235046    Tue Dec  8 02:17:26 2009
+   END_TIME    1260247754    Tue Dec  8 05:49:14 2009
+   GENRAL_COMMENTS  
+
+ -NEVENTS
+   TOTAL            12642
+   ARM1              6022
+   ARM1_L2TA          184
+   ARM1_L2TP         5838
+   ARM1_LASER           0
+   ARM2              4288
+   ARM2_L2TA          239
+   ARM2_L2TP         4049
+   ARM2_LASER           0
+   ARM1_SCL          1232
+   ARM2_SCL          1217
+   SLOWCONTROL          0
+   DIPV                 0
+   DIPH                 0
+   DIPVH                0
+
+
+ -BEAM_INFORMATION
+   STABLE_BEAM        0
+   BEAM1_AVINTENSITY  0.0000e+00
+   BEAM2_AVINTENSITY  0.0000e+00
+   BEAM1_NBUNCHES     4
+   BRAM1_BUNCHES
+    -127   1  0.0000e+00     1655   3  0.0000e+00     2546   1  0.0000e+00     
+    2992   2  0.0000e+00     
+   BEAM2_NBUNCHES  4
+   BRAM2_BUNCHES
+    -127   1  0.0000e+00     1652   3  0.0000e+00     2098   2  0.0000e+00     
+    2546   1  0.0000e+00     
+   BEAM_AVERAGELUMINOSITYPERBUNCH
+    0.00000e+00    0.00000e+00    0.00000e+00    
+    0.00000e+00    
+   BEAM_COMMENTS   No data of IntensityPerBunch.
+
+ -ANALYSIS_INFOMATION 
+   ANA_QUALITY     1
+   ANA_CUT_STIME   1260235046    Tue Dec  8 02:17:26 2009
+   ANA_CUT_ETIME   1260247752    Tue Dec  8 05:49:12 2009
+   ANA_ARM1_NEVENT            6022
+   ANA_ARM1_NEVENT_L1TA        184
+   ANA_ARM2_NEVENT            4288
+   ANA_ARM2_NEVENT_L1TA        239
+   ANA_COMMENTS    No data of IntensityPerBunch and Wrong bunch position
+
+END_RUNINFO     RUN02349
+
+
+# ---------------------------------------------------------- 
+START_RUNINFO   RUN02363
+ FORMAT    1
+ -GENERAL
+   RUN         2363
+   START_TIME  1260351128    Wed Dec  9 10:32:08 2009
+   END_TIME    1260356704    Wed Dec  9 12:05:04 2009
+   GENRAL_COMMENTS  
+
+ -NEVENTS
+   TOTAL             5669
+   ARM1              2723
+   ARM1_L2TA           34
+   ARM1_L2TP         2481
+   ARM1_LASER           0
+   ARM2              1965
+   ARM2_L2TA           76
+   ARM2_L2TP         1712
+   ARM2_LASER           0
+   ARM1_SCL           542
+   ARM2_SCL           536
+   SLOWCONTROL          0
+   DIPV                 0
+   DIPH                 0
+   DIPVH                0
+
+
+ -BEAM_INFORMATION
+   STABLE_BEAM        0
+   BEAM1_AVINTENSITY  4.4192e+09
+   BEAM2_AVINTENSITY  2.7466e+09
+   BEAM1_NBUNCHES     4
+   BRAM1_BUNCHES
+       1   1  3.8414e+09     1783   3  3.9429e+09     2674   1  3.3793e+09     
+    3120   2  4.4192e+09     
+   BEAM2_NBUNCHES  4
+   BRAM2_BUNCHES
+       1   1  2.9725e+09     1780   3  2.9188e+09     2226   2  3.2581e+09     
+    2674   1  2.7466e+09     
+   BEAM_AVERAGELUMINOSITYPERBUNCH
+    1.16904e+19    1.17456e+19    9.53057e+18    
+    0.00000e+00    
+   BEAM_COMMENTS   
+
+ -ANALYSIS_INFOMATION 
+   ANA_QUALITY     1
+   ANA_CUT_STIME   1260351128    Wed Dec  9 10:32:08 2009
+   ANA_CUT_ETIME   1260356696    Wed Dec  9 12:04:56 2009
+   ANA_ARM1_NEVENT            2723
+   ANA_ARM1_NEVENT_L1TA         34
+   ANA_ARM2_NEVENT            1965
+   ANA_ARM2_NEVENT_L1TA         76
+   ANA_COMMENTS    
+
+END_RUNINFO     RUN02363
+
+
+# ---------------------------------------------------------- 
+START_RUNINFO   RUN02379
+ FORMAT    1
+ -GENERAL
+   RUN         2379
+   START_TIME  1260493605    Fri Dec 11 02:06:45 2009
+   END_TIME    1260495744    Fri Dec 11 02:42:24 2009
+   GENRAL_COMMENTS  
+
+ -NEVENTS
+   TOTAL             2694
+   ARM1              1299
+   ARM1_L2TA          102
+   ARM1_L2TP          759
+   ARM1_LASER           0
+   ARM2              1124
+   ARM2_L2TA          103
+   ARM2_L2TP          484
+   ARM2_LASER           0
+   ARM1_SCL           209
+   ARM2_SCL           207
+   SLOWCONTROL          0
+   DIPV                 0
+   DIPH                 0
+   DIPVH                0
+
+
+ -BEAM_INFORMATION
+   STABLE_BEAM        0
+   BEAM1_AVINTENSITY  7.8625e+09
+   BEAM2_AVINTENSITY  8.0442e+09
+   BEAM1_NBUNCHES     5
+   BRAM1_BUNCHES
+       1   1  2.9375e+09      101   1  9.0867e+09     1883   3  8.3143e+09     
+    2209   2  9.3215e+09     2774   1  7.8625e+09     
+   BEAM2_NBUNCHES  5
+   BRAM2_BUNCHES
+       1   1  4.4448e+09      101   1  6.9065e+09     1315   2  9.0540e+09     
+    1880   3  8.1462e+09     2774   1  8.0442e+09     
+   BEAM_AVERAGELUMINOSITYPERBUNCH
+    1.31257e+19    6.30517e+19    6.83344e+19    
+    0.00000e+00    6.39648e+19    
+   BEAM_COMMENTS   
+
+ -ANALYSIS_INFOMATION 
+   ANA_QUALITY     1
+   ANA_CUT_STIME   1260493605    Fri Dec 11 02:06:45 2009
+   ANA_CUT_ETIME   1260495743    Fri Dec 11 02:42:23 2009
+   ANA_ARM1_NEVENT            1299
+   ANA_ARM1_NEVENT_L1TA        102
+   ANA_ARM2_NEVENT            1124
+   ANA_ARM2_NEVENT_L1TA        103
+   ANA_COMMENTS    
+
+END_RUNINFO     RUN02379
+
+
+# ---------------------------------------------------------- 
+START_RUNINFO   RUN02380
+ FORMAT    1
+ -GENERAL
+   RUN         2380
+   START_TIME  1260495772    Fri Dec 11 02:42:52 2009
+   END_TIME    1260507818    Fri Dec 11 06:03:38 2009
+   GENRAL_COMMENTS  
+
+ -NEVENTS
+   TOTAL            13241
+   ARM1              6359
+   ARM1_L2TA          324
+   ARM1_L2TP         4810
+   ARM1_LASER           0
+   ARM2              4997
+   ARM2_L2TA          335
+   ARM2_L2TP         3166
+   ARM2_LASER           0
+   ARM1_SCL          1173
+   ARM2_SCL          1158
+   SLOWCONTROL          0
+   DIPV                 0
+   DIPH                 0
+   DIPVH                0
+
+
+ -BEAM_INFORMATION
+   STABLE_BEAM        0
+   BEAM1_AVINTENSITY  5.0825e+09
+   BEAM2_AVINTENSITY  6.2243e+09
+   BEAM1_NBUNCHES     5
+   BRAM1_BUNCHES
+       1   1  2.1304e+09      101   1  7.0886e+09     1883   3  5.6246e+09     
+    2209   2  7.5368e+09     2774   1  5.0825e+09     
+   BEAM2_NBUNCHES  5
+   BRAM2_BUNCHES
+       1   1  3.9124e+09      101   1  4.6822e+09     1315   2  8.1602e+09     
+    1880   3  6.4461e+09     2774   1  6.2243e+09     
+   BEAM_AVERAGELUMINOSITYPERBUNCH
+    8.39979e+18    3.35208e+19    3.65905e+19    
+    0.00000e+00    3.19626e+19    
+   BEAM_COMMENTS   
+
+ -ANALYSIS_INFOMATION 
+   ANA_QUALITY     1
+   ANA_CUT_STIME   1260497573    Fri Dec 11 03:12:53 2009
+   ANA_CUT_ETIME   1260507736    Fri Dec 11 06:02:16 2009
+   ANA_ARM1_NEVENT            5301
+   ANA_ARM1_NEVENT_L1TA        248
+   ANA_ARM2_NEVENT            4140
+   ANA_ARM2_NEVENT_L1TA        239
+   ANA_COMMENTS    
+
+END_RUNINFO     RUN02380
+
+
+# ---------------------------------------------------------- 
+START_RUNINFO   RUN02382
+ FORMAT    1
+ -GENERAL
+   RUN         2382
+   START_TIME  1260513270    Fri Dec 11 07:34:30 2009
+   END_TIME    1260524053    Fri Dec 11 10:34:13 2009
+   GENRAL_COMMENTS  
+
+ -NEVENTS
+   TOTAL            12327
+   ARM1              5947
+   ARM1_L2TA          338
+   ARM1_L2TP         4108
+   ARM1_LASER           0
+   ARM2              4821
+   ARM2_L2TA          411
+   ARM2_L2TP         2542
+   ARM2_LASER           0
+   ARM1_SCL          1050
+   ARM2_SCL          1036
+   SLOWCONTROL          0
+   DIPV                 0
+   DIPH                 0
+   DIPVH                0
+
+
+ -BEAM_INFORMATION
+   STABLE_BEAM        0
+   BEAM1_AVINTENSITY  7.0888e+09
+   BEAM2_AVINTENSITY  8.5805e+09
+   BEAM1_NBUNCHES     5
+   BRAM1_BUNCHES
+       1  -1  2.2641e+09      101   1  5.9704e+09     1883   3  7.0627e+09     
+    2209   2  7.5370e+09     2774   1  7.0888e+09     
+   BEAM2_NBUNCHES  5
+   BRAM2_BUNCHES
+       1  -1  4.1081e+09      101   1  8.5195e+09     1315   2  9.9078e+09     
+    1880   3  7.3379e+09     2774   1  8.5805e+09     
+   BEAM_AVERAGELUMINOSITYPERBUNCH
+    0.00000e+00    5.14347e+19    5.24427e+19    
+    0.00000e+00    6.14858e+19    
+   BEAM_COMMENTS   I cut the period. 1st bunch of beam1 is too low int ensity for generation of BPTX1
+
+ -ANALYSIS_INFOMATION 
+   ANA_QUALITY     1
+   ANA_CUT_STIME   1260513270    Fri Dec 11 07:34:30 2009
+   ANA_CUT_ETIME   1260523753    Fri Dec 11 10:29:13 2009
+   ANA_ARM1_NEVENT            5827
+   ANA_ARM1_NEVENT_L1TA        333
+   ANA_ARM2_NEVENT            4736
+   ANA_ARM2_NEVENT_L1TA        406
+   ANA_COMMENTS    Clock problem in last 5min.
+
+END_RUNINFO     RUN02382
+
+
+# ---------------------------------------------------------- 
+START_RUNINFO   RUN02387
+ FORMAT    1
+ -GENERAL
+   RUN         2387
+   START_TIME  1260554193    Fri Dec 11 18:56:33 2009
+   END_TIME    1260562867    Fri Dec 11 21:21:07 2009
+   GENRAL_COMMENTS  
+
+ -NEVENTS
+   TOTAL             9688
+   ARM1              4633
+   ARM1_L2TA          196
+   ARM1_L2TP         3414
+   ARM1_LASER           0
+   ARM2              3743
+   ARM2_L2TA          301
+   ARM2_L2TP         2252
+   ARM2_LASER           0
+   ARM1_SCL           845
+   ARM2_SCL           833
+   SLOWCONTROL          0
+   DIPV                 0
+   DIPH                 0
+   DIPVH                0
+
+
+ -BEAM_INFORMATION
+   STABLE_BEAM        0
+   BEAM1_AVINTENSITY  6.8364e+09
+   BEAM2_AVINTENSITY  5.0996e+09
+   BEAM1_NBUNCHES     5
+   BRAM1_BUNCHES
+       1   1  2.7656e+09      101  -1  8.5612e+09      424   2  1.3619e+10     
+    2209   2  9.0990e+09     2774   1  6.8364e+09     
+   BEAM2_NBUNCHES  5
+   BRAM2_BUNCHES
+       1   1  2.3556e+09      101  -1  2.1724e+09     1315   2  2.1815e+09     
+    1880   2  7.6681e+09     2774   1  5.0996e+09     
+   BEAM_AVERAGELUMINOSITYPERBUNCH
+    6.52009e+18    0.00000e+00    0.00000e+00    
+    0.00000e+00    3.49217e+19    
+   BEAM_COMMENTS   IntensityPerBunch of Beam1 bunch424 has strange behavior. Not use the bunch.
+
+ -ANALYSIS_INFOMATION 
+   ANA_QUALITY     1
+   ANA_CUT_STIME   1260557793    Fri Dec 11 19:56:33 2009
+   ANA_CUT_ETIME   1260562806    Fri Dec 11 21:20:06 2009
+   ANA_ARM1_NEVENT            2599
+   ANA_ARM1_NEVENT_L1TA         90
+   ANA_ARM2_NEVENT            2059
+   ANA_ARM2_NEVENT_L1TA        145
+   ANA_COMMENTS    #bunch424 of beam1 should not be used. Clock problem in first 1h.
+
+END_RUNINFO     RUN02387
+
+
+# ---------------------------------------------------------- 
+START_RUNINFO   RUN02391
+ FORMAT    1
+ -GENERAL
+   RUN         2391
+   START_TIME  1260587010    Sat Dec 12 04:03:30 2009
+   END_TIME    1260595098    Sat Dec 12 06:18:18 2009
+   GENRAL_COMMENTS  
+
+ -NEVENTS
+   TOTAL             8100
+   ARM1              3887
+   ARM1_L2TA          157
+   ARM1_L2TP         2898
+   ARM1_LASER           0
+   ARM2              2953
+   ARM2_L2TA          244
+   ARM2_L2TP         1890
+   ARM2_LASER           0
+   ARM1_SCL           789
+   ARM2_SCL           777
+   SLOWCONTROL          0
+   DIPV                 0
+   DIPH                 0
+   DIPVH                0
+
+
+ -BEAM_INFORMATION
+   STABLE_BEAM        0
+   BEAM1_AVINTENSITY  6.5774e+09
+   BEAM2_AVINTENSITY  7.9454e+09
+   BEAM1_NBUNCHES     5
+   BRAM1_BUNCHES
+       1  -2  2.8456e+09      101   1  7.1855e+09      424   2  7.5042e+09     
+    2209   2  7.2193e+09     2774   1  6.5774e+09     
+   BEAM2_NBUNCHES  4
+   BRAM2_BUNCHES
+     101   1  4.1559e+09     1315   2  5.8169e+09     1880   2  7.3187e+09     
+    2774   1  7.9454e+09     
+   BEAM_AVERAGELUMINOSITYPERBUNCH
+    0.00000e+00    2.98793e+19    0.00000e+00    
+    0.00000e+00    5.22888e+19    
+   BEAM_COMMENTS   IntensityPerBunch is missing in last 10 min. 1st bunch (1) of beam 1 might be much low intensity.
+
+ -ANALYSIS_INFOMATION 
+   ANA_QUALITY     1
+   ANA_CUT_STIME   1260590610    Sat Dec 12 05:03:30 2009
+   ANA_CUT_ETIME   1260594264    Sat Dec 12 06:04:24 2009
+   ANA_ARM1_NEVENT            1878
+   ANA_ARM1_NEVENT_L1TA         61
+   ANA_ARM2_NEVENT            1414
+   ANA_ARM2_NEVENT_L1TA         82
+   ANA_COMMENTS    Cuts come from missing of IntensityPerBunch and CLK problem (in the first 1h)
+
+END_RUNINFO     RUN02391
+
+
+# ---------------------------------------------------------- 
+START_RUNINFO   RUN02393
+ FORMAT    1
+ -GENERAL
+   RUN         2393
+   START_TIME  1260606790    Sat Dec 12 09:33:10 2009
+   END_TIME    1260618975    Sat Dec 12 12:56:15 2009
+   GENRAL_COMMENTS  
+
+ -NEVENTS
+   TOTAL            13621
+   ARM1              6612
+   ARM1_L2TA          321
+   ARM1_L2TP         4666
+   ARM1_LASER           0
+   ARM2              5232
+   ARM2_L2TA          447
+   ARM2_L2TP         2939
+   ARM2_LASER           0
+   ARM1_SCL          1186
+   ARM2_SCL          1170
+   SLOWCONTROL          0
+   DIPV                 0
+   DIPH                 0
+   DIPVH                0
+
+
+ -BEAM_INFORMATION
+   STABLE_BEAM        0
+   BEAM1_AVINTENSITY  6.1007e+09
+   BEAM2_AVINTENSITY  6.7369e+09
+   BEAM1_NBUNCHES     5
+   BRAM1_BUNCHES
+       1   1  4.3355e+09      101   1  8.2724e+09      424   2  9.7768e+09     
+    2209   2  8.8363e+09     2774   1  6.1007e+09     
+   BEAM2_NBUNCHES  5
+   BRAM2_BUNCHES
+       1   1  5.2566e+09      101   1  4.8194e+09     1315   2  5.5347e+09     
+    1880   2  9.2975e+09     2774   1  6.7369e+09     
+   BEAM_AVERAGELUMINOSITYPERBUNCH
+    2.28232e+19    3.99708e+19    0.00000e+00    
+    0.00000e+00    4.14483e+19    
+   BEAM_COMMENTS   
+
+ -ANALYSIS_INFOMATION 
+   ANA_QUALITY     1
+   ANA_CUT_STIME   1260606790    Sat Dec 12 09:33:10 2009
+   ANA_CUT_ETIME   1260618797    Sat Dec 12 12:53:17 2009
+   ANA_ARM1_NEVENT            6612
+   ANA_ARM1_NEVENT_L1TA        321
+   ANA_ARM2_NEVENT            5232
+   ANA_ARM2_NEVENT_L1TA        447
+   ANA_COMMENTS    
+
+END_RUNINFO     RUN02393
+
+
+# ---------------------------------------------------------- 
+START_RUNINFO   RUN02395
+ FORMAT    1
+ -GENERAL
+   RUN         2395
+   START_TIME  1260624065    Sat Dec 12 14:21:05 2009
+   END_TIME    1260627450    Sat Dec 12 15:17:30 2009
+   GENRAL_COMMENTS  
+
+ -NEVENTS
+   TOTAL             4367
+   ARM1              2123
+   ARM1_L2TA          146
+   ARM1_L2TP         1117
+   ARM1_LASER           0
+   ARM2              1852
+   ARM2_L2TA          208
+   ARM2_L2TP          634
+   ARM2_LASER           0
+   ARM1_SCL           330
+   ARM2_SCL           327
+   SLOWCONTROL          0
+   DIPV                 0
+   DIPH                 0
+   DIPVH                0
+
+
+ -BEAM_INFORMATION
+   STABLE_BEAM        0
+   BEAM1_AVINTENSITY  8.2545e+09
+   BEAM2_AVINTENSITY  9.6248e+09
+   BEAM1_NBUNCHES     5
+   BRAM1_BUNCHES
+       1   1  4.9097e+09      101   1  8.9808e+09      424   2  9.8147e+09     
+    2209   2  7.4691e+09     2774   1  8.2545e+09     
+   BEAM2_NBUNCHES  5
+   BRAM2_BUNCHES
+       1   1  5.2951e+09      101   1  8.9244e+09     1315   2  8.9743e+09     
+    1880   2  8.8574e+09     2774   1  9.6248e+09     
+   BEAM_AVERAGELUMINOSITYPERBUNCH
+    2.60125e+19    8.02085e+19    0.00000e+00    
+    0.00000e+00    7.95396e+19    
+   BEAM_COMMENTS   
+
+ -ANALYSIS_INFOMATION 
+   ANA_QUALITY     1
+   ANA_CUT_STIME   1260624065    Sat Dec 12 14:21:05 2009
+   ANA_CUT_ETIME   1260627448    Sat Dec 12 15:17:28 2009
+   ANA_ARM1_NEVENT            2123
+   ANA_ARM1_NEVENT_L1TA        146
+   ANA_ARM2_NEVENT            1852
+   ANA_ARM2_NEVENT_L1TA        208
+   ANA_COMMENTS    
+
+END_RUNINFO     RUN02395
+
+
+# ---------------------------------------------------------- 
+START_RUNINFO   RUN02396
+ FORMAT    1
+ -GENERAL
+   RUN         2396
+   START_TIME  1260627605    Sat Dec 12 15:20:05 2009
+   END_TIME    1260638627    Sat Dec 12 18:23:47 2009
+   GENRAL_COMMENTS  
+
+ -NEVENTS
+   TOTAL            12231
+   ARM1              7689
+   ARM1_L2TA          337
+   ARM1_L2TP         3279
+   ARM1_LASER           0
+   ARM2              6437
+   ARM2_L2TA          473
+   ARM2_L2TP         1878
+   ARM2_LASER           0
+   ARM1_SCL          1071
+   ARM2_SCL          1059
+   SLOWCONTROL          0
+   DIPV                 0
+   DIPH                 0
+   DIPVH                0
+
+
+ -BEAM_INFORMATION
+   STABLE_BEAM        0
+   BEAM1_AVINTENSITY  7.2595e+09
+   BEAM2_AVINTENSITY  7.6149e+09
+   BEAM1_NBUNCHES     5
+   BRAM1_BUNCHES
+       1   1  4.6116e+09      101   1  8.2254e+09      424   2  9.6456e+09     
+    2209   2  6.9920e+09     2774   1  7.2595e+09     
+   BEAM2_NBUNCHES  5
+   BRAM2_BUNCHES
+       1   1  3.6282e+09      101   1  6.4216e+09     1315   2  5.8310e+09     
+    1880   2  7.0797e+09     2774   1  7.6149e+09     
+   BEAM_AVERAGELUMINOSITYPERBUNCH
+    1.67052e+19    5.28062e+19    0.00000e+00    
+    0.00000e+00    5.51543e+19    
+   BEAM_COMMENTS   
+
+ -ANALYSIS_INFOMATION 
+   ANA_QUALITY     1
+   ANA_CUT_STIME   1260627605    Sat Dec 12 15:20:05 2009
+   ANA_CUT_ETIME   1260638627    Sat Dec 12 18:23:47 2009
+   ANA_ARM1_NEVENT            7689
+   ANA_ARM1_NEVENT_L1TA        337
+   ANA_ARM2_NEVENT            6437
+   ANA_ARM2_NEVENT_L1TA        473
+   ANA_COMMENTS    
+
+END_RUNINFO     RUN02396
+
+
+# ---------------------------------------------------------- 
+START_RUNINFO   RUN02399
+ FORMAT    1
+ -GENERAL
+   RUN         2399
+   START_TIME  1260646934    Sat Dec 12 20:42:14 2009
+   END_TIME    1260652947    Sat Dec 12 22:22:27 2009
+   GENRAL_COMMENTS  
+
+ -NEVENTS
+   TOTAL             7489
+   ARM1              5143
+   ARM1_L2TA          310
+   ARM1_L2TP         1269
+   ARM1_LASER           0
+   ARM2              4610
+   ARM2_L2TA          444
+   ARM2_L2TP          641
+   ARM2_LASER           0
+   ARM1_SCL           585
+   ARM2_SCL           579
+   SLOWCONTROL          0
+   DIPV                 0
+   DIPH                 0
+   DIPVH                0
+
+
+ -BEAM_INFORMATION
+   STABLE_BEAM        0
+   BEAM1_AVINTENSITY  8.4399e+09
+   BEAM2_AVINTENSITY  9.7540e+09
+   BEAM1_NBUNCHES     5
+   BRAM1_BUNCHES
+       1   1  3.9271e+09      101   1  7.9777e+09      424   2  1.0072e+10     
+    2209   2  9.5937e+09     2774   1  8.4399e+09     
+   BEAM2_NBUNCHES  5
+   BRAM2_BUNCHES
+       1   1  4.3932e+09      101   1  1.0424e+10     1315   2  1.0142e+10     
+    1880   2  1.0826e+10     2774   1  9.7540e+09     
+   BEAM_AVERAGELUMINOSITYPERBUNCH
+    1.72647e+19    8.32353e+19    0.00000e+00    
+    0.00000e+00    8.23667e+19    
+   BEAM_COMMENTS   
+
+ -ANALYSIS_INFOMATION 
+   ANA_QUALITY     1
+   ANA_CUT_STIME   1260647234    Sat Dec 12 20:47:14 2009
+   ANA_CUT_ETIME   1260652754    Sat Dec 12 22:19:14 2009
+   ANA_ARM1_NEVENT            4861
+   ANA_ARM1_NEVENT_L1TA        290
+   ANA_ARM2_NEVENT            4373
+   ANA_ARM2_NEVENT_L1TA        423
+   ANA_COMMENTS    Clock problem in the first 5min
+
+END_RUNINFO     RUN02399
+
+
+# ---------------------------------------------------------- 
+START_RUNINFO   RUN02412
+ FORMAT    1
+ -GENERAL
+   RUN         2412
+   START_TIME  1260835763    Tue Dec 15 01:09:23 2009
+   END_TIME    1260838796    Tue Dec 15 01:59:56 2009
+   GENRAL_COMMENTS  
+
+ -NEVENTS
+   TOTAL             5452
+   ARM1              4195
+   ARM1_L2TA          330
+   ARM1_L2TP          251
+   ARM1_LASER           0
+   ARM2              3833
+   ARM2_L2TA          365
+   ARM2_L2TP          143
+   ARM2_LASER           0
+   ARM1_SCL           296
+   ARM2_SCL           293
+   SLOWCONTROL          0
+   DIPV                 0
+   DIPH                 0
+   DIPVH                0
+
+
+ -BEAM_INFORMATION
+   STABLE_BEAM        0
+   BEAM1_AVINTENSITY  8.0365e+09
+   BEAM2_AVINTENSITY  6.9275e+09
+   BEAM1_NBUNCHES     17
+   BRAM1_BUNCHES
+       1   1  4.9639e+09      101   1  7.9038e+09      182   1  7.9543e+09     
+     992   1  6.7976e+09     1073   1  7.8846e+09     1235   2  8.4184e+09     
+    1397   3  8.7371e+09     1559   3  8.0025e+09     1721   3  8.0188e+09     
+    1883   1  7.7217e+09     1964   1  7.8318e+09     2285   2  8.8360e+09     
+    2447   2  8.8926e+09     2609   2  8.4581e+09     2774   1  7.0121e+09     
+    2855   1  8.2336e+09     3017   2  8.0365e+09     
+   BEAM2_NBUNCHES  17
+   BRAM2_BUNCHES
+       1   1  4.0225e+09      101   1  6.3760e+09      182   1  6.3238e+09     
+     341   2  6.7394e+09      503   2  6.7578e+09      665   2  8.0997e+09     
+     827   2  7.7392e+09      992   1  6.8253e+09     1073   1  6.9907e+09     
+    1391   3  6.1665e+09     1553   3  6.0013e+09     1715   3  7.1065e+09     
+    1883   1  7.1294e+09     1964   1  7.4968e+09     2123   2  8.5938e+09     
+    2774   1  6.7970e+09     2855   1  6.9275e+09     
+   BEAM_AVERAGELUMINOSITYPERBUNCH
+    1.99770e+19    5.04353e+19    5.03421e+19    
+    4.64515e+19    5.51768e+19    0.00000e+00    
+    5.38984e+19    4.80549e+19    5.70226e+19    
+    5.51013e+19    5.87689e+19    0.00000e+00    
+    0.00000e+00    0.00000e+00    4.77116e+19    
+    5.70855e+19    0.00000e+00    
+   BEAM_COMMENTS   
+
+ -ANALYSIS_INFOMATION 
+   ANA_QUALITY     1
+   ANA_CUT_STIME   1260835763    Tue Dec 15 01:09:23 2009
+   ANA_CUT_ETIME   1260838491    Tue Dec 15 01:54:51 2009
+   ANA_ARM1_NEVENT            4195
+   ANA_ARM1_NEVENT_L1TA        330
+   ANA_ARM2_NEVENT            3833
+   ANA_ARM2_NEVENT_L1TA        365
+   ANA_COMMENTS    
+
+END_RUNINFO     RUN02412
+
+
