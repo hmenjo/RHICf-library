@@ -85,7 +85,7 @@ using namespace std;
 const int RHICfPhys::ALLPARTICLE;
 const int RHICfPhys::ELEMAG;
 const int RHICfPhys::HADRON;
-const double RHICfPhys::cDistance = 141050.;
+const double RHICfPhys::cDistance = 17812.6;
 const double RHICfPhys::cPi0mass  = 0.1349766;
 
 double RHICfPhys::sPositionBeamCenter[2] = {0.};

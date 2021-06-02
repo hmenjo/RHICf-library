@@ -36,9 +36,15 @@ SC_INC        = $(SC_DIR)/include
 SC_SRC        = $(SC_DIR)/src
 SC_LIB        = $(SC_DIR)/lib
 
+RHICFNAME     = libRHICf.so
+RHICF_DIR     = ../../../Library/
+RHICF_INC     = $(RHICF_DIR)/include
+RHICF_SRC     = $(RHICF_DIR)/src
+RHICF_LIB     = $(RHICF_DIR)/lib
+
 LHCFLIBS      = $(DICT_LIB)/$(DICTNAME) $(FUNC_LIB)/$(FUNCNAME) \
-                $(SC_LIB)/$(SCNAME) 
-LHCFLIBS      += -Wl,-rpath,$(DICT_LIB) -Wl,-rpath,$(FUNC_LIB) -Wl,-rpath,$(SC_LIB)
+                $(SC_LIB)/$(SCNAME) $(RHICF_LIB)/$(RHICFNAME) 
+LHCFLIBS      += -Wl,-rpath,$(DICT_LIB) -Wl,-rpath,$(FUNC_LIB) -Wl,-rpath,$(SC_LIB) -Wl,-rpath,$(RHICF_LIB)
 #
 #-------------------------------------------------------------------
 # 
@@ -47,13 +53,13 @@ LHCFLIBS      += -Wl,-rpath,$(DICT_LIB) -Wl,-rpath,$(FUNC_LIB) -Wl,-rpath,$(SC_L
 INC_DIR       = ./include
 SRC_DIR       = ./src
 BIN_DIR       = ./
-INCALL += -I$(DICT_INC) -I$(FUNC_INC) -I$(SC_INC) 
+INCALL += -I$(DICT_INC) -I$(FUNC_INC) -I$(SC_INC) -I$(RHICF_INC)
 INCALL += -I$(INC_DIR)
 
 CXXFLAGS +=  $(INCALL) -DLHCFLIBBASE=\"$(LIBDIR)\"
 
-ROOTLIBS  += -Wl,-rpath,$(ROOTSYS)/lib
-ROOTGLIBS += -Wl,-rpath,$(ROOTSYS)/lib
+ROOTLIBS  += -Wl,-rpath,$(ROOTSYS)/lib -lEG
+ROOTGLIBS += -Wl,-rpath,$(ROOTSYS)/lib -lEG
 
 PROGRAMS = LHCfroot.exe
 
