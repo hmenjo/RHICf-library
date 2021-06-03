@@ -68,9 +68,9 @@ int A1Calibration::SetupDefault_RHICfOp2017() {
 	paramHVgainTable             = dirLibrary + "/tables/GainTable_Fit_20170427.txt";
 	paramHvtable                 = dirLibrary + "/config/hvtable_rhicf2017_normal.txt";
 	paramGSObarHVtable           = dirLibrary + "/tables/MAPMTgaintable_20170501.txt";
-	paramAdcrange                = dirLibrary + "/tables/adcrange_002_100412.dat";
+	paramAdcrange                = dirLibrary + "/tables/adcrange_003_20151120.dat";
 	paramAdcrangeThreshold       = 3600.;
-	paramAttenuation             = 0.908;  // [NOT FIXED] 0.908 is for LHC 2015.
+	paramAttenuation             = 1.00;  //  Temporaly set to 1.0
 	paramPMTsaturationCollection = kFALSE; // For new detectors, kFALSE
 	paramPMTSatuPath             = "";
 	paramPMTSatuFile             = "";

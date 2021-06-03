@@ -48,6 +48,35 @@ void printhelp() {
 	return;
 }
 
+
+void CalorimeterRescale(A1Cal2M* cal, double scale_ts, double scale_tl){
+  for(int it=0;it<2;it++){
+    for(int il=0;il<16;il++){
+      cal->cal[it][il] /= (it==0?scale_ts:scale_tl);
+    }
+  }
+
+  return ;
+}
+
+//  This is still temporal. A study about PID (dE comp btw data and MC) by Menjo 
+void CalorimeterRescaleLayer(A1Cal2M* cal){
+  // Airtificial rescaling the dE in A1Cal2 according to dE comparison result.
+  static const double scale[2][16] =  {
+    { 0.9687, 1.006, 0.9749, 1.06, 1.01, 0.9476, 1.069, 0.9761, 1.046, 1.055, 1.178, 1.349, 1.996, 2.593, 4.576, 4.966},
+    { 0.8955, 0.8995, 1.032, 1.032, 1.082, 0.9758, 0.9511, 1.008, 0.999, 1.023, 1.011, 1.2, 2.4, 2.946, 5.13, 10.94}};
+
+  for(int it=0;it<2;it++){
+    for(int il=0;il<16;il++){
+      // apply only <= layer 8
+      if(il <=8)
+        cal->cal[it][il] /= scale[it][il];
+    }
+  }
+
+  return ;
+}
+
 // ======================================= MAIN ======================================= //
 int main(int argc, char **argv) {
 	
@@ -154,6 +183,30 @@ int main(int argc, char **argv) {
 	SIMMODE  simulationmode = arg_simulationmode;
 	int      startiev       = atoi(arg_startiev);
 	int      endiev         = atoi(arg_endiev);
+
+	double   energyrescale[2] = {1.}; // [tower]
+	// From the study of Minho 
+	if(arg_runtype == "TS"){
+	  // Middle position 
+	  energyrescale[0] = 1.042;
+	  energyrescale[1] = 1.061;
+	}
+	else if(arg_runtype == "TL"){
+	  // Bottom position 
+	  energyrescale[0] = 1.043;
+	  energyrescale[1] = 1.042;
+	}
+	else if(arg_runtype == "TL"){
+	  // Bottom position 
+	  energyrescale[0] = 1.055;
+	  energyrescale[1] = 1.067;
+	}
+
+	double   energyrescale_l[2][16];
+	// 
+	
+	
+
 	
 	TRint theApp("App", &argc, argv, 0, 0, kTRUE);
 	gROOT->SetBatch(kTRUE);
@@ -169,7 +222,7 @@ int main(int argc, char **argv) {
 	
 	// A1Reconstruction.	
 	A1Reconstruction *reconstruction = new A1Reconstruction();
-	reconstruction -> SetRunType(arg_runtype);
+	reconstruction ->SetRunType(arg_runtype);
 	reconstruction->Initialize();
 	
 	// Input.
@@ -273,8 +326,11 @@ int main(int argc, char **argv) {
 		if (simulationmode == SIM_OFF){
 
 			calibration->Calculate(ev->Get("a1raw"));
-			reconstruction->SetData(calibration->GetCal2());
 			cal2 = calibration->GetCal2();
+			CalorimeterRescale(cal2, energyrescale[0],energyrescale[0]);
+			CalorimeterRescaleLayer(cal2);
+			
+			reconstruction->SetData(cal2);
 		}
 
 		// For MC data converted to Cal1

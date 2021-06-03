@@ -317,29 +317,30 @@ int A1Reconstruction::ReconstructEnergy(){
 
 	// Type-I pi0.
 	if (fRec->GetResultNumberOfHits(0)>0 && fRec->GetResultNumberOfHits(1)>0) {
+	  fCal->copydata(fCalOrg, A1Cal2::CAL);
 	  ReconstructEnergyPhotonDouble();
 	  
 	  // Check the number of hits again
 	  for(int it=0;it<2;it++){
-		 double energy = fRec->GetResultEnergy(it, RHICfPhys::ELEMAG);
-		 if(energy < cEnergyThreshold){
-          fRec->SetResultNumberOfHits(it,0); //  Kill the hit if E<threshold
-		 }
+	    double energy = fRec->GetResultEnergy(it, RHICfPhys::ELEMAG);
+	    if(energy < cEnergyThreshold){
+	      fRec->SetResultNumberOfHits(it,0); //  Kill the hit if E<threshold
+	    }
 	  }
 	}
 
 	// Single photon and Type-II pi0.
 	// For the small tower 
 	if (fRec->GetResultNumberOfHits(0)>0 && fRec->GetResultNumberOfHits(1)==0){
-
-		CorrectionLightYieldPhoton();
-		ReconstructEnergyPhotonSingle(0);
+	  fCal->copydata(fCalOrg, A1Cal2::CAL);
+	  CorrectionLightYieldPhoton();
+	  ReconstructEnergyPhotonSingle(0);
 	}
 	// For the large tower 
 	if (fRec->GetResultNumberOfHits(0)==0 && fRec->GetResultNumberOfHits(1)>0){
-
-		CorrectionLightYieldPhoton();
-		ReconstructEnergyPhotonSingle(1);
+	  fCal->copydata(fCalOrg, A1Cal2::CAL);
+	  CorrectionLightYieldPhoton();
+	  ReconstructEnergyPhotonSingle(1);
 	}
 
 	//------------------------   Hadrons   ---------------------------//
@@ -469,6 +470,9 @@ int A1Reconstruction::ReconstructEnergyPhotonDouble() {
 			//printf("tower:%d, layer:%d (%0.1f, %0.1f), li:%0.2f, lo:%0.2f\n", tower, il, x[tower], y[tower], li[tower][il], lo[tower][il]);
 			if(tower==0) TSedep[il] = fCal -> cal[tower][il];
 			if(tower==1) TLedep[il] = fCal -> cal[tower][il];
+
+			if(il>=11) lo[tower][il] = lo[tower][10];
+			if(il>=9)  li[tower][il] = li[tower][8];
 		}
 	}
 
