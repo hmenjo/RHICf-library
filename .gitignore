@@ -47,7 +47,8 @@ libEventView.*
 /MCconvertor/build/*
 
 # binary files
+Reconstruction/bin/*
 RHICfroot
 /Utility/makehistograms/bin/*
 eventview
-
+/general/bin/*
