@@ -58,7 +58,7 @@ int A1Reconstruction::Initialize(){
 	paramGSObarPosition  = dirLibrary+ "/tables/gsobar_postable_160803.tab";
 	fPos -> ReadPositionTable((char*)paramGSObarPosition.Data());
 
-	fPid = new ParticleID01();
+	fPid = new ParticleID02();
 
 	for(int tshit=0; tshit<3; tshit++){
                 for(int tlhit=0;tlhit<3;tlhit++){
@@ -157,10 +157,10 @@ int A1Reconstruction::FillEventInfo(){
 
 int A1Reconstruction::ReconstructPID(){
 
-	fPid->Calculate(fCal, 0);
+	fPid->Calculate((A1Cal2*)fCal, 0);
 	L20[0] = fPid->GetL20(0);
 	L90[0] = fPid->GetL95(0);// L90
-	fPid->Calculate(fCal, 1);
+	fPid->Calculate((A1Cal2*)fCal, 1);
 	L20[1] = fPid->GetL20(1);
 	L90[1] = fPid->GetL95(1);// L90
 	fRec->SetL20(0, L20[0]);
