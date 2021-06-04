@@ -119,8 +119,15 @@ int ScintiPosDepGSO::SetdEMap32mm(char* map32mm){
 
 // ++++++++++++++++ GetEfficiency ++++++++++++++++++++
 double ScintiPosDepGSO::GetEfficiency(int detector, int tower, int layer, double x, double y){
-	// detector (1/2) <-> (Arm1/Arm2)
-	// tower    (0/1) <-> (TS/TL)
+  // detector (1/2) <-> (Arm1/Arm2)
+  // tower    (0/1) <-> (TS/TL)
+  
+	static const double towersize[2][2] = {{20.,40.},{25.,32.}};
+	if (x < 0.) x = 0.1;
+	if (x > towersize[detector-1][tower]) x = towersize[detector-1][tower]-0.1;
+	if (y < 0.) y = 0.1;
+	if (y > towersize[detector-1][tower]) y = towersize[detector-1][tower]-0.1;
+
 
 	double eff=0;
 
@@ -154,6 +161,12 @@ double ScintiPosDepGSO::GetEfficiencyHadron(int detector, int tower, double x, d
         // detector (1/2) <-> (Arm1/Arm2)
         // tower    (0/1) <-> (TS/TL)
 
+	static const double towersize[2][2] = {{20.,40.},{25.,32.}};
+	if (x < 0.) x = 0.1;
+	if (x > towersize[detector-1][tower]) x = towersize[detector-1][tower]-0.1;
+	if (y < 0.) y = 0.1;
+	if (y > towersize[detector-1][tower]) y = towersize[detector-1][tower]-0.1;
+
         double eff=0;
 
         if( detector==1 && tower==0 ){
@@ -173,30 +186,32 @@ double ScintiPosDepGSO::GetEfficiencyHadron(int detector, int tower, double x, d
 int ScintiPosDepGSO::Calibration(A1Cal2* a1cal2, int tower, double x, double y){
 
 	for(int ilay=0; ilay<NLAYER; ++ilay){
-		// Modified by Menjo on 2016/6/7
-		// Sometimes the efficiency value given by GetEfficiency is unphysical value.
-		double eff=1.;
-		eff = GetEfficiency(1, tower, ilay, x, y);
-		if(eff < 0.1 || eff > 2.){
-			double towersize = (tower==0?20.0:40.0);
-			double edgesize  = (ilay<12?1.0:2.0);
-			if( x < edgesize )          x = edgesize;
-			if( x > towersize-edgesize) x = towersize-edgesize;
-			if( y < edgesize )          y = edgesize;
-			if( y > towersize-edgesize) y = towersize-edgesize;
-			eff = GetEfficiency(1, tower, ilay, x, y);
-		}
+	  // Modified by Menjo on 2016/6/7
+	  // Sometimes the efficiency value given by GetEfficiency is unphysical value.
+	  double eff=1.;
+	  eff = GetEfficiency(1, tower, ilay, x, y);
+	  
+	  if(eff < 0.1 || eff > 2.){
+	    const double towersize = (tower==0?20.0:40.0);
+	    const double edgesize  = (ilay<12?1.0:2.0);
 
-		//if(tower==1 && ilay==1) printf("%0.1f\n", a1cal2->cal[tower][ilay]);
-		double Etmp = a1cal2->cal[tower][ilay];
-		a1cal2->cal[tower][ilay] /= eff;
-		//printf("layer:%d, %0.2f / %0.2f = %0.2f\n", ilay, Etmp, eff, a1cal2->cal[tower][ilay]);
-		//a1cal2->cal[tower][ilay] *= (1./0.903);
-
-		//if(tower==1 && ilay==1) printf("%0.1f\n", a1cal2->cal[tower][ilay]);
-		//if(tower==1 && ilay==1) printf("   \n");
+	    if( x < edgesize )          x = edgesize;
+	    if( x > towersize-edgesize) x = towersize-edgesize;
+	    if( y < edgesize )          y = edgesize;
+	    if( y > towersize-edgesize) y = towersize-edgesize;
+	    eff = GetEfficiency(1, tower, ilay, x, y);
+	  }
+	  
+	  //if(tower==1 && ilay==1) printf("%0.1f\n", a1cal2->cal[tower][ilay]);
+	  double Etmp = a1cal2->cal[tower][ilay];
+	  a1cal2->cal[tower][ilay] /= eff;
+	  //printf("layer:%d, %0.2f / %0.2f = %0.2f\n", ilay, Etmp, eff, a1cal2->cal[tower][ilay]);
+	  //a1cal2->cal[tower][ilay] *= (1./0.903);
+	  
+	  //if(tower==1 && ilay==1) printf("%0.1f\n", a1cal2->cal[tower][ilay]);
+	  //if(tower==1 && ilay==1) printf("   \n");
 	}
-
+	
 	return 0;
 }
 
@@ -255,6 +270,12 @@ int ScintiPosDepGSO::Calibration(A1Cal2* a1cal2, int tower, double p, double q, 
 double ScintiPosDepGSO::GetEfficiency_forBugMC(int detector, int tower, int layer, double x, double y){
 	// detector (1/2) <-> (Arm1/Arm2)
 	// tower    (0/1) <-> (TS/TL)
+
+	static const double towersize[2][2] = {{20.,40.},{25.,32.}};
+	if (x < 0.) x = 0.;
+	if (x > towersize[detector-1][tower]) x = towersize[detector-1][tower];
+	if (y < 0.) y = 0.;
+	if (y > towersize[detector-1][tower]) y = towersize[detector-1][tower];
 
 	double eff=0;
 

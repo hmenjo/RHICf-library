@@ -306,13 +306,15 @@ int A1Reconstruction::ReconstructEnergy(){
 		double sumdE = fCal->calsum2(tower, 0, 15);
 		fRec->SetSumdE(tower, sumdE);
 		fRec->SetSumdE2(tower, fCal->calsum2(tower, 1, 11));
-		/*if (fRec->GetResultNumberOfHits(tower) > 0 && sumdE < paramSumdEThreshold)
-			fRec->SetResultNumberOfHits(tower, -3);*/
-
+		//if (fRec->GetResultNumberOfHits(tower) > 0 && sumdE < paramSumdEThreshold)
+	        //		fRec->SetResultNumberOfHits(tower, -3);
+		
+		
 		// Check the number of hits with the value of simplified energy reconstruction. 
 		if( ReconstructEnergyPhotonSimple(tower) < cEnergyThreshold ){
 		  fRec->SetResultNumberOfHits(tower,0); //  Kill the hit if E<threshold
-		} 
+		}
+		 
 	}
 
 	// Type-I pi0.
@@ -402,11 +404,16 @@ double A1Reconstruction::ReconstructEnergyPhotonSimple(int tower){
   double sum = 0.;
   double eff = 0.;
   for(int il=1;il<=11;il++){
+    const double towersize = (tower==0?20.0:40.0);
+    const double edgesize  = (il<12?1.0:2.0);
+    if (x < 0.) x = 0.1;
+    if (x > towersize) x = towersize - 0.1;
+    if (y < 0.) y = 0.1;
+    if (y > towersize) y = towersize - 0.1;	
+    
     eff = fPosdep -> GetEfficiency(1, tower, il, x, y);
     
     if(eff < 0.1 || eff > 2.){
-      double towersize = (tower==0?20.0:40.0);
-      double edgesize  = (il<12?1.0:2.0);
       if( x < edgesize )          x = edgesize;
       if( x > towersize-edgesize) x = towersize-edgesize;
       if( y < edgesize )          y = edgesize;
@@ -452,6 +459,7 @@ int A1Reconstruction::ReconstructEnergyPhotonSingle(int tower){
 int A1Reconstruction::ReconstructEnergyPhotonDouble() {
 
   //cout << "Type-I pi0" << endl;
+  static const double towersize[2] = {20.,40.};
 
 	double x[2], y[2];
 	double sumc[2];
@@ -463,6 +471,11 @@ int A1Reconstruction::ReconstructEnergyPhotonDouble() {
 
 		x[tower] = fRec->GetResultHitPosition(tower, 0);
 		y[tower] = fRec->GetResultHitPosition(tower, 1);
+
+		if(x[tower] < 0.) x[tower] = 0.1;
+		if(y[tower] < 0.) y[tower] = 0.1;
+		if(x[tower] > towersize[tower]) x[tower] = towersize[tower]-0.1;
+		if(y[tower] > towersize[tower]) y[tower] = towersize[tower]-0.1;
 
 		for(int il=0;il<16;il++){
 			lo[tower][il] = fPosdep -> GetEfficiency(1, tower, il, x[tower], y[tower]);
