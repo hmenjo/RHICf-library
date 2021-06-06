@@ -16,4 +16,10 @@ This is for development to v2.1
     - Layer-by-layer factor from dE comparisons, fixed by Menjo (not final) 
 - 2021/06/04
   - Change L90% caliculation algorithm from ParticleID01 to ParticleID02. 
+  - git tag dev_menjo_20210604
+
+- 2021/06/06
+  - Fixed bugs of reconstruction02.cpp (energy rescale functions)
+ 
+
 
