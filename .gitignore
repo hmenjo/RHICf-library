@@ -52,3 +52,10 @@ RHICfroot
 /Utility/makehistograms/bin/*
 eventview
 /general/bin/*
+
+# Specific for icrr
+/Reconstruction/script_icrr/log 
+/Reconstruction/script_icrr/run
+/Reconstruction/script_icrr/submitlog
+/Reconstruction/script_icrr/.d*
+/Reconstruction/script_icrr/log

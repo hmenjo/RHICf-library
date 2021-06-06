@@ -25,10 +25,9 @@ set INPUTFILE="/disk/lhcf/rhicf/RHICf_Op2017/root_files/run${TMP}.root"
 set PEDEFILE="/disk/lhcf/rhicf/RHICf_Op2017/quickanalysis_results/run${TMP}/pede_run${TMP}.root"
 set AVEPEDEFILE="./tables/average_pedestal/average_pedestal_run${RUN}.dat"
 #OUTPUT DIRECTORY PATH
-set ANALBASEDIR="/disk/lhcf/rhicf/user/menjo/reconstruction_dev_menjo_20210606/Op2017/MIDDLE"
+set ANALBASEDIR="/disk/lhcf/rhicf/user/menjo/reconstruction_dev_menjo_20210606/Op2017/TOP"
 set ANALDIR="${ANALBASEDIR}/run${TMP}"
 set RECFILE="${ANALDIR}/run${TMP}_rec_${TMPSTART}_${TMPEND}.root"
-#set RECFILE="test.root"
 
 
 # Clear Comment
@@ -49,7 +48,7 @@ cd $WORKDIR
 
 /bin/date
 echo "--------------Reconstruction -------------------------------"
-$BINDIR/reconstruction02 -r TS -i $INPUTFILE -o $RECFILE -p $PEDEFILE -avep $AVEPEDEFILE -f ${START} -t ${END}
+$BINDIR/reconstruction02 -r TOP -i $INPUTFILE -o $RECFILE -p $PEDEFILE -avep $AVEPEDEFILE -f ${START} -t ${END}
 
 /bin/date
 

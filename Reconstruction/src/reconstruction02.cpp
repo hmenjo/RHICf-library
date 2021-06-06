@@ -52,7 +52,7 @@ void printhelp() {
 void CalorimeterRescale(A1Cal2M* cal, double scale_ts, double scale_tl){
   for(int it=0;it<2;it++){
     for(int il=0;il<16;il++){
-      cal->cal[it][il] /= (it==0?scale_ts:scale_tl);
+      cal->cal[it][il] *= (it==0?scale_ts:scale_tl);
     }
   }
 
@@ -202,12 +202,6 @@ int main(int argc, char **argv) {
 	  energyrescale[1] = 1.067;
 	}
 
-	double   energyrescale_l[2][16];
-	// 
-	
-	
-
-	
 	TRint theApp("App", &argc, argv, 0, 0, kTRUE);
 	gROOT->SetBatch(kTRUE);
 
@@ -224,6 +218,9 @@ int main(int argc, char **argv) {
 	A1Reconstruction *reconstruction = new A1Reconstruction();
 	reconstruction ->SetRunType(arg_runtype);
 	reconstruction->Initialize();
+	if(arg_simulationmode!=SIM_OFF){
+		reconstruction->SetMc();
+	}
 	
 	// Input.
 	LHCfEvent *ev   = new LHCfEvent();
@@ -327,7 +324,7 @@ int main(int argc, char **argv) {
 
 			calibration->Calculate(ev->Get("a1raw"));
 			cal2 = calibration->GetCal2();
-			CalorimeterRescale(cal2, energyrescale[0],energyrescale[0]);
+			CalorimeterRescale(cal2, energyrescale[0],energyrescale[1]);
 			CalorimeterRescaleLayer(cal2);
 			
 			reconstruction->SetData(cal2);

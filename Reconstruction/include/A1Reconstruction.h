@@ -57,6 +57,7 @@ class A1Reconstruction{
 
 		void SetRunType(TString run);
 		int SetData(A1Cal2M *cal);
+		int SetMc(bool v=true){IsMc = v;}
 
 		RHICfRec* GetRec(){ return fRec; }
 
@@ -92,6 +93,7 @@ class A1Reconstruction{
 		bool Isruntype;
 		TString runtype;
 		bool Isbunchoffset;
+		bool IsMc;
 
 		double EnergyConversionPhoton(int tower, double sumdE);
 		double EnergyConversionHadron(int tower, double sumdE);

@@ -70,6 +70,8 @@ int A1Reconstruction::Initialize(){
 		L90[it] = 0;
 	}
 
+	IsMc = false;
+	
 	return 0;
 }
 
@@ -95,7 +97,7 @@ int A1Reconstruction::SetData(A1Cal2M *cal){
 			break;
 		}
 	}
-	if(!Isbunchoffset){
+	if(!Isbunchoffset && !IsMc ){
 		cerr << "A1Reconstruction::SetData - No bunch offset information" << endl;
 		return -1;
 	}
@@ -140,7 +142,7 @@ int A1Reconstruction::FillEventInfo(){
 	else if(0<=bunchrhicf+bunchoffset && bunchrhicf+bunchoffset<120) bunchstar = bunchrhicf + bunchoffset;
 	else if(120<=bunchrhicf+bunchoffset && bunchrhicf+bunchoffset<240) bunchstar = bunchrhicf + bunchoffset - 120;
 	else if(240<=bunchrhicf+bunchoffset && bunchrhicf+bunchoffset<360) bunchstar = bunchrhicf + bunchoffset - 240; 
-	else{
+	else if(!IsMc){
 		cerr << "A1Reconstruction::FillEventInfo - Reconstructed bunch number is strange."  << endl;
 		return -1;
 	}
