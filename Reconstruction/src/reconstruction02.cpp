@@ -8,7 +8,7 @@
 #include <iomanip>
 #include <bitset>
 using namespace std;
-
+1
 #include <TROOT.h>
 #include <TApplication.h>
 #include <TRint.h>
@@ -44,6 +44,7 @@ void printhelp() {
 	     << "  --shower   : Select only shower triggered events \n"
 	     << "  --special1 : Select only special1 triggered events \n"
 	     << "  --special2 : Select only special2 triggered events \n"
+	     << "  --pedestal_forsim : for production of pedestal list for simulation  \n"	  
 	     << endl;
 	return;
 }
@@ -85,12 +86,14 @@ int main(int argc, char **argv) {
 			EVENTCUT_SPECIAL1,
 			EVENTCUT_SPECIAL2,
 			EVENTCUT_PEDESTAL,
+			EVENTCUT_PEDESTAL_FORSIM,    // For pedestal event list for simulation 
 			EVENTCUT_ALL
 	};
 	
 	enum SIMMODE {
-			SIM_CAL1,     // Cal1 format (output of sim2exp)
+			SIM_CAL1,      // Cal1 format (output of sim2exp)
 			SIM_SIM,       // Simulation true
+			SIM_PED,       // Simulation true + Pedestal 
 			SIM_OFF
 	};
 
@@ -104,6 +107,8 @@ int main(int argc, char **argv) {
 	EVENTCUT arg_eventcut       = EVENTCUT_ALL;
 	bool     arg_debugmode      = false;
 	SIMMODE  arg_simulationmode = SIM_OFF;
+	TString  arg_pedelistfile   = ""; // for simulation of SIM_PED mode
+	
 
 	for (int i=1; i<argc; i++){
 
@@ -141,10 +146,16 @@ int main(int argc, char **argv) {
 		if (ss == "--special1") { arg_eventcut = EVENTCUT_SPECIAL1; }
 		if (ss == "--special2") { arg_eventcut = EVENTCUT_SPECIAL2; }
 		if (ss == "--pedestal") { arg_eventcut = EVENTCUT_PEDESTAL; }
+		if (ss == "--pedestal_forsim") {arg_eventcut = EVENTCUT_PEDESTAL_FORSIM;}
 		if (ss == "--all") { arg_eventcut = EVENTCUT_ALL; }
 		if (ss == "--debug") { arg_debugmode = true; }
 		if (ss == "--sim") { arg_simulationmode = SIM_CAL1; }
 		if (ss == "--simtrue") { arg_simulationmode = SIM_SIM; }
+		if (ss == "--simped") { arg_simulationmode = SIM_PED; }
+		if (ss == "--pedelist") {
+		  arg_pedelistfile = argv[++i];
+                  strcpy(argv[i], "");
+		}
         
 		if (ss == "-h" || ss == "--help") {
 			printhelp();
@@ -154,7 +165,9 @@ int main(int argc, char **argv) {
 
 
 	if(arg_simulationmode == SIM_OFF || arg_simulationmode == SIM_CAL1){
-		if(arg_runtype=="" || arg_inputfilename=="" || arg_outputfilename=="" || arg_pedefile=="" || arg_startiev=="" || arg_endiev=="" || arg_avepedefile=="" || (arg_runtype!="TS" && arg_runtype!="TL" && arg_runtype!="TOP")){
+		if(arg_runtype=="" || arg_inputfilename=="" || arg_outputfilename=="" || arg_pedefile=="" || 
+		   arg_startiev=="" || arg_endiev=="" || arg_avepedefile=="" || 
+		   (arg_runtype!="TS" && arg_runtype!="TL" && arg_runtype!="TOP")){
 
 			printf("simulation mode is SIM_OFF or SIM_CAL1\n");		
 			printhelp();
@@ -162,8 +175,9 @@ int main(int argc, char **argv) {
 
         	}	
 	}
-	if(arg_simulationmode == SIM_SIM){
-		if(arg_runtype=="" || arg_inputfilename=="" || arg_outputfilename=="" || arg_startiev=="" || arg_endiev=="" || (arg_runtype!="TS" && arg_runtype!="TL" && arg_runtype!="TOP")){
+	else if(arg_simulationmode == SIM_SIM){
+		if(arg_runtype=="" || arg_inputfilename=="" || arg_outputfilename=="" || arg_startiev=="" || arg_endiev=="" || 
+		   (arg_runtype!="TS" && arg_runtype!="TL" && arg_runtype!="TOP")){
 
 			printf("simulation mode is SIM_SIM\n");
                         printhelp();
@@ -171,16 +185,28 @@ int main(int argc, char **argv) {
 
 		}	
 	}
+	else if(arg_simulationmode == SIM_PED){
+		if(arg_runtype=="" || arg_inputfilename=="" || arg_outputfilename=="" ||  arg_startiev=="" || arg_endiev=="" ||
+		   (arg_runtype!="TS" && arg_runtype!="TL" && arg_runtype!="TOP") || arg_pedelistfile=="" ){
+
+			printf("simulation mode is SIM_PED\n");
+                        printhelp();
+                        return 0;
+
+		}	
+	}
+
 	
 
 	// Parameters
 	TString  inputfilename  = arg_inputfilename;
 	TString  outputfilename = arg_outputfilename;
 	TString  pedefile       = arg_pedefile;
-	TString  avepedefile       = arg_avepedefile;
+	TString  avepedefile    = arg_avepedefile;
 	EVENTCUT paramEventCut  = arg_eventcut;
-	bool     debugmode       = arg_debugmode;
+	bool     debugmode      = arg_debugmode;
 	SIMMODE  simulationmode = arg_simulationmode;
+	TString  pedelistfile   = arg_pedelistfile;
 	int      startiev       = atoi(arg_startiev);
 	int      endiev         = atoi(arg_endiev);
 
@@ -307,6 +333,9 @@ int main(int argc, char **argv) {
 			case EVENTCUT_PEDESTAL:
 				if (ev->a1flag[0] & 0x020) { checkselection = kTRUE; } // L2T_PEDESTAL
 				break;
+			case EVENTCUT_PEDESTAL_FORSIM:
+			        if (ev->a1flag[0] & 0x020) { checkselection = kTRUE; } // L2T_PEDESTAL	
+				break;
 			case EVENTCUT_ALL:
 				checkselection = kTRUE;
 				break;
@@ -344,11 +373,18 @@ int main(int argc, char **argv) {
 			cal2 = (A1Cal2M *) ev->Get("a1cal2");
 		}
 
-		// Reconstruction.
-		reconstruction -> Reconstruct();
+		// Event selection in case of EVENTCUT_PEDESTAL_FORSIM
+		if (paramEventCut == EVENTCUT_PEDESTAL_FORSIM){
+		  if(cal2->flag[1] != 0) continue;
+		}
+		else {
+		  // Reconstruction.
+		  reconstruction -> Reconstruct();
+		  rec = reconstruction -> GetRec();
+		  oev -> Add(rec);		  
+		}
+
 		oev -> HeaderCopy(ev);
-		rec = reconstruction -> GetRec();
-                oev -> Add(rec);
 		oev -> Add(cal2);
 
 		//   reconstruction->fRec->SetAnalysisFlags(Flags);
