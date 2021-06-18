@@ -66,7 +66,7 @@ CXXFLAGS += $(INCALL)
 ROOTLIBS  += -Wl,-rpath,$(ROOTSYS)/lib -lSpectrum -lEG
 ROOTGLIBS += -Wl,-rpath,$(ROOTSYS)/lib
 
-PROGRAMS = reconstruction02 
+PROGRAMS = reconstruction02 checkpedelist
 
 all: $(PROGRAMS)
 
@@ -75,6 +75,10 @@ reconstruction02 : $(SRC_DIR)/reconstruction02.o $(SRC_DIR)/A1Calibration.o $(SR
 	$(LIBS) $(ROOTLIBS) $(LHCFLIBS) $(RHICFLIB)
 
 src/reconstruction02.o :$(INC_DIR)/A1Calibration.h   $(INC_DIR)/A1Reconstruction.h 
+
+checkpedelist : $(SRC_DIR)/checkpedelist.o 
+	$(CXX) $(CXXFLAGS) -o $(BIN_DIR)/$@ $^ \
+	$(LIBS) $(ROOTLIBS) $(LHCFLIBS) $(RHICFLIB)
 
 $(SRC_DIR)/%.o  :  $(SRC_DIR)/%.cpp  $(INC_DIR)/%.h
 	$(CXX) $(CXXFLAGS) $(ROOTCFLAGS) $(OSFLAGS) -c $< -o $@
