@@ -70,17 +70,21 @@ int main(int argc, char **argv) {
   ofile->cd();
 
   // Plates
+  TH1D* h1_adc[2][16];
   TH1D* h1_dE[2][16];
   TH1D* h1_sumdE[2];
   for(int it=0;it<2;it++){
 	 for(int il=0;il<16;il++){
-		h1_dE[it][il][ie] = new TH1D(Form("h1_dE_%d_%d",it,il),
+		h1_adc[it][il] = new TH1D(Form("h1_adc_%d_%d",it,il),
+											  Form("ADC at t:%d l:%d",it,il),
+											  1000,500.-0.5,1500.-0.5);
+		h1_dE[it][il] = new TH1D(Form("h1_dE_%d_%d",it,il),
 											  Form("dE at t:%d l:%d",it,il),
-											  100,-0.5,0.5);
+											  600,-0.1,0.5);
 	 }
 	 h1_sumdE[it] = new TH1D(Form("h1_sumdE_%d",it),
 									 Form("sum dE at t:%d",it),
-									 100, -2.,2.);
+									 600, -0.2,1.0);
   }
 
   // GSO bars
@@ -88,9 +92,9 @@ int main(int argc, char **argv) {
   for(int it=0;it<2;it++){
 	 for(int il=0;il<4;il++){
 		for(int iv=0;iv<2;iv++){
-		  h1_pos[it][il][iv] = new TH1D(Form("h1_pos_%s_%s_%s",it,il,iv),
+		  h1_pos[it][il][iv] = new TH1D(Form("h1_pos_%d_%d_%d",it,il,iv),
 												  Form("sum pos at t%d,l%d,v%d",it,il,iv),
-												  100.,-1.,1.);
+												  600.,-0.2,1.);
 		}
 	 }
   }
@@ -108,7 +112,8 @@ int main(int argc, char **argv) {
   // +++++ EVENT LOOP +++++++++++++++++++++++++++++++
   int      nevmax = tree->GetEntriesFast();
   int      nevent = 0;
-  A1Cal2M   *cal2;
+  A1Cal1    *cal1 = NULL;
+  A1Cal2M   *cal2 = NULL;
 
   cout << "Event loop start ...." << endl;
   //  == START OF EVENT LOOP ==
@@ -125,12 +130,16 @@ int main(int argc, char **argv) {
 	 tree->GetEntry(iev);
     
 	 if (!ev->Check("a1cal2")) { continue; }
+	 if (!ev->Check("a1cal1tmp")) { continue; }
 	 nevent++;
+         
+         cal1 = (A1Cal1*) ev->Get("a1cal1tmp");
 	 cal2 = (A1Cal2M *) ev->Get("a1cal2");
 
 	 // Each plate
 	 for(int it=0;it<2;it++){
 		for(int il=0;il<16;il++){
+                  h1_adc[it][il]->Fill(cal1->cal[it][il][0]);
 		  h1_dE[it][il]->Fill(cal2->cal[it][il]);
 		}
 	 }

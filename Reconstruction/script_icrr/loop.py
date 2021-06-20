@@ -78,7 +78,7 @@ def do_data_MIDDLE_2 ():
 
 def do_data_BOTTOM_1 ():
     orgfile = 'rec_data_BOTTOM.sh'
-    runs = [2631, 2632, 2633, 2634, 2636, 2637, 2641, 2644][2718, 2721, 2726, 2730, 2732, 2734, 2736, 2738, 2740]
+    runs = [2631, 2632, 2633, 2634, 2636, 2637, 2641, 2644]
     for run in runs:
         loop_one_run(orgfile, run)
     return

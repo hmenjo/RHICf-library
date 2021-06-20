@@ -47,6 +47,7 @@ public:
 		
 		// Outputs
 		A1Cal1  *fCal1;
+		A1Cal1  *fCal1tmp;
 		A1Cal2M *fCal2;
 
 public:
@@ -58,13 +59,9 @@ public:
 		int SetupDefault_RHICfOp2017();
 		int Calculate(TObject *raw);
 		
-		A1Cal1 *GetCal1() {
-			return fCal1;
-		}
-		
-		A1Cal2M *GetCal2() {
-			return fCal2;
-		}
+		A1Cal1 *GetCal1() { return fCal1; }
+		A1Cal1 *GetCal1tmp() { return fCal1tmp; }
+		A1Cal2M *GetCal2() { return fCal2; }
 	
 	
 };

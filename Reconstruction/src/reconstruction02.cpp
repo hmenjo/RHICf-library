@@ -8,7 +8,7 @@
 #include <iomanip>
 #include <bitset>
 using namespace std;
-1
+
 #include <TROOT.h>
 #include <TApplication.h>
 #include <TRint.h>
@@ -186,7 +186,7 @@ int main(int argc, char **argv) {
 		}	
 	}
 	else if(arg_simulationmode == SIM_PED){
-		if(arg_runtype=="" || arg_inputfilename=="" || arg_outputfilename=="" ||  arg_startiev=="" || arg_endiev=="" ||
+		if(arg_runtype=="" || arg_inputfilename=="" || arg_outputfilename=="" ||
 		   (arg_runtype!="TS" && arg_runtype!="TL" && arg_runtype!="TOP") || arg_pedelistfile=="" ){
 
 			printf("simulation mode is SIM_PED\n");
@@ -222,7 +222,7 @@ int main(int argc, char **argv) {
 	  energyrescale[0] = 1.043;
 	  energyrescale[1] = 1.042;
 	}
-	else if(arg_runtype == "TL"){
+	else if(arg_runtype == "TOP"){
 	  // Bottom position 
 	  energyrescale[0] = 1.055;
 	  energyrescale[1] = 1.067;
@@ -331,10 +331,10 @@ int main(int argc, char **argv) {
 				if (ev->a1flag[0] & 0x200) { checkselection = kTRUE; } // L2T_SHOWER2
 				break;
 			case EVENTCUT_PEDESTAL:
-				if (ev->a1flag[0] & 0x020) { checkselection = kTRUE; } // L2T_PEDESTAL
+				if (ev->a1flag[0] & 0x2000) { checkselection = kTRUE; } // L2T_PEDESTAL
 				break;
 			case EVENTCUT_PEDESTAL_FORSIM:
-			        if (ev->a1flag[0] & 0x020) { checkselection = kTRUE; } // L2T_PEDESTAL	
+			        if (ev->a1flag[0] & 0x2000) { checkselection = kTRUE; } // L2T_PEDESTAL	
 				break;
 			case EVENTCUT_ALL:
 				checkselection = kTRUE;
@@ -345,6 +345,7 @@ int main(int argc, char **argv) {
 		
 		if (!checkselection) { continue; }
 		nevent_sel2++;
+
 	
 		// Calibration.
 
@@ -376,16 +377,18 @@ int main(int argc, char **argv) {
 		// Event selection in case of EVENTCUT_PEDESTAL_FORSIM
 		if (paramEventCut == EVENTCUT_PEDESTAL_FORSIM){
 		  if(cal2->flag[1] != 0) continue;
+	          oev -> Add(cal2);
+                  oev -> Add(calibration->GetCal1tmp());
 		}
 		else {
 		  // Reconstruction.
 		  reconstruction -> Reconstruct();
 		  rec = reconstruction -> GetRec();
 		  oev -> Add(rec);		  
+		  oev -> Add(cal2);
 		}
 
 		oev -> HeaderCopy(ev);
-		oev -> Add(cal2);
 
 		//   reconstruction->fRec->SetAnalysisFlags(Flags);
 		//Flags = reconstruction->fRec->GetAnalysisFlags();

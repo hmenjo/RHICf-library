@@ -16,8 +16,9 @@ A1Calibration::~A1Calibration() {
 int A1Calibration::Initalize() {
 	
 	// Outputs
-	fCal1 = new A1Cal1("a1cal", "");
-	fCal2 = new A1Cal2M("a1cal2", "");
+	fCal1    = new A1Cal1("a1cal1", "");
+	fCal1tmp = new A1Cal1("a1cal1tmp", "");
+	fCal2    = new A1Cal2M("a1cal2", "");
 		
 	// Functions
 	fRawToCal1 = new A1RawToCal1();
@@ -96,7 +97,8 @@ int A1Calibration::Calculate(TObject *raw) {
 	
 	// Combine the values of dual-range ADC [WRADC->LRADC]
 	fCal1ToCal2->CalculateADC(fCal1);
-	
+	fCal1tmp->copydata(fCal1);
+
 	// Pedestal Subtruction
 	fPedeSubtract->RHICfSubtract(fCal1);
 	
