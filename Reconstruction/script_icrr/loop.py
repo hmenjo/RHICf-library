@@ -59,14 +59,14 @@ def submit_job_pede (orgfile, run, dirtag, tag='job'):
         data = f.read()
         
     data = data.replace('$argv[1]','{}'.format(run))
-    data = data.replace('$argv[2]','{}'.format(dirtag))
+    data = data.replace('$argv[2]','"{}"'.format(dirtag))
 
-    filename = './run/{}_pede_run{}_{}_{}.sh'.format(tag,run) 
+    filename = './run/{}_pede_run{}.sh'.format(tag,run) 
     with open(filename,mode='w') as f:
         f.write(data)
 
-    #ret = subprocess.call('pjsub {} '.format(filename), shell=True)
-    #logger.info('submit {} ({})'.format(filename, orgfile));
+    ret = subprocess.call('pjsub {} '.format(filename), shell=True)
+    logger.info('submit {} ({})'.format(filename, orgfile));
     return 
     
 
@@ -121,12 +121,12 @@ def do_EPOSLHC_MIDDLE ():
     return 
 
 def do_pede ():
-    orgfile = 'pede_data.sh'
+    orgfile = 'ped_data.sh'
     runlist = [runs_fill21142, runs_fill21145, runs_fill21148, runs_fill21149, runs_fill21150]
     dirtags = ['BOTTOM_1', 'BOTTOM_2', 'MIDDLE_1', 'TOP', 'MIDDLE_2']
     for i in range(0,5):
         for run in runlist[i]:
-            submit_job_pede (run, dirtags[i])
+            submit_job_pede (orgfile, run, dirtags[i])
     return                     
     
    
@@ -137,7 +137,7 @@ if __name__ == '__main__' :
 
     # Pedestal
     
-    #do_pede();
+    do_pede();
 
     # Data 
     #do_data_MIDDLE_1 ()

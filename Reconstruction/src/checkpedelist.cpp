@@ -66,7 +66,7 @@ Histogram::Histogram(const char tag[]){
 	 for(int it=0;it<2;it++){
 		for(int il=0;il<4;il++){
 		  for(int iv=0;iv<2;iv++){
-			 h1_pos[it][il][iv] = new TH1D(Form("h1_pos_%d_%d_%d",it,il,iv),
+			 h1_pos[it][il][iv] = new TH1D(Form("h1_pos_%d_%d_%d_%s",it,il,iv,tag),
 													 Form("sum pos at t%d,l%d,v%d",it,il,iv),
 													 600.,-0.1,0.5);
 		  }
@@ -135,7 +135,7 @@ bool EventSelection(A1Cal2M* cal2){
 			 if(it==0) sum += cal2->scifi0[il][iv][ip];
 			 else      sum += cal2->scifi1[il][iv][ip];
 		  }
-		  if(TMath::Abs(sum >= 0.02) check++;
+		  if(TMath::Abs(sum >= 0.02)) check++;
 		}
 	 }
   }
@@ -189,7 +189,7 @@ int main(int argc, char **argv) {
 
   cout << "INPUT_FILE_PATH= " << inputfilename << endl;
   cout << "OUTPUT_FILE_PATH= " << outputfilename<< endl;
-  cout << "PDEELIST_FILE_PATH= " << pedelistfilenemae << endl;
+  cout << "PDEELIST_FILE_PATH= " << pedelistfilename << endl;
     
   // ++++++ INITIALIZATIONS +++++++++++++++++++
   
@@ -210,7 +210,7 @@ int main(int argc, char **argv) {
   tree->SetBranchAddress("ev.", &ev);
 
   // ++++++ OPEN OUTPUT TREE +++++++++++++++++++++++
-  TFile     *ofile = new TFile(pedelistfilename, "RECREATE");
+  TFile     *ofile2 = new TFile(pedelistfilename, "RECREATE");
   LHCfEvent *oev   = new LHCfEvent();
   TTree     *otree = new TTree("LHCfEvents", "Collision Events");
   otree->Branch("ev.", "LHCfEvent", &oev);
@@ -274,11 +274,14 @@ int main(int argc, char **argv) {
 
   pede->CalPedestal();
   if(pedefilename!=""){
-	 pede->WriteFile(pedefilename);
+	 pede->WriteFile((char*)pedefilename.Data());
   }
   
   ofile->Write();
   ofile->Close();
+
+  ofile2->Write("", TObject::kOverwrite);
+  ofile2->Close();
   
   return 0;
     

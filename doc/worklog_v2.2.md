@@ -20,6 +20,14 @@ This is for development to v2.1
 
 - 2021/06/06
   - Fixed bugs of reconstruction02.cpp (energy rescale functions)
- 
+
+- 2021/06/20 
+  - Fixed a bug of pedestal subtraction. (A1PedeSubtract::RHICfSubtraction1)
+    Unnessesary subtraction of pedestal offset was commented-out
+  - Pedestal re-calculation &  makeing pedestal list for MC
+    - re-calculation for GSO bars. Event selection of pede trigger events. 
+    - Dump pedestal trigger events  
+      procedures:  reconstruction02 -> checkpedelist (filter) 
+  - Update rec for MC to consider pedestal fractuation. 
 
 

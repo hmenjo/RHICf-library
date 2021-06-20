@@ -4,7 +4,7 @@
 #PJM -L "vnode=1" 
 #PJM -L "vnode-core=1"
 #PJM -j
-#PJM -o "./log/pede_run$argv[1]_$argv[2]_%j.out" 
+#PJM -o "./log/pede_run$argv[1]_%j.out" 
 #------- Program execution -------#
 
 source /etc/profile.d/modules.csh 
@@ -35,7 +35,7 @@ set ANALDIR="${ANALBASEDIR}/run${TMP}"
 set RECFILE="${ANALDIR}/run${TMP}_pedelist.root"
 #set RECFILE="test.root"
 
-set TMPFILE="./tmp_run{RUN}.root"
+set TMPFILE="./tmp_run${RUN}.root"
 set HISTFILE="${ANALDIR}/run${TMP}_pedehist.root"
 set PEDEOUTFILE="${ANALDIR}/run${TMP}_pede.root"
 
@@ -63,6 +63,8 @@ echo "--------------Reconstruction -------------------------------"
 $BINDIR/reconstruction02 -r TS -i $INPUTFILE -o $TMPFILE -p $PEDEFILE -avep $AVEPEDEFILE -f ${START} -t ${END} --pedestal_forsim -b -q
 
 $BINDIR/checkpedelist -i $TMPFILE  -o $HISTFILE  --pedelist $RECFILE --avpede $PEDEOUTFILE -b -q   
+
+/bin/rm -f $TMPFILE
 
 /bin/date
 
