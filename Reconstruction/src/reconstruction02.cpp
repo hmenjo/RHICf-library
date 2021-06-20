@@ -32,8 +32,9 @@ using namespace std;
 #include "RHICfPhys.h"
 typedef RHICfRaw_Op2017  RHICfRaw;
 
-#include "A1Calibration.h"
-#include "A1Reconstruction.h"
+#include <A1Calibration.h>
+#include <A1Reconstruction.h>
+#include <McPedestal.h>
 
 void printhelp() {
 	cout << "Reconstruction for RHICf 2017 \n"
@@ -381,7 +382,7 @@ int main(int argc, char **argv) {
 		}
 		// For MC + Pedestal 
 		else if (simulationmode == SIM_PED){
-		   cal2 =  (A1Cal2M *) ev->Get("a1cal2");
+		 	cal2 =  (A1Cal2M *) ev->Get("a1cal2");
 			sim->copydata(cal2);
 			mcpede->AddPedestal(cal2);
 			reconstruction->SetData(cal2);

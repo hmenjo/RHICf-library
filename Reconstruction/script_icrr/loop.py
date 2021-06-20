@@ -117,6 +117,7 @@ def do_data_TOP ():
 def do_EPOSLHC_MIDDLE ():
     orgfile = 'rec_EPOS_MIDDLE.sh'
     for run in range(1,1000):
+         waitjob()
          submit_job (orgfile, run, tag='eposlhc')
     return 
 
@@ -126,6 +127,7 @@ def do_pede ():
     dirtags = ['BOTTOM_1', 'BOTTOM_2', 'MIDDLE_1', 'TOP', 'MIDDLE_2']
     for i in range(0,5):
         for run in runlist[i]:
+            waitjob()
             submit_job_pede (orgfile, run, dirtags[i])
     return                     
     
@@ -137,7 +139,7 @@ if __name__ == '__main__' :
 
     # Pedestal
     
-    do_pede();
+    #do_pede();
 
     # Data 
     #do_data_MIDDLE_1 ()
@@ -147,4 +149,4 @@ if __name__ == '__main__' :
     #do_data_TOP()
 
     # MC
-    #do_EPOSLHC_MIDDLE ()
+    do_EPOSLHC_MIDDLE ()
