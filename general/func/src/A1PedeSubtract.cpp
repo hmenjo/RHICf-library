@@ -198,9 +198,6 @@ int A1PedeSubtract::Subtraction(A1Cal1* data){
 
 int A1PedeSubtract::RHICfSubtraction(A1Cal1* data){ 
   if( RHICfSubtraction1(data) != OK) {return ERROR;}
-  if( opoffsetsubtraction ){
-    if( Subtraction2(data) != OK) {return ERROR;}  
-  }
   return OK;
 }
 

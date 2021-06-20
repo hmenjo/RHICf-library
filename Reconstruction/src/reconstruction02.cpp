@@ -1,4 +1,4 @@
-/**********************************************************************\
+src/reconstruction02.cpp/**********************************************************************\
   Quick Reconstruction for RHICf Operation 2017
 
   \**********************************************************************/
@@ -376,9 +376,8 @@ int main(int argc, char **argv) {
 
 		// Event selection in case of EVENTCUT_PEDESTAL_FORSIM
 		if (paramEventCut == EVENTCUT_PEDESTAL_FORSIM){
-		  if(cal2->flag[1] != 0) continue;
-	          oev -> Add(cal2);
-                  oev -> Add(calibration->GetCal1tmp());
+		  oev -> Add(cal2);
+		  oev -> Add(calibration->GetCal1tmp());
 		}
 		else {
 		  // Reconstruction.

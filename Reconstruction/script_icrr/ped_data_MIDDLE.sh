@@ -29,8 +29,12 @@ set AVEPEDEFILE="./tables/average_pedestal/average_pedestal_run${RUN}.dat"
 #OUTPUT DIRECTORY PATH
 set ANALBASEDIR="/disk/lhcf/rhicf/user/menjo/reconstruction_dev_menjo_20210606/Op2017/MIDDLE"
 set ANALDIR="${ANALBASEDIR}/run${TMP}"
-set RECFILE="${ANALDIR}/run${TMP}_ped.root"
+set RECFILE="${ANALDIR}/run${TMP}_pedelist.root"
 #set RECFILE="test.root"
+
+set TMPFILE="./tmp_run{RUN}.root"
+set HISTFILE="${ANALDIR}/run${TMP}_pedehist.root"
+set PEDEOUTFILE="${ANALDIR}/run${TMP}_pede.root"
 
 
 # Clear Comment
@@ -47,11 +51,15 @@ if( ! -d $ANALDIR ) then
     /bin/mkdir -p $ANALDIR
 endif
   
-cd $WORKDIR 
+cd $WORKDIR
+
+
 
 /bin/date
 echo "--------------Reconstruction -------------------------------"
-$BINDIR/reconstruction02 -r TS -i $INPUTFILE -o $RECFILE -p $PEDEFILE -avep $AVEPEDEFILE -f ${START} -t ${END} --pedestal_forsim -b -q
+$BINDIR/reconstruction02 -r TS -i $INPUTFILE -o $TMPFILE -p $PEDEFILE -avep $AVEPEDEFILE -f ${START} -t ${END} --pedestal_forsim -b -q
+
+$BINDIR/checkpedelist -i $TMPFILE  -o $HISTFILE  --pedelist $RECFILE --avpede $PEDEOUTFILE -b -q   
 
 /bin/date
 
