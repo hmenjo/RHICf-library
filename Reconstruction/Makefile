@@ -70,7 +70,7 @@ PROGRAMS = reconstruction02 checkpedelist
 
 all: $(PROGRAMS)
 
-reconstruction02 : $(SRC_DIR)/reconstruction02.o $(SRC_DIR)/A1Calibration.o $(SRC_DIR)/A1Reconstruction.o $(SRC_DIR)/ScintiPosDepGSO.o $(SRC_DIR)/GSObarPosCalc.o 
+reconstruction02 : $(SRC_DIR)/reconstruction02.o $(SRC_DIR)/A1Calibration.o $(SRC_DIR)/A1Reconstruction.o $(SRC_DIR)/ScintiPosDepGSO.o $(SRC_DIR)/GSObarPosCalc.o  $(SRC_DIR)/McPedestal.o 
 	$(CXX) $(CXXFLAGS) -o $(BIN_DIR)/$@ $^ \
 	$(LIBS) $(ROOTLIBS) $(LHCFLIBS) $(RHICFLIB)
 

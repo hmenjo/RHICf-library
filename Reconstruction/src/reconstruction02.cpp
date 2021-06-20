@@ -233,7 +233,7 @@ int main(int argc, char **argv) {
 
 	// A1Calibration.
 	A1Calibration *calibration = new A1Calibration();
-	if(arg_simulationmode==SIM_OFF || arg_simulationmode==SIM_CAL1){
+	if(simulationmode==SIM_OFF || simulationmode==SIM_CAL1){
 		calibration->SetupDefault_RHICfOp2017();
 		calibration->SetPedestalFile(pedefile.Data());
 		calibration->SetAvePedestalFile(avepedefile.Data());
@@ -246,6 +246,13 @@ int main(int argc, char **argv) {
 	reconstruction->Initialize();
 	if(arg_simulationmode!=SIM_OFF){
 		reconstruction->SetMc();
+	}
+
+	// Pedestal for MC
+	McPedestal *mcpede;
+	if(simulationmode==SIM_PED){
+	  mcpede = new McPedestal();
+	  mcpede->ReadFile(pedelistfile);
 	}
 	
 	// Input.
@@ -289,6 +296,7 @@ int main(int argc, char **argv) {
 
 	RHICfPhys *phys = new RHICfPhys();
 	A1Cal2M   *cal2 = new A1Cal2M();
+	A1Cal2M   *sim  = new A1Cal2M("a1sim","Simulation");
 	RHICfRec  *rec = new RHICfRec();
 
 	// ======================================= Start event loop. ======================================= //
@@ -359,19 +367,24 @@ int main(int argc, char **argv) {
 			
 			reconstruction->SetData(cal2);
 		}
-
-		// For MC data converted to Cal1
-		else if (simulationmode == SIM_CAL1){
+		// // For MC data converted to Cal1 (Not Yet)
+		// else if (simulationmode == SIM_CAL1){
 	
-			reconstruction->SetData((A1Cal2M *) ev->Get("a1cal1"));
-		}
-
+		// 	reconstruction->SetData((A1Cal2M *) ev->Get("a1cal1"));
+		// }
 		// For MC true
 		else if (simulationmode == SIM_SIM){
 
 			//reconstruction->SetData((A1Cal2M *) ev->Get("a1sim"));
 			reconstruction->SetData((A1Cal2M *) ev->Get("a1cal2"));
 			cal2 = (A1Cal2M *) ev->Get("a1cal2");
+		}
+		// For MC + Pedestal 
+		else if (simulationmode == SIM_PED){
+		   cal2 =  (A1Cal2M *) ev->Get("a1cal2");
+			sim->copydata(cal2);
+			mcpede->AddPedestal(cal2);
+			reconstruction->SetData(cal2);
 		}
 
 		// Event selection in case of EVENTCUT_PEDESTAL_FORSIM
@@ -396,10 +409,12 @@ int main(int argc, char **argv) {
 		// }
 
 		//reconstruction->GetRec()->Show(); // For debug
-
+		
 		if (ev->Check("a1simin")) oev->Add(ev->Get("a1simin"));
-		if (debugmode) oev->Add(calibration->GetCal2());
+		//if (debugmode) oev->Add(calibration->GetCal2());
 		if (ev->Check("star")) oev->Add(ev->Get("star"));
+
+		if (simulationmode == SIM_PED) oev->Add(sim);
 
 		otree->Fill();
 		oev->Clear();
