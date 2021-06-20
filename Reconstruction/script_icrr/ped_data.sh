@@ -1,16 +1,17 @@
 #!/bin/csh
 #------ pjsub option --------#
-#PJM -L "rscgrp=B" 
+#PJM -L "rscgrp=lhcf" 
 #PJM -L "vnode=1" 
 #PJM -L "vnode-core=1"
 #PJM -j
-#PJM -o "./log/run$argv[1]_$argv[2]_$argv[3]_%j.out" 
+#PJM -o "./log/pede_run$argv[1]_$argv[2]_%j.out" 
 #------- Program execution -------#
 
 source /etc/profile.d/modules.csh 
 source /usr/local/gcc485/ROOT/5.34.36/bin/thisroot.csh /usr/local/gcc485/ROOT/5.34.36/ 
 
 set RUN=$argv[1]        #  RUN
+set DATATAG=$argv[2]
 #set START=$argv[2]      #  RUN
 #set END=$argv[3]        #  RUN
 set START=0
@@ -18,6 +19,8 @@ set END=1000000000
 
 set WORKDIR="/home/menjo/RHICf/Op2017/RHICf-library/Reconstruction/"
 set BINDIR=${WORKDIR}/bin
+
+source $WORKDIR/script_icrr/base.sh
 
 set TMP=`/usr/bin/printf '%08d' $RUN`;
 set TMPSTART=`/usr/bin/printf '%08d' $START`
@@ -27,7 +30,7 @@ set INPUTFILE="/disk/lhcf/rhicf/RHICf_Op2017/root_files/run${TMP}.root"
 set PEDEFILE="/disk/lhcf/rhicf/RHICf_Op2017/quickanalysis_results/run${TMP}/pede_run${TMP}.root"
 set AVEPEDEFILE="./tables/average_pedestal/average_pedestal_run${RUN}.dat"
 #OUTPUT DIRECTORY PATH
-set ANALBASEDIR="/disk/lhcf/rhicf/user/menjo/reconstruction_dev_menjo_20210606/Op2017/MIDDLE"
+set ANALBASEDIR="${RECBASEDIR}/Op2017/${DATATAG}"
 set ANALDIR="${ANALBASEDIR}/run${TMP}"
 set RECFILE="${ANALDIR}/run${TMP}_pedelist.root"
 #set RECFILE="test.root"
