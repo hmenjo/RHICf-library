@@ -3,6 +3,8 @@
 
 #include <TChain.h>
 #include <TString.h>
+#include <LHCfEvent.h>
+#include <A1Cal2M.h>
 
 class McPedestal {
  public:
@@ -16,7 +18,7 @@ class McPedestal {
  public:
   McPedestal();
   Int_t   ReadFile(TString filename);
-  Int_t   AddPedestal(A2Cal2M* cal); 
+  Int_t   AddPedestal(A1Cal2M* cal); 
 };
 
 

@@ -4,7 +4,7 @@
 #PJM -L "vnode=1" 
 #PJM -L "vnode-core=1"
 #PJM -j
-#PJM -o "./log/EPOS_MIDDLE__run$argv[1]_$argv[2]_$argv[3]_%j.out" 
+#PJM -o "./log/EPOS_MIDDLE_run$argv[1]_%j.out" 
 #------- Program execution -------#
 
 source /etc/profile.d/modules.csh 
@@ -30,7 +30,8 @@ set AVEPEDEFILE="./tables/average_pedestal/average_pedestal_run2798.dat"
 set ANALBASEDIR="${RECBASEDIR}/EPOS-LHC/MIDDLE/"
 set ANALDIR="${ANALBASEDIR}"
 set RECFILE="${ANALDIR}/REC_20190709_SIMF_EPOSLHC_MIDDLE_${RUN}.root"
-set PEDELIST="${RECBASEDIR}/Op2017/MIDDLE_*/run*/run$*_pedelist.root"
+#set PEDELIST="${RECBASEDIR}/Op2017/MIDDLE_1/run00002798/run00002798_pedelist.root"
+set PEDELIST="${RECBASEDIR}/Op2017/Pedelist/pedelist_MIDDLE.root"
 
 # Clear Comment
 #/bin/rm -f $COMFILE; echo ""

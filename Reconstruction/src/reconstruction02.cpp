@@ -34,8 +34,8 @@ typedef RHICfRaw_Op2017  RHICfRaw;
 
 #include <RHICfSimIncidents.h>
 
-#include "A1Calibration.h"
-#include "A1Reconstruction.h"
+#include <A1Calibration.h>
+#include <A1Reconstruction.h>
 
 void printhelp() {
 	cout << "Reconstruction for RHICf 2017 \n"
