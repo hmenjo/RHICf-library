@@ -22,15 +22,17 @@ using namespace std;
 #include <TDatime.h>
 #include <TVector3.h>
 
-#include "LHCfEvent.h"
-#include "RHICfRaw_Op2017.h"
-#include "A1Cal1.h"
-#include "A1Cal2M.h"
+#include <LHCfEvent.h>
+#include <RHICfRaw_Op2017.h>
+#include <A1Cal1.h>
+#include <A1Cal2M.h>
 
-#include "RHICfRec0.h"
-#include "RHICfRec1.h"
-#include "RHICfPhys.h"
+#include <RHICfRec0.h>
+#include <RHICfRec1.h>
+#include <RHICfPhys.h>
 typedef RHICfRaw_Op2017  RHICfRaw;
+
+#include <RHICfSimIncidents.h>
 
 #include "A1Calibration.h"
 #include "A1Reconstruction.h"
@@ -86,7 +88,8 @@ int main(int argc, char **argv) {
 			EVENTCUT_SPECIAL1,
 			EVENTCUT_SPECIAL2,
 			EVENTCUT_PEDESTAL,
-			EVENTCUT_PEDESTAL_FORSIM,    // For pedestal event list for simulation 
+			EVENTCUT_PEDESTAL_FORSIM,    // For pedestal event list for simulation
+			EVENTCUT_SIMTRUE,
 			EVENTCUT_ALL
 	};
 	
@@ -147,6 +150,7 @@ int main(int argc, char **argv) {
 		if (ss == "--special2") { arg_eventcut = EVENTCUT_SPECIAL2; }
 		if (ss == "--pedestal") { arg_eventcut = EVENTCUT_PEDESTAL; }
 		if (ss == "--pedestal_forsim") {arg_eventcut = EVENTCUT_PEDESTAL_FORSIM;}
+		if (ss == "--simcut") {arg_eventcut = EVENTCUT_SIMTRUE;}
 		if (ss == "--all") { arg_eventcut = EVENTCUT_ALL; }
 		if (ss == "--debug") { arg_debugmode = true; }
 		if (ss == "--sim") { arg_simulationmode = SIM_CAL1; }
@@ -211,21 +215,28 @@ int main(int argc, char **argv) {
 	int      endiev         = atoi(arg_endiev);
 
 	double   energyrescale[2] = {1.}; // [tower]
+	double   beamcenter_mc[2] = {0.}; // for MC;
 	// From the study of Minho 
 	if(arg_runtype == "TS"){
 	  // Middle position 
 	  energyrescale[0] = 1.042;
 	  energyrescale[1] = 1.061;
+	  beamcenter_mc[0] = 0.;
+	  beamcenter_mc[1] = 0.;
 	}
 	else if(arg_runtype == "TL"){
 	  // Bottom position 
 	  energyrescale[0] = 1.043;
 	  energyrescale[1] = 1.042;
+	  beamcenter_mc[0] = 0.;
+	  beamcenter_mc[1] = 47.4;
 	}
 	else if(arg_runtype == "TOP"){
 	  // Bottom position 
 	  energyrescale[0] = 1.055;
 	  energyrescale[1] = 1.067;
+	  beamcenter_mc[0] = 0.;
+	  beamcenter_mc[1] = -24.;	  
 	}
 
 	TRint theApp("App", &argc, argv, 0, 0, kTRUE);
@@ -254,6 +265,10 @@ int main(int argc, char **argv) {
 	  mcpede = new McPedestal();
 	  mcpede->ReadFile(pedelistfile);
 	}
+
+	// Set Beam Center in MC
+	RHICfSimP::SetPositionBeamCenter(beamcenter_mc[0], beamcenter_mc[1]);
+	RHICfSimP::SetPositionBeamPipeCenter(-1.*beamcenter_mc[0], -1.*beamcenter_mc[1]);
 	
 	// Input.
 	LHCfEvent *ev   = new LHCfEvent();
@@ -271,19 +286,19 @@ int main(int argc, char **argv) {
 	// TCanvas and Histograms for checks
 	const int nscan = 10;
 	TCanvas* scanCanv[3][3][nscan];
-        for(int tshit=0;tshit<3;tshit++){
-                for(int tlhit=0;tlhit<3;tlhit++){
-                        for(int iscan=0;iscan<nscan;iscan++){
-                                scanCanv[tshit][tlhit][iscan] = new TCanvas(Form("scanCanv_%d_%d_%d", tshit, tlhit, iscan), "", 800, 800);
-                        }
-                }
-        }
-
+	for(int tshit=0;tshit<3;tshit++){
+	  for(int tlhit=0;tlhit<3;tlhit++){
+		 for(int iscan=0;iscan<nscan;iscan++){
+			scanCanv[tshit][tlhit][iscan] = new TCanvas(Form("scanCanv_%d_%d_%d", tshit, tlhit, iscan), "", 800, 800);
+		 }
+	  }
+	}
+	
 	TH1D* h1_cal[2][2];
 	for (int tower=0; tower<2; ++tower){
-		for (int pid=0; pid<2; ++pid){
-			h1_cal[tower][pid] = new TH1D(Form("h1_cal_%d_%d", tower, pid), "Acuum", 16, 0, 16);
-		}
+	  for (int pid=0; pid<2; ++pid){
+		 h1_cal[tower][pid] = new TH1D(Form("h1_cal_%d_%d", tower, pid), "Acuum", 16, 0, 16);
+	  }
 	}
 	
 	gROOT->cd();
@@ -298,7 +313,8 @@ int main(int argc, char **argv) {
 	A1Cal2M   *cal2 = new A1Cal2M();
 	A1Cal2M   *sim  = new A1Cal2M("a1sim","Simulation");
 	RHICfRec  *rec = new RHICfRec();
-
+	RHICfSimIncidents *simin;
+	
 	// ======================================= Start event loop. ======================================= //
 	for (int iev = startiev; iev < endiev; iev++){
 
@@ -329,26 +345,32 @@ int main(int argc, char **argv) {
 		// === EVENT SELECTION 2 ===
 		Bool_t checkselection = kFALSE;
 		switch (paramEventCut) {
-			case EVENTCUT_SHOWER:
-				if (ev->a1flag[0] & 0x010) { checkselection = kTRUE; } // L2T_SHOWER FLAG
-				break;
-			case EVENTCUT_SPECIAL1:
-				if (ev->a1flag[0] & 0x080) { checkselection = kTRUE; } // L2T_SPECIAL1
-				break;
-			case EVENTCUT_SPECIAL2:
-				if (ev->a1flag[0] & 0x200) { checkselection = kTRUE; } // L2T_SHOWER2
-				break;
-			case EVENTCUT_PEDESTAL:
-				if (ev->a1flag[0] & 0x2000) { checkselection = kTRUE; } // L2T_PEDESTAL
-				break;
-			case EVENTCUT_PEDESTAL_FORSIM:
-			        if (ev->a1flag[0] & 0x2000) { checkselection = kTRUE; } // L2T_PEDESTAL	
-				break;
-			case EVENTCUT_ALL:
-				checkselection = kTRUE;
-				break;
-			default:
-				break;
+		case EVENTCUT_SHOWER:
+		  if (ev->a1flag[0] & 0x010) { checkselection = kTRUE; } // L2T_SHOWER FLAG
+		  break;
+		case EVENTCUT_SPECIAL1:
+		  if (ev->a1flag[0] & 0x080) { checkselection = kTRUE; } // L2T_SPECIAL1
+		  break;
+		case EVENTCUT_SPECIAL2:
+		  if (ev->a1flag[0] & 0x200) { checkselection = kTRUE; } // L2T_SHOWER2
+		  break;
+		case EVENTCUT_PEDESTAL:
+		  if (ev->a1flag[0] & 0x2000) { checkselection = kTRUE; } // L2T_PEDESTAL
+		  break;
+		case EVENTCUT_PEDESTAL_FORSIM:
+		  if (ev->a1flag[0] & 0x2000) { checkselection = kTRUE; } // L2T_PEDESTAL	
+		  break;
+		case EVENTCUT_SIMTRUE:
+		  if (! ev->Check("a1simin")) {break;}
+		  simin = (RHICfSimIncidents*) ev->Get("a1simin");
+		  if ( simin->GetNHit(10,0,0.0,-1.) != 0 || simin->GetNHit(10,1,0.0,-1.) != 0 ) {
+			 checkselection = kTRUE;
+		  }
+		case EVENTCUT_ALL:
+		  checkselection = kTRUE;
+		  break;
+		default:
+		  break;
 		}
 		
 		if (!checkselection) { continue; }
@@ -422,29 +444,29 @@ int main(int argc, char **argv) {
 
 		// For check.
 		int TShit = rec -> GetResultNumberOfHits(0);
-                int TLhit = rec -> GetResultNumberOfHits(1);
-                if(TShit==1 && TLhit==1) ntype1++;
-                if((TShit==0 && TLhit==2) || (TShit==2 && TLhit==0)) ntype2++;
-
-                int scanNum = reconstruction -> GetScanNum(TShit, TLhit);
-                int tsmax = rec -> GetMaxBarLayer(0);
-                int tlmax = rec -> GetMaxBarLayer(1);
-                if(scanNum < nscan) reconstruction -> GetScan(scanCanv[TShit][TLhit][scanNum], tsmax, tlmax, iev);
-
+		int TLhit = rec -> GetResultNumberOfHits(1);
+		if(TShit==1 && TLhit==1) ntype1++;
+		if((TShit==0 && TLhit==2) || (TShit==2 && TLhit==0)) ntype2++;
+		
+		int scanNum = reconstruction -> GetScanNum(TShit, TLhit);
+		int tsmax = rec -> GetMaxBarLayer(0);
+		int tlmax = rec -> GetMaxBarLayer(1);
+		if(scanNum < nscan) reconstruction -> GetScan(scanCanv[TShit][TLhit][scanNum], tsmax, tlmax, iev);
+		
 		if (ev->a1flag[0] & 0x010) {
-			reconstruction->GetRec()->FillToPhys(phys);
-			for (int tower = 0; tower < 2; ++tower) {
-				if (phys->Hits(tower) > 0 && phys->InFiducial(tower)) {
-					int pid = 0;
-					if (phys->IsElemag(tower)) pid = 0;
-					if (phys->IsHadron(tower)) pid = 1;
-					for (int layer = 0; layer < 16; ++layer) {
-						h1_cal[tower][pid]->Fill(layer + 0.5, calibration->GetCal2()->cal[tower][layer]);
-					}
+		  reconstruction->GetRec()->FillToPhys(phys);
+		  for (int tower = 0; tower < 2; ++tower) {
+			 if (phys->Hits(tower) > 0 && phys->InFiducial(tower)) {
+				int pid = 0;
+				if (phys->IsElemag(tower)) pid = 0;
+				if (phys->IsHadron(tower)) pid = 1;
+				for (int layer = 0; layer < 16; ++layer) {
+				  h1_cal[tower][pid]->Fill(layer + 0.5, calibration->GetCal2()->cal[tower][layer]);
 				}
-			}
+			 }
+		  }
 		}
-
+		
 	}
 	// ======================================= End of event loop. ======================================= //
 
