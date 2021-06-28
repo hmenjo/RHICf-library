@@ -31,6 +31,7 @@ using namespace std;
 #include <RHICfRec1.h>
 #include <RHICfPhys.h>
 typedef RHICfRaw_Op2017  RHICfRaw;
+#include <RHICfSimIncidents.h>
 
 #include <A1Calibration.h>
 #include <A1Reconstruction.h>
@@ -149,6 +150,7 @@ int main(int argc, char **argv) {
 		if (ss == "--special2") { arg_eventcut = EVENTCUT_SPECIAL2; }
 		if (ss == "--pedestal") { arg_eventcut = EVENTCUT_PEDESTAL; }
 		if (ss == "--pedestal_forsim") {arg_eventcut = EVENTCUT_PEDESTAL_FORSIM;}
+                if (ss == "--simcut") {arg_eventcut = EVENTCUT_SIMTRUE;}
 		if (ss == "--all") { arg_eventcut = EVENTCUT_ALL; }
 		if (ss == "--debug") { arg_debugmode = true; }
 		if (ss == "--sim") { arg_simulationmode = SIM_CAL1; }
@@ -237,6 +239,9 @@ int main(int argc, char **argv) {
 	  beamcenter_mc[1] = -24.;
 	}
 
+	cout << "Run type: " << arg_runtype << endl
+	     << "Event cut: " << paramEventCut << endl; 	
+
 	TRint theApp("App", &argc, argv, 0, 0, kTRUE);
 	gROOT->SetBatch(kTRUE);
 
@@ -281,7 +286,11 @@ int main(int argc, char **argv) {
 	TTree     *otree = new TTree("LHCfEvents", "Collision Events");
 	otree->Branch("ev.", "LHCfEvent", &oev);
 	otree->SetMaxTreeSize(4000000000);
-	
+  
+	// Event numbers; 1st bin; all, 2nd bin 1st sel, ... 
+        TH1D *h1nevent = new TH1D("h1nevent","Number of Events", 5,0.,5.);	
+
+
 	// TCanvas and Histograms for checks
 	const int nscan = 10;
 	TCanvas* scanCanv[3][3][nscan];
@@ -332,6 +341,7 @@ int main(int argc, char **argv) {
 		ev->Delete();
 		tree->GetEntry(iev);
 		nevent++;
+		h1nevent->Fill(0.5);
 				
 		// === EVENT SELECTION 1 ===
 		// Cut SlowControl, Scaler Events
@@ -340,6 +350,7 @@ int main(int argc, char **argv) {
 		//if (simulationmode == SIM_SIM && !ev->Check("a1sim")) { continue; }
 		if (simulationmode == SIM_SIM && !ev->Check("a1cal2")) { continue; }
 		nevent_sel1++;
+		h1nevent->Fill(1.5);
 		
 		// === EVENT SELECTION 2 ===
 		Bool_t checkselection = kFALSE;
@@ -365,6 +376,7 @@ int main(int argc, char **argv) {
 		  if ( simin->GetNHit(10,0,0.0,-1.) != 0 || simin->GetNHit(10,1,0.0,-1.) != 0 ) {
 			 checkselection = kTRUE;
 		  }
+		  break;
 		case EVENTCUT_ALL:
 		  checkselection = kTRUE;
 		  break;
@@ -374,7 +386,7 @@ int main(int argc, char **argv) {
 		
 		if (!checkselection) { continue; }
 		nevent_sel2++;
-
+		h1nevent->Fill(2.5);
 	
 		// Calibration.
 
@@ -440,6 +452,7 @@ int main(int argc, char **argv) {
 		otree->Fill();
 		oev->Clear();
 		nevent_fill++;
+		h1nevent->Fill(3.5);
 
 		// For check.
 		int TShit = rec -> GetResultNumberOfHits(0);

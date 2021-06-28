@@ -86,7 +86,7 @@ runs_fill21150 = [2924, 2932, 2933, 2937, 2939, 2947, 2954, 2956, 2958, 2960, 29
                         
 def do_data_MIDDLE_1 ():
     orgfile = 'rec_data_MIDDLE.sh'
-    for run in runs_21148:
+    for run in runs_fill21148:
         loop_one_run(orgfile, run)
     return
 
@@ -142,11 +142,11 @@ if __name__ == '__main__' :
     #do_pede();
 
     # Data 
-    #do_data_MIDDLE_1 ()
+    #do_data_MIDDLE_1()
     #do_data_MIDDLE_2()
-    #do_data_BOTTOM_1()
-    #do_data_BOTTOM_2()    
-    #do_data_TOP()
+    do_data_BOTTOM_1()
+    do_data_BOTTOM_2()    
+    do_data_TOP()
 
     # MC
-    do_EPOSLHC_MIDDLE ()
+    # do_EPOSLHC_MIDDLE ()

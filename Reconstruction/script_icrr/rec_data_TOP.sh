@@ -17,17 +17,20 @@ set END=$argv[3]        #  RUN
 set WORKDIR="/home/menjo/RHICf/Op2017/RHICf-library/Reconstruction/"
 set BINDIR=${WORKDIR}/bin
 
+source $WORKDIR/script_icrr/base.sh
+
 set TMP=`/usr/bin/printf '%08d' $RUN`;
 set TMPSTART=`/usr/bin/printf '%08d' $START`
 set TMPEND=`/usr/bin/printf '%08d' $END`
 #INPUTFILE PATH
 set INPUTFILE="/disk/lhcf/rhicf/RHICf_Op2017/root_files/run${TMP}.root"
-set PEDEFILE="/disk/lhcf/rhicf/RHICf_Op2017/quickanalysis_results/run${TMP}/pede_run${TMP}.root"
+set PEDEFILE="${RECBASEDIR}/Op2017/Pedestal/run${TMP}_pede.root"
 set AVEPEDEFILE="./tables/average_pedestal/average_pedestal_run${RUN}.dat"
 #OUTPUT DIRECTORY PATH
-set ANALBASEDIR="/disk/lhcf/rhicf/user/menjo/reconstruction_dev_menjo_20210606/Op2017/TOP"
+set ANALBASEDIR="${RECBASEDIR}/Op2017/TOP"
 set ANALDIR="${ANALBASEDIR}/run${TMP}"
 set RECFILE="${ANALDIR}/run${TMP}_rec_${TMPSTART}_${TMPEND}.root"
+#set RECFILE="test.root"
 
 
 # Clear Comment

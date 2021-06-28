@@ -53,7 +53,7 @@ cd $WORKDIR
 echo "--------------Reconstruction -------------------------------"
 #$BINDIR/reconstruction02 -r TS -i $INPUTFILE -o $RECFILE -p $PEDEFILE -avep $AVEPEDEFILE -f ${START} -t ${END} --simtrue --all -q -b 
 
-$BINDIR/reconstruction02 -r TS -i $INPUTFILE -o $RECFILE -p $PEDEFILE -avep $AVEPEDEFILE -f ${START} -t ${END} --simped --pedelist "${PEDELIST}" --all -q -b 
+$BINDIR/reconstruction02 -r TS -i $INPUTFILE -o $RECFILE -p $PEDEFILE -avep $AVEPEDEFILE -f ${START} -t ${END} --simped --pedelist "${PEDELIST}" --simcut -q -b 
 
 /bin/date
 
