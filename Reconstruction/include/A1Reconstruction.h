@@ -46,7 +46,7 @@ class A1Reconstruction{
 		TString paramShowerLeakageHadron;
 		TString paramGSObarPosition;
 
-   private:
+        private:
 		double cEnergyThreshold; 
 		
 	public:
@@ -57,7 +57,7 @@ class A1Reconstruction{
 
 		void SetRunType(TString run);
 		int SetData(A1Cal2M *cal);
-		int SetMc(bool v=true){IsMc = v;}
+		void SetMc(bool v=true){IsMc = v;}
 
 		RHICfRec* GetRec(){ return fRec; }
 
@@ -81,7 +81,7 @@ class A1Reconstruction{
 
 		bool IsInFiducial(int tower, double a, double b);
 
-	private:
+	protected:
 		int bunchoffset;
 
 		int scanNum[3][3];
