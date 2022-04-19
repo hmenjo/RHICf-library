@@ -888,10 +888,10 @@ int A1RawToCal1::Convert_RHICF_OP2017( RHICfRaw_Op2017* raw, A1Cal1* cal1){
 	cal1->fc[0][1] = raw->adc2[1];
 	cal1->fc[0][2] = raw->adc2[2];       
 	cal1->fc[0][3] = raw->adc2[3];
-	cal1->fc[0][0] = raw->adc2[32];
-	cal1->fc[0][1] = raw->adc2[33];
-	cal1->fc[0][2] = raw->adc2[34]; 
-	cal1->fc[0][3] = raw->adc2[35];
+	cal1->fcd[0][0] = raw->adc2[32];
+	cal1->fcd[0][1] = raw->adc2[33];
+	cal1->fcd[0][2] = raw->adc2[34]; 
+	cal1->fcd[0][3] = raw->adc2[35];
 
 
 	// **** ADC's For Laser Monitors *****
